@@ -14,6 +14,9 @@ class UserMapper:
         user_dto.set_maternal_surname(user.get_maternal_surname())
         user_dto.set_user_type_id(user.get_user_type_id())
         user_dto.set_user_name(user.get_user_name())
+        user_dto.set_is_active(user.is_active())
+        user_dto.get_created_at(user.get_created_at())
+        user_dto.get_updated_at(user.get_updated_at())
 
     def user_dto_to_user(self, user_dto:UserDto):
         user = User()
@@ -23,3 +26,6 @@ class UserMapper:
         user.set_maternal_surname(user_dto.get_maternal_surname())
         user.set_user_type_id(user_dto.get_user_type_id())
         user.set_user_name(user_dto.get_user_name())
+        user.set_is_active(user_dto.is_active())
+        user.set_created_at(user_dto.get_created_at())
+        user.set_updated_at(user_dto.get_updated_at())
