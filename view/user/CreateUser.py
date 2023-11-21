@@ -125,6 +125,14 @@ class Ui_CreateUser(object):
 
         self.grid_layout_form.addWidget(self.line_edit_user_name, 4, 1, 1, 1)
 
+        QWidget.setTabOrder(self.line_edit_name, self.line_edit_paternal_surname)
+        QWidget.setTabOrder(self.line_edit_paternal_surname, self.line_edit_maternal_surname)
+        QWidget.setTabOrder(self.line_edit_maternal_surname, self.combo_box_user_type)
+        QWidget.setTabOrder(self.combo_box_user_type, self.line_edit_user_name)
+        QWidget.setTabOrder(self.line_edit_user_name, self.line_edit_password)
+        QWidget.setTabOrder(self.line_edit_password, self.line_edit_repeat_password)
+        QWidget.setTabOrder(self.line_edit_repeat_password, self.push_button_clean)
+        QWidget.setTabOrder(self.push_button_clean, self.push_button_save)
 
         self.retranslateUi(CreateUser)
 

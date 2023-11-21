@@ -151,6 +151,17 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>line_edit_name</tabstop>
+  <tabstop>line_edit_paternal_surname</tabstop>
+  <tabstop>line_edit_maternal_surname</tabstop>
+  <tabstop>combo_box_user_type</tabstop>
+  <tabstop>line_edit_user_name</tabstop>
+  <tabstop>line_edit_password</tabstop>
+  <tabstop>line_edit_repeat_password</tabstop>
+  <tabstop>push_button_clean</tabstop>
+  <tabstop>push_button_save</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
