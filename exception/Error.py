@@ -28,8 +28,9 @@ class Ui_Error(object):
         self.push_button_accept.setGeometry(QRect(100, 130, 75, 24))
         self.label_error_description = QLabel(Error)
         self.label_error_description.setObjectName(u"label_error_description")
-        self.label_error_description.setGeometry(QRect(60, 50, 161, 51))
+        self.label_error_description.setGeometry(QRect(10, 10, 261, 111))
         self.label_error_description.setAlignment(Qt.AlignCenter)
+        self.label_error_description.setWordWrap(True)
 
         self.retranslateUi(Error)
 
