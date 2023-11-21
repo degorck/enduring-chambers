@@ -40,8 +40,11 @@ class UserDto:
     
     def get_user_name(self):
         return self.__user_name
+    
+    def set_id(self, id:int):
+        self.__id = id
        
-    def set_name(self, name):
+    def set_name(self, name:str):
         self.__name = name
     
     def set_paternal_surname(self, paternal_surname:str):
@@ -55,4 +58,3 @@ class UserDto:
     
     def set_user_name(self, user_name:str):
         self.__user_name = user_name
-    
