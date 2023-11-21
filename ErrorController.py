@@ -1,9 +1,7 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-import repackage
-repackage.up()
-from exception.Error import Ui_Error
+from Error import Ui_Error
 
 class ErrorController(QtWidgets.QWidget, Ui_Error):
     def __init__(self):

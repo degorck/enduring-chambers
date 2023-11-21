@@ -1,10 +1,9 @@
 import repackage
-repackage.up(2)
-from util.DbConnection import *
-from model.entity.User import User
-from util.Encryptor import Encryptor
+from DbConnection import *
+from User import User
+from Encryptor import Encryptor
 import datetime
-from mapper.UserDaoMapper import UserDaoMapper
+from UserDaoMapper import UserDaoMapper
 
 class UserDao:
     def __init__(self):

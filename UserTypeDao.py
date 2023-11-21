@@ -1,8 +1,6 @@
-import repackage
-repackage.up(2)
-from util.DbConnection import *
-from model.entity.UserType import UserType
-from mapper.UserTypeDaoMapper import UserTypeDaoMapper
+from DbConnection import *
+from UserType import UserType
+from UserTypeDaoMapper import UserTypeDaoMapper
 
 class UserTypeDao:
     def __init__(self):

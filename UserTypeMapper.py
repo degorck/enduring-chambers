@@ -1,7 +1,7 @@
 import repackage
 repackage.up()
-from model.entity.UserType import UserType
-from model.dto.UserTypeDto import UserTypeDto
+from UserType import UserType
+from UserTypeDto import UserTypeDto
 
 class UserTypeMapper:
     def __init__(self):
