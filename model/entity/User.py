@@ -48,6 +48,15 @@ class User:
     
     def set_name(self, name):
         self.__name = name
+
+    def set_is_active(self, is_active:bool):
+        self.__is_active = is_active
+    
+    def set_created_at(self, created_at:datetime):
+        self.__created_at = created_at
+    
+    def set_updated_at(self, updated_at:datetime):
+        self.__updated_at = updated_at
     
     def set_paternal_surname(self, paternal_surname):
         self.__paternal_surname = paternal_surname
