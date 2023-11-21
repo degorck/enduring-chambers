@@ -1,18 +1,18 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-import repackage
-repackage.up()
-from view.user.CreateUser import Ui_CreateUser
-from model.dto.UserDto import UserDto
-from constants.Constants import *
+#import dto.UserDto as UserDto
+from UserDto import UserDto
+from Constants import *
 from ErrorController import ErrorController
+from CreateUser import Ui_CreateUser
 
 class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
     def __init__(self):
         super(CreateUserController, self).__init__()
         self.setupUi(self)
         self.push_button_save.clicked.connect(self.save_user)
+        #self.combo_box_user_type.set
     
     def save_user(self):
         user_dto = UserDto()

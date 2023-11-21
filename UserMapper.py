@@ -1,7 +1,7 @@
 import repackage
 repackage.up()
-from model.entity.User import User
-from model.dto.UserDto import UserDto
+from User import User
+from UserDto import UserDto
 class UserMapper:
     def __init__(self):
         pass
