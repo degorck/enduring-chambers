@@ -45,7 +45,7 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
         if len(string) != 0:
             pass
         else:
-            raise ValueError("El campo " + name + " no debe estar vacío") 
+            raise ValueError(THE_FIELD_LABEL + name + SHOULD_NOT_BE_EMPTY_LABEL) 
 
 if __name__ == "__main__": 
     app = QtWidgets.QApplication(sys.argv)
