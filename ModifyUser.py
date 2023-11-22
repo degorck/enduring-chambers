@@ -51,74 +51,11 @@ class Ui_ModifyUser(object):
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_current_username = QLabel(self.gridLayoutWidget)
-        self.label_current_username.setObjectName(u"label_current_username")
-        self.label_current_username.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_current_username, 4, 1, 1, 1)
-
-        self.lineEdit_4 = QLineEdit(self.gridLayoutWidget)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
-
-        self.gridLayout.addWidget(self.lineEdit_4, 4, 2, 1, 1)
-
-        self.label_paternal_surname = QLabel(self.gridLayoutWidget)
-        self.label_paternal_surname.setObjectName(u"label_paternal_surname")
-        self.label_paternal_surname.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_paternal_surname, 1, 0, 1, 1)
-
-        self.lineEdit_3 = QLineEdit(self.gridLayoutWidget)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-
-        self.gridLayout.addWidget(self.lineEdit_3, 2, 2, 1, 1)
-
         self.label_name = QLabel(self.gridLayoutWidget)
         self.label_name.setObjectName(u"label_name")
         self.label_name.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_name, 0, 0, 1, 1)
-
-        self.label_current_user_type = QLabel(self.gridLayoutWidget)
-        self.label_current_user_type.setObjectName(u"label_current_user_type")
-        self.label_current_user_type.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_current_user_type, 3, 1, 1, 1)
-
-        self.label_current_name = QLabel(self.gridLayoutWidget)
-        self.label_current_name.setObjectName(u"label_current_name")
-        self.label_current_name.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_current_name, 0, 1, 1, 1)
-
-        self.label_user_name = QLabel(self.gridLayoutWidget)
-        self.label_user_name.setObjectName(u"label_user_name")
-        self.label_user_name.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_user_name, 4, 0, 1, 1)
-
-        self.label_user_type = QLabel(self.gridLayoutWidget)
-        self.label_user_type.setObjectName(u"label_user_type")
-        self.label_user_type.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_user_type, 3, 0, 1, 1)
-
-        self.lineEdit = QLineEdit(self.gridLayoutWidget)
-        self.lineEdit.setObjectName(u"lineEdit")
-
-        self.gridLayout.addWidget(self.lineEdit, 0, 2, 1, 1)
-
-        self.label_current_maternal_surname = QLabel(self.gridLayoutWidget)
-        self.label_current_maternal_surname.setObjectName(u"label_current_maternal_surname")
-        self.label_current_maternal_surname.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_current_maternal_surname, 2, 1, 1, 1)
-
-        self.label_current_paternal_surname = QLabel(self.gridLayoutWidget)
-        self.label_current_paternal_surname.setObjectName(u"label_current_paternal_surname")
-        self.label_current_paternal_surname.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.label_current_paternal_surname, 1, 1, 1, 1)
 
         self.label_maternal_surname = QLabel(self.gridLayoutWidget)
         self.label_maternal_surname.setObjectName(u"label_maternal_surname")
@@ -126,21 +63,42 @@ class Ui_ModifyUser(object):
 
         self.gridLayout.addWidget(self.label_maternal_surname, 2, 0, 1, 1)
 
-        self.comboBox = QComboBox(self.gridLayoutWidget)
-        self.comboBox.setObjectName(u"comboBox")
+        self.line_edit_paternal_surname = QLineEdit(self.gridLayoutWidget)
+        self.line_edit_paternal_surname.setObjectName(u"line_edit_paternal_surname")
 
-        self.gridLayout.addWidget(self.comboBox, 3, 2, 1, 1)
+        self.gridLayout.addWidget(self.line_edit_paternal_surname, 1, 1, 1, 1)
 
-        self.lineEdit_2 = QLineEdit(self.gridLayoutWidget)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.line_edit_maternal_surname = QLineEdit(self.gridLayoutWidget)
+        self.line_edit_maternal_surname.setObjectName(u"line_edit_maternal_surname")
 
-        self.gridLayout.addWidget(self.lineEdit_2, 1, 2, 1, 1)
+        self.gridLayout.addWidget(self.line_edit_maternal_surname, 2, 1, 1, 1)
 
-        QWidget.setTabOrder(self.lineEdit, self.lineEdit_2)
-        QWidget.setTabOrder(self.lineEdit_2, self.lineEdit_3)
-        QWidget.setTabOrder(self.lineEdit_3, self.comboBox)
-        QWidget.setTabOrder(self.comboBox, self.lineEdit_4)
-        QWidget.setTabOrder(self.lineEdit_4, self.push_button_save)
+        self.line_edit_name = QLineEdit(self.gridLayoutWidget)
+        self.line_edit_name.setObjectName(u"line_edit_name")
+
+        self.gridLayout.addWidget(self.line_edit_name, 0, 1, 1, 1)
+
+        self.combo_box_user_type = QComboBox(self.gridLayoutWidget)
+        self.combo_box_user_type.setObjectName(u"combo_box_user_type")
+
+        self.gridLayout.addWidget(self.combo_box_user_type, 3, 1, 1, 1)
+
+        self.label_user_type = QLabel(self.gridLayoutWidget)
+        self.label_user_type.setObjectName(u"label_user_type")
+        self.label_user_type.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.label_user_type, 3, 0, 1, 1)
+
+        self.label_paternal_surname = QLabel(self.gridLayoutWidget)
+        self.label_paternal_surname.setObjectName(u"label_paternal_surname")
+        self.label_paternal_surname.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.label_paternal_surname, 1, 0, 1, 1)
+
+        QWidget.setTabOrder(self.line_edit_name, self.line_edit_paternal_surname)
+        QWidget.setTabOrder(self.line_edit_paternal_surname, self.line_edit_maternal_surname)
+        QWidget.setTabOrder(self.line_edit_maternal_surname, self.combo_box_user_type)
+        QWidget.setTabOrder(self.combo_box_user_type, self.push_button_save)
         QWidget.setTabOrder(self.push_button_save, self.push_button_activate)
         QWidget.setTabOrder(self.push_button_activate, self.push_button_deactivate)
 
@@ -154,15 +112,9 @@ class Ui_ModifyUser(object):
         self.push_button_save.setText(QCoreApplication.translate("ModifyUser", u"Guardar", None))
         self.push_button_activate.setText(QCoreApplication.translate("ModifyUser", u"Alta", None))
         self.push_button_deactivate.setText(QCoreApplication.translate("ModifyUser", u"Baja", None))
-        self.label_current_username.setText(QCoreApplication.translate("ModifyUser", u"______________", None))
-        self.label_paternal_surname.setText(QCoreApplication.translate("ModifyUser", u"Apellido Paterno:", None))
         self.label_name.setText(QCoreApplication.translate("ModifyUser", u"Nombre:", None))
-        self.label_current_user_type.setText(QCoreApplication.translate("ModifyUser", u"______________", None))
-        self.label_current_name.setText(QCoreApplication.translate("ModifyUser", u"______________", None))
-        self.label_user_name.setText(QCoreApplication.translate("ModifyUser", u"Nombre de usuario:", None))
-        self.label_user_type.setText(QCoreApplication.translate("ModifyUser", u"Tipo de usuario:", None))
-        self.label_current_maternal_surname.setText(QCoreApplication.translate("ModifyUser", u"______________", None))
-        self.label_current_paternal_surname.setText(QCoreApplication.translate("ModifyUser", u"______________", None))
         self.label_maternal_surname.setText(QCoreApplication.translate("ModifyUser", u"Apellido Materno:", None))
+        self.label_user_type.setText(QCoreApplication.translate("ModifyUser", u"Tipo de usuario:", None))
+        self.label_paternal_surname.setText(QCoreApplication.translate("ModifyUser", u"Apellido Paterno:", None))
     # retranslateUi
 

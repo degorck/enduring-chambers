@@ -69,7 +69,6 @@ class UserDao:
                    paternal_surname = %s,
                    maternal_surname = %s,
                    user_type_id = %s,
-                   user_name = %s,
                    updated_at = %s
                    WHERE id = %s
                    ''')
@@ -78,7 +77,6 @@ class UserDao:
             user.get_paternal_surname(),
             user.get_maternal_surname(),
             user.get_user_type_id(),
-            user.get_user_name(),
             datetime.datetime.now(),
             user.get_id()
             )
