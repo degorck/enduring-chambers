@@ -18,20 +18,21 @@ class UserTypeDao:
                    ''')
         
         try:
-            self.__db_connection.start_connection().start_connection()
+            self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command % id)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            user_type =  self.__user_type_dao_mapper.real_dict_row_to_user(row)
-        except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
             user_type = UserType()
+            user_type =  self.__user_type_dao_mapper.real_dict_row_to_user(row)
+            return user_type
+        except (Exception, psycopg2.DatabaseError) as error:
+            raise error
 
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
         
-        return user_type
+
     
     def find_all(self):
         command = ('''
@@ -45,17 +46,16 @@ class UserTypeDao:
             list_user_type = []
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
+                user_type = UserType()
                 user_type =  self.__user_type_dao_mapper.real_dict_row_to_user(row)
                 list_user_type.append(user_type)
             self.__db_connection.end_connection()
+            return list_user_type
            
             
         except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
-            list_user_type = []
+            raise error
 
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
-        
-        return list_user_type
