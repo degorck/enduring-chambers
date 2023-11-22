@@ -1,11 +1,10 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-#import dto.UserDto as UserDto
+from CreateUser import Ui_CreateUser
 from UserDto import UserDto
 from Constants import *
 from ErrorController import ErrorController
-from CreateUser import Ui_CreateUser
 from UserTypeDao import UserTypeDao
 from UserDao import UserDao
 from UserMapper import UserMapper
@@ -14,8 +13,8 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
     def __init__(self):
         super(CreateUserController, self).__init__()
         self.setupUi(self)
-        self.push_button_save.clicked.connect(self.save_user)
-        self.push_button_clean.clicked.connect(self.clean)
+        self.push_button_save.clicked.connect(self.__save_user)
+        self.push_button_clean.clicked.connect(self.__clean)
         self.__user_type_dao = UserTypeDao()
         self.__user_dao = UserDao()
         self.__user_mapper = UserMapper()
@@ -24,7 +23,7 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
             self.combo_box_user_type.addItem(user_type.get_name(), user_type)
         #self.combo_box_user_type.set
 
-    def clean(self):
+    def __clean(self):
         self.line_edit_name.clear()
         self.line_edit_paternal_surname.clear()
         self.line_edit_maternal_surname.clear()
@@ -32,16 +31,16 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
         self.line_edit_password.clear()
         self.line_edit_repeat_password.clear()
 
-    def save_user(self):
+    def __save_user(self):
         user_dto = UserDto()
         try: 
-            self.validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
-            self.validate_is_not_empty(self.line_edit_paternal_surname.text(), UserField.PATERNAL_SURNAME)
-            self.validate_is_not_empty(self.line_edit_maternal_surname.text(), UserField.MATERNAL_SURNAME)
-            self.validate_is_not_empty(self.line_edit_user_name.text(), UserField.USER_NAME)
-            self.validate_is_not_empty(self.line_edit_password.text(), UserField.PASSWORD)
-            self.validate_is_not_empty(self.line_edit_repeat_password.text(), UserField.PASSWORD)
-            self.validate_password(self.line_edit_password.text(), self.line_edit_repeat_password.text())
+            self.__validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
+            self.__validate_is_not_empty(self.line_edit_paternal_surname.text(), UserField.PATERNAL_SURNAME)
+            self.__validate_is_not_empty(self.line_edit_maternal_surname.text(), UserField.MATERNAL_SURNAME)
+            self.__validate_is_not_empty(self.line_edit_user_name.text(), UserField.USER_NAME)
+            self.__validate_is_not_empty(self.line_edit_password.text(), UserField.PASSWORD)
+            self.__validate_is_not_empty(self.line_edit_repeat_password.text(), UserField.PASSWORD)
+            self.__validate_password(self.line_edit_password.text(), self.line_edit_repeat_password.text())
             
             user_dto.new_user(
                 self.line_edit_name.text(),
@@ -64,13 +63,13 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
             error_controller.handle_exception_error(e)
             error_controller.show()
         
-    def validate_is_not_empty(self, string:str, name:UserField):
+    def __validate_is_not_empty(self, string:str, name:UserField):
         if len(string) != 0:
             pass
         else:
             raise ValueError(THE_FIELD_LABEL + name + SHOULD_NOT_BE_EMPTY_LABEL)
         
-    def validate_password(self, password, repeated_password):
+    def __validate_password(self, password, repeated_password):
         if password == repeated_password:
             pass
         else:

@@ -14,8 +14,14 @@ class UserMapper:
         user_dto.set_user_type_id(int(user.get_user_type_id()))
         user_dto.set_user_name(str(user.get_user_name()))
         user_dto.set_is_active(bool(user.is_active()))
-        user_dto.set_created_at(datetime(user.get_created_at()))
-        user_dto.set_updated_at(datetime(user.get_updated_at()))
+        if user.get_created_at() == None:
+            pass
+        else:
+            user_dto.set_created_at(user_dto.get_created_at())
+        if user.get_updated_at() == None:
+            pass
+        else:
+            user_dto.set_updated_at(user_dto.get_updated_at())
         return user_dto
 
     def user_dto_to_user(self, user_dto:UserDto):

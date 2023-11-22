@@ -1,0 +1,43 @@
+import sys
+import PySide6.QtCore as QtCore
+import PySide6.QtWidgets as QtWidgets
+from ModifyUser import Ui_ModifyUser
+from ErrorController import ErrorController
+from UserDao import UserDao
+from UserDto import UserDto
+from UserMapper import UserMapper
+from UserTypeDao import UserTypeDao
+from UserTypeDto import UserTypeDto
+from UserTypeMapper import UserTypeMapper
+
+class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
+    def __init__(self):
+        super(ModifyUserController, self).__init__()
+        self.setupUi(self)
+        self.__user_dao = UserDao()
+        self.__user_mapper = UserMapper()
+        self.__user_type_dao = UserTypeDao()
+        self.__user_type_mapper = UserTypeMapper()
+        self.push_button_save.clicked.connect(self.update)
+        self.load_user(1)
+
+    def update(self):
+        pass
+
+    def load_user(self, id:int):
+        user_dto = UserDto()
+        user_dto = self.__user_mapper.user_to_user_dto(self.__user_dao.find_by_id(id))
+        user_type_dto = UserTypeDto()
+        user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(self.__user_type_dao.find_by_id(user_dto.get_id()))
+        self.label_current_name.setText(user_dto.get_name())
+        self.label_current_paternal_surname.setText(user_dto.get_paternal_surname())
+        self.label_current_maternal_surname.setText(user_dto.get_maternal_surname())
+        self.label_current_user_type.setText(user_type_dto.get_name())
+        self.label_current_username.setText(user_dto.get_user_name())
+
+if __name__ == "__main__": 
+    app = QtWidgets.QApplication(sys.argv)
+    window = ModifyUserController()
+    error_controller = ErrorController()
+    window.show()
+    sys.exit(app.exec())
