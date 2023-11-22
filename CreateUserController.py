@@ -51,7 +51,7 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
             )
 
             self.__user_dao.create_user(self.__user_mapper.user_dto_to_user(user_dto))
-            self.clean()
+            self.__clean()
             error_controller.handle_value_error("El usuario se ha creado exitosamente")
             error_controller.show()
 
