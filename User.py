@@ -2,16 +2,16 @@ import datetime
 
 class User:
     def __init__(self):
-        self.__id = 0
-        self.__name = ""
-        self.__paternal_surname = ""
-        self.__maternal_surname = ""
-        self.__user_type_id = 0
-        self.__user_name = ""
-        self.__password = ""
-        self.__is_active = ""
-        self.__created_at = ""
-        self.__updated_at = ""
+        self.__id:int = 0
+        self.__name:str = ""
+        self.__paternal_surname:str = ""
+        self.__maternal_surname:str = ""
+        self.__user_type_id:int = 0
+        self.__user_name:str = ""
+        self.__password:str = ""
+        self.__is_active:bool = False
+        self.__created_at:datetime = None
+        self.__updated_at:datetime = None
     
     def get_id(self):
         return self.__id

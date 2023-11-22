@@ -2,15 +2,15 @@ import datetime
 
 class UserDto:
     def __init__(self):
-        self.__id = ""
-        self.__name = ""
-        self.__paternal_surname = ""
-        self.__maternal_surname = ""
-        self.__user_type_id = 0
-        self.__user_name = ""
-        self.__is_active = False
-        self.__created_at = ""
-        self.__updated_at = ""
+        self.__id:int = 0
+        self.__name:str = ""
+        self.__paternal_surname:str = ""
+        self.__maternal_surname:str = ""
+        self.__user_type_id:int = 0
+        self.__user_name:str = ""
+        self.__is_active:bool = False
+        self.__created_at:datetime = None
+        self.__updated_at:datetime = None
 
 
     def new_user(self, name:str, paternal_surname:str, maternal_surname:str, user_type:int, user_name:str):

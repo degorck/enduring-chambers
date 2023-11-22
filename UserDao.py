@@ -7,8 +7,11 @@ from UserDaoMapper import UserDaoMapper
 
 class UserDao:
     def __init__(self):
-        db_connection.start_connection()
-        db_connection.end_connection()
+        self.__db_connection = DbConnection()
+        self.__user_dao_mapper = UserDaoMapper()
+        self.__encryptor = Encryptor()
+        self.__db_connection.start_connection()
+        self.__db_connection.end_connection()
         
     def create_user(self, user:User):
         command = '''
@@ -39,23 +42,23 @@ class UserDao:
             user.get_maternal_surname(),
             user.get_user_type_id(),
             user.get_user_name(),
-            encryptor.hash_password(user.get_password()),
+            self.__encryptor.hash_password(user.get_password()),
             True,
             datetime.datetime.now(),
             datetime.datetime.now()
             )
         try:
-            db_connection.start_connection()
-            db_connection.get_cursor().execute(command, values)
-            db_connection.get_cursor().execute('SELECT LASTVAL()')
-            row = db_connection.get_cursor().fetchone()
-            db_connection.end_connection()
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.get_cursor().execute('SELECT LASTVAL()')
+            row = self.__db_connection.get_cursor().fetchone()
+            self.__db_connection.end_connection()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
 
         finally:
-            if db_connection.get_connection() is not None:
-                db_connection.get_connection().close()
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
         
         return self.find_by_id(int(row["lastval"]))
 
@@ -82,15 +85,15 @@ class UserDao:
             )
         
         try:
-            db_connection.start_connection()
-            db_connection.get_cursor().execute(command, values)
-            db_connection.end_connection()
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
 
         finally:
-            if db_connection.get_connection() is not None:
-                db_connection.get_connection().close()
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
         
         return self.find_by_id(user.get_id())
 
@@ -109,15 +112,15 @@ class UserDao:
             )
         
         try:
-            db_connection.start_connection()
-            db_connection.get_cursor().execute(command, values)
-            db_connection.end_connection()
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
 
         finally:
-            if db_connection.get_connection() is not None:
-                db_connection.get_connection().close()
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
 
     def reactivate_user(self, id:int):
         command = ('''
@@ -134,15 +137,15 @@ class UserDao:
             )
         
         try:
-            db_connection.start_connection()
-            db_connection.get_cursor().execute(command, values)
-            db_connection.end_connection()
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
 
         finally:
-            if db_connection.get_connection() is not None:
-                db_connection.get_connection().close()
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
 
     def change_user_password(self, id:int, password:str):
         command = ('''
@@ -153,21 +156,21 @@ class UserDao:
                    WHERE id = %s
                    ''')
         values = (
-            encryptor.hash_password(password),
+            self.__encryptor.hash_password(password),
             datetime.datetime.now(),
             id
             )
         
         try:
-            db_connection.start_connection()
-            db_connection.get_cursor().execute(command, values)
-            db_connection.end_connection()
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
 
         finally:
-            if db_connection.get_connection() is not None:
-                db_connection.get_connection().close()
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
     
     def search_user(self, search_string:str):
         search_string = "%" + search_string.replace(" ", "") + "%"
@@ -189,19 +192,19 @@ class UserDao:
             search_string,
             search_string)
         try:
-            db_connection.start_connection()
-            db_connection.get_cursor().execute(command, values)
-            rows = db_connection.get_cursor().fetchall()
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                user = user_dao_mapper.real_dict_row_to_user(row)
+                user = self.__user_dao_mapper.real_dict_row_to_user(row)
                 user_list.append(user)
-            db_connection.end_connection()
+            self.__db_connection.end_connection()
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
 
         finally:
-            if db_connection.get_connection() is not None:
-                db_connection.get_connection().close()
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
         
         return user_list
     
@@ -214,24 +217,17 @@ class UserDao:
                    ''')
         
         try:
-            db_connection.start_connection()
-            db_connection.get_cursor().execute(command % id)
-            row = db_connection.get_cursor().fetchone()
-            db_connection.end_connection()
-            user = user_dao_mapper.real_dict_row_to_user(row)
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command % id)
+            row = self.__db_connection.get_cursor().fetchone()
+            self.__db_connection.end_connection()
+            user = self.__user_dao_mapper.real_dict_row_to_user(row)
         except (Exception, psycopg2.DatabaseError) as error:
             print(error)
             user = User()
 
         finally:
-            if db_connection.get_connection() is not None:
-                db_connection.get_connection().close()
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
         
         return user
-
-     
-if __name__ == "__main__":
-    db_connection = DbConnection()
-    encryptor = Encryptor()
-    user_dao = UserDao()
-    user_dao_mapper = UserDaoMapper()
