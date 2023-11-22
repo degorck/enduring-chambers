@@ -27,7 +27,7 @@ def create_tables():
             paternal_surname VARCHAR(50) NOT NULL,
             maternal_surname VARCHAR(50),
             user_type_id int REFERENCES tb_user_type(id),
-            user_name VARCHAR(50) NOT NULL,
+            user_name VARCHAR(50) NOT NULL UNIQUE,
             password VARCHAR(150) NOT NULL,
             is_active BOOLEAN NOT NULL,
             created_at TIMESTAMP NOT NULL,

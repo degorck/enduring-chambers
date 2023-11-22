@@ -53,15 +53,14 @@ class UserDao:
             self.__db_connection.get_cursor().execute('SELECT LASTVAL()')
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
+            return self.find_by_id(int(row["lastval"]))
         except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
+            raise error
 
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
         
-        return self.find_by_id(int(row["lastval"]))
-
     def modify_user(self, user:User):
         command = ('''
                    UPDATE tb_user
@@ -89,7 +88,7 @@ class UserDao:
             self.__db_connection.get_cursor().execute(command, values)
             self.__db_connection.end_connection()
         except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
+            raise error
 
         finally:
             if self.__db_connection.get_connection() is not None:
