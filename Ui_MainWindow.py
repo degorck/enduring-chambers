@@ -38,11 +38,13 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.push_button_create_user = QPushButton(self.verticalLayoutWidget)
         self.push_button_create_user.setObjectName(u"push_button_create_user")
+        self.push_button_create_user.setEnabled(False)
 
         self.verticalLayout.addWidget(self.push_button_create_user)
 
         self.push_button_search_users = QPushButton(self.verticalLayoutWidget)
         self.push_button_search_users.setObjectName(u"push_button_search_users")
+        self.push_button_search_users.setEnabled(False)
 
         self.verticalLayout.addWidget(self.push_button_search_users)
 
@@ -55,15 +57,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.push_create_holder = QPushButton(self.verticalLayoutWidget_2)
-        self.push_create_holder.setObjectName(u"push_create_holder")
+        self.push_button_create_holder = QPushButton(self.verticalLayoutWidget_2)
+        self.push_button_create_holder.setObjectName(u"push_button_create_holder")
+        self.push_button_create_holder.setEnabled(False)
 
-        self.verticalLayout_2.addWidget(self.push_create_holder)
+        self.verticalLayout_2.addWidget(self.push_button_create_holder)
 
-        self.push_search_holders = QPushButton(self.verticalLayoutWidget_2)
-        self.push_search_holders.setObjectName(u"push_search_holders")
+        self.push_button_search_holders = QPushButton(self.verticalLayoutWidget_2)
+        self.push_button_search_holders.setObjectName(u"push_button_search_holders")
+        self.push_button_search_holders.setEnabled(False)
 
-        self.verticalLayout_2.addWidget(self.push_search_holders)
+        self.verticalLayout_2.addWidget(self.push_button_search_holders)
 
         self.group_box_deceased = QGroupBox(self.centralwidget)
         self.group_box_deceased.setObjectName(u"group_box_deceased")
@@ -76,13 +80,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.push_button_create_deceased = QPushButton(self.verticalLayoutWidget_3)
         self.push_button_create_deceased.setObjectName(u"push_button_create_deceased")
+        self.push_button_create_deceased.setEnabled(False)
 
         self.verticalLayout_3.addWidget(self.push_button_create_deceased)
 
-        self.push_search_deceased = QPushButton(self.verticalLayoutWidget_3)
-        self.push_search_deceased.setObjectName(u"push_search_deceased")
+        self.push_button_search_deceased = QPushButton(self.verticalLayoutWidget_3)
+        self.push_button_search_deceased.setObjectName(u"push_button_search_deceased")
+        self.push_button_search_deceased.setEnabled(False)
 
-        self.verticalLayout_3.addWidget(self.push_search_deceased)
+        self.verticalLayout_3.addWidget(self.push_button_search_deceased)
 
         self.group_box_niches = QGroupBox(self.centralwidget)
         self.group_box_niches.setObjectName(u"group_box_niches")
@@ -95,13 +101,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.push_button_create_niche = QPushButton(self.verticalLayoutWidget_4)
         self.push_button_create_niche.setObjectName(u"push_button_create_niche")
+        self.push_button_create_niche.setEnabled(False)
 
         self.verticalLayout_4.addWidget(self.push_button_create_niche)
 
-        self.push_button_search_niche = QPushButton(self.verticalLayoutWidget_4)
-        self.push_button_search_niche.setObjectName(u"push_button_search_niche")
+        self.push_button_search_niches = QPushButton(self.verticalLayoutWidget_4)
+        self.push_button_search_niches.setObjectName(u"push_button_search_niches")
+        self.push_button_search_niches.setEnabled(False)
 
-        self.verticalLayout_4.addWidget(self.push_button_search_niche)
+        self.verticalLayout_4.addWidget(self.push_button_search_niches)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -127,14 +135,14 @@ class Ui_MainWindow(object):
         self.push_button_create_user.setText(QCoreApplication.translate("MainWindow", u"Alta", None))
         self.push_button_search_users.setText(QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
         self.group_box_holders.setTitle(QCoreApplication.translate("MainWindow", u"Titulares", None))
-        self.push_create_holder.setText(QCoreApplication.translate("MainWindow", u"Alta", None))
-        self.push_search_holders.setText(QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
+        self.push_button_create_holder.setText(QCoreApplication.translate("MainWindow", u"Alta", None))
+        self.push_button_search_holders.setText(QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
         self.group_box_deceased.setTitle(QCoreApplication.translate("MainWindow", u"Fallecidos", None))
         self.push_button_create_deceased.setText(QCoreApplication.translate("MainWindow", u"Alta", None))
-        self.push_search_deceased.setText(QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
+        self.push_button_search_deceased.setText(QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
         self.group_box_niches.setTitle(QCoreApplication.translate("MainWindow", u"Nichos", None))
         self.push_button_create_niche.setText(QCoreApplication.translate("MainWindow", u"Alta", None))
-        self.push_button_search_niche.setText(QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
+        self.push_button_search_niches.setText(QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
         self.menuConfiguraci_n.setTitle(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n", None))
     # retranslateUi
 

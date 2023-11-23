@@ -9,3 +9,8 @@ class UserField(StrEnum):
     USER_TYPE = "Tipo de usuario"
     USER_NAME = "Nombre de usuario"
     PASSWORD = "Contraseña"
+
+class UserTypeKey(StrEnum):
+    ADMINISTRATOR = "dmn"
+    CAPTURIST = "cpt"
+    GUEST = "gst"

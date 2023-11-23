@@ -38,6 +38,9 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QPushButton" name="push_button_create_user">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Alta</string>
         </property>
@@ -45,6 +48,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="push_button_search_users">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Búsqueda</string>
         </property>
@@ -76,14 +82,20 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QPushButton" name="push_create_holder">
+       <widget class="QPushButton" name="push_button_create_holder">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Alta</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="push_search_holders">
+       <widget class="QPushButton" name="push_button_search_holders">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Búsqueda</string>
         </property>
@@ -116,13 +128,19 @@
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
        <widget class="QPushButton" name="push_button_create_deceased">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Alta</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="push_search_deceased">
+       <widget class="QPushButton" name="push_button_search_deceased">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Búsqueda</string>
         </property>
@@ -155,13 +173,19 @@
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
        <widget class="QPushButton" name="push_button_create_niche">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Alta</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="push_button_search_niche">
+       <widget class="QPushButton" name="push_button_search_niches">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Búsqueda</string>
         </property>
