@@ -8,17 +8,19 @@ class UserDto:
         self.__maternal_surname:str = ""
         self.__user_type_id:int = 0
         self.__user_name:str = ""
+        self.__password:str = ""
         self.__is_active:bool = False
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
 
 
-    def new_user(self, name:str, paternal_surname:str, maternal_surname:str, user_type:int, user_name:str):
+    def new_user(self, name:str, paternal_surname:str, maternal_surname:str, user_type:int, user_name:str, password:str):
         self.__name = name
         self.__paternal_surname = paternal_surname
         self.__maternal_surname = maternal_surname
         self.__user_type_id = user_type
         self.__user_name = user_name
+        self.__password = password
     
     def existing_user(self, id:int, name:str, paternal_surname:str, maternal_surname:str, user_type:int, user_name:str):
         self.__id = id
@@ -46,6 +48,9 @@ class UserDto:
     def get_user_name(self):
         return self.__user_name
     
+    def get_password(self):
+        return self.__password
+    
     def is_active(self):
         return self.__is_active
     
@@ -72,6 +77,9 @@ class UserDto:
     
     def set_user_name(self, user_name:str):
         self.__user_name = user_name
+    
+    def set_password(self, password:str):
+        self.__password = password
 
     def set_is_active(self, is_active:bool):
         self.__is_active = is_active

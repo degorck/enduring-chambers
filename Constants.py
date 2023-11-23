@@ -1,6 +1,7 @@
 from enum import StrEnum
 SHOULD_NOT_BE_EMPTY_LABEL = " no debe estar vacío"
 THE_FIELD_LABEL = "El campo "
+UTF_8 = 'utf-8'
 class UserField(StrEnum):
     NAME = "Nombre"
     PATERNAL_SURNAME = "Apellido Paterno"
