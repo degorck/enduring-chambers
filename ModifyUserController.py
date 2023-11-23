@@ -1,7 +1,7 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-from ModifyUser import Ui_ModifyUser
+from Ui_ModifyUser import Ui_ModifyUser
 from ErrorController import ErrorController
 from UserDao import UserDao
 from UserDto import UserDto
@@ -19,44 +19,45 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
         self.__user_mapper = UserMapper()
         self.__user_type_dao = UserTypeDao()
         self.__user_type_mapper = UserTypeMapper()
+        self.__error_controller = ErrorController()
         self.__list_user_type = self.__user_type_dao.find_all()
-        self.__user_id = 27
+        self.__user_id = 0
         for user_type in self.__list_user_type:
             self.combo_box_user_type.addItem(user_type.get_name(), user_type)
         self.push_button_save.clicked.connect(self.__update)
         self.push_button_deactivate.clicked.connect(self.__deactivate)
         self.push_button_activate.clicked.connect(self.__activate)
-        self.load_user(self.__user_id)
+        #self.load_user(self.__user_id)
 
     def __deactivate(self):
         try:
             self.__user_dao.deactivate_user(self.__user_id)
-            error_controller.handle_value_error("El usuario se ha desactivado")
-            error_controller.show()
+            self.__error_controller.handle_value_error("El usuario se ha desactivado")
+            self.__error_controller.show()
             self.close()                
         except ValueError as ve:
-            error_controller.handle_value_error(ve)
-            error_controller.show()
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
         
         except Exception as e:
-            error_controller.handle_exception_error(e)
-            error_controller.show()
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
 
 
     def __activate(self):
         try:
             self.__user_dao.reactivate_user(self.__user_id)
-            error_controller.handle_value_error("El usuario se ha activado")
-            error_controller.show()
+            self.__error_controller.handle_value_error("El usuario se ha activado")
+            self.__error_controller.show()
             self.close()          
 
         except ValueError as ve:
-            error_controller.handle_value_error(ve)
-            error_controller.show()
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
         
         except Exception as e:
-            error_controller.handle_exception_error(e)
-            error_controller.show()
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
 
     def __update(self):
         user_dto = UserDto()
@@ -75,17 +76,17 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
 
             self.__user_dao.modify_user(self.__user_mapper.user_dto_to_user(user_dto))
             #self.__clean()
-            error_controller.handle_value_error("El usuario se ha modificado exitosamente")
-            error_controller.show()
+            self.__error_controller.handle_value_error("El usuario se ha modificado exitosamente")
+            self.__error_controller.show()
             self.close()          
 
         except ValueError as ve:
-            error_controller.handle_value_error(ve)
-            error_controller.show()
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
         
         except Exception as e:
-            error_controller.handle_exception_error(e)
-            error_controller.show()
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
 
     def __validate_is_not_empty(self, string:str, name:UserField):
         if len(string) != 0:
@@ -94,11 +95,12 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
             raise ValueError(THE_FIELD_LABEL + name + SHOULD_NOT_BE_EMPTY_LABEL)
 
     def load_user(self, id:int):
+        self.__user_id = id
         user_dto = UserDto()
         user_dto = self.__user_mapper.user_to_user_dto(self.__user_dao.find_by_id(id))
         user_type_dto = UserTypeDto()
         user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(self.__user_type_dao.find_by_id(user_dto.get_user_type_id()))
-        self.line_edit_name.insert(user_dto.get_name())
+        self.line_edit_name.setText(user_dto.get_name())
         self.line_edit_paternal_surname.setText(user_dto.get_paternal_surname())
         self.line_edit_maternal_surname.setText(user_dto.get_maternal_surname())
         self.combo_box_user_type.setCurrentText(user_type_dto.get_name())
@@ -106,6 +108,5 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
 if __name__ == "__main__": 
     app = QtWidgets.QApplication(sys.argv)
     window = ModifyUserController()
-    error_controller = ErrorController()
     window.show()
     sys.exit(app.exec())

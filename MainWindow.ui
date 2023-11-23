@@ -14,7 +14,7 @@
    <string>Pantalla Principal</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="group_box_users">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -37,21 +37,14 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="push_button_create_user">
         <property name="text">
          <string>Alta</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>Modificación</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="push_button_search_users">
         <property name="text">
          <string>Búsqueda</string>
         </property>
@@ -60,7 +53,7 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="group_box_holders">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -83,21 +76,14 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="push_create_holder">
         <property name="text">
          <string>Alta</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_5">
-        <property name="text">
-         <string>Modificación</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="push_search_holders">
         <property name="text">
          <string>Búsqueda</string>
         </property>
@@ -106,7 +92,7 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_3">
+   <widget class="QGroupBox" name="group_box_deceased">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -129,21 +115,14 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="QPushButton" name="push_button_create_deceased">
         <property name="text">
          <string>Alta</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_8">
-        <property name="text">
-         <string>Modificación</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_9">
+       <widget class="QPushButton" name="push_search_deceased">
         <property name="text">
          <string>Búsqueda</string>
         </property>
@@ -152,7 +131,7 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_4">
+   <widget class="QGroupBox" name="group_box_niches">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -175,21 +154,14 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QPushButton" name="pushButton_10">
+       <widget class="QPushButton" name="push_button_create_niche">
         <property name="text">
          <string>Alta</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_11">
-        <property name="text">
-         <string>Modificación</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_12">
+       <widget class="QPushButton" name="push_button_search_niche">
         <property name="text">
          <string>Búsqueda</string>
         </property>

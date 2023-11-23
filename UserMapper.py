@@ -17,11 +17,11 @@ class UserMapper:
         if user.get_created_at() == None:
             pass
         else:
-            user_dto.set_created_at(user_dto.get_created_at())
+            user_dto.set_created_at(user.get_created_at())
         if user.get_updated_at() == None:
             pass
         else:
-            user_dto.set_updated_at(user_dto.get_updated_at())
+            user_dto.set_updated_at(user.get_updated_at())
         return user_dto
 
     def user_dto_to_user(self, user_dto:UserDto):
@@ -39,9 +39,9 @@ class UserMapper:
         if user_dto.get_created_at() == None:
             pass
         else:
-            user.set_created_at(datetime(user_dto.get_created_at()))
+            user.set_created_at(user_dto.get_created_at())
         if user_dto.get_updated_at() == None:
             pass
         else:
-            user.set_updated_at(datetime(user_dto.get_updated_at()))
+            user.set_updated_at(user_dto.get_updated_at())
         return user

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UserSearch</class>
- <widget class="QMainWindow" name="UserSearch">
+ <class>SearchUser</class>
+ <widget class="QMainWindow" name="SearchUser">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,7 +14,7 @@
    <string>Búsqueda de usuario</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="line_edit_search">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -50,7 +50,17 @@
      <string>Usuarios:</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="list_widget_users">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>60</y>
+      <width>391</width>
+      <height>261</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="table_widget_users">
     <property name="geometry">
      <rect>
       <x>90</x>

@@ -1,7 +1,7 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-from CreateUser import Ui_CreateUser
+from Ui_CreateUser import Ui_CreateUser
 from UserDto import UserDto
 from Constants import *
 from ErrorController import ErrorController
@@ -18,6 +18,7 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
         self.__user_type_dao = UserTypeDao()
         self.__user_dao = UserDao()
         self.__user_mapper = UserMapper()
+        self.__error_controller = ErrorController()
         self.__list_user_type = self.__user_type_dao.find_all()
         for user_type in self.__list_user_type:
             self.combo_box_user_type.addItem(user_type.get_name(), user_type)
@@ -52,16 +53,16 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
 
             self.__user_dao.create_user(self.__user_mapper.user_dto_to_user(user_dto))
             self.__clean()
-            error_controller.handle_value_error("El usuario se ha creado exitosamente")
-            error_controller.show()
+            self.__error_controller.handle_value_error("El usuario se ha creado exitosamente")
+            self.__error_controller.show()
 
         except ValueError as ve:
-            error_controller.handle_value_error(ve)
-            error_controller.show()
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
         
         except Exception as e:
-            error_controller.handle_exception_error(e)
-            error_controller.show()
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
         
     def __validate_is_not_empty(self, string:str, name:UserField):
         if len(string) != 0:
@@ -84,5 +85,4 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = CreateUserController()
     window.show()
-    error_controller = ErrorController()
     sys.exit(app.exec())
