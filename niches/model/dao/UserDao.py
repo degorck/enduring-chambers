@@ -1,9 +1,8 @@
-import repackage
-from DbConnection import *
-from User import User
-from Encryptor import Encryptor
+from niches.util.DbConnection import *
+from niches.model.entity.User import User
+from niches.util.Encryptor import Encryptor
 import datetime
-from UserDaoMapper import UserDaoMapper
+from niches.model.mapper.UserDaoMapper import UserDaoMapper
 
 class UserDao:
     def __init__(self):

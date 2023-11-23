@@ -1,4 +1,4 @@
-from Constants import *
+from niches.util.Constants import *
 
 class Validator():
     def __init__(self):

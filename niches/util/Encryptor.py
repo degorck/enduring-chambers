@@ -1,7 +1,7 @@
 import bcrypt
 from dotenv import load_dotenv
 import os
-from Constants import *
+from niches.util.Constants import *
 
 class Encryptor:
     def __init__(self):
