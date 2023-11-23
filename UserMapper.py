@@ -13,6 +13,7 @@ class UserMapper:
         user_dto.set_maternal_surname(str(user.get_maternal_surname()))
         user_dto.set_user_type_id(int(user.get_user_type_id()))
         user_dto.set_user_name(str(user.get_user_name()))
+        user_dto.set_password(str(user.get_password()))
         user_dto.set_is_active(bool(user.is_active()))
         if user.get_created_at() == None:
             pass
@@ -35,6 +36,7 @@ class UserMapper:
         user.set_maternal_surname(str(user_dto.get_maternal_surname()))
         user.set_user_type_id(int(user_dto.get_user_type_id()))
         user.set_user_name(str(user_dto.get_user_name()))
+        user.set_password(str(user_dto.get_password()))
         user.set_is_active(bool(user_dto.is_active()))
         if user_dto.get_created_at() == None:
             pass

@@ -170,7 +170,7 @@ class UserDao:
                 self.__db_connection.get_connection().close()
     
     def search_user(self, search_string:str):
-        search_string = "%" + search_string.replace(" ", "") + "%"
+        search_string = "%" + search_string + "%"
         user_list = []
         command = ('''
                    SELECT * FROM tb_user
@@ -179,7 +179,7 @@ class UserDao:
                    paternal_surname LIKE %s OR
                    maternal_surname LIKE %s OR
                    user_name LIKE %s OR
-                   CONCAT (name, paternal_surname, maternal_surname) LIKE %s
+                   CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
                    ''')
         
         values = (
@@ -202,9 +202,7 @@ class UserDao:
 
         finally:
             if self.__db_connection.get_connection() is not None:
-                self.__db_connection.get_connection().close()
-        
-
+                self.__db_connection.get_connection().close()        
     
     def find_by_id(self, id:int):
         command = ('''
@@ -217,6 +215,29 @@ class UserDao:
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command % id)
+            row = self.__db_connection.get_cursor().fetchone()
+            self.__db_connection.end_connection()
+            user = self.__user_dao_mapper.real_dict_row_to_user(row)
+            return user
+        except (Exception, psycopg2.DatabaseError) as error:
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+        
+    def find_by_user_name(self, user_name:str):
+        user_name = "'" + user_name + "'"
+        command = ('''
+                   SELECT * 
+                   FROM tb_user
+                   WHERE
+                   user_name = %s
+                   ''')
+        
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command % user_name)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             user = self.__user_dao_mapper.real_dict_row_to_user(row)

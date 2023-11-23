@@ -10,6 +10,7 @@ from UserTypeDao import UserTypeDao
 from UserTypeDto import UserTypeDto
 from UserTypeMapper import UserTypeMapper
 from Constants import *
+from Validator import Validator
 
 class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
     def __init__(self):
@@ -20,6 +21,7 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
         self.__user_type_dao = UserTypeDao()
         self.__user_type_mapper = UserTypeMapper()
         self.__error_controller = ErrorController()
+        self.__validator = Validator()
         self.__list_user_type = self.__user_type_dao.find_all()
         self.__user_id = 0
         for user_type in self.__list_user_type:
@@ -62,9 +64,9 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
     def __update(self):
         user_dto = UserDto()
         try: 
-            self.__validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
-            self.__validate_is_not_empty(self.line_edit_paternal_surname.text(), UserField.PATERNAL_SURNAME)
-            self.__validate_is_not_empty(self.line_edit_maternal_surname.text(), UserField.MATERNAL_SURNAME)
+            self.__validator.validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
+            self.__validator.validate_is_not_empty(self.line_edit_paternal_surname.text(), UserField.PATERNAL_SURNAME)
+            self.__validator.validate_is_not_empty(self.line_edit_maternal_surname.text(), UserField.MATERNAL_SURNAME)
             
             user_dto = self.__user_mapper.user_to_user_dto(self.__user_dao.find_by_id(self.__user_id))
 
@@ -87,12 +89,6 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
-
-    def __validate_is_not_empty(self, string:str, name:UserField):
-        if len(string) != 0:
-            pass
-        else:
-            raise ValueError(THE_FIELD_LABEL + name + SHOULD_NOT_BE_EMPTY_LABEL)
 
     def load_user(self, id:int):
         self.__user_id = id

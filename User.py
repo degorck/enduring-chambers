@@ -43,10 +43,10 @@ class User:
     def get_updated_at(self):
         return self.__updated_at
     
-    def set_id(self, id):
+    def set_id(self, id:int):
         self.__id = id
     
-    def set_name(self, name):
+    def set_name(self, name:str):
         self.__name = name
 
     def set_is_active(self, is_active:bool):
@@ -58,17 +58,20 @@ class User:
     def set_updated_at(self, updated_at:datetime):
         self.__updated_at = updated_at
     
-    def set_paternal_surname(self, paternal_surname):
+    def set_paternal_surname(self, paternal_surname:str):
         self.__paternal_surname = paternal_surname
     
-    def set_maternal_surname(self, maternal_surname):
+    def set_maternal_surname(self, maternal_surname:str):
         self.__maternal_surname = maternal_surname
     
     def set_user_type_id(self, user_type_id:int):
         self.__user_type_id = user_type_id
     
-    def set_user_name(self, user_name):
+    def set_user_name(self, user_name:str):
         self.__user_name = user_name
+    
+    def set_password(self, password:str):
+        self.__password = password
 
     def existing_user(self, id:int, name:str, paternal_surname:str, maternal_surname:str,
                      user_type_id:int, user_name:str, password:str, is_active:bool, 
