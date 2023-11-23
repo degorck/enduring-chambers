@@ -11,19 +11,26 @@ from User import User
 from ErrorController import ErrorController
 from Validator import Validator
 from Constants import *
+from UserTypeMapper import UserTypeMapper
+from UserTypeDao import UserTypeDao
+from UserTypeDto import UserTypeDto
 
 class LoginController(QtWidgets.QDialog, Ui_Login):
     def __init__(self):
         super(LoginController, self).__init__()
         self.setupUi(self)
+        self.__user_type_key = UserTypeKey.GUEST
         self.__user_dao = UserDao()
-        self.__encryptor = Encryptor()
         self.__user_mapper = UserMapper()
+        self.__encryptor = Encryptor()
+        self.__user_type_dao = UserTypeDao()
+        self.__user_type_mapper = UserTypeMapper()
         self.__error_controller = ErrorController()
         self.__validator = Validator()
         self.push_button_login.clicked.connect(self.__login)
         self.push_button_guest.clicked.connect(self.__guest)
         self.line_edit_password.returnPressed.connect(self.__login)
+        self.__set_windows_by_user_type(self.__user_type_key)
     
     def __login(self):
         user_dto = UserDto()
@@ -34,7 +41,9 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             user = self.__user_dao.find_by_user_name(self.line_edit_user.text())
             user_dto = self.__user_mapper.user_to_user_dto(user)
             if user_dto.get_user_name() == self.line_edit_user.text() and self.__encryptor.check_password(self.line_edit_password.text(), user.get_password()):
-                print("Login")
+                user_type_dto = UserTypeDto()
+                user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(self.__user_type_dao.find_by_id(user_dto.get_id()))
+                print(user_type_dto.get_key())
                 self.close()
             else:
                 self.__error_controller.handle_exception_error("Error en login. Verifica tu usuario y contraseña")
@@ -52,10 +61,15 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
 
-            
+    def __set_windows_by_user_type(self, user_type_key:str):
+        self.__user_type_key = user_type_key
+
+    def get_logged_user_type_key(self):
+        return self.__user_type_key
+
     
     def __guest(self):
-        print("guest")
+        self.close()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
