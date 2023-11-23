@@ -42,8 +42,9 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             user_dto = self.__user_mapper.user_to_user_dto(user)
             if user_dto.get_user_name() == self.line_edit_user.text() and self.__encryptor.check_password(self.line_edit_password.text(), user.get_password()):
                 user_type_dto = UserTypeDto()
-                user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(self.__user_type_dao.find_by_id(user_dto.get_id()))
+                user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(self.__user_type_dao.find_by_id(user_dto.get_user_type_id()))
                 print(user_type_dto.get_key())
+                self.__user_type_key = user_type_dto.get_key()
                 self.close()
             else:
                 self.__error_controller.handle_exception_error("Error en login. Verifica tu usuario y contraseña")
