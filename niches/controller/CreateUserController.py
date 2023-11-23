@@ -1,14 +1,14 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-from Ui_CreateUser import Ui_CreateUser
-from UserDto import UserDto
-from Constants import *
-from ErrorController import ErrorController
-from UserTypeDao import UserTypeDao
-from UserDao import UserDao
-from UserMapper import UserMapper
-from Validator import Validator
+from niches.view.Ui_CreateUser import Ui_CreateUser
+from niches.model.dto.UserDto import UserDto
+from niches.util.Constants import *
+from niches.controller.ErrorController import ErrorController
+from niches.model.dao.UserTypeDao import UserTypeDao
+from niches.model.dao.UserDao import UserDao
+from niches.model.mapper.UserMapper import UserMapper
+from niches.util.Validator import Validator
 
 class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
     def __init__(self):

@@ -1,11 +1,11 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-from Ui_SearchUser import Ui_SearchUser
-from UserDao import UserDao
-from UserDto import UserDto
-from UserMapper import UserMapper
-from ModifyUserController import ModifyUserController
+from niches.view.Ui_SearchUser import Ui_SearchUser
+from niches.model.dao.UserDao import UserDao
+from niches.model.dto.UserDto import UserDto
+from niches.model.mapper.UserMapper import UserMapper
+from niches.controller.ModifyUserController import ModifyUserController
 
 
 class SearchUserController(QtWidgets.QMainWindow, Ui_SearchUser):

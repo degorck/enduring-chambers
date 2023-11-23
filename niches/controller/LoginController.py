@@ -2,18 +2,18 @@ import sys
 from PySide6 import QtWidgets
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-from Ui_Login import Ui_Login
-from Encryptor import Encryptor
-from UserDao import UserDao
-from UserMapper import UserMapper
-from UserDto import UserDto
-from User import User
-from ErrorController import ErrorController
-from Validator import Validator
-from Constants import *
-from UserTypeMapper import UserTypeMapper
-from UserTypeDao import UserTypeDao
-from UserTypeDto import UserTypeDto
+from niches.view.Ui_Login import Ui_Login
+from niches.util.Encryptor import Encryptor
+from niches.model.dao.UserDao import UserDao
+from niches.model.mapper.UserMapper import UserMapper
+from niches.model.dto.UserDto import UserDto
+from niches.model.entity.User import User
+from niches.controller.ErrorController import ErrorController
+from niches.util.Validator import Validator
+from niches.util.Constants import *
+from niches.model.mapper.UserTypeMapper import UserTypeMapper
+from niches.model.dao.UserTypeDao import UserTypeDao
+from niches.model.dto.UserTypeDto import UserTypeDto
 
 class LoginController(QtWidgets.QDialog, Ui_Login):
     def __init__(self):

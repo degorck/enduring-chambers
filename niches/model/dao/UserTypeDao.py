@@ -1,6 +1,6 @@
-from DbConnection import *
-from UserType import UserType
-from UserTypeDaoMapper import UserTypeDaoMapper
+from niches.util.DbConnection import *
+from niches.model.entity.UserType import UserType
+from niches.model.mapper.UserTypeDaoMapper import UserTypeDaoMapper
 
 class UserTypeDao:
     def __init__(self):

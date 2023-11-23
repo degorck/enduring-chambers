@@ -1,5 +1,5 @@
 from psycopg2.extras import RealDictRow
-from UserType import UserType
+from niches.model.entity.UserType import UserType
 
 class UserTypeDaoMapper:
     def real_dict_row_to_user(self, real_dict_row:RealDictRow):

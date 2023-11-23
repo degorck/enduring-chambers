@@ -1,12 +1,12 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-from Ui_MainWindow import Ui_MainWindow
-from ErrorController import ErrorController
-from CreateUserController import CreateUserController
-from SearchUserController import SearchUserController
-from LoginController import LoginController
-from Constants import UserTypeKey
+from niches.view.Ui_MainWindow import Ui_MainWindow
+from niches.controller.ErrorController import ErrorController
+from niches.controller.CreateUserController import CreateUserController
+from niches.controller.SearchUserController import SearchUserController
+from niches.controller.LoginController import LoginController
+from niches.util.Constants import UserTypeKey
 
 class MainWindowController(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):

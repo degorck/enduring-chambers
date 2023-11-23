@@ -1,6 +1,7 @@
-from User import User
-from UserDto import UserDto
+from niches.model.entity.User import User
+from niches.model.dto.UserDto import UserDto
 import datetime
+
 class UserMapper:
     def __init__(self):
         pass
