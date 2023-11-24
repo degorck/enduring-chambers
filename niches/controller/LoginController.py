@@ -19,7 +19,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
     def __init__(self):
         super(LoginController, self).__init__()
         self.setupUi(self)
-        self.__user_type_key = UserTypeKey.GUEST
+        self.__user_type_key = UserTypeKey.NOT_LOGGED.value
         self.__user_dao = UserDao()
         self.__user_mapper = UserMapper()
         self.__encryptor = Encryptor()
@@ -38,7 +38,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
         try:
             self.__validator.validate_is_not_empty(self.line_edit_user.text(), UserField.USER_NAME)
             self.__validator.validate_is_not_empty(self.line_edit_password.text(), UserField.PASSWORD)
-            user = self.__user_dao.find_by_user_name(self.line_edit_user.text())
+            user = self.__user_dao.find_by_user_name_and_active(self.line_edit_user.text())
             user_dto = self.__user_mapper.user_to_user_dto(user)
             if user_dto.get_user_name() == self.line_edit_user.text() and self.__encryptor.check_password(self.line_edit_password.text(), user.get_password()):
                 user_type_dto = UserTypeDto()
@@ -47,7 +47,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
                 self.__user_type_key = user_type_dto.get_key()
                 self.close()
             else:
-                self.__error_controller.handle_exception_error("Error en login. Verifica tu usuario y contraseña")
+                self.__error_controller.handle_exception_error(LOGIN_ERROR)
                 self.__error_controller.show()
 
         except ValueError as ve:
@@ -55,7 +55,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             self.__error_controller.show()
         
         except TypeError as e:
-            self.__error_controller.handle_exception_error("El usuario no existe.")
+            self.__error_controller.handle_exception_error(USER_NOT_EXIST)
             self.__error_controller.show()
 
         except Exception as e:
@@ -70,6 +70,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
 
     
     def __guest(self):
+        self.__user_type_key = UserTypeKey.GUEST.value
         self.close()
 
 if __name__ == "__main__":

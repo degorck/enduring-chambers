@@ -2,6 +2,7 @@ import psycopg2
 from dotenv import load_dotenv
 import os
 from psycopg2.extras import RealDictCursor
+import logging
 
 class DbConnection:
     def __init__(self):
@@ -19,10 +20,12 @@ class DbConnection:
                                              password = self.__db_password,
                                              port = self.__db_port)
         self.__cursor = self.__connection.cursor(cursor_factory=RealDictCursor)
+        logging.info("database connection started")
 
     def end_connection(self):
         self.__cursor.close()
         self.__connection.commit()
+        logging.info("Database connection finished")
 
     def get_cursor(self):
         return self.__cursor
