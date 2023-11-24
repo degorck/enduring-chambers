@@ -9,8 +9,6 @@ class UserDao:
         self.__db_connection = DbConnection()
         self.__user_dao_mapper = UserDaoMapper()
         self.__encryptor = Encryptor()
-        self.__db_connection.start_connection()
-        self.__db_connection.end_connection()
         
     def create_user(self, user:User):
         command = '''
@@ -168,7 +166,7 @@ class UserDao:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
     
-    def search_user(self, search_string:str):
+    def search_users(self, search_string:str):
         search_string = "%" + search_string + "%"
         user_list = []
         command = ('''
@@ -179,6 +177,43 @@ class UserDao:
                    maternal_surname LIKE %s OR
                    user_name LIKE %s OR
                    CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                   ''')
+        
+        values = (
+            search_string,
+            search_string,
+            search_string,
+            search_string,
+            search_string)
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
+            for row in rows:
+                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                user_list.append(user)
+            self.__db_connection.end_connection()
+            return user_list
+        except (Exception, psycopg2.DatabaseError) as error:
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()        
+
+    def search_active_users(self, search_string:str):
+        search_string = "%" + search_string + "%"
+        user_list = []
+        command = ('''
+                   SELECT * FROM tb_user
+                   WHERE
+                   name LIKE %s OR
+                   paternal_surname LIKE %s OR
+                   maternal_surname LIKE %s OR
+                   user_name LIKE %s OR
+                   CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                   AND
+                   is_active = True
                    ''')
         
         values = (
@@ -225,13 +260,15 @@ class UserDao:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
         
-    def find_by_user_name(self, user_name:str):
+    def find_by_user_name_and_active(self, user_name:str):
         user_name = "'" + user_name + "'"
         command = ('''
                    SELECT * 
                    FROM tb_user
                    WHERE
                    user_name = %s
+                   AND
+                   is_active = True
                    ''')
         
         try:

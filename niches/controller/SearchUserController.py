@@ -23,7 +23,6 @@ class SearchUserController(QtWidgets.QMainWindow, Ui_SearchUser):
     def __select_user(self):
         row = self.table_widget_users.currentRow()
         user_id = int(self.table_widget_users.item(row, 0).text())
-        print(user_id)
         self.__modify_user_controller.load_user(user_id)
         self.__modify_user_controller.show()
 
@@ -39,7 +38,7 @@ class SearchUserController(QtWidgets.QMainWindow, Ui_SearchUser):
         self.list_widget_users.clear()
         list_user_dto = []
         list_user = []
-        list_user = self.__user_dao.search_user(self.line_edit_search.text())
+        list_user = self.__user_dao.search_users(self.line_edit_search.text())
         self.__row = len(list_user)
         self.__configure_table()
         row = 0

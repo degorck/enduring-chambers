@@ -5,8 +5,6 @@ from niches.model.mapper.UserTypeDaoMapper import UserTypeDaoMapper
 class UserTypeDao:
     def __init__(self):
         self.__db_connection = DbConnection()
-        self.__db_connection.start_connection()
-        self.__db_connection.end_connection()
         self.__user_type_dao_mapper = UserTypeDaoMapper()
 
     def find_by_id(self, id:int):

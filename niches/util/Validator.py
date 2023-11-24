@@ -14,9 +14,9 @@ class Validator():
         if password == repeated_password:
             pass
         else:
-            raise ValueError("Las contraseñas deben ser iguales")
+            raise ValueError(PASSWORDS_MUST_BE_EQUAL)
         
-        if len(password) >= 10:
+        if len(password) >= PASSWORD_MINIMAL_CHARACTERS:
             pass
         else:
-            raise ValueError("La contraseña debe tener al menos 10 caracteres")
+            raise ValueError(PASSWORD_MUST_HAVE_CHARACTERS)
