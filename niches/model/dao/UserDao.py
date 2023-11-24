@@ -50,8 +50,10 @@ class UserDao:
             self.__db_connection.get_cursor().execute('SELECT LASTVAL()')
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
+            logging.debug("Se creó el usuario")
             return self.find_by_id(int(row["lastval"]))
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
@@ -82,7 +84,9 @@ class UserDao:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
             self.__db_connection.end_connection()
+            logging.debug("Se modificó el usuario")
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
@@ -109,7 +113,9 @@ class UserDao:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
             self.__db_connection.end_connection()
+            logging.debug("Se desactivó el usuario")
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
@@ -134,7 +140,9 @@ class UserDao:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
             self.__db_connection.end_connection()
+            logging.debug("Se reactivó el usuario")
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.error(error)
             raise error
 
         finally:
@@ -159,7 +167,9 @@ class UserDao:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
             self.__db_connection.end_connection()
+            logging.debug("Se cambió la contraseña")
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
         
         finally:
@@ -193,8 +203,10 @@ class UserDao:
                 user = self.__user_dao_mapper.real_dict_row_to_user(row)
                 user_list.append(user)
             self.__db_connection.end_connection()
+            logging.debug("Se buscaron todos los usuarios")
             return user_list
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
@@ -230,8 +242,10 @@ class UserDao:
                 user = self.__user_dao_mapper.real_dict_row_to_user(row)
                 user_list.append(user)
             self.__db_connection.end_connection()
+            logging.debug("Se buscaron los usuarios activos")
             return user_list
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
@@ -252,15 +266,17 @@ class UserDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             user = self.__user_dao_mapper.real_dict_row_to_user(row)
+            logging.debug("Se buscó el usuario por su id")
             return user
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
         
-    def find_by_user_name_and_active(self, user_name:str):
+    def find_active_user_by_user_name(self, user_name:str):
         user_name = "'" + user_name + "'"
         command = ('''
                    SELECT * 
@@ -276,9 +292,12 @@ class UserDao:
             self.__db_connection.get_cursor().execute(command % user_name)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            user = self.__user_dao_mapper.real_dict_row_to_user(row)
-            return user
+            if row != None:
+                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                logging.debug("Se buscó el usuario activo por su nombre de usuario")
+                return user
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
