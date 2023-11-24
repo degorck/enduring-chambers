@@ -1,5 +1,6 @@
 import logging
 from enum import StrEnum
+
 SHOULD_NOT_BE_EMPTY_LABEL = " no debe estar vacío"
 THE_FIELD_LABEL = "El campo "
 UTF_8 = 'utf-8'
@@ -17,8 +18,8 @@ Logging configuration:
 '''
 CONSOLE_LOG_ENABLED = True
 LOG_FORMAT = '[ %(asctime)s ][%(levelname)s][%(name)s] ::::: %(message)s ::::: [%(module)s :: %(funcName)s]'
-LOG_FILENAME = "enduring-chambers.log"
-LOGING_LEVEL = logging.INFO
+LOG_FILENAME = "enduring-chambers"
+LOGING_LEVEL = logging.DEBUG
 
 class UserField(StrEnum):
     NAME = "Nombre"

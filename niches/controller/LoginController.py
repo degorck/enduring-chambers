@@ -38,9 +38,11 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
         try:
             self.__validator.validate_is_not_empty(self.line_edit_user.text(), UserField.USER_NAME)
             self.__validator.validate_is_not_empty(self.line_edit_password.text(), UserField.PASSWORD)
-            user = self.__user_dao.find_by_user_name_and_active(self.line_edit_user.text())
+            user = self.__user_dao.find_active_user_by_user_name(self.line_edit_user.text())
             user_dto = self.__user_mapper.user_to_user_dto(user)
-            if user_dto.get_user_name() == self.line_edit_user.text() and self.__encryptor.check_password(self.line_edit_password.text(), user.get_password()):
+            if (user_dto.get_user_name() == self.line_edit_user.text() 
+                and self.__encryptor.check_password(self.line_edit_password.text(), user.get_password()) and
+                user_dto != None):
                 user_type_dto = UserTypeDto()
                 user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(self.__user_type_dao.find_by_id(user_dto.get_user_type_id()))
                 print(user_type_dto.get_key())
@@ -51,15 +53,18 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
                 self.__error_controller.show()
 
         except ValueError as ve:
+            logging.exception(ve)
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
         
         except TypeError as e:
+            logging.exception(e)
             self.__error_controller.handle_exception_error(USER_NOT_EXIST)
             self.__error_controller.show()
 
         except Exception as e:
-            self.__error_controller.handle_exception_error(e)
+            logging.exception(e)
+            self.__error_controller.handle_exception_error(USER_NOT_EXIST)
             self.__error_controller.show()
 
     def __set_windows_by_user_type(self, user_type_key:str):

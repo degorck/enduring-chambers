@@ -1,6 +1,7 @@
 from niches.util.DbConnection import *
 from niches.model.entity.UserType import UserType
 from niches.model.mapper.UserTypeDaoMapper import UserTypeDaoMapper
+import logging
 
 class UserTypeDao:
     def __init__(self):
@@ -22,8 +23,10 @@ class UserTypeDao:
             self.__db_connection.end_connection()
             user_type = UserType()
             user_type =  self.__user_type_dao_mapper.real_dict_row_to_user(row)
+            logging.debug("Se encontró un usuario por su id")
             return user_type
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:
@@ -48,10 +51,12 @@ class UserTypeDao:
                 user_type =  self.__user_type_dao_mapper.real_dict_row_to_user(row)
                 list_user_type.append(user_type)
             self.__db_connection.end_connection()
+            logging.debug("Se buscaron todos los usuarios")
             return list_user_type
            
             
         except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
             raise error
 
         finally:

@@ -3,6 +3,8 @@ from niches.model.entity.User import User
 
 class UserDaoMapper:
     def real_dict_row_to_user(self, real_dict_row:RealDictRow):
+        if real_dict_row == None:
+            user = User()
         user = User()
         user.existing_user(
             real_dict_row["id"],

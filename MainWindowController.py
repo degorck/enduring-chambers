@@ -26,7 +26,7 @@ class MainWindowController(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__login_controller.push_button_guest.clicked.connect(self.__configure_windows_by_user_type)
         self.show()
         self.__login_controller.show()
-        logging.info("System started")
+        logging.info("El sistema ha iniciado")
     
     def __configure_windows_by_user_type(self):
         self.__user_type_key = self.__login_controller.get_logged_user_type_key()
@@ -42,6 +42,7 @@ class MainWindowController(QtWidgets.QMainWindow, Ui_MainWindow):
 
             case UserTypeKey.NOT_LOGGED.value:
                 self.__configure_not_logged_window()
+        logging.debug("Se ha configurado la ventana de acuerdo al usuario loggeado: " + self.__user_type_key)
 
         
     def __configure_guest_window(self):
