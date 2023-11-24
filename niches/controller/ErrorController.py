@@ -1,7 +1,7 @@
 import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
-from niches.view.Error import Ui_Error
+from niches.view.Ui_Error import Ui_Error
 
 class ErrorController(QtWidgets.QWidget, Ui_Error):
     def __init__(self):
