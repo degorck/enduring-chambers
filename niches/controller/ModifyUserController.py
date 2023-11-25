@@ -2,7 +2,7 @@ import sys
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
 from niches.view.Ui_ModifyUser import Ui_ModifyUser
-from niches.controller.ErrorController import ErrorController
+from niches.controller.error_controller import ErrorController
 from niches.model.dao.UserDao import UserDao
 from niches.model.dto.UserDto import UserDto
 from niches.model.mapper.UserMapper import UserMapper
