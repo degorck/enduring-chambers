@@ -4,7 +4,7 @@ import os
 from psycopg2.extras import RealDictCursor
 import logging
 
-class DbConnection:
+class DatabaseConnection:
     def __init__(self):
         load_dotenv()
         self.__db_name = os.getenv("DB_NAME")

@@ -18,9 +18,3 @@ class ErrorController(QtWidgets.QWidget, Ui_Error):
     
     def hide_window(self):
         self.close()
-
-if __name__ == "__main__": 
-    app = QtWidgets.QApplication(sys.argv)
-    window = ErrorController()
-    window.show()
-    sys.exit(app.exec())

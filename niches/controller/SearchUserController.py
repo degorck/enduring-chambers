@@ -59,9 +59,3 @@ class SearchUserController(QtWidgets.QMainWindow, Ui_SearchUser):
             self.table_widget_users.setItem(row, 6, QtWidgets.QTableWidgetItem(str(user_dto.get_created_at())))
             self.table_widget_users.setItem(row, 7, QtWidgets.QTableWidgetItem(str(user_dto.get_updated_at())))
             row = row + 1
-
-if __name__ == "__main__": 
-    app = QtWidgets.QApplication(sys.argv)
-    window = SearchUserController()
-    window.show()
-    sys.exit(app.exec())
