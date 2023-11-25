@@ -1,11 +1,12 @@
-from niches.util.DbConnection import *
+from niches.util.DatabaseConnection import DatabaseConnection
+import psycopg2
 from niches.model.entity.UserType import UserType
 from niches.model.mapper.UserTypeDaoMapper import UserTypeDaoMapper
 import logging
 
 class UserTypeDao:
     def __init__(self):
-        self.__db_connection = DbConnection()
+        self.__db_connection = DatabaseConnection()
         self.__user_type_dao_mapper = UserTypeDaoMapper()
 
     def find_by_id(self, id:int):

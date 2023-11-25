@@ -77,9 +77,3 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
     def __guest(self):
         self.__user_type_key = UserTypeKey.GUEST.value
         self.close()
-
-if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    window = LoginController()
-    window.show()
-    sys.exit(app.exec())

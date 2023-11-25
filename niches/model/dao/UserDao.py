@@ -1,12 +1,14 @@
-from niches.util.DbConnection import *
+from niches.util.DatabaseConnection import DatabaseConnection
+import psycopg2
 from niches.model.entity.User import User
 from niches.util.Encryptor import Encryptor
 import datetime
 from niches.model.mapper.UserDaoMapper import UserDaoMapper
+import logging
 
 class UserDao:
     def __init__(self):
-        self.__db_connection = DbConnection()
+        self.__db_connection = DatabaseConnection()
         self.__user_dao_mapper = UserDaoMapper()
         self.__encryptor = Encryptor()
         

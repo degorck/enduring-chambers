@@ -9,7 +9,7 @@ from niches.model.mapper.UserMapper import UserMapper
 from niches.model.dao.UserTypeDao import UserTypeDao
 from niches.model.dto.UserTypeDto import UserTypeDto
 from niches.model.mapper.UserTypeMapper import UserTypeMapper
-from niches.util.Constants import *
+from niches.util.Constants import UserField
 from niches.util.Validator import Validator
 
 class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
@@ -29,7 +29,6 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
         self.push_button_save.clicked.connect(self.__update)
         self.push_button_deactivate.clicked.connect(self.__deactivate)
         self.push_button_activate.clicked.connect(self.__activate)
-        #self.load_user(self.__user_id)
 
     def __deactivate(self):
         try:
@@ -100,9 +99,3 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
         self.line_edit_paternal_surname.setText(user_dto.get_paternal_surname())
         self.line_edit_maternal_surname.setText(user_dto.get_maternal_surname())
         self.combo_box_user_type.setCurrentText(user_type_dto.get_name())
-
-if __name__ == "__main__": 
-    app = QtWidgets.QApplication(sys.argv)
-    window = ModifyUserController()
-    window.show()
-    sys.exit(app.exec())

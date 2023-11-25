@@ -3,7 +3,7 @@ import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
 from niches.view.Ui_CreateUser import Ui_CreateUser
 from niches.model.dto.UserDto import UserDto
-from niches.util.Constants import *
+from niches.util.Constants import UserField
 from niches.controller.ErrorController import ErrorController
 from niches.model.dao.UserTypeDao import UserTypeDao
 from niches.model.dao.UserDao import UserDao
@@ -66,10 +66,3 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
-
-
-if __name__ == "__main__": 
-    app = QtWidgets.QApplication(sys.argv)
-    window = CreateUserController()
-    window.show()
-    sys.exit(app.exec())
