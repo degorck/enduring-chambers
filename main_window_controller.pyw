@@ -9,7 +9,7 @@ from niches.view.Ui_MainWindow import Ui_MainWindow
 from niches.controller.create_user_controller import CreateUserController
 from niches.controller.search_user_controller import SearchUserController
 from niches.controller.login_controller import LoginController
-from niches.util.Constants import UserTypeKey
+from niches.constants.constants import UserTypeKey
 from niches.util.LoggingConfiguration import get_loging
 
 logging = get_loging()

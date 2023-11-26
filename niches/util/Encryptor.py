@@ -1,7 +1,7 @@
 import bcrypt
 from dotenv import load_dotenv
 import os
-from niches.util.Constants import UTF_8
+from niches.constants.constants import UTF_8
 import logging
 class Encryptor:
     def __init__(self):

@@ -1,9 +1,9 @@
-from niches.util.Constants import UserField
-from niches.util.Constants import THE_FIELD_LABEL
-from niches.util.Constants import SHOULD_NOT_BE_EMPTY_LABEL
-from niches.util.Constants import PASSWORDS_MUST_BE_EQUAL
-from niches.util.Constants import PASSWORD_MINIMAL_CHARACTERS
-from niches.util.Constants import PASSWORD_MUST_HAVE_CHARACTERS
+from niches.constants.constants import UserField
+from niches.constants.constants import THE_FIELD_LABEL
+from niches.constants.constants import SHOULD_NOT_BE_EMPTY_LABEL
+from niches.constants.constants import PASSWORDS_MUST_BE_EQUAL
+from niches.constants.constants import PASSWORD_MINIMAL_CHARACTERS
+from niches.constants.constants import PASSWORD_MUST_HAVE_CHARACTERS
 
 class Validator():
     def __init__(self):
