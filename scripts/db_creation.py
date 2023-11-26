@@ -1,7 +1,10 @@
-import psycopg2
-from dotenv import load_dotenv
+"""
+Script to create niches database
+"""
 import os
 import datetime
+import psycopg2
+from dotenv import load_dotenv
 
 load_dotenv()
 db_name = os.getenv("DB_NAME")
@@ -10,7 +13,7 @@ db_password = os.getenv("DB_PASSWORD")
 db_user = os.getenv("DB_USER")
 db_port = os.getenv("DB_PORT")
 
-def create_tables():
+def __create_tables():
     commands = (
         '''
         CREATE TABLE IF NOT EXISTS tb_user_type(
@@ -86,18 +89,18 @@ def create_tables():
         cursor = connection.cursor()
         for command in commands:
             cursor.execute(command)
-        
+
         cursor.close()
         connection.commit()
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
-    
+
     finally:
         if connection is not None:
             connection.close()
 
-def insert_user_type(name, key):
+def __insert_user_type(name, key):
     command = '''
             INSERT INTO tb_user_type(
                 name,
@@ -119,18 +122,18 @@ def insert_user_type(name, key):
                                       port = db_port)
         cursor = connection.cursor()
         cursor.execute(command, values)
-        
+
         cursor.close()
         connection.commit()
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
-    
+
     finally:
         if connection is not None:
             connection.close()
-        
-def insert_remain_type(name, key):
+
+def __insert_remain_type(name, key):
     command = '''
             INSERT INTO tb_remain_type(
                 name,
@@ -152,26 +155,26 @@ def insert_remain_type(name, key):
                                       port = db_port)
         cursor = connection.cursor()
         cursor.execute(command, values)
-        
+
         cursor.close()
         connection.commit()
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
-    
+
     finally:
         if connection is not None:
             connection.close()
 
-def insert_user_types():
-    insert_user_type("administrador", "dmn")
-    insert_user_type("capturista", "cpt")
+def __insert_user_types():
+    __insert_user_type("administrador", "dmn")
+    __insert_user_type("capturista", "cpt")
 
-def insert_remain_types():
-    insert_remain_type("cenizas", "cnz")
-    insert_remain_type("restos", "rst")
+def __insert_remain_types():
+    __insert_remain_type("cenizas", "cnz")
+    __insert_remain_type("restos", "rst")
 
 if __name__ == '__main__':
-    create_tables()
-    insert_user_types()
-    insert_remain_types()
+    __create_tables()
+    __insert_user_types()
+    __insert_remain_types()
