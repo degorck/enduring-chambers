@@ -10,7 +10,7 @@ from niches.model.mapper.UserMapper import UserMapper
 from niches.model.dao.UserTypeDao import UserTypeDao
 from niches.model.dto.UserTypeDto import UserTypeDto
 from niches.model.mapper.UserTypeMapper import UserTypeMapper
-from niches.util.Constants import UserField
+from niches.constants.constants import UserField
 from niches.util.Validator import Validator
 
 class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):

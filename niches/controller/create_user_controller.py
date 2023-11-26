@@ -4,7 +4,7 @@ Module that controls CreateUser widget
 from PySide6 import QtWidgets
 from niches.view.Ui_CreateUser import Ui_CreateUser
 from niches.model.dto.UserDto import UserDto
-from niches.util.Constants import UserField
+from niches.constants.constants import UserField
 from niches.controller.error_controller import ErrorController
 from niches.model.dao.UserTypeDao import UserTypeDao
 from niches.model.dao.UserDao import UserDao
