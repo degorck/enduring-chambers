@@ -1,6 +1,7 @@
-import sys
-import PySide6.QtCore as QtCore
-import PySide6.QtWidgets as QtWidgets
+"""
+Module that controls ModifyUser widget
+"""
+from PySide6 import QtWidgets
 from niches.view.Ui_ModifyUser import Ui_ModifyUser
 from niches.controller.error_controller import ErrorController
 from niches.model.dao.UserDao import UserDao
@@ -13,6 +14,13 @@ from niches.util.Constants import UserField
 from niches.util.Validator import Validator
 
 class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
+    """
+    Class with the functionality of ModifyUser widget
+
+    Args:
+        QtWidgets (QtWidgets.QWidget): Core QWidget
+        Ui_ModifyUser (Ui_ModifyUser): Qt layer transformed to python code 
+    """
     def __init__(self):
         super(ModifyUserController, self).__init__()
         self.setupUi(self)
@@ -35,40 +43,42 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
             self.__user_dao.deactivate_user(self.__user_id)
             self.__error_controller.handle_value_error("El usuario se ha desactivado")
             self.__error_controller.show()
-            self.close()                
+            self.close()
+
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
-        
+
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
-
 
     def __activate(self):
         try:
             self.__user_dao.reactivate_user(self.__user_id)
             self.__error_controller.handle_value_error("El usuario se ha activado")
             self.__error_controller.show()
-            self.close()          
+            self.close()
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
-        
+
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
 
     def __update(self):
         user_dto = UserDto()
-        try: 
-            self.__validator.validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
-            self.__validator.validate_is_not_empty(self.line_edit_paternal_surname.text(), UserField.PATERNAL_SURNAME)
-            self.__validator.validate_is_not_empty(self.line_edit_maternal_surname.text(), UserField.MATERNAL_SURNAME)
-            
-            user_dto = self.__user_mapper.user_to_user_dto(self.__user_dao.find_by_id(self.__user_id))
-
+        try:
+            self.__validator.validate_is_not_empty(self.line_edit_name.text(),
+                                                   UserField.NAME)
+            self.__validator.validate_is_not_empty(self.line_edit_paternal_surname.text(),
+                                                   UserField.PATERNAL_SURNAME)
+            self.__validator.validate_is_not_empty(self.line_edit_maternal_surname.text(),
+                                                   UserField.MATERNAL_SURNAME)
+            user_dto = self.__user_mapper.user_to_user_dto(
+                self.__user_dao.find_by_id(self.__user_id))
             user_dto.set_name(self.line_edit_name.text())
             user_dto.set_paternal_surname(self.line_edit_paternal_surname.text())
             user_dto.set_maternal_surname(self.line_edit_maternal_surname.text())
@@ -79,22 +89,26 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
             #self.__clean()
             self.__error_controller.handle_value_error("El usuario se ha modificado exitosamente")
             self.__error_controller.show()
-            self.close()          
+            self.close()
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
-        
+
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
 
     def load_user(self, id:int):
+        """
+        Loads the user on widget searching by its id
+        """
         self.__user_id = id
         user_dto = UserDto()
         user_dto = self.__user_mapper.user_to_user_dto(self.__user_dao.find_by_id(id))
         user_type_dto = UserTypeDto()
-        user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(self.__user_type_dao.find_by_id(user_dto.get_user_type_id()))
+        user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(
+            self.__user_type_dao.find_by_id(user_dto.get_user_type_id()))
         self.line_edit_name.setText(user_dto.get_name())
         self.line_edit_paternal_surname.setText(user_dto.get_paternal_surname())
         self.line_edit_maternal_surname.setText(user_dto.get_maternal_surname())

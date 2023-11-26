@@ -1,16 +1,24 @@
-import sys
-import PySide6.QtCore as QtCore
-import PySide6.QtWidgets as QtWidgets
+"""
+Module that controls CreateUser widget
+"""
+from PySide6 import QtWidgets
 from niches.view.Ui_CreateUser import Ui_CreateUser
 from niches.model.dto.UserDto import UserDto
 from niches.util.Constants import UserField
-from niches.controller.ErrorController import ErrorController
+from niches.controller.error_controller import ErrorController
 from niches.model.dao.UserTypeDao import UserTypeDao
 from niches.model.dao.UserDao import UserDao
 from niches.model.mapper.UserMapper import UserMapper
 from niches.util.Validator import Validator
 
 class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
+    """
+    Class with the functionality of CreateUser widget
+
+    Args:
+        QtWidgets (QtWidgets.QWidget): Core QWidget
+        Ui_CreateUser (Ui_CreateUser): Qt layer transformed to python code 
+    """
     def __init__(self):
         super(CreateUserController, self).__init__()
         self.setupUi(self)
@@ -36,15 +44,21 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
 
     def __save_user(self):
         user_dto = UserDto()
-        try: 
+        try:
             self.__validator.validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
-            self.__validator.validate_is_not_empty(self.line_edit_paternal_surname.text(), UserField.PATERNAL_SURNAME)
-            self.__validator.validate_is_not_empty(self.line_edit_maternal_surname.text(), UserField.MATERNAL_SURNAME)
-            self.__validator.validate_is_not_empty(self.line_edit_user_name.text(), UserField.USER_NAME)
-            self.__validator.validate_is_not_empty(self.line_edit_password.text(), UserField.PASSWORD)
-            self.__validator.validate_is_not_empty(self.line_edit_repeat_password.text(), UserField.PASSWORD)
-            self.__validator.validate_password(self.line_edit_password.text(), self.line_edit_repeat_password.text())
-            
+            self.__validator.validate_is_not_empty(self.line_edit_paternal_surname.text(),
+                                                   UserField.PATERNAL_SURNAME)
+            self.__validator.validate_is_not_empty(self.line_edit_maternal_surname.text(),
+                                                   UserField.MATERNAL_SURNAME)
+            self.__validator.validate_is_not_empty(self.line_edit_user_name.text(),
+                                                   UserField.USER_NAME)
+            self.__validator.validate_is_not_empty(self.line_edit_password.text(),
+                                                   UserField.PASSWORD)
+            self.__validator.validate_is_not_empty(self.line_edit_repeat_password.text(),
+                                                   UserField.PASSWORD)
+            self.__validator.validate_password(self.line_edit_password.text(),
+                                               self.line_edit_repeat_password.text())
+
             user_dto.new_user(
                 self.line_edit_name.text(),
                 self.line_edit_paternal_surname.text(),
@@ -62,7 +76,7 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
-        
+
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
