@@ -3,7 +3,11 @@ Constants required for enduring-chambers system
 """
 import logging
 from enum import StrEnum
-# Constants
+##############################################################################################
+##                                                                                          ##
+## Constants for enduring chambers system                                                   ##
+##                                                                                          ##
+##############################################################################################
 SHOULD_NOT_BE_EMPTY_LABEL = " no debe estar vacío"
 THE_FIELD_LABEL = "El campo "
 UTF_8 = 'utf-8'
@@ -13,6 +17,11 @@ PASSWORD_MUST_HAVE_CHARACTERS = "Las contraseñas deben tener " + str(PASSWORD_M
 LOGIN_ERROR = "Error en login. Verifica tu usuario y contraseña"
 USER_NOT_EXIST = "El usuario no existe o está inactivo"
 
+##############################################################################################
+##                                                                                          ##
+## Console log configuration                                                                ##
+##                                                                                          ##
+##############################################################################################
 CONSOLE_LOG_ENABLED = True
 LOG_FORMAT = '''
 [ %(asctime)s ][%(levelname)s][%(name)s] 
@@ -32,6 +41,12 @@ Logging levels:
     ERROR - error message
     CRITICAL - critical message
 '''
+
+##############################################################################################
+##                                                                                          ##
+## Enums for enduring chambers system                                                       ##
+##                                                                                          ##
+##############################################################################################
 
 class UserField(StrEnum):
     """
