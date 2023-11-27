@@ -8,7 +8,7 @@ from niches.model.mapper.UserMapper import UserMapper
 from niches.model.dto.UserDto import UserDto
 from niches.model.entity.User import User
 from niches.controller.error_controller import ErrorController
-from niches.util.Validator import Validator
+from niches.util.validator import validate_is_not_empty
 from niches.constants.constants import UserTypeKey, UserField
 from niches.constants.constants import LOGIN_ERROR
 from niches.constants.constants import USER_NOT_EXIST
@@ -28,18 +28,18 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
         self.__user_type_dao = UserTypeDao()
         self.__user_type_mapper = UserTypeMapper()
         self.__error_controller = ErrorController()
-        self.__validator = Validator()
         self.push_button_login.clicked.connect(self.__login)
         self.push_button_guest.clicked.connect(self.__guest)
         self.line_edit_password.returnPressed.connect(self.__login)
         self.__set_windows_by_user_type(self.__user_type_key)
+
     def __login(self):
         user_dto = UserDto()
         user = User()
         try:
-            self.__validator.validate_is_not_empty(self.line_edit_user.text(),
+            validate_is_not_empty(self.line_edit_user.text(),
                                                    UserField.USER_NAME)
-            self.__validator.validate_is_not_empty(self.line_edit_password.text(),
+            validate_is_not_empty(self.line_edit_password.text(),
                                                    UserField.PASSWORD)
             user = self.__user_dao.find_active_user_by_user_name(self.line_edit_user.text())
             user_dto = self.__user_mapper.user_to_user_dto(user)
@@ -68,11 +68,14 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             logging.exception(e)
             self.__error_controller.handle_exception_error(USER_NOT_EXIST)
             self.__error_controller.show()
+
     def __set_windows_by_user_type(self, user_type_key:str):
         self.__user_type_key = user_type_key
+
     def get_logged_user_type_key(self):
         '''Returns user_type_key'''
         return self.__user_type_key
+
     def __guest(self):
         self.__user_type_key = UserTypeKey.GUEST.value
         self.close()

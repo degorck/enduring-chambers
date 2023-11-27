@@ -320,7 +320,7 @@ class UserDao:
             self.__db_connection.get_cursor().execute(command % user_name)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            if row != None:
+            if row is not None:
                 user = self.__user_dao_mapper.real_dict_row_to_user(row)
                 logging.debug("Se buscó el usuario activo por su nombre de usuario")
                 return user

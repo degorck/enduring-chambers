@@ -11,7 +11,7 @@ from niches.model.dao.UserTypeDao import UserTypeDao
 from niches.model.dto.UserTypeDto import UserTypeDto
 from niches.model.mapper.UserTypeMapper import UserTypeMapper
 from niches.constants.constants import UserField
-from niches.util.Validator import Validator
+from niches.util.validator import validate_is_not_empty
 
 class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
     """
@@ -29,7 +29,6 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
         self.__user_type_dao = UserTypeDao()
         self.__user_type_mapper = UserTypeMapper()
         self.__error_controller = ErrorController()
-        self.__validator = Validator()
         self.__list_user_type = self.__user_type_dao.find_all()
         self.__user_id = 0
         for user_type in self.__list_user_type:
@@ -71,11 +70,11 @@ class ModifyUserController(QtWidgets.QWidget, Ui_ModifyUser):
     def __update(self):
         user_dto = UserDto()
         try:
-            self.__validator.validate_is_not_empty(self.line_edit_name.text(),
+            validate_is_not_empty(self.line_edit_name.text(),
                                                    UserField.NAME)
-            self.__validator.validate_is_not_empty(self.line_edit_paternal_surname.text(),
+            validate_is_not_empty(self.line_edit_paternal_surname.text(),
                                                    UserField.PATERNAL_SURNAME)
-            self.__validator.validate_is_not_empty(self.line_edit_maternal_surname.text(),
+            validate_is_not_empty(self.line_edit_maternal_surname.text(),
                                                    UserField.MATERNAL_SURNAME)
             user_dto = self.__user_mapper.user_to_user_dto(
                 self.__user_dao.find_by_id(self.__user_id))
