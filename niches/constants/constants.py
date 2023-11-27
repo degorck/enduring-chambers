@@ -16,6 +16,10 @@ PASSWORD_MINIMAL_CHARACTERS = 10
 PASSWORD_MUST_HAVE_CHARACTERS = "Las contraseñas deben tener " + str(PASSWORD_MINIMAL_CHARACTERS) + " caracteres."
 LOGIN_ERROR = "Error en login. Verifica tu usuario y contraseña"
 USER_NOT_EXIST = "El usuario no existe o está inactivo"
+HASHED_BOOLEAN_CONVERTER = {
+    "True" : "Activo",
+    "False": "Inactivo"
+}
 
 ##############################################################################################
 ##                                                                                          ##

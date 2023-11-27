@@ -305,3 +305,29 @@ class UserDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def find_user_by_user_name(self, user_name:str):
+        user_name = "'" + user_name + "'"
+        command = ('''
+                   SELECT * 
+                   FROM tb_user
+                   WHERE
+                   user_name = %s
+                   ''')
+        
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command % user_name)
+            row = self.__db_connection.get_cursor().fetchone()
+            self.__db_connection.end_connection()
+            if row != None:
+                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                logging.debug("Se buscó el usuario activo por su nombre de usuario")
+                return user
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
