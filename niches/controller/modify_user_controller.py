@@ -4,7 +4,7 @@ Module that controls ModifyUser widget
 from PySide6 import QtWidgets
 from niches.view.Ui_ModifyUser import Ui_ModifyUser
 from niches.controller.error_controller import ErrorController
-from niches.model.dao.UserDao import UserDao
+from niches.model.dao.user_dao import UserDao
 from niches.model.dto.UserDto import UserDto
 from niches.model.mapper.UserMapper import UserMapper
 from niches.model.dao.UserTypeDao import UserTypeDao

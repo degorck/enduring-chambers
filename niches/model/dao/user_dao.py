@@ -1,18 +1,36 @@
-from niches.util.DatabaseConnection import DatabaseConnection
+"""
+User Dao Module. Includes all the functions to load and read data
+from database. 
+"""
+import logging
+import datetime
 import psycopg2
+from niches.util.DatabaseConnection import DatabaseConnection
 from niches.model.entity.User import User
 from niches.util.Encryptor import Encryptor
-import datetime
 from niches.model.mapper.UserDaoMapper import UserDaoMapper
-import logging
+
 
 class UserDao:
+    """
+    Class with the functionality of User Dao
+    """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
         self.__user_dao_mapper = UserDaoMapper()
         self.__encryptor = Encryptor()
-        
+
     def create_user(self, user:User):
+        """
+        Saves the user on database
+
+        Args:
+            user: User
+                User entity to be created
+        Returns:
+            user : User
+                Created user entity 
+        """
         command = '''
                 INSERT INTO tb_user(
                     name,
@@ -61,18 +79,25 @@ class UserDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
-        
+
     def modify_user(self, user:User):
-        command = ('''
-                   UPDATE tb_user
-                   SET
-                   name = %s,
-                   paternal_surname = %s,
-                   maternal_surname = %s,
-                   user_type_id = %s,
-                   updated_at = %s
-                   WHERE id = %s
-                   ''')
+        """
+        Modifies the user on database
+        
+        Args:
+            user: User
+                User entity to be modified
+        """
+        command = '''
+                UPDATE tb_user
+                SET
+                name = %s,
+                paternal_surname = %s,
+                maternal_surname = %s,
+                user_type_id = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
         values = (
             user.get_name(),
             user.get_paternal_surname(),
@@ -81,7 +106,7 @@ class UserDao:
             datetime.datetime.now(),
             user.get_id()
             )
-        
+
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -94,23 +119,28 @@ class UserDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def deactivate_user(self, user_id:int):
+        """
+        Deactivates the user on database
         
-
-
-    def deactivate_user(self, id:int):
-        command = ('''
-                   UPDATE tb_user
-                   SET
-                   is_active = %s,
-                   updated_at = %s
-                   WHERE id = %s
-                   ''')
+        Args:
+            user_id: int
+                user_id of the user to deactivate
+        """
+        command = '''
+                UPDATE tb_user
+                SET
+                is_active = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
         values = (
             False,
             datetime.datetime.now(),
-            id
+            user_id
             )
-        
+
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -124,20 +154,27 @@ class UserDao:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
 
-    def reactivate_user(self, id:int):
-        command = ('''
-                   UPDATE tb_user
-                   SET
-                   is_active = %s,
-                   updated_at = %s
-                   WHERE id = %s
-                   ''')
+    def reactivate_user(self, user_id:int):
+        """
+        Activates the user on database
+        
+        Args:
+            user_id: int
+                user_id of the user to activate
+        """
+        command = '''
+                UPDATE tb_user
+                SET
+                is_active = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
         values = (
             True,
             datetime.datetime.now(),
-            id
+            user_id
             )
-        
+
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -151,20 +188,29 @@ class UserDao:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
 
-    def change_user_password(self, id:int, password:str):
-        command = ('''
-                   UPDATE tb_user
-                   SET
-                   password = %s,
-                   updated_at = %s
-                   WHERE id = %s
-                   ''')
+    def change_user_password(self, user_name:str, password:str):
+        """
+        Changes the user password on database
+        
+        Args:
+            user_name: str
+                user_name of the user to change password
+            password: str
+                New password
+        """
+        command = '''
+                UPDATE tb_user
+                SET
+                password = %s,
+                updated_at = %s
+                WHERE user_name = %s
+                '''
         values = (
             self.__encryptor.hash_password(password),
             datetime.datetime.now(),
-            id
+            user_name
             )
-        
+
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -173,24 +219,32 @@ class UserDao:
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)
             raise error
-        
+
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
-    
+
     def search_users(self, search_string:str):
+        """
+        Search all users by search_string
+        
+        Args:
+            search_string: str
+                String to match with the users search
+        Returns:
+            user_list = list<User>
+        """
         search_string = "%" + search_string + "%"
         user_list = []
-        command = ('''
-                   SELECT * FROM tb_user
-                   WHERE
-                   name LIKE %s OR
-                   paternal_surname LIKE %s OR
-                   maternal_surname LIKE %s OR
-                   user_name LIKE %s OR
-                   CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
-                   ''')
-        
+        command = '''
+                SELECT * FROM tb_user
+                WHERE
+                name LIKE %s OR
+                paternal_surname LIKE %s OR
+                maternal_surname LIKE %s OR
+                user_name LIKE %s OR
+                CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                '''
         values = (
             search_string,
             search_string,
@@ -213,23 +267,32 @@ class UserDao:
 
         finally:
             if self.__db_connection.get_connection() is not None:
-                self.__db_connection.get_connection().close()        
+                self.__db_connection.get_connection().close()
 
     def search_active_users(self, search_string:str):
+        """
+        Search all active users by search_string
+        
+        Args:
+            search_string: str
+                String to match with the users search
+        Returns:
+            user_list = list<User>
+        """
         search_string = "%" + search_string + "%"
         user_list = []
-        command = ('''
-                   SELECT * FROM tb_user
-                   WHERE
-                   name LIKE %s OR
-                   paternal_surname LIKE %s OR
-                   maternal_surname LIKE %s OR
-                   user_name LIKE %s OR
-                   CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
-                   AND
-                   is_active = True
-                   ''')
-        
+        command = '''
+                SELECT * FROM tb_user
+                WHERE
+                name LIKE %s OR
+                paternal_surname LIKE %s OR
+                maternal_surname LIKE %s OR
+                user_name LIKE %s OR
+                CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                AND
+                is_active = True
+                '''
+
         values = (
             search_string,
             search_string,
@@ -252,19 +315,29 @@ class UserDao:
 
         finally:
             if self.__db_connection.get_connection() is not None:
-                self.__db_connection.get_connection().close()        
-    
-    def find_by_id(self, id:int):
-        command = ('''
-                   SELECT * 
-                   FROM tb_user
-                   WHERE
-                   id = %s
-                   ''')
+                self.__db_connection.get_connection().close()
+
+    def find_by_id(self, user_id:int):
+        """
+        Find user by its user_id
         
+        Args:
+            user_id: int
+                user_id of the user to find
+        Returns:
+            user: User
+                User found
+        """
+        command = '''
+                SELECT * 
+                FROM tb_user
+                WHERE
+                id = %s
+                '''
+
         try:
             self.__db_connection.start_connection()
-            self.__db_connection.get_cursor().execute(command % id)
+            self.__db_connection.get_cursor().execute(command % user_id)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             user = self.__user_dao_mapper.real_dict_row_to_user(row)
@@ -277,44 +350,28 @@ class UserDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
-        
+
     def find_active_user_by_user_name(self, user_name:str):
-        user_name = "'" + user_name + "'"
-        command = ('''
-                   SELECT * 
-                   FROM tb_user
-                   WHERE
-                   user_name = %s
-                   AND
-                   is_active = True
-                   ''')
+        """
+        Find active user by its user_id
         
-        try:
-            self.__db_connection.start_connection()
-            self.__db_connection.get_cursor().execute(command % user_name)
-            row = self.__db_connection.get_cursor().fetchone()
-            self.__db_connection.end_connection()
-            if row != None:
-                user = self.__user_dao_mapper.real_dict_row_to_user(row)
-                logging.debug("Se buscó el usuario activo por su nombre de usuario")
-                return user
-        except (Exception, psycopg2.DatabaseError) as error:
-            logging.exception(error)
-            raise error
-
-        finally:
-            if self.__db_connection.get_connection() is not None:
-                self.__db_connection.get_connection().close()
-
-    def find_user_by_user_name(self, user_name:str):
+        Args:
+            user_id: int
+                user_id of the user to find
+        Returns:
+            user: User
+                User found
+        """
         user_name = "'" + user_name + "'"
-        command = ('''
-                   SELECT * 
-                   FROM tb_user
-                   WHERE
-                   user_name = %s
-                   ''')
-        
+        command = '''
+                SELECT * 
+                FROM tb_user
+                WHERE
+                user_name = %s
+                AND
+                is_active = True
+                '''
+
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command % user_name)
@@ -324,6 +381,46 @@ class UserDao:
                 user = self.__user_dao_mapper.real_dict_row_to_user(row)
                 logging.debug("Se buscó el usuario activo por su nombre de usuario")
                 return user
+            else:
+                return None
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+
+    def find_user_by_user_name(self, user_name:str):
+        """
+        Find user by its user_name
+        
+        Args:
+            user_name: str
+                user_name of the user to find
+        Returns:
+            user: User
+                User found
+        """
+        user_name = "'" + user_name + "'"
+        command = '''
+                SELECT * 
+                FROM tb_user
+                WHERE
+                user_name = %s
+                '''
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command % user_name)
+            row = self.__db_connection.get_cursor().fetchone()
+            self.__db_connection.end_connection()
+            if row is not None:
+                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                logging.debug("Se buscó el usuario activo por su nombre de usuario")
+                return user
+            else:
+                return None
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)
             raise error

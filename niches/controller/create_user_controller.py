@@ -7,7 +7,7 @@ from niches.model.dto.UserDto import UserDto
 from niches.constants.constants import UserField
 from niches.controller.error_controller import ErrorController
 from niches.model.dao.UserTypeDao import UserTypeDao
-from niches.model.dao.UserDao import UserDao
+from niches.model.dao.user_dao import UserDao
 from niches.model.mapper.UserMapper import UserMapper
 from niches.util.validator import validate_is_not_empty, validate_password
 

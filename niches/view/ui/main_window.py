@@ -43,6 +43,24 @@ class Ui_MainWindow(object):
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.frame_9)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.label_welcome = QLabel(self.frame_9)
+        self.label_welcome.setObjectName(u"label_welcome")
+        self.label_welcome.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_welcome)
+
+        self.label_welcome_user_name = QLabel(self.frame_9)
+        self.label_welcome_user_name.setObjectName(u"label_welcome_user_name")
+        self.label_welcome_user_name.setStyleSheet(u"QLabel{\n"
+"	background-color: rgb(85, 170, 255);\n"
+"	color: rgb(255, 255, 255);\n"
+"	padding: 8px 8px;\n"
+"	border-radius: 10px;\n"
+"}")
+        self.label_welcome_user_name.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_welcome_user_name)
+
         self.push_button_users = QPushButton(self.frame_9)
         self.push_button_users.setObjectName(u"push_button_users")
         font = QFont()
@@ -163,7 +181,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_user.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 194, 466))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_create_user = QLabel(self.scrollAreaWidgetContents_3)
@@ -282,7 +300,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_user.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 194, 346))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label_modify_user = QLabel(self.scrollAreaWidgetContents_2)
@@ -372,7 +390,7 @@ class Ui_MainWindow(object):
         self.scroll_area_users.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 263, 500))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 124, 117))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.table_widget_users = QTableWidget(self.scrollAreaWidgetContents_4)
@@ -1187,76 +1205,76 @@ class Ui_MainWindow(object):
         self.my_account.setObjectName(u"my_account")
         self.gridLayout_13 = QGridLayout(self.my_account)
         self.gridLayout_13.setObjectName(u"gridLayout_13")
-        self.scrollArea_18 = QScrollArea(self.my_account)
-        self.scrollArea_18.setObjectName(u"scrollArea_18")
-        self.scrollArea_18.setMaximumSize(QSize(200, 16777215))
-        self.scrollArea_18.setWidgetResizable(True)
+        self.scroll_area_change_password = QScrollArea(self.my_account)
+        self.scroll_area_change_password.setObjectName(u"scroll_area_change_password")
+        self.scroll_area_change_password.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_change_password.setWidgetResizable(True)
         self.scrollAreaWidgetContents_28 = QWidget()
         self.scrollAreaWidgetContents_28.setObjectName(u"scrollAreaWidgetContents_28")
         self.scrollAreaWidgetContents_28.setGeometry(QRect(0, 0, 152, 266))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_28)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.label_51 = QLabel(self.scrollAreaWidgetContents_28)
-        self.label_51.setObjectName(u"label_51")
-        self.label_51.setAlignment(Qt.AlignCenter)
+        self.label_my_account_change_password = QLabel(self.scrollAreaWidgetContents_28)
+        self.label_my_account_change_password.setObjectName(u"label_my_account_change_password")
+        self.label_my_account_change_password.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_18.addWidget(self.label_51)
+        self.verticalLayout_18.addWidget(self.label_my_account_change_password)
 
-        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontal_spacer_my_account_change_password = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.verticalLayout_18.addItem(self.horizontalSpacer_13)
+        self.verticalLayout_18.addItem(self.horizontal_spacer_my_account_change_password)
 
-        self.label_48 = QLabel(self.scrollAreaWidgetContents_28)
-        self.label_48.setObjectName(u"label_48")
+        self.label_my_account_current_password = QLabel(self.scrollAreaWidgetContents_28)
+        self.label_my_account_current_password.setObjectName(u"label_my_account_current_password")
 
-        self.verticalLayout_18.addWidget(self.label_48)
+        self.verticalLayout_18.addWidget(self.label_my_account_current_password)
 
-        self.lineEdit_15 = QLineEdit(self.scrollAreaWidgetContents_28)
-        self.lineEdit_15.setObjectName(u"lineEdit_15")
+        self.line_edit_my_account_current_password = QLineEdit(self.scrollAreaWidgetContents_28)
+        self.line_edit_my_account_current_password.setObjectName(u"line_edit_my_account_current_password")
 
-        self.verticalLayout_18.addWidget(self.lineEdit_15)
+        self.verticalLayout_18.addWidget(self.line_edit_my_account_current_password)
 
-        self.label_49 = QLabel(self.scrollAreaWidgetContents_28)
-        self.label_49.setObjectName(u"label_49")
+        self.label_my_account_new_password = QLabel(self.scrollAreaWidgetContents_28)
+        self.label_my_account_new_password.setObjectName(u"label_my_account_new_password")
 
-        self.verticalLayout_18.addWidget(self.label_49)
+        self.verticalLayout_18.addWidget(self.label_my_account_new_password)
 
-        self.lineEdit_24 = QLineEdit(self.scrollAreaWidgetContents_28)
-        self.lineEdit_24.setObjectName(u"lineEdit_24")
+        self.line_edit_my_account_new_password = QLineEdit(self.scrollAreaWidgetContents_28)
+        self.line_edit_my_account_new_password.setObjectName(u"line_edit_my_account_new_password")
 
-        self.verticalLayout_18.addWidget(self.lineEdit_24)
+        self.verticalLayout_18.addWidget(self.line_edit_my_account_new_password)
 
-        self.label_50 = QLabel(self.scrollAreaWidgetContents_28)
-        self.label_50.setObjectName(u"label_50")
+        self.label_my_account_repeat_new_password = QLabel(self.scrollAreaWidgetContents_28)
+        self.label_my_account_repeat_new_password.setObjectName(u"label_my_account_repeat_new_password")
 
-        self.verticalLayout_18.addWidget(self.label_50)
+        self.verticalLayout_18.addWidget(self.label_my_account_repeat_new_password)
 
-        self.lineEdit_25 = QLineEdit(self.scrollAreaWidgetContents_28)
-        self.lineEdit_25.setObjectName(u"lineEdit_25")
+        self.line_edit_my_account_repeat_new_password = QLineEdit(self.scrollAreaWidgetContents_28)
+        self.line_edit_my_account_repeat_new_password.setObjectName(u"line_edit_my_account_repeat_new_password")
 
-        self.verticalLayout_18.addWidget(self.lineEdit_25)
+        self.verticalLayout_18.addWidget(self.line_edit_my_account_repeat_new_password)
 
-        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.vertical_spacer_my_account = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_18.addItem(self.verticalSpacer_10)
+        self.verticalLayout_18.addItem(self.vertical_spacer_my_account)
 
-        self.frame_24 = QFrame(self.scrollAreaWidgetContents_28)
-        self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setFrameShape(QFrame.StyledPanel)
-        self.frame_24.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_21 = QHBoxLayout(self.frame_24)
+        self.frame_change_password = QFrame(self.scrollAreaWidgetContents_28)
+        self.frame_change_password.setObjectName(u"frame_change_password")
+        self.frame_change_password.setFrameShape(QFrame.StyledPanel)
+        self.frame_change_password.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_21 = QHBoxLayout(self.frame_change_password)
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.pushButton_35 = QPushButton(self.frame_24)
-        self.pushButton_35.setObjectName(u"pushButton_35")
+        self.push_button_change_password = QPushButton(self.frame_change_password)
+        self.push_button_change_password.setObjectName(u"push_button_change_password")
 
-        self.horizontalLayout_21.addWidget(self.pushButton_35)
+        self.horizontalLayout_21.addWidget(self.push_button_change_password)
 
 
-        self.verticalLayout_18.addWidget(self.frame_24)
+        self.verticalLayout_18.addWidget(self.frame_change_password)
 
-        self.scrollArea_18.setWidget(self.scrollAreaWidgetContents_28)
+        self.scroll_area_change_password.setWidget(self.scrollAreaWidgetContents_28)
 
-        self.gridLayout_13.addWidget(self.scrollArea_18, 2, 1, 1, 1)
+        self.gridLayout_13.addWidget(self.scroll_area_change_password, 2, 1, 1, 1)
 
         self.frame_22 = QFrame(self.my_account)
         self.frame_22.setObjectName(u"frame_22")
@@ -1264,19 +1282,14 @@ class Ui_MainWindow(object):
         self.frame_22.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_19 = QHBoxLayout(self.frame_22)
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
-        self.label_24 = QLabel(self.frame_22)
-        self.label_24.setObjectName(u"label_24")
+        self.label_my_account_my_account = QLabel(self.frame_22)
+        self.label_my_account_my_account.setObjectName(u"label_my_account_my_account")
 
-        self.horizontalLayout_19.addWidget(self.label_24)
+        self.horizontalLayout_19.addWidget(self.label_my_account_my_account)
 
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontal_spacer_my_account_header = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_19.addItem(self.horizontalSpacer_10)
-
-        self.pushButton_32 = QPushButton(self.frame_22)
-        self.pushButton_32.setObjectName(u"pushButton_32")
-
-        self.horizontalLayout_19.addWidget(self.pushButton_32)
+        self.horizontalLayout_19.addItem(self.horizontal_spacer_my_account_header)
 
 
         self.gridLayout_13.addWidget(self.frame_22, 0, 0, 1, 3)
@@ -1287,19 +1300,19 @@ class Ui_MainWindow(object):
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_8)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.label_52 = QLabel(self.frame_8)
-        self.label_52.setObjectName(u"label_52")
+        self.label_my_account_user_name = QLabel(self.frame_8)
+        self.label_my_account_user_name.setObjectName(u"label_my_account_user_name")
 
-        self.horizontalLayout_5.addWidget(self.label_52)
+        self.horizontalLayout_5.addWidget(self.label_my_account_user_name)
 
-        self.label_53 = QLabel(self.frame_8)
-        self.label_53.setObjectName(u"label_53")
+        self.label_my_account_your_user_name = QLabel(self.frame_8)
+        self.label_my_account_your_user_name.setObjectName(u"label_my_account_your_user_name")
 
-        self.horizontalLayout_5.addWidget(self.label_53)
+        self.horizontalLayout_5.addWidget(self.label_my_account_your_user_name)
 
-        self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontal_spacer_my_account_user_name = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_14)
+        self.horizontalLayout_5.addItem(self.horizontal_spacer_my_account_user_name)
 
 
         self.gridLayout_13.addWidget(self.frame_8, 1, 0, 1, 3)
@@ -1320,7 +1333,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.push_button_deceased.setDefault(False)
-        self.stacked_widget.setCurrentIndex(1)
+        self.stacked_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1328,6 +1341,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Enduring Chambers", None))
+        self.label_welcome.setText(QCoreApplication.translate("MainWindow", u"Hola:", None))
+        self.label_welcome_user_name.setText(QCoreApplication.translate("MainWindow", u"user_name", None))
         self.push_button_users.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.push_button_deceased.setText(QCoreApplication.translate("MainWindow", u"Fallecidos", None))
         self.push_button_holders.setText(QCoreApplication.translate("MainWindow", u"Titulares", None))
@@ -1413,14 +1428,13 @@ class Ui_MainWindow(object):
         self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Nichos", None))
         self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
-        self.label_51.setText(QCoreApplication.translate("MainWindow", u"Cambiar contrase\u00f1a:", None))
-        self.label_48.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a actual:", None))
-        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Nueva contrase\u00f1a:", None))
-        self.label_50.setText(QCoreApplication.translate("MainWindow", u"Repetir contrase\u00f1a:", None))
-        self.pushButton_35.setText(QCoreApplication.translate("MainWindow", u"Cambiar contrase\u00f1a", None))
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Mi cuenta", None))
-        self.pushButton_32.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
-        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Nombre de usuario:", None))
-        self.label_53.setText(QCoreApplication.translate("MainWindow", u"your_user_name", None))
+        self.label_my_account_change_password.setText(QCoreApplication.translate("MainWindow", u"Cambiar contrase\u00f1a:", None))
+        self.label_my_account_current_password.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a actual:", None))
+        self.label_my_account_new_password.setText(QCoreApplication.translate("MainWindow", u"Nueva contrase\u00f1a:", None))
+        self.label_my_account_repeat_new_password.setText(QCoreApplication.translate("MainWindow", u"Repetir contrase\u00f1a:", None))
+        self.push_button_change_password.setText(QCoreApplication.translate("MainWindow", u"Cambiar contrase\u00f1a", None))
+        self.label_my_account_my_account.setText(QCoreApplication.translate("MainWindow", u"Mi cuenta", None))
+        self.label_my_account_user_name.setText(QCoreApplication.translate("MainWindow", u"Nombre de usuario:", None))
+        self.label_my_account_your_user_name.setText(QCoreApplication.translate("MainWindow", u"your_user_name", None))
     # retranslateUi
 

@@ -46,6 +46,34 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
+        <widget class="QLabel" name="label_welcome">
+         <property name="text">
+          <string>Hola:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_welcome_user_name">
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	background-color: rgb(85, 170, 255);
+	color: rgb(255, 255, 255);
+	padding: 8px 8px;
+	border-radius: 10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>user_name</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="push_button_users">
          <property name="font">
           <font>
@@ -227,7 +255,7 @@
        <enum>QFrame::Plain</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="unselected">
        <layout class="QGridLayout" name="gridLayout_14">
@@ -305,8 +333,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -474,8 +502,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -602,8 +630,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>263</width>
-             <height>500</height>
+             <width>124</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -1779,7 +1807,7 @@
       <widget class="QWidget" name="my_account">
        <layout class="QGridLayout" name="gridLayout_13">
         <item row="2" column="1">
-         <widget class="QScrollArea" name="scrollArea_18">
+         <widget class="QScrollArea" name="scroll_area_change_password">
           <property name="maximumSize">
            <size>
             <width>200</width>
@@ -1800,7 +1828,7 @@
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
             <item>
-             <widget class="QLabel" name="label_51">
+             <widget class="QLabel" name="label_my_account_change_password">
               <property name="text">
                <string>Cambiar contraseña:</string>
               </property>
@@ -1810,7 +1838,7 @@
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_13">
+             <spacer name="horizontal_spacer_my_account_change_password">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -1823,37 +1851,37 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_48">
+             <widget class="QLabel" name="label_my_account_current_password">
               <property name="text">
                <string>Contraseña actual:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_15"/>
+             <widget class="QLineEdit" name="line_edit_my_account_current_password"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_49">
+             <widget class="QLabel" name="label_my_account_new_password">
               <property name="text">
                <string>Nueva contraseña:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_24"/>
+             <widget class="QLineEdit" name="line_edit_my_account_new_password"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_50">
+             <widget class="QLabel" name="label_my_account_repeat_new_password">
               <property name="text">
                <string>Repetir contraseña:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_25"/>
+             <widget class="QLineEdit" name="line_edit_my_account_repeat_new_password"/>
             </item>
             <item>
-             <spacer name="verticalSpacer_10">
+             <spacer name="vertical_spacer_my_account">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -1866,7 +1894,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="frame_24">
+             <widget class="QFrame" name="frame_change_password">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -1875,7 +1903,7 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_21">
                <item>
-                <widget class="QPushButton" name="pushButton_35">
+                <widget class="QPushButton" name="push_button_change_password">
                  <property name="text">
                   <string>Cambiar contraseña</string>
                  </property>
@@ -1898,14 +1926,14 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_19">
            <item>
-            <widget class="QLabel" name="label_24">
+            <widget class="QLabel" name="label_my_account_my_account">
              <property name="text">
               <string>Mi cuenta</string>
              </property>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_10">
+            <spacer name="horizontal_spacer_my_account_header">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -1916,13 +1944,6 @@
               </size>
              </property>
             </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButton_32">
-             <property name="text">
-              <string>Crear</string>
-             </property>
-            </widget>
            </item>
           </layout>
          </widget>
@@ -1937,21 +1958,21 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="QLabel" name="label_52">
+            <widget class="QLabel" name="label_my_account_user_name">
              <property name="text">
               <string>Nombre de usuario:</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_53">
+            <widget class="QLabel" name="label_my_account_your_user_name">
              <property name="text">
               <string>your_user_name</string>
              </property>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_14">
+            <spacer name="horizontal_spacer_my_account_user_name">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>

@@ -2,7 +2,7 @@
 User Service Module for Enduring Chambers
 """
 from niches.model.dto.UserDto import UserDto
-from niches.model.dao.UserDao import UserDao
+from niches.model.dao.user_dao import UserDao
 from niches.model.mapper.UserMapper import UserMapper
 from niches.controller.error_controller import ErrorController
 from niches.util.LoggingConfiguration import get_loging
@@ -24,20 +24,25 @@ class UserService:
             user_dto: UserDto
                 Data transfer object of the user to be saved
         Returns:
-            __user_type_key : str
-                User type key of the logged user.
+            user_dto: UserDto
+                User created
         """
         try:
-            self.__user_dao.create_user(self.__user_mapper.user_dto_to_user(user_dto))
+            output = self.__user_mapper.user_to_user_dto(
+                self.__user_dao.create_user(self.__user_mapper.user_dto_to_user(user_dto)))
+
+            logging.debug("User created")
+            return output
+
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
+            return None
 
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
-
-        logging.debug("User created")
+            return None
 
     def search_users(self, search_string:str):
         """
@@ -80,20 +85,31 @@ class UserService:
         """
         self.__user_dao.modify_user(self.__user_mapper.user_dto_to_user(user_dto))
 
-    def deactivate_user(self, id:int):
+    def deactivate_user(self, user_id:int):
         """
         Deactivate user by its id
         Args:
             id : int
                 id of the user to be modified
         """
-        self.__user_dao.deactivate_user(id)
+        self.__user_dao.deactivate_user(user_id)
 
-    def reactivate_user(self, id:int):
+    def reactivate_user(self, user_id:int):
         """
         Activate user by its id
         Args:
             id : int
                 id of the user to be modified
         """
-        self.__user_dao.reactivate_user(id)
+        self.__user_dao.reactivate_user(user_id)
+
+    def change_password(self, user_name:str, password:str):
+        """
+        Change password of the user with username and new password
+        Args:
+            user_name : str
+                user_name of the user to update password
+            password: str
+                New password to be updated
+        """
+        self.__user_dao.change_user_password(user_name, password)
