@@ -9,7 +9,7 @@ from niches.controller.error_controller import ErrorController
 from niches.model.dao.UserTypeDao import UserTypeDao
 from niches.model.dao.UserDao import UserDao
 from niches.model.mapper.UserMapper import UserMapper
-from niches.util.Validator import Validator
+from niches.util.validator import validate_is_not_empty, validate_password
 
 class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
     """
@@ -28,7 +28,6 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
         self.__user_dao = UserDao()
         self.__user_mapper = UserMapper()
         self.__error_controller = ErrorController()
-        self.__validator = Validator()
         self.__list_user_type = self.__user_type_dao.find_all()
         for user_type in self.__list_user_type:
             self.combo_box_user_type.addItem(user_type.get_name(), user_type)
@@ -45,18 +44,18 @@ class CreateUserController(QtWidgets.QWidget, Ui_CreateUser):
     def __save_user(self):
         user_dto = UserDto()
         try:
-            self.__validator.validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
-            self.__validator.validate_is_not_empty(self.line_edit_paternal_surname.text(),
+            validate_is_not_empty(self.line_edit_name.text(), UserField.NAME)
+            validate_is_not_empty(self.line_edit_paternal_surname.text(),
                                                    UserField.PATERNAL_SURNAME)
-            self.__validator.validate_is_not_empty(self.line_edit_maternal_surname.text(),
+            validate_is_not_empty(self.line_edit_maternal_surname.text(),
                                                    UserField.MATERNAL_SURNAME)
-            self.__validator.validate_is_not_empty(self.line_edit_user_name.text(),
+            validate_is_not_empty(self.line_edit_user_name.text(),
                                                    UserField.USER_NAME)
-            self.__validator.validate_is_not_empty(self.line_edit_password.text(),
+            validate_is_not_empty(self.line_edit_password.text(),
                                                    UserField.PASSWORD)
-            self.__validator.validate_is_not_empty(self.line_edit_repeat_password.text(),
+            validate_is_not_empty(self.line_edit_repeat_password.text(),
                                                    UserField.PASSWORD)
-            self.__validator.validate_password(self.line_edit_password.text(),
+            validate_password(self.line_edit_password.text(),
                                                self.line_edit_repeat_password.text())
 
             user_dto.new_user(
