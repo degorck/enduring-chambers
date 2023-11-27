@@ -3,7 +3,7 @@ Module that controls SearchUser Main Window
 """
 from PySide6 import QtWidgets
 from niches.view.Ui_SearchUser import Ui_SearchUser
-from niches.model.dao.UserDao import UserDao
+from niches.model.dao.user_dao import UserDao
 from niches.model.dto.UserDto import UserDto
 from niches.model.mapper.UserMapper import UserMapper
 from niches.controller.modify_user_controller import ModifyUserController
