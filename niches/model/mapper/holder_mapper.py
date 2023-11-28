@@ -33,7 +33,7 @@ class HolderMapper:
         if holder.get_updated_at() is None:
             pass
         else:
-            holder_dto.set_update_at(holder.get_updated_at())
+            holder_dto.set_updated_at(holder.get_updated_at())
         return holder_dto
 
     def holder_dto_to_holder(self, holder_dto:HolderDto):
