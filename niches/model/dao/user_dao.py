@@ -5,10 +5,10 @@ from database.
 import logging
 import datetime
 import psycopg2
-from niches.util.DatabaseConnection import DatabaseConnection
-from niches.model.entity.User import User
-from niches.util.Encryptor import Encryptor
-from niches.model.mapper.UserDaoMapper import UserDaoMapper
+from niches.util.database_connection import DatabaseConnection
+from niches.model.entity.user import User
+from niches.util.encryptor import Encryptor
+from niches.model.mapper.user_dao_mapper import UserDaoMapper
 
 
 class UserDao:
@@ -284,13 +284,13 @@ class UserDao:
         command = '''
                 SELECT * FROM tb_user
                 WHERE
-                name LIKE %s OR
+                (name LIKE %s OR
                 paternal_surname LIKE %s OR
                 maternal_surname LIKE %s OR
                 user_name LIKE %s OR
-                CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s)
                 AND
-                is_active = True
+                (is_active = True)
                 '''
 
         values = (

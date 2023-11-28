@@ -1,5 +1,5 @@
-from niches.model.entity.UserType import UserType
-from niches.model.dto.UserTypeDto import UserTypeDto
+from niches.model.entity.user_type import UserType
+from niches.model.dto.user_type_dto import UserTypeDto
 
 class UserTypeMapper:
     def __init__(self):

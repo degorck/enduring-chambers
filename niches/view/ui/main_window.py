@@ -29,30 +29,54 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(819, 631)
         MainWindow.setMinimumSize(QSize(650, 500))
-        MainWindow.setStyleSheet(u"")
+        MainWindow.setStyleSheet(u"QMainWindow{\n"
+"	background-color: rgb(81, 67, 143)\n"
+"}")
         MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.frame_9 = QFrame(self.centralwidget)
-        self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setMinimumSize(QSize(100, 0))
-        self.frame_9.setStyleSheet(u"")
-        self.frame_9.setFrameShape(QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.frame_9)
+        self.horizontalLayout_7 = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.frame_lateral_window = QFrame(self.centralwidget)
+        self.frame_lateral_window.setObjectName(u"frame_lateral_window")
+        self.frame_lateral_window.setMinimumSize(QSize(110, 0))
+        self.frame_lateral_window.setMaximumSize(QSize(200, 16777215))
+        self.frame_lateral_window.setStyleSheet(u"QPushButton{\n"
+"	background-color:rgb(111, 92, 195);\n"
+"	color: rgb(255, 255, 255);\n"
+"	padding: 8px 8px;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(125, 108, 201);\n"
+"	color: rgb(255, 255, 255);\n"
+"	padding: 8px 8px;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:checked{\n"
+"	background-color:rgb(81, 67, 143);\n"
+"	color: rgb(255, 255, 255);\n"
+"	padding: 8px 8px;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QFrame#frame_lateral_window{\n"
+"	background_color: rgb(141, 117, 249)\n"
+"}")
+        self.frame_lateral_window.setFrameShape(QFrame.StyledPanel)
+        self.frame_lateral_window.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_lateral_window)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.label_welcome = QLabel(self.frame_9)
+        self.label_welcome = QLabel(self.frame_lateral_window)
         self.label_welcome.setObjectName(u"label_welcome")
+        self.label_welcome.setStyleSheet(u"")
         self.label_welcome.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_5.addWidget(self.label_welcome)
 
-        self.label_welcome_user_name = QLabel(self.frame_9)
+        self.label_welcome_user_name = QLabel(self.frame_lateral_window)
         self.label_welcome_user_name.setObjectName(u"label_welcome_user_name")
         self.label_welcome_user_name.setStyleSheet(u"QLabel{\n"
-"	background-color: rgb(85, 170, 255);\n"
+"	background-color: rgb(81, 67, 143);\n"
 "	color: rgb(255, 255, 255);\n"
 "	padding: 8px 8px;\n"
 "	border-radius: 10px;\n"
@@ -61,8 +85,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.label_welcome_user_name)
 
-        self.push_button_users = QPushButton(self.frame_9)
+        self.push_button_users = QPushButton(self.frame_lateral_window)
         self.push_button_users.setObjectName(u"push_button_users")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.push_button_users.sizePolicy().hasHeightForWidth())
+        self.push_button_users.setSizePolicy(sizePolicy)
         font = QFont()
         font.setPointSize(9)
         font.setKerning(True)
@@ -80,8 +109,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.push_button_users)
 
-        self.push_button_deceased = QPushButton(self.frame_9)
+        self.push_button_deceased = QPushButton(self.frame_lateral_window)
         self.push_button_deceased.setObjectName(u"push_button_deceased")
+        sizePolicy.setHeightForWidth(self.push_button_deceased.sizePolicy().hasHeightForWidth())
+        self.push_button_deceased.setSizePolicy(sizePolicy)
         self.push_button_deceased.setLayoutDirection(Qt.RightToLeft)
         icon1 = QIcon()
         icon1.addFile(u"C:/Users/small/Downloads/feather/user-minus.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -93,8 +124,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.push_button_deceased)
 
-        self.push_button_holders = QPushButton(self.frame_9)
+        self.push_button_holders = QPushButton(self.frame_lateral_window)
         self.push_button_holders.setObjectName(u"push_button_holders")
+        sizePolicy.setHeightForWidth(self.push_button_holders.sizePolicy().hasHeightForWidth())
+        self.push_button_holders.setSizePolicy(sizePolicy)
         self.push_button_holders.setLayoutDirection(Qt.RightToLeft)
         icon2 = QIcon()
         icon2.addFile(u"C:/Users/small/Downloads/feather/user-plus.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -105,8 +138,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.push_button_holders)
 
-        self.push_button_niches = QPushButton(self.frame_9)
+        self.push_button_niches = QPushButton(self.frame_lateral_window)
         self.push_button_niches.setObjectName(u"push_button_niches")
+        sizePolicy.setHeightForWidth(self.push_button_niches.sizePolicy().hasHeightForWidth())
+        self.push_button_niches.setSizePolicy(sizePolicy)
         self.push_button_niches.setLayoutDirection(Qt.RightToLeft)
         icon3 = QIcon()
         icon3.addFile(u"C:/Users/small/Downloads/feather/archive.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -121,7 +156,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addItem(self.verticalSpacer)
 
-        self.push_button_my_account = QPushButton(self.frame_9)
+        self.push_button_my_account = QPushButton(self.frame_lateral_window)
         self.push_button_my_account.setObjectName(u"push_button_my_account")
         self.push_button_my_account.setLayoutDirection(Qt.RightToLeft)
         self.push_button_my_account.setAutoFillBackground(False)
@@ -135,7 +170,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addWidget(self.push_button_my_account)
 
 
-        self.gridLayout.addWidget(self.frame_9, 0, 0, 1, 1)
+        self.horizontalLayout_7.addWidget(self.frame_lateral_window)
 
         self.stacked_widget = QStackedWidget(self.centralwidget)
         self.stacked_widget.setObjectName(u"stacked_widget")
@@ -181,7 +216,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_user.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 194, 466))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_create_user = QLabel(self.scrollAreaWidgetContents_3)
@@ -242,6 +277,7 @@ class Ui_MainWindow(object):
 
         self.line_edit_create_user_password = QLineEdit(self.scrollAreaWidgetContents_3)
         self.line_edit_create_user_password.setObjectName(u"line_edit_create_user_password")
+        self.line_edit_create_user_password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout_2.addWidget(self.line_edit_create_user_password)
 
@@ -252,6 +288,7 @@ class Ui_MainWindow(object):
 
         self.line_edit_create_user_repeat_password = QLineEdit(self.scrollAreaWidgetContents_3)
         self.line_edit_create_user_repeat_password.setObjectName(u"line_edit_create_user_repeat_password")
+        self.line_edit_create_user_repeat_password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout_2.addWidget(self.line_edit_create_user_repeat_password)
 
@@ -269,24 +306,24 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addItem(self.vertical_spacer_create_user)
 
-        self.frame_create_user = QFrame(self.scrollAreaWidgetContents_3)
-        self.frame_create_user.setObjectName(u"frame_create_user")
-        self.frame_create_user.setFrameShape(QFrame.StyledPanel)
-        self.frame_create_user.setFrameShadow(QFrame.Raised)
-        self.formLayout_2 = QFormLayout(self.frame_create_user)
+        self.frame_create_user_buttons = QFrame(self.scrollAreaWidgetContents_3)
+        self.frame_create_user_buttons.setObjectName(u"frame_create_user_buttons")
+        self.frame_create_user_buttons.setFrameShape(QFrame.StyledPanel)
+        self.frame_create_user_buttons.setFrameShadow(QFrame.Raised)
+        self.formLayout_2 = QFormLayout(self.frame_create_user_buttons)
         self.formLayout_2.setObjectName(u"formLayout_2")
-        self.push_button_create_user_save_user = QPushButton(self.frame_create_user)
+        self.push_button_create_user_save_user = QPushButton(self.frame_create_user_buttons)
         self.push_button_create_user_save_user.setObjectName(u"push_button_create_user_save_user")
 
         self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.push_button_create_user_save_user)
 
-        self.push_button_create_user_clean_user = QPushButton(self.frame_create_user)
+        self.push_button_create_user_clean_user = QPushButton(self.frame_create_user_buttons)
         self.push_button_create_user_clean_user.setObjectName(u"push_button_create_user_clean_user")
 
         self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.push_button_create_user_clean_user)
 
 
-        self.verticalLayout_2.addWidget(self.frame_create_user)
+        self.verticalLayout_2.addWidget(self.frame_create_user_buttons)
 
         self.scroll_area_create_user.setWidget(self.scrollAreaWidgetContents_3)
 
@@ -300,7 +337,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_user.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 194, 346))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label_modify_user = QLabel(self.scrollAreaWidgetContents_2)
@@ -357,29 +394,29 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addItem(self.vertical_spacer_modify_user)
 
-        self.frame_2 = QFrame(self.scrollAreaWidgetContents_2)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_2)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.push_button_modify_user_activate = QPushButton(self.frame_2)
+        self.frame_modify_user_buttons = QFrame(self.scrollAreaWidgetContents_2)
+        self.frame_modify_user_buttons.setObjectName(u"frame_modify_user_buttons")
+        self.frame_modify_user_buttons.setFrameShape(QFrame.StyledPanel)
+        self.frame_modify_user_buttons.setFrameShadow(QFrame.Raised)
+        self.formLayout_3 = QFormLayout(self.frame_modify_user_buttons)
+        self.formLayout_3.setObjectName(u"formLayout_3")
+        self.push_button_modify_user_activate = QPushButton(self.frame_modify_user_buttons)
         self.push_button_modify_user_activate.setObjectName(u"push_button_modify_user_activate")
 
-        self.horizontalLayout_6.addWidget(self.push_button_modify_user_activate)
+        self.formLayout_3.setWidget(0, QFormLayout.LabelRole, self.push_button_modify_user_activate)
 
-        self.push_button_modify_user_deactivate = QPushButton(self.frame_2)
+        self.push_button_modify_user_deactivate = QPushButton(self.frame_modify_user_buttons)
         self.push_button_modify_user_deactivate.setObjectName(u"push_button_modify_user_deactivate")
 
-        self.horizontalLayout_6.addWidget(self.push_button_modify_user_deactivate)
+        self.formLayout_3.setWidget(0, QFormLayout.FieldRole, self.push_button_modify_user_deactivate)
 
-
-        self.verticalLayout.addWidget(self.frame_2)
-
-        self.push_button_modify_user_save = QPushButton(self.scrollAreaWidgetContents_2)
+        self.push_button_modify_user_save = QPushButton(self.frame_modify_user_buttons)
         self.push_button_modify_user_save.setObjectName(u"push_button_modify_user_save")
 
-        self.verticalLayout.addWidget(self.push_button_modify_user_save)
+        self.formLayout_3.setWidget(1, QFormLayout.SpanningRole, self.push_button_modify_user_save)
+
+
+        self.verticalLayout.addWidget(self.frame_modify_user_buttons)
 
         self.scroll_area_modify_user.setWidget(self.scrollAreaWidgetContents_2)
 
@@ -390,14 +427,9 @@ class Ui_MainWindow(object):
         self.scroll_area_users.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 124, 117))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 253, 500))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.table_widget_users = QTableWidget(self.scrollAreaWidgetContents_4)
-        self.table_widget_users.setObjectName(u"table_widget_users")
-
-        self.gridLayout_2.addWidget(self.table_widget_users, 1, 0, 1, 2)
-
         self.line_edit_search_users = QLineEdit(self.scrollAreaWidgetContents_4)
         self.line_edit_search_users.setObjectName(u"line_edit_search_users")
 
@@ -408,32 +440,37 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.label_search_users, 0, 0, 1, 1)
 
+        self.table_widget_users = QTableWidget(self.scrollAreaWidgetContents_4)
+        self.table_widget_users.setObjectName(u"table_widget_users")
+
+        self.gridLayout_2.addWidget(self.table_widget_users, 1, 0, 1, 2)
+
         self.scroll_area_users.setWidget(self.scrollAreaWidgetContents_4)
 
         self.gridLayout_3.addWidget(self.scroll_area_users, 1, 0, 1, 1)
 
-        self.frame = QFrame(self.users)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.frame)
+        self.frame_users_header = QFrame(self.users)
+        self.frame_users_header.setObjectName(u"frame_users_header")
+        self.frame_users_header.setFrameShape(QFrame.StyledPanel)
+        self.frame_users_header.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame_users_header)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label_users = QLabel(self.frame)
+        self.label_users = QLabel(self.frame_users_header)
         self.label_users.setObjectName(u"label_users")
 
         self.horizontalLayout.addWidget(self.label_users)
 
-        self.horizontal_spacer_users_title = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontal_spacer_users_header = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout.addItem(self.horizontal_spacer_users_title)
+        self.horizontalLayout.addItem(self.horizontal_spacer_users_header)
 
-        self.push_button_create_user_create = QPushButton(self.frame)
+        self.push_button_create_user_create = QPushButton(self.frame_users_header)
         self.push_button_create_user_create.setObjectName(u"push_button_create_user_create")
 
         self.horizontalLayout.addWidget(self.push_button_create_user_create)
 
 
-        self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 3)
+        self.gridLayout_3.addWidget(self.frame_users_header, 0, 0, 1, 3)
 
         self.stacked_widget.addWidget(self.users)
         self.deceased = QWidget()
@@ -468,7 +505,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollAreaWidgetContents_20 = QWidget()
         self.scrollAreaWidgetContents_20.setObjectName(u"scrollAreaWidgetContents_20")
-        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 124, 117))
+        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 253, 500))
         self.formLayout_11 = QFormLayout(self.scrollAreaWidgetContents_20)
         self.formLayout_11.setObjectName(u"formLayout_11")
         self.lineEdit_13 = QLineEdit(self.scrollAreaWidgetContents_20)
@@ -497,7 +534,7 @@ class Ui_MainWindow(object):
         self.scrollArea_12.setWidgetResizable(True)
         self.scrollAreaWidgetContents_22 = QWidget()
         self.scrollAreaWidgetContents_22.setObjectName(u"scrollAreaWidgetContents_22")
-        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 194, 466))
+        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents_22)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_5 = QLabel(self.scrollAreaWidgetContents_22)
@@ -614,7 +651,7 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollAreaWidgetContents_21 = QWidget()
         self.scrollAreaWidgetContents_21.setObjectName(u"scrollAreaWidgetContents_21")
-        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 194, 466))
+        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_21)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_19 = QLabel(self.scrollAreaWidgetContents_21)
@@ -729,229 +766,234 @@ class Ui_MainWindow(object):
         self.holders.setObjectName(u"holders")
         self.gridLayout_12 = QGridLayout(self.holders)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.frame_19 = QFrame(self.holders)
-        self.frame_19.setObjectName(u"frame_19")
-        self.frame_19.setFrameShape(QFrame.StyledPanel)
-        self.frame_19.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_16 = QHBoxLayout(self.frame_19)
+        self.frame_holders_header = QFrame(self.holders)
+        self.frame_holders_header.setObjectName(u"frame_holders_header")
+        self.frame_holders_header.setFrameShape(QFrame.StyledPanel)
+        self.frame_holders_header.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frame_holders_header)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.label_22 = QLabel(self.frame_19)
-        self.label_22.setObjectName(u"label_22")
+        self.label_holders = QLabel(self.frame_holders_header)
+        self.label_holders.setObjectName(u"label_holders")
 
-        self.horizontalLayout_16.addWidget(self.label_22)
+        self.horizontalLayout_16.addWidget(self.label_holders)
 
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontal_spacer_holders_header = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_16.addItem(self.horizontalSpacer_9)
+        self.horizontalLayout_16.addItem(self.horizontal_spacer_holders_header)
 
-        self.pushButton_27 = QPushButton(self.frame_19)
-        self.pushButton_27.setObjectName(u"pushButton_27")
+        self.push_button_create_holder_create = QPushButton(self.frame_holders_header)
+        self.push_button_create_holder_create.setObjectName(u"push_button_create_holder_create")
 
-        self.horizontalLayout_16.addWidget(self.pushButton_27)
+        self.horizontalLayout_16.addWidget(self.push_button_create_holder_create)
 
 
-        self.gridLayout_12.addWidget(self.frame_19, 0, 0, 1, 3)
+        self.gridLayout_12.addWidget(self.frame_holders_header, 0, 0, 1, 3)
 
-        self.scrollArea_13 = QScrollArea(self.holders)
-        self.scrollArea_13.setObjectName(u"scrollArea_13")
-        self.scrollArea_13.setWidgetResizable(True)
+        self.scroll_area_holders = QScrollArea(self.holders)
+        self.scroll_area_holders.setObjectName(u"scroll_area_holders")
+        self.scroll_area_holders.setWidgetResizable(True)
         self.scrollAreaWidgetContents_23 = QWidget()
         self.scrollAreaWidgetContents_23.setObjectName(u"scrollAreaWidgetContents_23")
-        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 124, 117))
+        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 253, 500))
         self.formLayout_12 = QFormLayout(self.scrollAreaWidgetContents_23)
         self.formLayout_12.setObjectName(u"formLayout_12")
-        self.lineEdit_14 = QLineEdit(self.scrollAreaWidgetContents_23)
-        self.lineEdit_14.setObjectName(u"lineEdit_14")
+        self.label_search_holders = QLabel(self.scrollAreaWidgetContents_23)
+        self.label_search_holders.setObjectName(u"label_search_holders")
 
-        self.formLayout_12.setWidget(0, QFormLayout.FieldRole, self.lineEdit_14)
+        self.formLayout_12.setWidget(0, QFormLayout.LabelRole, self.label_search_holders)
 
-        self.label_21 = QLabel(self.scrollAreaWidgetContents_23)
-        self.label_21.setObjectName(u"label_21")
+        self.line_edit_search_holders = QLineEdit(self.scrollAreaWidgetContents_23)
+        self.line_edit_search_holders.setObjectName(u"line_edit_search_holders")
 
-        self.formLayout_12.setWidget(0, QFormLayout.LabelRole, self.label_21)
+        self.formLayout_12.setWidget(0, QFormLayout.FieldRole, self.line_edit_search_holders)
 
-        self.tableView_5 = QTableView(self.scrollAreaWidgetContents_23)
-        self.tableView_5.setObjectName(u"tableView_5")
+        self.table_widget_holders = QTableWidget(self.scrollAreaWidgetContents_23)
+        self.table_widget_holders.setObjectName(u"table_widget_holders")
 
-        self.formLayout_12.setWidget(1, QFormLayout.SpanningRole, self.tableView_5)
+        self.formLayout_12.setWidget(1, QFormLayout.SpanningRole, self.table_widget_holders)
 
-        self.scrollArea_13.setWidget(self.scrollAreaWidgetContents_23)
+        self.scroll_area_holders.setWidget(self.scrollAreaWidgetContents_23)
 
-        self.gridLayout_12.addWidget(self.scrollArea_13, 1, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.scroll_area_holders, 1, 0, 1, 1)
 
-        self.scrollArea_15 = QScrollArea(self.holders)
-        self.scrollArea_15.setObjectName(u"scrollArea_15")
-        self.scrollArea_15.setMinimumSize(QSize(200, 0))
-        self.scrollArea_15.setMaximumSize(QSize(200, 16777215))
-        self.scrollArea_15.setWidgetResizable(True)
+        self.scroll_area_create_holder = QScrollArea(self.holders)
+        self.scroll_area_create_holder.setObjectName(u"scroll_area_create_holder")
+        self.scroll_area_create_holder.setMinimumSize(QSize(200, 0))
+        self.scroll_area_create_holder.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_create_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_25 = QWidget()
         self.scrollAreaWidgetContents_25.setObjectName(u"scrollAreaWidgetContents_25")
-        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 194, 316))
+        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_25)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.label_32 = QLabel(self.scrollAreaWidgetContents_25)
-        self.label_32.setObjectName(u"label_32")
-        self.label_32.setAlignment(Qt.AlignCenter)
+        self.label_create_holder = QLabel(self.scrollAreaWidgetContents_25)
+        self.label_create_holder.setObjectName(u"label_create_holder")
+        self.label_create_holder.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_16.addWidget(self.label_32)
+        self.verticalLayout_16.addWidget(self.label_create_holder)
 
-        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontal_spacer_create_holder = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.verticalLayout_16.addItem(self.horizontalSpacer_7)
+        self.verticalLayout_16.addItem(self.horizontal_spacer_create_holder)
 
-        self.label_34 = QLabel(self.scrollAreaWidgetContents_25)
-        self.label_34.setObjectName(u"label_34")
+        self.label__create_holder_name = QLabel(self.scrollAreaWidgetContents_25)
+        self.label__create_holder_name.setObjectName(u"label__create_holder_name")
 
-        self.verticalLayout_16.addWidget(self.label_34)
+        self.verticalLayout_16.addWidget(self.label__create_holder_name)
 
-        self.lineEdit_11 = QLineEdit(self.scrollAreaWidgetContents_25)
-        self.lineEdit_11.setObjectName(u"lineEdit_11")
+        self.line_edit_create_holder_name = QLineEdit(self.scrollAreaWidgetContents_25)
+        self.line_edit_create_holder_name.setObjectName(u"line_edit_create_holder_name")
 
-        self.verticalLayout_16.addWidget(self.lineEdit_11)
+        self.verticalLayout_16.addWidget(self.line_edit_create_holder_name)
 
-        self.label_35 = QLabel(self.scrollAreaWidgetContents_25)
-        self.label_35.setObjectName(u"label_35")
+        self.label_create_holder_paternal_surname = QLabel(self.scrollAreaWidgetContents_25)
+        self.label_create_holder_paternal_surname.setObjectName(u"label_create_holder_paternal_surname")
 
-        self.verticalLayout_16.addWidget(self.label_35)
+        self.verticalLayout_16.addWidget(self.label_create_holder_paternal_surname)
 
-        self.lineEdit_12 = QLineEdit(self.scrollAreaWidgetContents_25)
-        self.lineEdit_12.setObjectName(u"lineEdit_12")
+        self.line_edit_create_holder_paternal_surname = QLineEdit(self.scrollAreaWidgetContents_25)
+        self.line_edit_create_holder_paternal_surname.setObjectName(u"line_edit_create_holder_paternal_surname")
 
-        self.verticalLayout_16.addWidget(self.lineEdit_12)
+        self.verticalLayout_16.addWidget(self.line_edit_create_holder_paternal_surname)
 
-        self.label_36 = QLabel(self.scrollAreaWidgetContents_25)
-        self.label_36.setObjectName(u"label_36")
+        self.label_create_holder_maternal_surname = QLabel(self.scrollAreaWidgetContents_25)
+        self.label_create_holder_maternal_surname.setObjectName(u"label_create_holder_maternal_surname")
 
-        self.verticalLayout_16.addWidget(self.label_36)
+        self.verticalLayout_16.addWidget(self.label_create_holder_maternal_surname)
 
-        self.lineEdit_16 = QLineEdit(self.scrollAreaWidgetContents_25)
-        self.lineEdit_16.setObjectName(u"lineEdit_16")
+        self.line_edit_create_holder_maternal_surname = QLineEdit(self.scrollAreaWidgetContents_25)
+        self.line_edit_create_holder_maternal_surname.setObjectName(u"line_edit_create_holder_maternal_surname")
 
-        self.verticalLayout_16.addWidget(self.lineEdit_16)
+        self.verticalLayout_16.addWidget(self.line_edit_create_holder_maternal_surname)
 
-        self.label_37 = QLabel(self.scrollAreaWidgetContents_25)
-        self.label_37.setObjectName(u"label_37")
+        self.label_create_holder_phone = QLabel(self.scrollAreaWidgetContents_25)
+        self.label_create_holder_phone.setObjectName(u"label_create_holder_phone")
 
-        self.verticalLayout_16.addWidget(self.label_37)
+        self.verticalLayout_16.addWidget(self.label_create_holder_phone)
 
-        self.lineEdit_17 = QLineEdit(self.scrollAreaWidgetContents_25)
-        self.lineEdit_17.setObjectName(u"lineEdit_17")
+        self.line_edit_create_holder_phone = QLineEdit(self.scrollAreaWidgetContents_25)
+        self.line_edit_create_holder_phone.setObjectName(u"line_edit_create_holder_phone")
 
-        self.verticalLayout_16.addWidget(self.lineEdit_17)
+        self.verticalLayout_16.addWidget(self.line_edit_create_holder_phone)
 
-        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.vertical_spacer_create_holder = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_16.addItem(self.verticalSpacer_6)
+        self.verticalLayout_16.addItem(self.vertical_spacer_create_holder)
 
-        self.frame_21 = QFrame(self.scrollAreaWidgetContents_25)
-        self.frame_21.setObjectName(u"frame_21")
-        self.frame_21.setFrameShape(QFrame.StyledPanel)
-        self.frame_21.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_18 = QHBoxLayout(self.frame_21)
+        self.frame_create_holder_buttons = QFrame(self.scrollAreaWidgetContents_25)
+        self.frame_create_holder_buttons.setObjectName(u"frame_create_holder_buttons")
+        self.frame_create_holder_buttons.setFrameShape(QFrame.StyledPanel)
+        self.frame_create_holder_buttons.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_create_holder_buttons)
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.pushButton_30 = QPushButton(self.frame_21)
-        self.pushButton_30.setObjectName(u"pushButton_30")
+        self.push_button_create_holder_save_holder = QPushButton(self.frame_create_holder_buttons)
+        self.push_button_create_holder_save_holder.setObjectName(u"push_button_create_holder_save_holder")
 
-        self.horizontalLayout_18.addWidget(self.pushButton_30)
+        self.horizontalLayout_18.addWidget(self.push_button_create_holder_save_holder)
 
-        self.pushButton_31 = QPushButton(self.frame_21)
-        self.pushButton_31.setObjectName(u"pushButton_31")
+        self.push_button_create_holder_clean_holder = QPushButton(self.frame_create_holder_buttons)
+        self.push_button_create_holder_clean_holder.setObjectName(u"push_button_create_holder_clean_holder")
 
-        self.horizontalLayout_18.addWidget(self.pushButton_31)
+        self.horizontalLayout_18.addWidget(self.push_button_create_holder_clean_holder)
 
 
-        self.verticalLayout_16.addWidget(self.frame_21)
+        self.verticalLayout_16.addWidget(self.frame_create_holder_buttons)
 
-        self.scrollArea_15.setWidget(self.scrollAreaWidgetContents_25)
+        self.scroll_area_create_holder.setWidget(self.scrollAreaWidgetContents_25)
 
-        self.gridLayout_12.addWidget(self.scrollArea_15, 1, 1, 1, 1)
+        self.gridLayout_12.addWidget(self.scroll_area_create_holder, 1, 1, 1, 1)
 
-        self.scrollArea_14 = QScrollArea(self.holders)
-        self.scrollArea_14.setObjectName(u"scrollArea_14")
-        self.scrollArea_14.setMinimumSize(QSize(200, 0))
-        self.scrollArea_14.setMaximumSize(QSize(200, 16777215))
-        self.scrollArea_14.setWidgetResizable(True)
+        self.scroll_area_modify_holder = QScrollArea(self.holders)
+        self.scroll_area_modify_holder.setObjectName(u"scroll_area_modify_holder")
+        self.scroll_area_modify_holder.setMinimumSize(QSize(200, 0))
+        self.scroll_area_modify_holder.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_modify_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_24 = QWidget()
         self.scrollAreaWidgetContents_24.setObjectName(u"scrollAreaWidgetContents_24")
-        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 194, 316))
+        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_24)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.label_33 = QLabel(self.scrollAreaWidgetContents_24)
-        self.label_33.setObjectName(u"label_33")
-        self.label_33.setAlignment(Qt.AlignCenter)
+        self.label_modify_holder = QLabel(self.scrollAreaWidgetContents_24)
+        self.label_modify_holder.setObjectName(u"label_modify_holder")
+        self.label_modify_holder.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_15.addWidget(self.label_33)
+        self.verticalLayout_15.addWidget(self.label_modify_holder)
 
-        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontal_spacer_modify_holder = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.verticalLayout_15.addItem(self.horizontalSpacer_12)
+        self.verticalLayout_15.addItem(self.horizontal_spacer_modify_holder)
 
-        self.label_38 = QLabel(self.scrollAreaWidgetContents_24)
-        self.label_38.setObjectName(u"label_38")
+        self.label_modify_holder_name = QLabel(self.scrollAreaWidgetContents_24)
+        self.label_modify_holder_name.setObjectName(u"label_modify_holder_name")
 
-        self.verticalLayout_15.addWidget(self.label_38)
+        self.verticalLayout_15.addWidget(self.label_modify_holder_name)
 
-        self.lineEdit_18 = QLineEdit(self.scrollAreaWidgetContents_24)
-        self.lineEdit_18.setObjectName(u"lineEdit_18")
+        self.line_edit_modify_holder_name = QLineEdit(self.scrollAreaWidgetContents_24)
+        self.line_edit_modify_holder_name.setObjectName(u"line_edit_modify_holder_name")
 
-        self.verticalLayout_15.addWidget(self.lineEdit_18)
+        self.verticalLayout_15.addWidget(self.line_edit_modify_holder_name)
 
-        self.label_39 = QLabel(self.scrollAreaWidgetContents_24)
-        self.label_39.setObjectName(u"label_39")
+        self.label_modify_holder_paternal_surname = QLabel(self.scrollAreaWidgetContents_24)
+        self.label_modify_holder_paternal_surname.setObjectName(u"label_modify_holder_paternal_surname")
 
-        self.verticalLayout_15.addWidget(self.label_39)
+        self.verticalLayout_15.addWidget(self.label_modify_holder_paternal_surname)
 
-        self.lineEdit_19 = QLineEdit(self.scrollAreaWidgetContents_24)
-        self.lineEdit_19.setObjectName(u"lineEdit_19")
+        self.line_edit_modify_holder_paternal_surname = QLineEdit(self.scrollAreaWidgetContents_24)
+        self.line_edit_modify_holder_paternal_surname.setObjectName(u"line_edit_modify_holder_paternal_surname")
 
-        self.verticalLayout_15.addWidget(self.lineEdit_19)
+        self.verticalLayout_15.addWidget(self.line_edit_modify_holder_paternal_surname)
 
-        self.label_40 = QLabel(self.scrollAreaWidgetContents_24)
-        self.label_40.setObjectName(u"label_40")
+        self.label_modify_holder_maternal_surname = QLabel(self.scrollAreaWidgetContents_24)
+        self.label_modify_holder_maternal_surname.setObjectName(u"label_modify_holder_maternal_surname")
 
-        self.verticalLayout_15.addWidget(self.label_40)
+        self.verticalLayout_15.addWidget(self.label_modify_holder_maternal_surname)
 
-        self.lineEdit_20 = QLineEdit(self.scrollAreaWidgetContents_24)
-        self.lineEdit_20.setObjectName(u"lineEdit_20")
+        self.line_edit_modify_holder_maternal_surname = QLineEdit(self.scrollAreaWidgetContents_24)
+        self.line_edit_modify_holder_maternal_surname.setObjectName(u"line_edit_modify_holder_maternal_surname")
 
-        self.verticalLayout_15.addWidget(self.lineEdit_20)
+        self.verticalLayout_15.addWidget(self.line_edit_modify_holder_maternal_surname)
 
-        self.label_41 = QLabel(self.scrollAreaWidgetContents_24)
-        self.label_41.setObjectName(u"label_41")
+        self.label_modify_holder_name_phone = QLabel(self.scrollAreaWidgetContents_24)
+        self.label_modify_holder_name_phone.setObjectName(u"label_modify_holder_name_phone")
 
-        self.verticalLayout_15.addWidget(self.label_41)
+        self.verticalLayout_15.addWidget(self.label_modify_holder_name_phone)
 
-        self.lineEdit_21 = QLineEdit(self.scrollAreaWidgetContents_24)
-        self.lineEdit_21.setObjectName(u"lineEdit_21")
+        self.line_edit_modify_holder_phone = QLineEdit(self.scrollAreaWidgetContents_24)
+        self.line_edit_modify_holder_phone.setObjectName(u"line_edit_modify_holder_phone")
 
-        self.verticalLayout_15.addWidget(self.lineEdit_21)
+        self.verticalLayout_15.addWidget(self.line_edit_modify_holder_phone)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.vertical_spacer_modify_holder = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_15.addItem(self.verticalSpacer_7)
+        self.verticalLayout_15.addItem(self.vertical_spacer_modify_holder)
 
-        self.frame_20 = QFrame(self.scrollAreaWidgetContents_24)
-        self.frame_20.setObjectName(u"frame_20")
-        self.frame_20.setFrameShape(QFrame.StyledPanel)
-        self.frame_20.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_17 = QHBoxLayout(self.frame_20)
-        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
-        self.pushButton_28 = QPushButton(self.frame_20)
-        self.pushButton_28.setObjectName(u"pushButton_28")
+        self.frame_modify_holder_buttons = QFrame(self.scrollAreaWidgetContents_24)
+        self.frame_modify_holder_buttons.setObjectName(u"frame_modify_holder_buttons")
+        self.frame_modify_holder_buttons.setFrameShape(QFrame.StyledPanel)
+        self.frame_modify_holder_buttons.setFrameShadow(QFrame.Raised)
+        self.formLayout = QFormLayout(self.frame_modify_holder_buttons)
+        self.formLayout.setObjectName(u"formLayout")
+        self.push_button_modify_holder_save = QPushButton(self.frame_modify_holder_buttons)
+        self.push_button_modify_holder_save.setObjectName(u"push_button_modify_holder_save")
 
-        self.horizontalLayout_17.addWidget(self.pushButton_28)
+        self.formLayout.setWidget(1, QFormLayout.SpanningRole, self.push_button_modify_holder_save)
 
-        self.pushButton_29 = QPushButton(self.frame_20)
-        self.pushButton_29.setObjectName(u"pushButton_29")
+        self.push_modify_holder_activate = QPushButton(self.frame_modify_holder_buttons)
+        self.push_modify_holder_activate.setObjectName(u"push_modify_holder_activate")
 
-        self.horizontalLayout_17.addWidget(self.pushButton_29)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.push_modify_holder_activate)
+
+        self.push_button_modify_holder_deactivate = QPushButton(self.frame_modify_holder_buttons)
+        self.push_button_modify_holder_deactivate.setObjectName(u"push_button_modify_holder_deactivate")
+
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.push_button_modify_holder_deactivate)
 
 
-        self.verticalLayout_15.addWidget(self.frame_20)
+        self.verticalLayout_15.addWidget(self.frame_modify_holder_buttons)
 
-        self.scrollArea_14.setWidget(self.scrollAreaWidgetContents_24)
+        self.scroll_area_modify_holder.setWidget(self.scrollAreaWidgetContents_24)
 
-        self.gridLayout_12.addWidget(self.scrollArea_14, 1, 2, 1, 1)
+        self.gridLayout_12.addWidget(self.scroll_area_modify_holder, 1, 2, 1, 1)
 
         self.stacked_widget.addWidget(self.holders)
         self.niches = QWidget()
@@ -965,7 +1007,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 194, 463))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents_6)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_3 = QLabel(self.scrollAreaWidgetContents_6)
@@ -1074,7 +1116,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 124, 117))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 253, 500))
         self.formLayout_4 = QFormLayout(self.scrollAreaWidgetContents_5)
         self.formLayout_4.setObjectName(u"formLayout_4")
         self.lineEdit = QLineEdit(self.scrollAreaWidgetContents_5)
@@ -1103,7 +1145,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 194, 313))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 198, 500))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label_4 = QLabel(self.scrollAreaWidgetContents_7)
@@ -1211,7 +1253,7 @@ class Ui_MainWindow(object):
         self.scroll_area_change_password.setWidgetResizable(True)
         self.scrollAreaWidgetContents_28 = QWidget()
         self.scrollAreaWidgetContents_28.setObjectName(u"scrollAreaWidgetContents_28")
-        self.scrollAreaWidgetContents_28.setGeometry(QRect(0, 0, 152, 266))
+        self.scrollAreaWidgetContents_28.setGeometry(QRect(0, 0, 198, 458))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_28)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.label_my_account_change_password = QLabel(self.scrollAreaWidgetContents_28)
@@ -1231,6 +1273,7 @@ class Ui_MainWindow(object):
 
         self.line_edit_my_account_current_password = QLineEdit(self.scrollAreaWidgetContents_28)
         self.line_edit_my_account_current_password.setObjectName(u"line_edit_my_account_current_password")
+        self.line_edit_my_account_current_password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout_18.addWidget(self.line_edit_my_account_current_password)
 
@@ -1241,6 +1284,7 @@ class Ui_MainWindow(object):
 
         self.line_edit_my_account_new_password = QLineEdit(self.scrollAreaWidgetContents_28)
         self.line_edit_my_account_new_password.setObjectName(u"line_edit_my_account_new_password")
+        self.line_edit_my_account_new_password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout_18.addWidget(self.line_edit_my_account_new_password)
 
@@ -1251,6 +1295,7 @@ class Ui_MainWindow(object):
 
         self.line_edit_my_account_repeat_new_password = QLineEdit(self.scrollAreaWidgetContents_28)
         self.line_edit_my_account_repeat_new_password.setObjectName(u"line_edit_my_account_repeat_new_password")
+        self.line_edit_my_account_repeat_new_password.setEchoMode(QLineEdit.Password)
 
         self.verticalLayout_18.addWidget(self.line_edit_my_account_repeat_new_password)
 
@@ -1319,7 +1364,7 @@ class Ui_MainWindow(object):
 
         self.stacked_widget.addWidget(self.my_account)
 
-        self.gridLayout.addWidget(self.stacked_widget, 0, 1, 1, 1)
+        self.horizontalLayout_7.addWidget(self.stacked_widget)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -1393,23 +1438,24 @@ class Ui_MainWindow(object):
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"Nicho:", None))
         self.pushButton_23.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.pushButton_24.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Titulares", None))
-        self.pushButton_27.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
-        self.label_21.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
-        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Crear titular", None))
-        self.label_34.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
-        self.label_35.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
-        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
-        self.label_37.setText(QCoreApplication.translate("MainWindow", u"Tel\u00e9fono:", None))
-        self.pushButton_30.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        self.pushButton_31.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
-        self.label_33.setText(QCoreApplication.translate("MainWindow", u"Modificar titular", None))
-        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
-        self.label_39.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
-        self.label_40.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno", None))
-        self.label_41.setText(QCoreApplication.translate("MainWindow", u"Tel\u00e9fono:", None))
-        self.pushButton_28.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        self.pushButton_29.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.label_holders.setText(QCoreApplication.translate("MainWindow", u"Titulares", None))
+        self.push_button_create_holder_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
+        self.label_search_holders.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
+        self.label_create_holder.setText(QCoreApplication.translate("MainWindow", u"Crear titular", None))
+        self.label__create_holder_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.label_create_holder_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
+        self.label_create_holder_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
+        self.label_create_holder_phone.setText(QCoreApplication.translate("MainWindow", u"Tel\u00e9fono:", None))
+        self.push_button_create_holder_save_holder.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.push_button_create_holder_clean_holder.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.label_modify_holder.setText(QCoreApplication.translate("MainWindow", u"Modificar titular", None))
+        self.label_modify_holder_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.label_modify_holder_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
+        self.label_modify_holder_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno", None))
+        self.label_modify_holder_name_phone.setText(QCoreApplication.translate("MainWindow", u"Tel\u00e9fono:", None))
+        self.push_button_modify_holder_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.push_modify_holder_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
+        self.push_button_modify_holder_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Crear nicho", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"Letra:", None))
