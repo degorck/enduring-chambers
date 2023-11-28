@@ -12,7 +12,7 @@ class User:
         self.__is_active:bool = False
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
-    
+
     def get_id(self):
         return self.__id
     

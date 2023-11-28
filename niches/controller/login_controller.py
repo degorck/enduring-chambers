@@ -2,19 +2,19 @@
 import logging
 from PySide6 import QtWidgets
 from niches.view.Ui_Login import Ui_Login
-from niches.util.Encryptor import Encryptor
+from niches.util.encryptor import Encryptor
 from niches.model.dao.user_dao import UserDao
-from niches.model.mapper.UserMapper import UserMapper
-from niches.model.dto.UserDto import UserDto
-from niches.model.entity.User import User
+from niches.model.mapper.user_mapper import UserMapper
+from niches.model.dto.user_dto import UserDto
+from niches.model.entity.user import User
 from niches.controller.error_controller import ErrorController
 from niches.util.validator import validate_is_not_empty
 from niches.constants.constants import UserTypeKey, UserField
 from niches.constants.constants import LOGIN_ERROR
 from niches.constants.constants import USER_NOT_EXIST
-from niches.model.mapper.UserTypeMapper import UserTypeMapper
-from niches.model.dao.UserTypeDao import UserTypeDao
-from niches.model.dto.UserTypeDto import UserTypeDto
+from niches.model.mapper.user_type_mapper import UserTypeMapper
+from niches.model.dao.user_type_dao import UserTypeDao
+from niches.model.dto.user_type_dto import UserTypeDto
 
 class LoginController(QtWidgets.QDialog, Ui_Login):
     '''Class with the functionality of login window'''

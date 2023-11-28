@@ -1,5 +1,5 @@
-from niches.model.entity.User import User
-from niches.model.dto.UserDto import UserDto
+from niches.model.entity.user import User
+from niches.model.dto.user_dto import UserDto
 import datetime
 
 class UserMapper:

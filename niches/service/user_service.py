@@ -1,11 +1,11 @@
 """
 User Service Module for Enduring Chambers
 """
-from niches.model.dto.UserDto import UserDto
+from niches.model.dto.user_dto import UserDto
 from niches.model.dao.user_dao import UserDao
-from niches.model.mapper.UserMapper import UserMapper
+from niches.model.mapper.user_mapper import UserMapper
 from niches.controller.error_controller import ErrorController
-from niches.util.LoggingConfiguration import get_loging
+from niches.util.logging_configuration import get_loging
 logging = get_loging()
 
 class UserService:
@@ -57,6 +57,25 @@ class UserService:
         list_user_dto = []
         list_user = []
         list_user = self.__user_dao.search_users(search_string)
+        for user in list_user:
+            user_dto = UserDto()
+            user_dto = self.__user_mapper.user_to_user_dto(user)
+            list_user_dto.append(user_dto)
+        return list_user_dto
+
+    def search_active_users(self, search_string:str):
+        """
+        Search users on database.
+        Args:
+            search_string: str
+                String to search users
+        Returns:
+            list_user_dto : list<UserDto> 
+                User type key of the logged user.
+        """
+        list_user_dto = []
+        list_user = []
+        list_user = self.__user_dao.search_active_users(search_string)
         for user in list_user:
             user_dto = UserDto()
             user_dto = self.__user_mapper.user_to_user_dto(user)

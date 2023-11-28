@@ -20,23 +20,51 @@
    <string extracomment="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1">Enduring Chambers</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QMainWindow{
+	background-color: rgb(81, 67, 143)
+}</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QFrame" name="frame_9">
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <item>
+     <widget class="QFrame" name="frame_lateral_window">
       <property name="minimumSize">
        <size>
-        <width>100</width>
+        <width>110</width>
         <height>0</height>
        </size>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">QPushButton{
+	background-color:rgb(111, 92, 195);
+	color: rgb(255, 255, 255);
+	padding: 8px 8px;
+	border-radius: 10px;
+}
+QPushButton:hover{
+	background-color: rgb(125, 108, 201);
+	color: rgb(255, 255, 255);
+	padding: 8px 8px;
+	border-radius: 10px;
+}
+QPushButton:checked{
+	background-color:rgb(81, 67, 143);
+	color: rgb(255, 255, 255);
+	padding: 8px 8px;
+	border-radius: 10px;
+}
+QFrame#frame_lateral_window{
+	background_color: rgb(141, 117, 249)
+}</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -47,6 +75,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="QLabel" name="label_welcome">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="text">
           <string>Hola:</string>
          </property>
@@ -59,7 +90,7 @@
         <widget class="QLabel" name="label_welcome_user_name">
          <property name="styleSheet">
           <string notr="true">QLabel{
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(81, 67, 143);
 	color: rgb(255, 255, 255);
 	padding: 8px 8px;
 	border-radius: 10px;
@@ -75,6 +106,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="push_button_users">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="font">
           <font>
            <pointsize>9</pointsize>
@@ -116,6 +153,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="push_button_deceased">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="layoutDirection">
           <enum>Qt::RightToLeft</enum>
          </property>
@@ -148,6 +191,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="push_button_holders">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="layoutDirection">
           <enum>Qt::RightToLeft</enum>
          </property>
@@ -174,6 +223,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="push_button_niches">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="layoutDirection">
           <enum>Qt::RightToLeft</enum>
          </property>
@@ -243,7 +298,7 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item>
      <widget class="QStackedWidget" name="stacked_widget">
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -333,8 +388,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>466</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -412,7 +467,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="line_edit_create_user_password"/>
+             <widget class="QLineEdit" name="line_edit_create_user_password">
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_create_user_repeat_password">
@@ -422,7 +481,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="line_edit_create_user_repeat_password"/>
+             <widget class="QLineEdit" name="line_edit_create_user_repeat_password">
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_create_user_user_type">
@@ -448,7 +511,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="frame_create_user">
+             <widget class="QFrame" name="frame_create_user_buttons">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -502,8 +565,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>346</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -584,36 +647,36 @@
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="frame_2">
+             <widget class="QFrame" name="frame_modify_user_buttons">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
+              <layout class="QFormLayout" name="formLayout_3">
+               <item row="0" column="0">
                 <widget class="QPushButton" name="push_button_modify_user_activate">
                  <property name="text">
                   <string>Activar</string>
                  </property>
                 </widget>
                </item>
-               <item>
+               <item row="0" column="1">
                 <widget class="QPushButton" name="push_button_modify_user_deactivate">
                  <property name="text">
                   <string>Desactivar</string>
                  </property>
                 </widget>
                </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QPushButton" name="push_button_modify_user_save">
+                 <property name="text">
+                  <string>Guardar</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="push_button_modify_user_save">
-              <property name="text">
-               <string>Guardar</string>
-              </property>
              </widget>
             </item>
            </layout>
@@ -630,14 +693,11 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>124</width>
-             <height>117</height>
+             <width>253</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
-            <item row="1" column="0" colspan="2">
-             <widget class="QTableWidget" name="table_widget_users"/>
-            </item>
             <item row="0" column="1">
              <widget class="QLineEdit" name="line_edit_search_users"/>
             </item>
@@ -648,12 +708,15 @@
               </property>
              </widget>
             </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QTableWidget" name="table_widget_users"/>
+            </item>
            </layout>
           </widget>
          </widget>
         </item>
         <item row="0" column="0" colspan="3">
-         <widget class="QFrame" name="frame">
+         <widget class="QFrame" name="frame_users_header">
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -669,7 +732,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontal_spacer_users_title">
+            <spacer name="horizontal_spacer_users_header">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -744,8 +807,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>124</width>
-             <height>117</height>
+             <width>253</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout_11">
@@ -788,8 +851,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>466</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -951,8 +1014,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>466</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1097,7 +1160,7 @@
       <widget class="QWidget" name="holders">
        <layout class="QGridLayout" name="gridLayout_12">
         <item row="0" column="0" colspan="3">
-         <widget class="QFrame" name="frame_19">
+         <widget class="QFrame" name="frame_holders_header">
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -1106,14 +1169,14 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_16">
            <item>
-            <widget class="QLabel" name="label_22">
+            <widget class="QLabel" name="label_holders">
              <property name="text">
               <string>Titulares</string>
              </property>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_9">
+            <spacer name="horizontal_spacer_holders_header">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -1126,7 +1189,7 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_27">
+            <widget class="QPushButton" name="push_button_create_holder_create">
              <property name="text">
               <string>Crear</string>
              </property>
@@ -1136,7 +1199,7 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QScrollArea" name="scrollArea_13">
+         <widget class="QScrollArea" name="scroll_area_holders">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -1145,30 +1208,30 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>124</width>
-             <height>117</height>
+             <width>253</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout_12">
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit_14"/>
-            </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="label_21">
+             <widget class="QLabel" name="label_search_holders">
               <property name="text">
                <string>Buscar:</string>
               </property>
              </widget>
             </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="line_edit_search_holders"/>
+            </item>
             <item row="1" column="0" colspan="2">
-             <widget class="QTableView" name="tableView_5"/>
+             <widget class="QTableWidget" name="table_widget_holders"/>
             </item>
            </layout>
           </widget>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QScrollArea" name="scrollArea_15">
+         <widget class="QScrollArea" name="scroll_area_create_holder">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -1189,13 +1252,13 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>316</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
             <item>
-             <widget class="QLabel" name="label_32">
+             <widget class="QLabel" name="label_create_holder">
               <property name="text">
                <string>Crear titular</string>
               </property>
@@ -1205,7 +1268,7 @@
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_7">
+             <spacer name="horizontal_spacer_create_holder">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -1218,47 +1281,47 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_34">
+             <widget class="QLabel" name="label__create_holder_name">
               <property name="text">
                <string>Nombre:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_11"/>
+             <widget class="QLineEdit" name="line_edit_create_holder_name"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_35">
+             <widget class="QLabel" name="label_create_holder_paternal_surname">
               <property name="text">
                <string>Apellido Paterno:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_12"/>
+             <widget class="QLineEdit" name="line_edit_create_holder_paternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_36">
+             <widget class="QLabel" name="label_create_holder_maternal_surname">
               <property name="text">
                <string>Apellido Materno:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_16"/>
+             <widget class="QLineEdit" name="line_edit_create_holder_maternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_37">
+             <widget class="QLabel" name="label_create_holder_phone">
               <property name="text">
                <string>Teléfono:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_17"/>
+             <widget class="QLineEdit" name="line_edit_create_holder_phone"/>
             </item>
             <item>
-             <spacer name="verticalSpacer_6">
+             <spacer name="vertical_spacer_create_holder">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -1271,7 +1334,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="frame_21">
+             <widget class="QFrame" name="frame_create_holder_buttons">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -1280,14 +1343,14 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_18">
                <item>
-                <widget class="QPushButton" name="pushButton_30">
+                <widget class="QPushButton" name="push_button_create_holder_save_holder">
                  <property name="text">
                   <string>Guardar</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_31">
+                <widget class="QPushButton" name="push_button_create_holder_clean_holder">
                  <property name="text">
                   <string>Limpiar</string>
                  </property>
@@ -1301,7 +1364,7 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QScrollArea" name="scrollArea_14">
+         <widget class="QScrollArea" name="scroll_area_modify_holder">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -1322,13 +1385,13 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>316</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
             <item>
-             <widget class="QLabel" name="label_33">
+             <widget class="QLabel" name="label_modify_holder">
               <property name="text">
                <string>Modificar titular</string>
               </property>
@@ -1338,7 +1401,7 @@
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_12">
+             <spacer name="horizontal_spacer_modify_holder">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -1351,47 +1414,47 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_38">
+             <widget class="QLabel" name="label_modify_holder_name">
               <property name="text">
                <string>Nombre:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_18"/>
+             <widget class="QLineEdit" name="line_edit_modify_holder_name"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_39">
+             <widget class="QLabel" name="label_modify_holder_paternal_surname">
               <property name="text">
                <string>Apellido Paterno:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_19"/>
+             <widget class="QLineEdit" name="line_edit_modify_holder_paternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_40">
+             <widget class="QLabel" name="label_modify_holder_maternal_surname">
               <property name="text">
                <string>Apellido Materno</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_20"/>
+             <widget class="QLineEdit" name="line_edit_modify_holder_maternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_41">
+             <widget class="QLabel" name="label_modify_holder_name_phone">
               <property name="text">
                <string>Teléfono:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_21"/>
+             <widget class="QLineEdit" name="line_edit_modify_holder_phone"/>
             </item>
             <item>
-             <spacer name="verticalSpacer_7">
+             <spacer name="vertical_spacer_modify_holder">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -1404,25 +1467,32 @@
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="frame_20">
+             <widget class="QFrame" name="frame_modify_holder_buttons">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_17">
-               <item>
-                <widget class="QPushButton" name="pushButton_28">
+              <layout class="QFormLayout" name="formLayout">
+               <item row="1" column="0" colspan="2">
+                <widget class="QPushButton" name="push_button_modify_holder_save">
                  <property name="text">
                   <string>Guardar</string>
                  </property>
                 </widget>
                </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_29">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="push_modify_holder_activate">
                  <property name="text">
-                  <string>Limpiar</string>
+                  <string>Activar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="push_button_modify_holder_deactivate">
+                 <property name="text">
+                  <string>Desactivar</string>
                  </property>
                 </widget>
                </item>
@@ -1459,8 +1529,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>463</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1609,8 +1679,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>124</width>
-             <height>117</height>
+             <width>253</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout_4">
@@ -1653,8 +1723,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>313</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1822,8 +1892,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>152</width>
-             <height>266</height>
+             <width>198</width>
+             <height>458</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -1858,7 +1928,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="line_edit_my_account_current_password"/>
+             <widget class="QLineEdit" name="line_edit_my_account_current_password">
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_my_account_new_password">
@@ -1868,7 +1942,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="line_edit_my_account_new_password"/>
+             <widget class="QLineEdit" name="line_edit_my_account_new_password">
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_my_account_repeat_new_password">
@@ -1878,7 +1956,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="line_edit_my_account_repeat_new_password"/>
+             <widget class="QLineEdit" name="line_edit_my_account_repeat_new_password">
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="vertical_spacer_my_account">

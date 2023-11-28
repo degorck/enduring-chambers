@@ -1,10 +1,10 @@
 """
 User Type Service Module for Enduring Chambers
 """
-from niches.model.dto.UserTypeDto import UserTypeDto
-from niches.model.dao.UserTypeDao import UserTypeDao
-from niches.model.mapper.UserTypeMapper import UserTypeMapper
-from niches.util.LoggingConfiguration import get_loging
+from niches.model.dto.user_type_dto import UserTypeDto
+from niches.model.dao.user_type_dao import UserTypeDao
+from niches.model.mapper.user_type_mapper import UserTypeMapper
+from niches.util.logging_configuration import get_loging
 logging = get_loging()
 
 class UserTypeService:
