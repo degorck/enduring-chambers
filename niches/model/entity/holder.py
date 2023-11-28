@@ -6,6 +6,15 @@ import datetime
 class Holder:
     """
     Class holder entity
+        Properties:
+            id: int
+            name: str
+            paternal_surname: str
+            maternal_surname: str
+            phone: str
+            is_active: bool
+            created_at: datetime
+            updated_at: datetime
     """
     def __init__(self):
         self.__id:int = 0
@@ -19,59 +28,67 @@ class Holder:
 
     def get_id(self):
         """
-        Returns holder id
+        Returns
+            id : int
         """
         return self.__id
 
     def get_name(self):
         """
-        Returns holder name
+        Returns
+            name : str
         """
         return self.__name
 
     def get_paternal_surname(self):
         """
-        Returns paternal_surname
+        Returns
+            paternal_surname : str
         """
         return self.__paternal_surname
 
     def get_maternal_surname(self):
         """
-        Returns maternal_surname
+        Returns
+            maternal_surname : str
         """
         return self.__maternal_surname
 
     def get_phone(self):
         """
-        Returns maternal_surname
+        Returns
+            phone : str
         """
         return self.__phone
 
     def is_active(self):
         """
-        Returns maternal_surname
+        Returns
+            is_active : bool
         """
         return self.__is_active
 
     def get_created_at(self):
         """
-        Returns maternal_surname
+        Returns
+            created_at : datetime
         """
         return self.__created_at
 
     def get_updated_at(self):
         """
-        Returns maternal_surname
+        Returns
+            updated_at : datetime
         """
         return self.__updated_at
 
     def set_id(self, holder_id:int):
         """
-        Sets holder_id
+        Sets id
 
-        Args:
-            holder_id : int
-                holder_id to set
+        Arguments:
+            id : int
+                id to set
         """
         self.__id = holder_id
 
@@ -79,7 +96,7 @@ class Holder:
         """
         Sets name
 
-        Args:
+        Arguments:
             name : str
                 name to set
         """
@@ -89,7 +106,7 @@ class Holder:
         """
         Sets paternal_surname
 
-        Args:
+        Arguments:
             paternal_surname : str
                 paternal_surname to set
         """
@@ -99,7 +116,7 @@ class Holder:
         """
         Sets maternal_surname
 
-        Args:
+        Arguments:
             maternal_surname : str
                 maternal_surname to set
         """
@@ -109,7 +126,7 @@ class Holder:
         """
         Sets phone
 
-        Args:
+        Arguments:
             phone : str
                 phone to set
         """
@@ -119,7 +136,7 @@ class Holder:
         """
         Sets active
 
-        Args:
+        Arguments:
             active : bool
                 active to set
         """
@@ -129,7 +146,7 @@ class Holder:
         """
         Sets created_at
 
-        Args:
+        Arguments:
             created_at : datetime
                 created_at to set
         """
@@ -139,7 +156,7 @@ class Holder:
         """
         Sets updated_at
 
-        Args:
+        Arguments:
             updated_at : datetime
                 updated_at to set
         """
@@ -150,7 +167,7 @@ class Holder:
         """
         Loads data for new holder
 
-        Args:
+        Arguments:
             name: str
                 name of the holder
             paternal_surname: str
@@ -171,8 +188,8 @@ class Holder:
         """
         Loads data of an existing holder
 
-        Args:
-            holder_id: int
+        Arguments:
+            id: int
                 id of the holder
             name: str
                 name of the holder
@@ -185,7 +202,6 @@ class Holder:
             is_active: bool
             created_at: datetime
             updated_at: datetime
-            
         """
         self.__id = holder_id
         self.__name = name

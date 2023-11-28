@@ -22,6 +22,45 @@
   <property name="styleSheet">
    <string notr="true">QMainWindow{
 	background-color: rgb(81, 67, 143)
+}
+
+QScrollArea {
+    background-color: lightgray;
+    border: 1px solid gray;
+}
+
+QScrollBar:vertical {
+    border: 1px solid gray;
+    background: lightgray;
+    width: 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: gray;
+    min-height: 20px;
+}
+
+QPushButton{
+	background-color:rgb(111, 92, 195);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover{
+	background-color: rgb(125, 108, 201);
+	color: rgb(255, 255, 255);
+}
+QPushButton:checked{
+	background-color:rgb(81, 67, 143);
+	color: rgb(255, 255, 255);
+}
+QFrame{
+	background_color: rgb(141, 117, 249)
+}
+QFrame{
+	background_color: rgb(141, 117, 249)
+}
+QLabel{
+	color: rgb(81, 67, 143);
 }</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
@@ -62,8 +101,32 @@ QPushButton:checked{
 	padding: 8px 8px;
 	border-radius: 10px;
 }
-QFrame#frame_lateral_window{
+QFrame{
 	background_color: rgb(141, 117, 249)
+}
+QPushButton{
+	background-color:rgb(111, 92, 195);
+	color: rgb(255, 255, 255);
+	padding: 8px 8px;
+	border-radius: 10px;
+}
+QPushButton:hover{
+	background-color: rgb(125, 108, 201);
+	color: rgb(255, 255, 255);
+	padding: 8px 8px;
+	border-radius: 10px;
+}
+QPushButton:checked{
+	background-color:rgb(81, 67, 143);
+	color: rgb(255, 255, 255);
+	padding: 8px 8px;
+	border-radius: 10px;
+}
+QFrame{
+	background_color: rgb(141, 117, 249)
+}
+QLabel{
+	color: rgb(255, 255, 255);
 }</string>
       </property>
       <property name="frameShape">
@@ -685,6 +748,9 @@ QFrame#frame_lateral_window{
         </item>
         <item row="1" column="0">
          <widget class="QScrollArea" name="scroll_area_users">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -795,38 +861,6 @@ QFrame#frame_lateral_window{
             </widget>
            </item>
           </layout>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QScrollArea" name="scrollArea_10">
-          <property name="widgetResizable">
-           <bool>true</bool>
-          </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents_20">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>253</width>
-             <height>500</height>
-            </rect>
-           </property>
-           <layout class="QFormLayout" name="formLayout_11">
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit_13"/>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_7">
-              <property name="text">
-               <string>Buscar:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0" colspan="2">
-             <widget class="QTableView" name="tableView_4"/>
-            </item>
-           </layout>
-          </widget>
          </widget>
         </item>
         <item row="1" column="1">
@@ -1155,6 +1189,38 @@ QFrame#frame_lateral_window{
           </widget>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QScrollArea" name="scrollArea_10">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_20">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>253</width>
+             <height>500</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>Buscar:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineEdit_13"/>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QTableView" name="tableView_4"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="holders">
@@ -1212,7 +1278,7 @@ QFrame#frame_lateral_window{
              <height>500</height>
             </rect>
            </property>
-           <layout class="QFormLayout" name="formLayout_12">
+           <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="0">
              <widget class="QLabel" name="label_search_holders">
               <property name="text">
@@ -1683,16 +1749,16 @@ QFrame#frame_lateral_window{
              <height>500</height>
             </rect>
            </property>
-           <layout class="QFormLayout" name="formLayout_4">
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit"/>
-            </item>
+           <layout class="QGridLayout" name="gridLayout_8">
             <item row="0" column="0">
              <widget class="QLabel" name="label_2">
               <property name="text">
                <string>Buscar:</string>
               </property>
              </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineEdit"/>
             </item>
             <item row="1" column="0" colspan="2">
              <widget class="QTableView" name="tableView"/>

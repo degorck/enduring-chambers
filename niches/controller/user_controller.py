@@ -41,55 +41,6 @@ class UserController:
         self.main_window.push_button_modify_user_deactivate.clicked.connect(self.__deactivate)
         self.main_window.table_widget_users.cellDoubleClicked.connect(self.__select_user)
 
-    def __save_user(self):
-        user_dto = UserDto()
-        try:
-            validate_is_not_empty(
-                self.main_window.line_edit_create_user_name.text(),
-                UserField.NAME)
-            validate_is_not_empty(
-                self.main_window.line_edit_create_user_paternal_surname.text(),
-                UserField.PATERNAL_SURNAME)
-            validate_is_not_empty(
-                self.main_window.line_edit_create_user_maternal_surname.text(),
-                UserField.MATERNAL_SURNAME)
-            validate_is_not_empty(
-                self.main_window.line_edit_create_user_user_name.text(),
-                UserField.USER_NAME)
-            validate_is_not_empty(
-                self.main_window.line_edit_create_user_password.text(),
-                UserField.PASSWORD)
-            validate_is_not_empty(
-                self.main_window.line_edit_create_user_repeat_password.text(),
-                UserField.PASSWORD)
-            validate_password(self.main_window.line_edit_create_user_password.text(),
-                              self.main_window.line_edit_create_user_repeat_password.text())
-
-            user_dto.new_user(
-                self.main_window.line_edit_create_user_name.text(),
-                self.main_window.line_edit_create_user_paternal_surname.text(),
-                self.main_window.line_edit_create_user_maternal_surname.text(),
-                int(self.main_window.combo_box_create_user_user_type.currentData().get_id()),
-                self.main_window.line_edit_create_user_user_name.text(),
-                self.main_window.line_edit_create_user_password.text()
-            )
-
-            self.__user_service.create_user(user_dto)
-            self.__clean_stacked_widget_users()
-            self.main_window.scroll_area_create_user.hide()
-            self.__search_users()
-            self.__error_controller.handle_value_error("El usuario se ha creado exitosamente")
-            self.__error_controller.show()
-
-        except ValueError as ve:
-            self.__error_controller.handle_value_error(ve)
-            self.__error_controller.show()
-
-        except Exception as e:
-            self.__error_controller.handle_exception_error(e)
-            self.__error_controller.show()
-        logging.debug("User created")
-
     def __clean_stacked_widget_users(self):
         self.main_window.line_edit_create_user_name.clear()
         self.main_window.line_edit_create_user_paternal_surname.clear()
@@ -218,6 +169,7 @@ class UserController:
             self.__search_users()
             self.__error_controller.handle_value_error("El usuario se ha creado exitosamente")
             self.__error_controller.show()
+            logging.debug("User created")
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
@@ -226,7 +178,6 @@ class UserController:
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
-        logging.debug("User created")
 
     def __clean_stacked_widget_users(self):
         self.main_window.line_edit_create_user_name.clear()
@@ -237,6 +188,7 @@ class UserController:
         self.main_window.line_edit_create_user_repeat_password.clear()
 
     def __set_stacked_widget_users(self):
+        self.__search_users()
         self.main_window.scroll_area_create_user.hide()
         self.main_window.scroll_area_modify_user.hide()
         self.main_window.push_button_deceased.setChecked(False)
@@ -293,6 +245,7 @@ class UserController:
             self.__error_controller.handle_value_error("El usuario se ha modificado exitosamente")
             self.__error_controller.show()
             self.main_window.scroll_area_modify_user.hide()
+            logging.debug("El usuario se ha modificado exitosamente")
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
@@ -309,6 +262,7 @@ class UserController:
             self.__error_controller.handle_value_error("El usuario se ha activado")
             self.__error_controller.show()
             self.main_window.scroll_area_modify_user.hide()
+            logging.debug("El usuario se ha activado")
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
@@ -325,6 +279,7 @@ class UserController:
             self.__error_controller.handle_value_error("El usuario se ha desactivado")
             self.__error_controller.show()
             self.main_window.scroll_area_modify_user.hide()
+            logging.debug("El usuario se ha desactivado")
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)

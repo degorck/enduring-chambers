@@ -10,6 +10,7 @@ from niches.constants.constants import UserTypeKey
 from niches.controller.login_controller import LoginController
 from niches.controller.user_controller import UserController
 from niches.controller.my_account_controller import MyAccountController
+from niches.controller.holder_controller import HolderController
 logging = get_loging()
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -21,18 +22,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow (Ui_MainWindow): Qt layer transformed to python code 
     """
     def __init__(self):
-        super(MainWindow, self).__init__()
+        super().__init__()
         self.setupUi(self)
         self.__login_controller = LoginController()
         self.__loaded_user_dto = UserDto()
         self.__logged_user_dto = UserDto()
-        self._user_type_key = UserTypeKey.NOT_LOGGED.value
+        self.__user_type_key = UserTypeKey.NOT_LOGGED.value
         self.scroll_area_create_user.hide()
         self.scroll_area_modify_user.hide()
         self.scroll_area_create_holder.hide()
         self.scroll_area_modify_holder.hide()
         self.__user_controller = UserController(self)
         self.__my_account_controller = MyAccountController(self)
+        self.__holder_controller = HolderController(self)
         self.__configure_actions()
         self.__configure_windows_by_user_type()
         self.show()
@@ -41,13 +43,18 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def get_logged_user_type_key(self):
         """
-        Returns the logged user type key
+        Returns
+            user_type_key : str
+                The logged user type key
         """
         return self.__user_type_key
 
     def set_loaded_user_dto(self, user_dto:UserDto):
         """
         Sets the loaded UsetDto
+        Args:
+            user_dto : UserDto
+                The user_dto to be set
         """
         self.__loaded_user_dto.existing_user(
             user_dto.get_id(),
@@ -60,15 +67,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def get_loaded_user_dto(self):
         """
-        Returns the loaded UserDto
+        Returns
+            loaded_user_dto : UserDto
+                The loaded UserDto
         """
         return self.__loaded_user_dto
 
     def get_logged_user_dto(self):
         """
-        Returns the loaded UserDto
+        Returns
+            logged_user_dto : UserDto
+                The loaded UserDto
         """
         return self.__logged_user_dto
+
     def __configure_actions(self):
         self.push_button_niches.clicked.connect(self.__set_stacked_widget_niches)
         self.push_button_deceased.clicked.connect(self.__set_stacked_widget_deceased)

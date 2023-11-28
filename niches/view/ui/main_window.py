@@ -31,6 +31,45 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QSize(650, 500))
         MainWindow.setStyleSheet(u"QMainWindow{\n"
 "	background-color: rgb(81, 67, 143)\n"
+"}\n"
+"\n"
+"QScrollArea {\n"
+"    background-color: lightgray;\n"
+"    border: 1px solid gray;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    border: 1px solid gray;\n"
+"    background: lightgray;\n"
+"    width: 10px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: gray;\n"
+"    min-height: 20px;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	background-color:rgb(111, 92, 195);\n"
+"	color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(125, 108, 201);\n"
+"	color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:checked{\n"
+"	background-color:rgb(81, 67, 143);\n"
+"	color: rgb(255, 255, 255);\n"
+"}\n"
+"QFrame{\n"
+"	background_color: rgb(141, 117, 249)\n"
+"}\n"
+"QFrame{\n"
+"	background_color: rgb(141, 117, 249)\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(81, 67, 143);\n"
 "}")
         MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QWidget(MainWindow)
@@ -59,8 +98,33 @@ class Ui_MainWindow(object):
 "	padding: 8px 8px;\n"
 "	border-radius: 10px;\n"
 "}\n"
-"QFrame#frame_lateral_window{\n"
+"QFrame{\n"
 "	background_color: rgb(141, 117, 249)\n"
+"}\n"
+"QPushButton{\n"
+"	background-color:rgb(111, 92, 195);\n"
+"	color: rgb(255, 255, 255);\n"
+"	padding: 8px 8px;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(125, 108, 201);\n"
+"	color: rgb(255, 255, 255);\n"
+"	padding: 8px 8px;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QPushButton:checked{\n"
+"	background-color:rgb(81, 67, 143);\n"
+"	color: rgb(255, 255, 255);\n"
+"	padding: 8px 8px;\n"
+"	border-radius: 10px;\n"
+"}\n"
+"QFrame{\n"
+"	background_color: rgb(141, 117, 249)\n"
+"}\n"
+"QLabe"
+                        "l{\n"
+"	color: rgb(255, 255, 255);\n"
 "}")
         self.frame_lateral_window.setFrameShape(QFrame.StyledPanel)
         self.frame_lateral_window.setFrameShadow(QFrame.Raised)
@@ -424,6 +488,7 @@ class Ui_MainWindow(object):
 
         self.scroll_area_users = QScrollArea(self.users)
         self.scroll_area_users.setObjectName(u"scroll_area_users")
+        self.scroll_area_users.setStyleSheet(u"")
         self.scroll_area_users.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
@@ -499,33 +564,6 @@ class Ui_MainWindow(object):
 
 
         self.gridLayout_11.addWidget(self.frame_16, 0, 0, 1, 3)
-
-        self.scrollArea_10 = QScrollArea(self.deceased)
-        self.scrollArea_10.setObjectName(u"scrollArea_10")
-        self.scrollArea_10.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_20 = QWidget()
-        self.scrollAreaWidgetContents_20.setObjectName(u"scrollAreaWidgetContents_20")
-        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 253, 500))
-        self.formLayout_11 = QFormLayout(self.scrollAreaWidgetContents_20)
-        self.formLayout_11.setObjectName(u"formLayout_11")
-        self.lineEdit_13 = QLineEdit(self.scrollAreaWidgetContents_20)
-        self.lineEdit_13.setObjectName(u"lineEdit_13")
-
-        self.formLayout_11.setWidget(0, QFormLayout.FieldRole, self.lineEdit_13)
-
-        self.label_7 = QLabel(self.scrollAreaWidgetContents_20)
-        self.label_7.setObjectName(u"label_7")
-
-        self.formLayout_11.setWidget(0, QFormLayout.LabelRole, self.label_7)
-
-        self.tableView_4 = QTableView(self.scrollAreaWidgetContents_20)
-        self.tableView_4.setObjectName(u"tableView_4")
-
-        self.formLayout_11.setWidget(1, QFormLayout.SpanningRole, self.tableView_4)
-
-        self.scrollArea_10.setWidget(self.scrollAreaWidgetContents_20)
-
-        self.gridLayout_11.addWidget(self.scrollArea_10, 1, 0, 1, 1)
 
         self.scrollArea_12 = QScrollArea(self.deceased)
         self.scrollArea_12.setObjectName(u"scrollArea_12")
@@ -761,6 +799,33 @@ class Ui_MainWindow(object):
 
         self.gridLayout_11.addWidget(self.scrollArea_11, 1, 2, 1, 1)
 
+        self.scrollArea_10 = QScrollArea(self.deceased)
+        self.scrollArea_10.setObjectName(u"scrollArea_10")
+        self.scrollArea_10.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_20 = QWidget()
+        self.scrollAreaWidgetContents_20.setObjectName(u"scrollAreaWidgetContents_20")
+        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 253, 500))
+        self.gridLayout_7 = QGridLayout(self.scrollAreaWidgetContents_20)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.label_7 = QLabel(self.scrollAreaWidgetContents_20)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout_7.addWidget(self.label_7, 0, 0, 1, 1)
+
+        self.lineEdit_13 = QLineEdit(self.scrollAreaWidgetContents_20)
+        self.lineEdit_13.setObjectName(u"lineEdit_13")
+
+        self.gridLayout_7.addWidget(self.lineEdit_13, 0, 1, 1, 1)
+
+        self.tableView_4 = QTableView(self.scrollAreaWidgetContents_20)
+        self.tableView_4.setObjectName(u"tableView_4")
+
+        self.gridLayout_7.addWidget(self.tableView_4, 1, 0, 1, 2)
+
+        self.scrollArea_10.setWidget(self.scrollAreaWidgetContents_20)
+
+        self.gridLayout_11.addWidget(self.scrollArea_10, 1, 0, 1, 1)
+
         self.stacked_widget.addWidget(self.deceased)
         self.holders = QWidget()
         self.holders.setObjectName(u"holders")
@@ -795,22 +860,22 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_23 = QWidget()
         self.scrollAreaWidgetContents_23.setObjectName(u"scrollAreaWidgetContents_23")
         self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 253, 500))
-        self.formLayout_12 = QFormLayout(self.scrollAreaWidgetContents_23)
-        self.formLayout_12.setObjectName(u"formLayout_12")
+        self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_23)
+        self.gridLayout.setObjectName(u"gridLayout")
         self.label_search_holders = QLabel(self.scrollAreaWidgetContents_23)
         self.label_search_holders.setObjectName(u"label_search_holders")
 
-        self.formLayout_12.setWidget(0, QFormLayout.LabelRole, self.label_search_holders)
+        self.gridLayout.addWidget(self.label_search_holders, 0, 0, 1, 1)
 
         self.line_edit_search_holders = QLineEdit(self.scrollAreaWidgetContents_23)
         self.line_edit_search_holders.setObjectName(u"line_edit_search_holders")
 
-        self.formLayout_12.setWidget(0, QFormLayout.FieldRole, self.line_edit_search_holders)
+        self.gridLayout.addWidget(self.line_edit_search_holders, 0, 1, 1, 1)
 
         self.table_widget_holders = QTableWidget(self.scrollAreaWidgetContents_23)
         self.table_widget_holders.setObjectName(u"table_widget_holders")
 
-        self.formLayout_12.setWidget(1, QFormLayout.SpanningRole, self.table_widget_holders)
+        self.gridLayout.addWidget(self.table_widget_holders, 1, 0, 1, 2)
 
         self.scroll_area_holders.setWidget(self.scrollAreaWidgetContents_23)
 
@@ -1117,22 +1182,22 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
         self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 253, 500))
-        self.formLayout_4 = QFormLayout(self.scrollAreaWidgetContents_5)
-        self.formLayout_4.setObjectName(u"formLayout_4")
-        self.lineEdit = QLineEdit(self.scrollAreaWidgetContents_5)
-        self.lineEdit.setObjectName(u"lineEdit")
-
-        self.formLayout_4.setWidget(0, QFormLayout.FieldRole, self.lineEdit)
-
+        self.gridLayout_8 = QGridLayout(self.scrollAreaWidgetContents_5)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.label_2 = QLabel(self.scrollAreaWidgetContents_5)
         self.label_2.setObjectName(u"label_2")
 
-        self.formLayout_4.setWidget(0, QFormLayout.LabelRole, self.label_2)
+        self.gridLayout_8.addWidget(self.label_2, 0, 0, 1, 1)
+
+        self.lineEdit = QLineEdit(self.scrollAreaWidgetContents_5)
+        self.lineEdit.setObjectName(u"lineEdit")
+
+        self.gridLayout_8.addWidget(self.lineEdit, 0, 1, 1, 1)
 
         self.tableView = QTableView(self.scrollAreaWidgetContents_5)
         self.tableView.setObjectName(u"tableView")
 
-        self.formLayout_4.setWidget(1, QFormLayout.SpanningRole, self.tableView)
+        self.gridLayout_8.addWidget(self.tableView, 1, 0, 1, 2)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_5)
 
@@ -1417,7 +1482,6 @@ class Ui_MainWindow(object):
         self.push_button_create_user_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Fallecidos", None))
         self.pushButton_22.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Crear fallecido", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
@@ -1438,6 +1502,7 @@ class Ui_MainWindow(object):
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"Nicho:", None))
         self.pushButton_23.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.pushButton_24.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
         self.label_holders.setText(QCoreApplication.translate("MainWindow", u"Titulares", None))
         self.push_button_create_holder_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
         self.label_search_holders.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
