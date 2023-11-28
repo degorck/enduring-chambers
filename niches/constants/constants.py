@@ -16,6 +16,7 @@ PASSWORD_MINIMAL_CHARACTERS = 10
 PASSWORD_MUST_HAVE_CHARACTERS = "Las contraseñas deben tener " + str(PASSWORD_MINIMAL_CHARACTERS) + " caracteres."
 LOGIN_ERROR = "Error en login. Verifica tu usuario y contraseña"
 USER_NOT_EXIST = "El usuario no existe o está inactivo"
+
 HASHED_BOOLEAN_CONVERTER = {
     "True" : "Activo",
     "False": "Inactivo"
@@ -37,13 +38,13 @@ LOG_FORMAT = '''
 %(funcName)s]
 '''
 LOG_FILENAME = "enduring-chambers"
-LOGING_LEVEL = logging.DEBUG
+LOGING_LEVEL = logging.INFO
 '''
 Logging levels:
-    INFO - info message
-    WARNING - warn message
-    ERROR - error message
-    CRITICAL - critical message
+    - INFO - info message
+    - WARNING - warn message
+    - ERROR - error message
+    - CRITICAL - critical message
 '''
 
 ##############################################################################################
@@ -62,6 +63,7 @@ class UserField(StrEnum):
     USER_TYPE = "Tipo de usuario"
     USER_NAME = "Nombre de usuario"
     PASSWORD = "Contraseña"
+    PHONE = "Teléfono"
 
 class UserTypeKey(StrEnum):
     """

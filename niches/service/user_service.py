@@ -1,12 +1,11 @@
 """
 User Service Module for Enduring Chambers
 """
+import logging
 from niches.model.dto.user_dto import UserDto
 from niches.model.dao.user_dao import UserDao
 from niches.model.mapper.user_mapper import UserMapper
 from niches.controller.error_controller import ErrorController
-from niches.util.logging_configuration import get_loging
-logging = get_loging()
 
 class UserService:
     """
