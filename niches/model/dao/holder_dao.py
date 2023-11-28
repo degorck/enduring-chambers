@@ -104,3 +104,96 @@ class HolderDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def search_holders(self, search_string:str):
+        """
+        Search all holders by search_string
+        
+        Args:
+            search_string: str
+                String to match with the users search
+        Returns:
+            holder_list = list<Holder>
+        """
+        search_string = "%" + search_string + "%"
+        holder_list = []
+        command = '''
+                SELECT * FROM tb_holder
+                WHERE
+                name LIKE %s OR
+                paternal_surname LIKE %s OR
+                maternal_surname LIKE %s OR
+                phone LIKE %s OR
+                CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                '''
+        values = (
+            search_string,
+            search_string,
+            search_string,
+            search_string,
+            search_string)
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
+            for row in rows:
+                holder = self.__holder_dao_mapper.real_dict_row_to_holder(row)
+                holder_list.append(holder)
+            self.__db_connection.end_connection()
+            logging.debug("Se buscaron todos los titulares")
+            return holder_list
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+
+    def search_active_holders(self, search_string:str):
+        """
+        Search all active holders by search_string
+        
+        Args:
+            search_string: str
+                String to match with the users search
+        Returns:
+            holder_list = list<Holder>
+        """
+        search_string = "%" + search_string + "%"
+        holder_list = []
+        command = '''
+                SELECT * FROM tb_holder
+                WHERE
+                (name LIKE %s OR
+                paternal_surname LIKE %s OR
+                maternal_surname LIKE %s OR
+                phone LIKE %s OR
+                CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s)
+                AND
+                (is_active = True)
+                '''
+
+        values = (
+            search_string,
+            search_string,
+            search_string,
+            search_string,
+            search_string)
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
+            for row in rows:
+                holder = self.__holder_dao_mapper.real_dict_row_to_holder(row)
+                holder_list.append(holder)
+            self.__db_connection.end_connection()
+            logging.debug("Se buscaron los usuarios activos")
+            return holder_list
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()

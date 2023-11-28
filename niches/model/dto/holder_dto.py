@@ -135,7 +135,7 @@ class HolderDto:
         """
         self.__created_at = created_at
 
-    def set_update_at(self, updated_at:datetime):
+    def set_updated_at(self, updated_at:datetime):
         """
         Sets updated_at
 
@@ -143,7 +143,7 @@ class HolderDto:
             updated_at : datetime
                 updated_at to set
         """
-        self.__created_at = updated_at
+        self.__updated_at = updated_at
 
     def new_holder(self, name:str, paternal_surname:str, maternal_surname:str,
                    phone:str):

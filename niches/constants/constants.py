@@ -38,7 +38,7 @@ LOG_FORMAT = '''
 %(funcName)s]
 '''
 LOG_FILENAME = "enduring-chambers"
-LOGING_LEVEL = logging.INFO
+LOGING_LEVEL = logging.DEBUG
 '''
 Logging levels:
     - INFO - info message

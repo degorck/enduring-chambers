@@ -44,3 +44,41 @@ class HolderService:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
             return None
+
+    def search_holders(self, search_string:str):
+        """
+        Search holders on database.
+        Args:
+            search_string: str
+                String to search users
+        Returns:
+            list_holder_dto : list<HolderDto> 
+                Holder list found
+        """
+        list_holder_dto = []
+        list_holder = []
+        list_holder = self.__holder_dao.search_holders(search_string)
+        for holder in list_holder:
+            holder_dto = HolderDto()
+            holder_dto = self.__holder_mapper.holder_to_holder_dto(holder)
+            list_holder_dto.append(holder_dto)
+        return list_holder_dto
+
+    def search_active_holders(self, search_string:str):
+        """
+        Search active holders on database.
+        Args:
+            search_string: str
+                String to search users
+        Returns:
+            list_holder_dto : list<HolderDto> 
+                Holder list found
+        """
+        list_holder_dto = []
+        list_holder = []
+        list_holder = self.__holder_dao.search_active_holders(search_string)
+        for holder in list_holder:
+            holder_dto = HolderDto()
+            holder_dto = self.__holder_mapper.holder_to_holder_dto(holder)
+            list_holder_dto.append(holder_dto)
+        return list_holder_dto
