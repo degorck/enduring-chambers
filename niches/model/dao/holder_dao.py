@@ -11,7 +11,7 @@ from niches.model.entity.holder import Holder
 
 class HolderDao:
     """
-    Class with the functionality of User Dao
+    Class with the functionality of Holder Dao
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
@@ -73,9 +73,9 @@ class HolderDao:
 
     def find_by_id(self, holder_id:int):
         """
-        Find holder by its user_id
+        Find holder by its holder_id
         
-        Args:
+        Arguments:
             holder_id: int
                 holder_id of the user to find
         Returns:
@@ -109,7 +109,7 @@ class HolderDao:
         """
         Search all holders by search_string
         
-        Args:
+        Arguments:
             search_string: str
                 String to match with the users search
         Returns:
@@ -154,7 +154,7 @@ class HolderDao:
         """
         Search all active holders by search_string
         
-        Args:
+        Arguments:
             search_string: str
                 String to match with the users search
         Returns:
@@ -190,6 +190,46 @@ class HolderDao:
             self.__db_connection.end_connection()
             logging.debug("Se buscaron los usuarios activos")
             return holder_list
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+
+    def modify_holder(self, holder:Holder):
+        """
+        Modifies the holder on database
+        
+        Arguments:
+            holder : Holder
+                Holder entity to be modified
+        """
+        command = '''
+                UPDATE tb_holder
+                SET
+                name = %s,
+                paternal_surname = %s,
+                maternal_surname = %s,
+                phone = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            holder.get_name(),
+            holder.get_paternal_surname(),
+            holder.get_maternal_surname(),
+            holder.get_phone(),
+            datetime.datetime.now(),
+            holder.get_id()
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se modificó el titular")
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)
             raise error

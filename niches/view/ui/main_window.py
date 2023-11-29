@@ -1318,7 +1318,7 @@ class Ui_MainWindow(object):
         self.scroll_area_change_password.setWidgetResizable(True)
         self.scrollAreaWidgetContents_28 = QWidget()
         self.scrollAreaWidgetContents_28.setObjectName(u"scrollAreaWidgetContents_28")
-        self.scrollAreaWidgetContents_28.setGeometry(QRect(0, 0, 198, 458))
+        self.scrollAreaWidgetContents_28.setGeometry(QRect(0, 0, 198, 454))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_28)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.label_my_account_change_password = QLabel(self.scrollAreaWidgetContents_28)
@@ -1400,6 +1400,11 @@ class Ui_MainWindow(object):
         self.horizontal_spacer_my_account_header = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_19.addItem(self.horizontal_spacer_my_account_header)
+
+        self.push_button_my_account_logout = QPushButton(self.frame_22)
+        self.push_button_my_account_logout.setObjectName(u"push_button_my_account_logout")
+
+        self.horizontalLayout_19.addWidget(self.push_button_my_account_logout)
 
 
         self.gridLayout_13.addWidget(self.frame_22, 0, 0, 1, 3)
@@ -1545,6 +1550,7 @@ class Ui_MainWindow(object):
         self.label_my_account_repeat_new_password.setText(QCoreApplication.translate("MainWindow", u"Repetir contrase\u00f1a:", None))
         self.push_button_change_password.setText(QCoreApplication.translate("MainWindow", u"Cambiar contrase\u00f1a", None))
         self.label_my_account_my_account.setText(QCoreApplication.translate("MainWindow", u"Mi cuenta", None))
+        self.push_button_my_account_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.label_my_account_user_name.setText(QCoreApplication.translate("MainWindow", u"Nombre de usuario:", None))
         self.label_my_account_your_user_name.setText(QCoreApplication.translate("MainWindow", u"your_user_name", None))
     # retranslateUi
