@@ -31,7 +31,7 @@ class UserTypeDao:
                 SELECT * 
                 FROM tb_user_type
                 WHERE
-                id = %s
+                id_user_type = %s
                 '''
 
         try:

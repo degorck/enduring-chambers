@@ -227,6 +227,102 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="push_button_modules">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="text">
+          <string>Módulos</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/small/Downloads/feather/table.svg</normaloff>C:/Users/small/Downloads/feather/table.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="push_button_rows">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="text">
+          <string>Letras</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/small/Downloads/feather/layers.svg</normaloff>C:/Users/small/Downloads/feather/layers.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="push_button_payments">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="text">
+          <string>Pagos</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/small/Downloads/feather/credit-card.svg</normaloff>C:/Users/small/Downloads/feather/credit-card.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -364,8 +460,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -541,8 +637,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -672,8 +768,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>500</height>
+             <width>124</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -804,8 +900,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -967,8 +1063,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1118,8 +1214,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>500</height>
+             <width>124</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1196,8 +1292,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>500</height>
+             <width>124</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1240,8 +1336,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1373,8 +1469,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1517,8 +1613,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>463</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1667,8 +1763,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>500</height>
+             <width>124</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
@@ -1711,8 +1807,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>313</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">

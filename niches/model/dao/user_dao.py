@@ -96,7 +96,7 @@ class UserDao:
                 maternal_surname = %s,
                 user_type_id = %s,
                 updated_at = %s
-                WHERE id = %s
+                WHERE id_user = %s
                 '''
         values = (
             user.get_name(),
@@ -133,7 +133,7 @@ class UserDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id = %s
+                WHERE id_user = %s
                 '''
         values = (
             False,
@@ -167,7 +167,7 @@ class UserDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id = %s
+                WHERE id_user = %s
                 '''
         values = (
             True,
@@ -332,7 +332,7 @@ class UserDao:
                 SELECT * 
                 FROM tb_user
                 WHERE
-                id = %s
+                id_user = %s
                 '''
 
         try:
