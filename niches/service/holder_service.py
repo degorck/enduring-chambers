@@ -50,7 +50,7 @@ class HolderService:
         Search holders on database.
         Args:
             search_string: str
-                String to search users
+                String to search holders
         Returns:
             list_holder_dto : list<HolderDto> 
                 Holder list found
@@ -69,7 +69,7 @@ class HolderService:
         Search active holders on database.
         Args:
             search_string: str
-                String to search users
+                String to search holders
         Returns:
             list_holder_dto : list<HolderDto> 
                 Holder list found
@@ -106,3 +106,21 @@ class HolderService:
                 HolderDto to be modified
         """
         self.__holder_dao.modify_holder(self.__holder_mapper.holder_dto_to_holder(holder_dto))
+
+    def deactivate_holder(self, holder_id:int):
+        """
+        Deactivate holder by its id
+        Arguments:
+            holder_id : int
+                holder_id of the holder to be modified
+        """
+        self.__holder_dao.deactivate_holder(holder_id)
+
+    def reactivate_holder(self, holder_id:int):
+        """
+        Activate holder by its id
+        Arguments:
+            holder_id : int
+                holder_id of the holder to be modified
+        """
+        self.__holder_dao.reactivate_holder(holder_id)

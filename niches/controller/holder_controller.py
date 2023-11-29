@@ -34,8 +34,8 @@ class HolderController:
         self.main_window.push_button_create_holder_clean_holder.clicked.connect(
             self.__clean_stacked_widget_holders)
         self.main_window.push_button_modify_holder_save.clicked.connect(self.__update_holder)
-        #self.main_window.push_button_modify_holder_activate.clicked.connect(self.__activate)
-        #self.main_window.push_button_modify_holder_deactivate.clicked.connect(self.__deactivate)
+        self.main_window.push_button_modify_holder_activate.clicked.connect(self.__activate)
+        self.main_window.push_button_modify_holder_deactivate.clicked.connect(self.__deactivate)
         self.main_window.table_widget_holders.cellDoubleClicked.connect(self.__select_holder)
 
     def __save_holder(self):
@@ -220,7 +220,41 @@ class HolderController:
             self.__error_controller.show()
             self.main_window.scroll_area_modify_holder.hide()
             logging.debug("El titular se ha modificado exitosamente")
-        
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
+
+    def __activate(self):
+        try:
+            self.__holder_service.reactivate_holder(self.__loaded_holder_dto.get_id())
+            self.__search_holders()
+            self.__error_controller.handle_value_error("El titular se ha activado")
+            self.__error_controller.show()
+            self.main_window.scroll_area_modify_holder.hide()
+            logging.debug("El titular se ha activado")
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
+
+    def __deactivate(self):
+        try:
+            self.__holder_service.deactivate_holder(self.__loaded_holder_dto.get_id())
+            self.__search_holders()
+            self.__error_controller.handle_value_error("El titular se ha desactivado")
+            self.__error_controller.show()
+            self.main_window.scroll_area_modify_holder.hide()
+            logging.debug("El titular se ha desactivado")
+
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
