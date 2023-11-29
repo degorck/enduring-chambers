@@ -82,3 +82,27 @@ class HolderService:
             holder_dto = self.__holder_mapper.holder_to_holder_dto(holder)
             list_holder_dto.append(holder_dto)
         return list_holder_dto
+
+    def find_by_id(self, holder_id:int):
+        """
+        Search active holder by its id
+        Args:
+            holder_id: int
+                id of the holder to find
+        Returns:
+            holder_dto : HolderDto 
+                HolderDto founded
+        """
+        holder_dto = HolderDto()
+        holder_dto = self.__holder_mapper.holder_to_holder_dto(
+            self.__holder_dao.find_by_id(holder_id))
+        return holder_dto
+
+    def modify_holder(self, holder_dto:HolderDto):
+        """
+        Modify holder
+        Arguments:
+            holder_dto: HolderDto
+                HolderDto to be modified
+        """
+        self.__holder_dao.modify_holder(self.__holder_mapper.holder_dto_to_holder(holder_dto))

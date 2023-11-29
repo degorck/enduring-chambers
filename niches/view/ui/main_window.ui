@@ -1959,7 +1959,7 @@ QLabel{
              <x>0</x>
              <y>0</y>
              <width>198</width>
-             <height>458</height>
+             <height>454</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -2092,6 +2092,13 @@ QLabel{
               </size>
              </property>
             </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="push_button_my_account_logout">
+             <property name="text">
+              <string>Logout</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

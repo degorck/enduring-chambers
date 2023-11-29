@@ -24,7 +24,7 @@ class UserDao:
         """
         Saves the user on database
 
-        Args:
+        Arguments:
             user: User
                 User entity to be created
         Returns:
@@ -84,7 +84,7 @@ class UserDao:
         """
         Modifies the user on database
         
-        Args:
+        Arguments:
             user: User
                 User entity to be modified
         """
@@ -124,7 +124,7 @@ class UserDao:
         """
         Deactivates the user on database
         
-        Args:
+        Arguments:
             user_id: int
                 user_id of the user to deactivate
         """
@@ -158,7 +158,7 @@ class UserDao:
         """
         Activates the user on database
         
-        Args:
+        Arguments:
             user_id: int
                 user_id of the user to activate
         """
@@ -192,7 +192,7 @@ class UserDao:
         """
         Changes the user password on database
         
-        Args:
+        Arguments:
             user_name: str
                 user_name of the user to change password
             password: str
@@ -228,7 +228,7 @@ class UserDao:
         """
         Search all users by search_string
         
-        Args:
+        Arguments:
             search_string: str
                 String to match with the users search
         Returns:
@@ -273,7 +273,7 @@ class UserDao:
         """
         Search all active users by search_string
         
-        Args:
+        Arguments:
             search_string: str
                 String to match with the users search
         Returns:
@@ -321,7 +321,7 @@ class UserDao:
         """
         Find user by its user_id
         
-        Args:
+        Arguments:
             user_id: int
                 user_id of the user to find
         Returns:
@@ -355,7 +355,7 @@ class UserDao:
         """
         Find active user by its user_id
         
-        Args:
+        Arguments:
             user_id: int
                 user_id of the user to find
         Returns:
@@ -395,7 +395,7 @@ class UserDao:
         """
         Find user by its user_name
         
-        Args:
+        Arguments:
             user_name: str
                 user_name of the user to find
         Returns:

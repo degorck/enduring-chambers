@@ -91,6 +91,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.__configure_windows_by_user_type)
         self.__login_controller.push_button_guest.clicked.connect(
             self.__configure_windows_by_user_type)
+        self.push_button_my_account_logout.clicked.connect(self.__logout)
 
     def __configure_windows_by_user_type(self):
         self.__user_type_key = self.__login_controller.get_logged_user_type_key()
@@ -139,6 +140,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.scroll_area_create_holder.setEnabled(True)
 
     def __configure_not_logged_window(self):
+        self.__user_type_key = UserTypeKey.NOT_LOGGED.value
         self.stacked_widget.setCurrentIndex(0)
         self.stacked_widget.setEnabled(False)
 
@@ -161,6 +163,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         logging.debug("Deceased stacked widget selected")
 
     def __set_stacked_widget_holders(self):
+        self.scroll_area_create_holder.hide()
+        self.scroll_area_modify_holder.hide()
         self.push_button_deceased.setChecked(False)
         self.push_button_holders.setChecked(True)
         self.push_button_my_account.setChecked(False)
@@ -168,6 +172,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.stacked_widget.setCurrentIndex(3)
         logging.debug("Holders stacked widget selected")
+    
+    def __logout(self):
+        self.__configure_not_logged_window()
+        self.__login_controller.line_edit_password.clear()
+        self.__login_controller.line_edit_user.clear()
+        self.__login_controller.show()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
