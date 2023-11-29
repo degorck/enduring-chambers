@@ -23,7 +23,7 @@ class UserDaoMapper:
             user = User()
         user = User()
         user.existing_user(
-            real_dict_row["id"],
+            real_dict_row["id_user"],
             real_dict_row["name"],
             real_dict_row["paternal_surname"],
             real_dict_row["maternal_surname"],

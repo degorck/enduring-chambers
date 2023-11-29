@@ -86,7 +86,7 @@ class HolderDao:
                 SELECT * 
                 FROM tb_holder
                 WHERE
-                id = %s
+                id_holder = %s
                 '''
 
         try:
@@ -214,7 +214,7 @@ class HolderDao:
                 maternal_surname = %s,
                 phone = %s,
                 updated_at = %s
-                WHERE id = %s
+                WHERE id_holder = %s
                 '''
         values = (
             holder.get_name(),
@@ -251,7 +251,7 @@ class HolderDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id = %s
+                WHERE id_holder = %s
                 '''
         values = (
             False,
@@ -285,7 +285,7 @@ class HolderDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id = %s
+                WHERE id_holder = %s
                 '''
         values = (
             True,
