@@ -1549,7 +1549,7 @@ QLabel{
                 </widget>
                </item>
                <item row="0" column="0">
-                <widget class="QPushButton" name="push_modify_holder_activate">
+                <widget class="QPushButton" name="push_button_modify_holder_activate">
                  <property name="text">
                   <string>Activar</string>
                  </property>

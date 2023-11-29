@@ -1043,10 +1043,10 @@ class Ui_MainWindow(object):
 
         self.formLayout.setWidget(1, QFormLayout.SpanningRole, self.push_button_modify_holder_save)
 
-        self.push_modify_holder_activate = QPushButton(self.frame_modify_holder_buttons)
-        self.push_modify_holder_activate.setObjectName(u"push_modify_holder_activate")
+        self.push_button_modify_holder_activate = QPushButton(self.frame_modify_holder_buttons)
+        self.push_button_modify_holder_activate.setObjectName(u"push_button_modify_holder_activate")
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.push_modify_holder_activate)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.push_button_modify_holder_activate)
 
         self.push_button_modify_holder_deactivate = QPushButton(self.frame_modify_holder_buttons)
         self.push_button_modify_holder_deactivate.setObjectName(u"push_button_modify_holder_deactivate")
@@ -1524,7 +1524,7 @@ class Ui_MainWindow(object):
         self.label_modify_holder_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno", None))
         self.label_modify_holder_name_phone.setText(QCoreApplication.translate("MainWindow", u"Tel\u00e9fono:", None))
         self.push_button_modify_holder_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        self.push_modify_holder_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
+        self.push_button_modify_holder_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_holder_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Crear nicho", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))

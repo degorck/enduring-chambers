@@ -77,7 +77,7 @@ class HolderDao:
         
         Arguments:
             holder_id: int
-                holder_id of the user to find
+                holder_id of the holder to find
         Returns:
             holder: Holder
                 Holder found
@@ -94,9 +94,9 @@ class HolderDao:
             self.__db_connection.get_cursor().execute(command % holder_id)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            user = self.__holder_dao_mapper.real_dict_row_to_holder(row)
+            holder = self.__holder_dao_mapper.real_dict_row_to_holder(row)
             logging.debug("Se buscó el titular por su id")
-            return user
+            return holder
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)
             raise error
@@ -111,7 +111,7 @@ class HolderDao:
         
         Arguments:
             search_string: str
-                String to match with the users search
+                String to match with the holders search
         Returns:
             holder_list = list<Holder>
         """
@@ -156,7 +156,7 @@ class HolderDao:
         
         Arguments:
             search_string: str
-                String to match with the users search
+                String to match with the holders search
         Returns:
             holder_list = list<Holder>
         """
@@ -232,6 +232,74 @@ class HolderDao:
             logging.debug("Se modificó el titular")
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+    
+    def deactivate_holder(self, holder_id:int):
+        """
+        Deactivates the holder on database
+        
+        Arguments:
+            holder_id: int
+                holer_id of the holder to deactivate
+        """
+        command = '''
+                UPDATE tb_holder
+                SET
+                is_active = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            False,
+            datetime.datetime.now(),
+            holder_id
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se desactivó el titular")
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+
+    def reactivate_holder(self, holder_id:int):
+        """
+        Activates the holder on database
+        
+        Arguments:
+            holder_id: int
+                holder_id of the holder to activate
+        """
+        command = '''
+                UPDATE tb_holder
+                SET
+                is_active = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            True,
+            datetime.datetime.now(),
+            holder_id
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se reactivó el titular")
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.error(error)
             raise error
 
         finally:

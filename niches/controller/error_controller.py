@@ -8,7 +8,7 @@ class ErrorController(QtWidgets.QWidget, Ui_Error):
     """
     Class with the functionality of Error widget
 
-    Args:
+    Arguments:
         QtWidgets (QtWidgets.QWidget): Core QWidget
         Ui_Error (Ui_Error): Qt layer transformed to python code 
     """
@@ -21,12 +21,20 @@ class ErrorController(QtWidgets.QWidget, Ui_Error):
     def handle_value_error(self, ve:ValueError):
         """
         Set label_error_description text with ValueError details
+
+        Arguments:
+            ve:ValueError
+                ValueError to be set
         """
         self.label_error_description.setText(str(ve))
 
     def handle_exception_error(self, ex:Exception):
         """
         Set label_error_description text with Exception details
+
+        Arguments:
+            ex:Exception
+                Exception to be set
         """
         self.label_error_description.setText(str(ex))
 

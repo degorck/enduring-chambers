@@ -1,4 +1,6 @@
-'''Module that controls login window'''
+'''
+Module that controls login window
+'''
 import logging
 from PySide6 import QtWidgets
 from niches.view.Ui_Login import Ui_Login
@@ -17,7 +19,13 @@ from niches.model.dao.user_type_dao import UserTypeDao
 from niches.model.dto.user_type_dto import UserTypeDto
 
 class LoginController(QtWidgets.QDialog, Ui_Login):
-    '''Class with the functionality of login window'''
+    """
+    Class with the functionality of Login Controller
+
+    Arguments:
+        QtWidgets (QtWidgets.QDialog): Core QWidget
+        Ui_Login (Ui_Login): Qt layer transformed to python code 
+    """
     def __init__(self):
         super(LoginController, self).__init__()
         self.setupUi(self)
@@ -86,11 +94,19 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
         self.__user_type_key = user_type_key
 
     def get_logged_user_type_key(self):
-        '''Returns user_type_key'''
+        '''
+        Returns user_type_key
+            Returns:
+                user_type_key:str
+        '''
         return self.__user_type_key
 
     def get_logged_user(self):
-        '''Returns logged_user_dto'''
+        '''
+        Returns logged_user_dto
+            Returns:
+                logged_user_dto:UserDto    
+        '''
         return self.__logged_user_dto
 
     def __guest(self):
