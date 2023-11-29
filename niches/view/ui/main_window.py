@@ -29,48 +29,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(819, 631)
         MainWindow.setMinimumSize(QSize(650, 500))
-        MainWindow.setStyleSheet(u"QMainWindow{\n"
-"	background-color: rgb(81, 67, 143)\n"
-"}\n"
-"\n"
-"QScrollArea {\n"
-"    background-color: lightgray;\n"
-"    border: 1px solid gray;\n"
-"}\n"
-"\n"
-"QScrollBar:vertical {\n"
-"    border: 1px solid gray;\n"
-"    background: lightgray;\n"
-"    width: 10px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background: gray;\n"
-"    min-height: 20px;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"	background-color:rgb(111, 92, 195);\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(125, 108, 201);\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:checked{\n"
-"	background-color:rgb(81, 67, 143);\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"QFrame{\n"
-"	background_color: rgb(141, 117, 249)\n"
-"}\n"
-"QFrame{\n"
-"	background_color: rgb(141, 117, 249)\n"
-"}\n"
-"QLabel{\n"
-"	color: rgb(81, 67, 143);\n"
-"}")
+        MainWindow.setStyleSheet(u"")
         MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -80,52 +39,7 @@ class Ui_MainWindow(object):
         self.frame_lateral_window.setObjectName(u"frame_lateral_window")
         self.frame_lateral_window.setMinimumSize(QSize(110, 0))
         self.frame_lateral_window.setMaximumSize(QSize(200, 16777215))
-        self.frame_lateral_window.setStyleSheet(u"QPushButton{\n"
-"	background-color:rgb(111, 92, 195);\n"
-"	color: rgb(255, 255, 255);\n"
-"	padding: 8px 8px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(125, 108, 201);\n"
-"	color: rgb(255, 255, 255);\n"
-"	padding: 8px 8px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:checked{\n"
-"	background-color:rgb(81, 67, 143);\n"
-"	color: rgb(255, 255, 255);\n"
-"	padding: 8px 8px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QFrame{\n"
-"	background_color: rgb(141, 117, 249)\n"
-"}\n"
-"QPushButton{\n"
-"	background-color:rgb(111, 92, 195);\n"
-"	color: rgb(255, 255, 255);\n"
-"	padding: 8px 8px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(125, 108, 201);\n"
-"	color: rgb(255, 255, 255);\n"
-"	padding: 8px 8px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:checked{\n"
-"	background-color:rgb(81, 67, 143);\n"
-"	color: rgb(255, 255, 255);\n"
-"	padding: 8px 8px;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QFrame{\n"
-"	background_color: rgb(141, 117, 249)\n"
-"}\n"
-"QLabe"
-                        "l{\n"
-"	color: rgb(255, 255, 255);\n"
-"}")
+        self.frame_lateral_window.setStyleSheet(u"")
         self.frame_lateral_window.setFrameShape(QFrame.StyledPanel)
         self.frame_lateral_window.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.frame_lateral_window)
@@ -139,12 +53,7 @@ class Ui_MainWindow(object):
 
         self.label_welcome_user_name = QLabel(self.frame_lateral_window)
         self.label_welcome_user_name.setObjectName(u"label_welcome_user_name")
-        self.label_welcome_user_name.setStyleSheet(u"QLabel{\n"
-"	background-color: rgb(81, 67, 143);\n"
-"	color: rgb(255, 255, 255);\n"
-"	padding: 8px 8px;\n"
-"	border-radius: 10px;\n"
-"}")
+        self.label_welcome_user_name.setStyleSheet(u"")
         self.label_welcome_user_name.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_5.addWidget(self.label_welcome_user_name)
@@ -247,6 +156,7 @@ class Ui_MainWindow(object):
         self.gridLayout_14.setObjectName(u"gridLayout_14")
         self.frame_25 = QFrame(self.unselected)
         self.frame_25.setObjectName(u"frame_25")
+        self.frame_25.setStyleSheet(u"")
         self.frame_25.setFrameShape(QFrame.StyledPanel)
         self.frame_25.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_22 = QHBoxLayout(self.frame_25)
@@ -516,6 +426,7 @@ class Ui_MainWindow(object):
 
         self.frame_users_header = QFrame(self.users)
         self.frame_users_header.setObjectName(u"frame_users_header")
+        self.frame_users_header.setStyleSheet(u"")
         self.frame_users_header.setFrameShape(QFrame.StyledPanel)
         self.frame_users_header.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.frame_users_header)
@@ -544,6 +455,7 @@ class Ui_MainWindow(object):
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.frame_16 = QFrame(self.deceased)
         self.frame_16.setObjectName(u"frame_16")
+        self.frame_16.setStyleSheet(u"")
         self.frame_16.setFrameShape(QFrame.StyledPanel)
         self.frame_16.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_13 = QHBoxLayout(self.frame_16)
@@ -833,6 +745,7 @@ class Ui_MainWindow(object):
         self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.frame_holders_header = QFrame(self.holders)
         self.frame_holders_header.setObjectName(u"frame_holders_header")
+        self.frame_holders_header.setStyleSheet(u"")
         self.frame_holders_header.setFrameShape(QFrame.StyledPanel)
         self.frame_holders_header.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_16 = QHBoxLayout(self.frame_holders_header)
@@ -1286,6 +1199,7 @@ class Ui_MainWindow(object):
 
         self.frame_3 = QFrame(self.niches)
         self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setStyleSheet(u"")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_3)
@@ -1388,6 +1302,7 @@ class Ui_MainWindow(object):
 
         self.frame_22 = QFrame(self.my_account)
         self.frame_22.setObjectName(u"frame_22")
+        self.frame_22.setStyleSheet(u"")
         self.frame_22.setFrameShape(QFrame.StyledPanel)
         self.frame_22.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_19 = QHBoxLayout(self.frame_22)
@@ -1411,6 +1326,7 @@ class Ui_MainWindow(object):
 
         self.frame_8 = QFrame(self.my_account)
         self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setStyleSheet(u"")
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_8)

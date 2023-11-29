@@ -24,6 +24,20 @@ def __create_tables():
             updated_at TIMESTAMP NOT NULL)
         ''',
         '''
+        CREATE TABLE IF NOT EXISTS tb_row(
+            id serial PRIMARY KEY,
+            key VARCHAR(10) NOT NULL UNIQUE,
+            created_at TIMESTAMP NOT NULL,
+            updated_at TIMESTAMP NOT NULL)
+        ''',
+        '''
+        CREATE TABLE IF NOT EXISTS tb_module(
+            id serial PRIMARY KEY,
+            key VARCHAR(10) NOT NULL UNIQUE,
+            created_at TIMESTAMP NOT NULL,
+            updated_at TIMESTAMP NOT NULL)
+        ''',
+        '''
         CREATE TABLE IF NOT EXISTS tb_user (
             id serial PRIMARY KEY,
             name VARCHAR(50) NOT NULL,
@@ -42,7 +56,7 @@ def __create_tables():
             name VARCHAR(50) NOT NULL,
             paternal_surname VARCHAR(50) NOT NULL,
             maternal_surname VARCHAR(50),
-            phone VARCHAR(10),
+            phone VARCHAR(20),
             is_active BOOLEAN NOT NULL,
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
@@ -50,12 +64,22 @@ def __create_tables():
         '''
         CREATE TABLE IF NOT EXISTS tb_niche(
             id serial PRIMARY KEY,
-            module VARCHAR(50) NOT NULL,
-            character VARCHAR(50) NOT NULL,
+            module_id int REFERENCES tb_module(id) NOT NULL,
+            row_id int REFERENCES tb_row(id) NOT NULL,
             number int NOT NULL,
             is_busy BOOLEAN NOT NULL,
+            is_paid_off BOOLEAN NOT NULL,
             holder_id int REFERENCES tb_holder(id),
             is_active BOOLEAN NOT NULL,
+            created_at TIMESTAMP NOT NULL,
+            updated_at TIMESTAMP NOT NULL)
+        ''',
+        '''
+        CREATE TABLE IF NOT EXISTS tb_payment(
+            id serial PRIMARY KEY,
+            niche_id int REFERENCES tb_niche(id),
+            quantity FLOAT NOT NULL,
+            payment_date TIMESTAMP NOT NULL,
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
@@ -77,6 +101,9 @@ def __create_tables():
         death_date DATE NOT NULL,
         remain_type_id int REFERENCES tb_remain_type(id) NOT NULL,
         niche_id int REFERENCES tb_niche(id) NOT NULL,
+        book TEXT,
+        sheet TEXT,
+        image_route VARCHAR(300),
         created_at TIMESTAMP NOT NULL,
         updated_at TIMESTAMP NOT NULL)
         ''')
@@ -166,6 +193,129 @@ def __insert_remain_type(name, key):
         if connection is not None:
             connection.close()
 
+def __insert_user(name,
+                  paternal_surname,
+                  maternal_surname,
+                  user_type_id,
+                  user_name,
+                  password):
+    command = '''
+            INSERT INTO tb_user(
+                name,
+                paternal_surname,
+                maternal_surname,
+                user_type_id,
+                user_name,
+                password,
+                is_active,
+                created_at,
+                updated_at) 
+            VALUES(
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s)
+        '''
+    values = (name,
+              paternal_surname,
+              maternal_surname,
+              user_type_id,
+              user_name,
+              password,
+              True,
+              datetime.datetime.now(),
+              datetime.datetime.now())
+    try:
+        connection = psycopg2.connect(database = db_name,
+                                      host = db_host,
+                                      user = db_user,
+                                      password = db_password,
+                                      port = db_port)
+        cursor = connection.cursor()
+        cursor.execute(command, values)
+
+        cursor.close()
+        connection.commit()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+    finally:
+        if connection is not None:
+            connection.close()
+
+def __insert_row(key):
+    command = '''
+            INSERT INTO tb_row(
+                key,
+                created_at,
+                updated_at) 
+            VALUES(
+                %s,
+                %s,
+                %s)
+        '''
+    values = (key,
+              datetime.datetime.now(),
+              datetime.datetime.now())
+    try:
+        connection = psycopg2.connect(database = db_name,
+                                      host = db_host,
+                                      user = db_user,
+                                      password = db_password,
+                                      port = db_port)
+        cursor = connection.cursor()
+        cursor.execute(command, values)
+
+        cursor.close()
+        connection.commit()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+    finally:
+        if connection is not None:
+            connection.close()
+
+def __insert_module(key):
+    command = '''
+            INSERT INTO tb_module(
+                key,
+                created_at,
+                updated_at) 
+            VALUES(
+                %s,
+                %s,
+                %s)
+        '''
+    values = (key,
+              datetime.datetime.now(),
+              datetime.datetime.now())
+    try:
+        connection = psycopg2.connect(database = db_name,
+                                      host = db_host,
+                                      user = db_user,
+                                      password = db_password,
+                                      port = db_port)
+        cursor = connection.cursor()
+        cursor.execute(command, values)
+
+        cursor.close()
+        connection.commit()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+
+    finally:
+        if connection is not None:
+            connection.close()
+
+
 def __insert_user_types():
     __insert_user_type("administrador", "dmn")
     __insert_user_type("capturista", "cpt")
@@ -174,7 +324,57 @@ def __insert_remain_types():
     __insert_remain_type("cenizas", "cnz")
     __insert_remain_type("restos", "rst")
 
+def __insert_admin_user():
+    __insert_user("admin",
+                  "admin",
+                  "admin",
+                  1,
+                  "admin",
+                  "$2b$12$X5XasxumBmNNZK8OpLUoNufmghMYMa8E6ZYpC0VXiScNdnoF0VI4.")
+
+def __insert_rows():
+    row_list =[
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N"
+    ]
+    for row in row_list:
+        __insert_row(row)
+
+def __insert_modules():
+    module_list =[
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M"
+    ]
+    for module in module_list:
+        __insert_module(module)
+
 if __name__ == '__main__':
     __create_tables()
     __insert_user_types()
     __insert_remain_types()
+    __insert_admin_user()
+    __insert_rows()
+    __insert_modules()

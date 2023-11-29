@@ -24,6 +24,8 @@ class Ui_Login(object):
         if not Login.objectName():
             Login.setObjectName(u"Login")
         Login.resize(384, 457)
+        Login.setMaximumSize(QSize(384, 457))
+        Login.setStyleSheet(u"")
         self.gridLayout = QGridLayout(Login)
         self.gridLayout.setObjectName(u"gridLayout")
         self.frame_2 = QFrame(Login)
