@@ -138,6 +138,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_create_holder_create.setEnabled(True)
         self.scroll_area_modify_holder.setEnabled(True)
         self.scroll_area_create_holder.setEnabled(True)
+        self.push_button_modify_holder_activate.setEnabled(False)
+        self.push_button_modify_holder_deactivate.setEnabled(False)
 
     def __configure_not_logged_window(self):
         self.__user_type_key = UserTypeKey.NOT_LOGGED.value

@@ -20,48 +20,7 @@
    <string extracomment="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1">Enduring Chambers</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow{
-	background-color: rgb(81, 67, 143)
-}
-
-QScrollArea {
-    background-color: lightgray;
-    border: 1px solid gray;
-}
-
-QScrollBar:vertical {
-    border: 1px solid gray;
-    background: lightgray;
-    width: 10px;
-    margin: 0px 0px 0px 0px;
-}
-
-QScrollBar::handle:vertical {
-    background: gray;
-    min-height: 20px;
-}
-
-QPushButton{
-	background-color:rgb(111, 92, 195);
-	color: rgb(255, 255, 255);
-}
-QPushButton:hover{
-	background-color: rgb(125, 108, 201);
-	color: rgb(255, 255, 255);
-}
-QPushButton:checked{
-	background-color:rgb(81, 67, 143);
-	color: rgb(255, 255, 255);
-}
-QFrame{
-	background_color: rgb(141, 117, 249)
-}
-QFrame{
-	background_color: rgb(141, 117, 249)
-}
-QLabel{
-	color: rgb(81, 67, 143);
-}</string>
+   <string notr="true"/>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
@@ -83,51 +42,7 @@ QLabel{
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color:rgb(111, 92, 195);
-	color: rgb(255, 255, 255);
-	padding: 8px 8px;
-	border-radius: 10px;
-}
-QPushButton:hover{
-	background-color: rgb(125, 108, 201);
-	color: rgb(255, 255, 255);
-	padding: 8px 8px;
-	border-radius: 10px;
-}
-QPushButton:checked{
-	background-color:rgb(81, 67, 143);
-	color: rgb(255, 255, 255);
-	padding: 8px 8px;
-	border-radius: 10px;
-}
-QFrame{
-	background_color: rgb(141, 117, 249)
-}
-QPushButton{
-	background-color:rgb(111, 92, 195);
-	color: rgb(255, 255, 255);
-	padding: 8px 8px;
-	border-radius: 10px;
-}
-QPushButton:hover{
-	background-color: rgb(125, 108, 201);
-	color: rgb(255, 255, 255);
-	padding: 8px 8px;
-	border-radius: 10px;
-}
-QPushButton:checked{
-	background-color:rgb(81, 67, 143);
-	color: rgb(255, 255, 255);
-	padding: 8px 8px;
-	border-radius: 10px;
-}
-QFrame{
-	background_color: rgb(141, 117, 249)
-}
-QLabel{
-	color: rgb(255, 255, 255);
-}</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -152,12 +67,7 @@ QLabel{
        <item>
         <widget class="QLabel" name="label_welcome_user_name">
          <property name="styleSheet">
-          <string notr="true">QLabel{
-	background-color: rgb(81, 67, 143);
-	color: rgb(255, 255, 255);
-	padding: 8px 8px;
-	border-radius: 10px;
-}</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>user_name</string>
@@ -379,6 +289,9 @@ QLabel{
        <layout class="QGridLayout" name="gridLayout_14">
         <item row="0" column="0" colspan="2">
          <widget class="QFrame" name="frame_25">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -783,6 +696,9 @@ QLabel{
         </item>
         <item row="0" column="0" colspan="3">
          <widget class="QFrame" name="frame_users_header">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -826,6 +742,9 @@ QLabel{
        <layout class="QGridLayout" name="gridLayout_11">
         <item row="0" column="0" colspan="3">
          <widget class="QFrame" name="frame_16">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -1227,6 +1146,9 @@ QLabel{
        <layout class="QGridLayout" name="gridLayout_12">
         <item row="0" column="0" colspan="3">
          <widget class="QFrame" name="frame_holders_header">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -1901,6 +1823,9 @@ QLabel{
         </item>
         <item row="0" column="0" colspan="3">
          <widget class="QFrame" name="frame_3">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -2066,6 +1991,9 @@ QLabel{
         </item>
         <item row="0" column="0" colspan="3">
          <widget class="QFrame" name="frame_22">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
@@ -2105,6 +2033,9 @@ QLabel{
         </item>
         <item row="1" column="0" colspan="3">
          <widget class="QFrame" name="frame_8">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>

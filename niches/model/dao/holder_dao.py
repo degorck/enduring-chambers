@@ -237,7 +237,7 @@ class HolderDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
-    
+
     def deactivate_holder(self, holder_id:int):
         """
         Deactivates the holder on database
