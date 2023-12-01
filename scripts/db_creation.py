@@ -24,16 +24,17 @@ def __create_tables():
             updated_at TIMESTAMP NOT NULL)
         ''',
         '''
-        CREATE TABLE IF NOT EXISTS tb_row(
-            id_row serial PRIMARY KEY,
-            key VARCHAR(10) NOT NULL UNIQUE,
+        CREATE TABLE IF NOT EXISTS tb_module(
+            id_module serial PRIMARY KEY,
+            name VARCHAR(10) NOT NULL UNIQUE,
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
         '''
-        CREATE TABLE IF NOT EXISTS tb_module(
-            id_module serial PRIMARY KEY,
-            key VARCHAR(10) NOT NULL UNIQUE,
+        CREATE TABLE IF NOT EXISTS tb_row(
+            id_row serial PRIMARY KEY,
+            name VARCHAR(10) NOT NULL,
+            module_id int REFERENCES tb_module(id_module),
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
@@ -64,7 +65,6 @@ def __create_tables():
         '''
         CREATE TABLE IF NOT EXISTS tb_niche(
             id_niche serial PRIMARY KEY,
-            module_id int REFERENCES tb_module(id_module) NOT NULL,
             row_id int REFERENCES tb_row(id_row) NOT NULL,
             number int NOT NULL,
             is_busy BOOLEAN NOT NULL,
@@ -249,10 +249,10 @@ def __insert_user(name,
         if connection is not None:
             connection.close()
 
-def __insert_row(key):
+def __insert_module(name):
     command = '''
-            INSERT INTO tb_row(
-                key,
+            INSERT INTO tb_module(
+                name,
                 created_at,
                 updated_at) 
             VALUES(
@@ -260,7 +260,7 @@ def __insert_row(key):
                 %s,
                 %s)
         '''
-    values = (key,
+    values = (name,
               datetime.datetime.now(),
               datetime.datetime.now())
     try:
@@ -282,18 +282,21 @@ def __insert_row(key):
         if connection is not None:
             connection.close()
 
-def __insert_module(key):
+def __insert_row(name, module_id):
     command = '''
-            INSERT INTO tb_module(
-                key,
+            INSERT INTO tb_row(
+                name,
+                module_id,
                 created_at,
                 updated_at) 
             VALUES(
                 %s,
                 %s,
+                %s,
                 %s)
         '''
-    values = (key,
+    values = (name,
+              module_id,
               datetime.datetime.now(),
               datetime.datetime.now())
     try:
@@ -332,26 +335,6 @@ def __insert_admin_user():
                   "admin",
                   "$2b$12$X5XasxumBmNNZK8OpLUoNufmghMYMa8E6ZYpC0VXiScNdnoF0VI4.")
 
-def __insert_rows():
-    row_list =[
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N"
-    ]
-    for row in row_list:
-        __insert_row(row)
-
 def __insert_modules():
     module_list =[
         "A",
@@ -371,10 +354,26 @@ def __insert_modules():
     for module in module_list:
         __insert_module(module)
 
+def __insert_rows():
+    row_list = [
+        ["1", "A"],
+        ["1", "B"],
+        ["1", "C"],
+        ["2", "A"],
+        ["2", "B"],
+        ["2", "C"],
+        ["3", "A"],
+        ["3", "B"],
+        ["3", "C"]
+        ]
+
+    for row in row_list:
+        __insert_row(str(row[1]), int(row[0]))
+
 if __name__ == '__main__':
     __create_tables()
     __insert_user_types()
     __insert_remain_types()
     __insert_admin_user()
-    __insert_rows()
     __insert_modules()
+    __insert_rows()

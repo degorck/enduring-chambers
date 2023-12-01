@@ -57,9 +57,9 @@ class HolderMapper:
         if holder_dto.get_created_at() is None:
             pass
         else:
-            holder.set_created_at(holder.get_created_at())
+            holder.set_created_at(holder_dto.get_created_at())
         if holder_dto.get_updated_at() is None:
             pass
         else:
-            holder.set_update_at(holder.get_updated_at())
+            holder.set_update_at(holder_dto.get_updated_at())
         return holder

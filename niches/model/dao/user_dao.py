@@ -244,6 +244,7 @@ class UserDao:
                 maternal_surname LIKE %s OR
                 user_name LIKE %s OR
                 CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                ORDER BY id_user
                 '''
         values = (
             search_string,
@@ -291,6 +292,7 @@ class UserDao:
                 CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s)
                 AND
                 (is_active = True)
+                ORDER BY id_user
                 '''
 
         values = (
