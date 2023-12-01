@@ -6,7 +6,7 @@ import logging
 import datetime
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
-from niches.model.mapper.holder_dao_mapper import HolderDaoMapper
+from niches.model.mapper.dao.holder_dao_mapper import HolderDaoMapper
 from niches.model.entity.holder import Holder
 
 class HolderDao:
