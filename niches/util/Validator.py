@@ -63,7 +63,7 @@ def validate_phone_number(phone_number):
         ValueError:
             Raises a ValueError exception if the number does not have the right format
     """
-    pattern = re.compile(r'^\d{3}-\d{4}$|^\+\d-\d{3}-\d{3}-\d{4}$|^1-\d{3}-\d{3}-\d{4}$|^\(\+\d{2}\)\s?\d{3}-\d{2}-\d{2}$')
+    pattern = re.compile(r'^\d{3}-\d{4}$|^\+\d-\d{3}-\d{3}-\d{4}$|^1-\d{3}-\d{3}-\d{4}$|^\(\+\d{2}\)\s?\d{3}-\d{2}-\d{2}$|^\d{3}-\d{3}-\d{2}-\d{2}$')
     if bool(pattern.match(phone_number)):
         pass
     else:

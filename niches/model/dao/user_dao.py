@@ -8,7 +8,7 @@ import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.user import User
 from niches.util.encryptor import Encryptor
-from niches.model.mapper.user_dao_mapper import UserDaoMapper
+from niches.model.mapper.dao.user_dao_mapper import UserDaoMapper
 
 
 class UserDao:

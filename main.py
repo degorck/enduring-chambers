@@ -13,7 +13,7 @@ from niches.controller.my_account_controller import MyAccountController
 from niches.controller.holder_controller import HolderController
 logging = get_loging()
 
-class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+class Main(QtWidgets.QMainWindow, Ui_MainWindow):
     """
     Class with the functionality of MainWindow
 
@@ -183,5 +183,5 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow()
+    window = Main()
     sys.exit(app.exec())

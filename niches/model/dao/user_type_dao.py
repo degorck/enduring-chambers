@@ -6,7 +6,7 @@ import logging
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.user_type import UserType
-from niches.model.mapper.user_type_dao_mapper import UserTypeDaoMapper
+from niches.model.mapper.dao.user_type_dao_mapper import UserTypeDaoMapper
 
 class UserTypeDao:
     """

@@ -270,7 +270,7 @@
           <enum>Qt::RightToLeft</enum>
          </property>
          <property name="text">
-          <string>Letras</string>
+          <string>Filas</string>
          </property>
          <property name="icon">
           <iconset>
@@ -379,7 +379,7 @@
        <enum>QFrame::Plain</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="unselected">
        <layout class="QGridLayout" name="gridLayout_14">
@@ -1292,8 +1292,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>124</width>
-             <height>117</height>
+             <width>253</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1336,8 +1336,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>316</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1469,8 +1469,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>346</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1592,7 +1592,7 @@
       <widget class="QWidget" name="niches">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="1" column="1">
-         <widget class="QScrollArea" name="scrollArea_2">
+         <widget class="QScrollArea" name="scroll_area_create_niche">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -1613,13 +1613,13 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>463</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
-             <widget class="QLabel" name="label_3">
+             <widget class="QLabel" name="label_create_niche">
               <property name="text">
                <string>Crear nicho</string>
               </property>
@@ -1654,7 +1654,7 @@
             <item>
              <widget class="QLabel" name="label_43">
               <property name="text">
-               <string>Letra:</string>
+               <string>Fila:</string>
               </property>
              </widget>
             </item>
@@ -1679,35 +1679,20 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_22"/>
+             <widget class="QComboBox" name="comboBox_8"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_23">
+             <widget class="QCheckBox" name="checkBox">
               <property name="text">
-               <string>Imagen:</string>
+               <string>Ocupado</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QFrame" name="frame_6">
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
+             <widget class="QCheckBox" name="checkBox_2">
+              <property name="text">
+               <string>Pagado</string>
               </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_5">
-               <item row="0" column="0" colspan="2">
-                <widget class="QGraphicsView" name="graphicsView"/>
-               </item>
-               <item row="1" column="1">
-                <widget class="QToolButton" name="toolButton">
-                 <property name="text">
-                  <string>...</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
              </widget>
             </item>
             <item>
@@ -1754,7 +1739,7 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QScrollArea" name="scrollArea">
+         <widget class="QScrollArea" name="scroll_area_search_niches">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -1763,8 +1748,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>124</width>
-             <height>117</height>
+             <width>253</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
@@ -1776,17 +1761,17 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit"/>
+             <widget class="QLineEdit" name="line_edit_search_niches"/>
             </item>
             <item row="1" column="0" colspan="2">
-             <widget class="QTableView" name="tableView"/>
+             <widget class="QTableWidget" name="table_widget_niches"/>
             </item>
            </layout>
           </widget>
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QScrollArea" name="scrollArea_3">
+         <widget class="QScrollArea" name="scroll_modify_niche">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -1807,8 +1792,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>313</height>
+             <width>198</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1843,35 +1828,20 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_23"/>
+             <widget class="QComboBox" name="comboBox_2"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_47">
+             <widget class="QCheckBox" name="checkBox_3">
               <property name="text">
-               <string>Imagen:</string>
+               <string>Ocupado</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QFrame" name="frame_7">
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
+             <widget class="QCheckBox" name="checkBox_4">
+              <property name="text">
+               <string>Pagado</string>
               </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_6">
-               <item row="1" column="1">
-                <widget class="QToolButton" name="toolButton_2">
-                 <property name="text">
-                  <string>...</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" colspan="2">
-                <widget class="QGraphicsView" name="graphicsView_2"/>
-               </item>
-              </layout>
              </widget>
             </item>
             <item>
@@ -1888,25 +1858,32 @@
              </spacer>
             </item>
             <item>
-             <widget class="QFrame" name="frame_5">
+             <widget class="QFrame" name="frame">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <item>
-                <widget class="QPushButton" name="pushButton_6">
+              <layout class="QFormLayout" name="formLayout_4">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="pushButton">
                  <property name="text">
-                  <string>Guardar</string>
+                  <string>Activar</string>
                  </property>
                 </widget>
                </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_7">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="pushButton_2">
                  <property name="text">
-                  <string>Limpiar</string>
+                  <string>Desactivar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QPushButton" name="pushButton_6">
+                 <property name="text">
+                  <string>Guardar</string>
                  </property>
                 </widget>
                </item>
@@ -1918,7 +1895,7 @@
          </widget>
         </item>
         <item row="0" column="0" colspan="3">
-         <widget class="QFrame" name="frame_3">
+         <widget class="QFrame" name="frame_niches_header">
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -1930,14 +1907,14 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <widget class="QLabel" name="label">
+            <widget class="QLabel" name="label_niches">
              <property name="text">
               <string>Nichos</string>
              </property>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_2">
+            <spacer name="horizontal_spacer_niches_header">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -1950,7 +1927,7 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_4">
+            <widget class="QPushButton" name="push_button_create_niche_create">
              <property name="text">
               <string>Crear</string>
              </property>
