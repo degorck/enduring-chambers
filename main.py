@@ -11,6 +11,7 @@ from niches.controller.login_controller import LoginController
 from niches.controller.user_controller import UserController
 from niches.controller.my_account_controller import MyAccountController
 from niches.controller.holder_controller import HolderController
+from niches.controller.niche_controller import NicheController
 logging = get_loging()
 
 class Main(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -35,6 +36,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__user_controller = UserController(self)
         self.__my_account_controller = MyAccountController(self)
         self.__holder_controller = HolderController(self)
+        self.__niche_controller = NicheController(self)
         self.__configure_actions()
         self.__configure_windows_by_user_type()
         self.show()

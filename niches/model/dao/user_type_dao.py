@@ -62,6 +62,7 @@ class UserTypeDao:
         command = '''
                 SELECT * 
                 FROM tb_user_type
+                ORDER BY id_user_type
                 '''
 
         try:
