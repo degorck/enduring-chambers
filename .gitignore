@@ -1,0 +1,6 @@
+.env
+**__pycache__
+/develop
+**.bkp
+**.log
+notes.txt
