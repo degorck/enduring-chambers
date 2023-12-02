@@ -1,23 +1,23 @@
 """
-Row entity module
+RowDto module
 """
 import datetime
-from niches.model.entity.module import Module
+from niches.model.dto.module_dto import ModuleDto
 
-class Row:
+class RowDto:
     """
-    Class row entity
+    Class RowDto
         Properties:
             id: int
             name: str
-            module: Module
+            module: ModuleDto
             created_at: datetime
             updated_at: datetime
     """
     def __init__(self):
         self.__id:int = 0
         self.__name:str = ""
-        self.__module:Module = Module()
+        self.__module:ModuleDto = ModuleDto()
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
 
@@ -76,12 +76,12 @@ class Row:
         """
         self.__name = name
 
-    def set_module(self, module:Module):
+    def set_module(self, module:ModuleDto):
         """
         Sets module
 
         Arguments:
-            module : Module
+            module : ModuleDto
                 name to set
         """
         self.__module = module
@@ -96,7 +96,7 @@ class Row:
         """
         self.__created_at = created_at
 
-    def set_update_at(self, updated_at:datetime):
+    def set_updated_at(self, updated_at:datetime):
         """
         Sets updated_at
 
@@ -106,20 +106,20 @@ class Row:
         """
         self.__created_at = updated_at
 
-    def new_row(self, name:str, module:Module):
+    def new_row(self, name:str, module_dto:ModuleDto):
         """
         Loads data for new row
 
         Arguments:
             name: str
                 name of the row
-            module: Module
+            module_dto: ModuleDto
                 Module where row is located
         """
         self.__name = name
-        self.__module = module
+        self.__module = module_dto
 
-    def existing_row(self, row_id:int, name:str, module:Module,
+    def existing_row(self, row_id:int, name:str, module_dto:ModuleDto,
                      created_at:datetime, updated_at:datetime):
         """
         Loads data of an existing row
@@ -129,13 +129,13 @@ class Row:
                 id of the row
             name: str
                 name of the row
-            module: Module
+            module_dto: ModuleDto
                 Module where the row is located
             created_at: datetime
             updated_at: datetime
         """
         self.__id = row_id
         self.__name = name
-        self.__module = module
+        self.__module = module_dto
         self.__created_at = created_at
         self.__updated_at = updated_at
