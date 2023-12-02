@@ -176,7 +176,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.stacked_widget.setCurrentIndex(3)
         logging.debug("Holders stacked widget selected")
-    
+
     def __logout(self):
         self.__configure_not_logged_window()
         self.__login_controller.line_edit_password.clear()
