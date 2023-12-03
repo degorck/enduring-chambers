@@ -424,11 +424,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.line_edit_search_users, 0, 1, 1, 1)
 
-        self.label_search_users = QLabel(self.scrollAreaWidgetContents_4)
-        self.label_search_users.setObjectName(u"label_search_users")
-
-        self.gridLayout_2.addWidget(self.label_search_users, 0, 0, 1, 1)
-
         self.table_widget_users = QTableWidget(self.scrollAreaWidgetContents_4)
         self.table_widget_users.setObjectName(u"table_widget_users")
 
@@ -733,11 +728,6 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 253, 500))
         self.gridLayout_7 = QGridLayout(self.scrollAreaWidgetContents_20)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.label_7 = QLabel(self.scrollAreaWidgetContents_20)
-        self.label_7.setObjectName(u"label_7")
-
-        self.gridLayout_7.addWidget(self.label_7, 0, 0, 1, 1)
-
         self.lineEdit_13 = QLineEdit(self.scrollAreaWidgetContents_20)
         self.lineEdit_13.setObjectName(u"lineEdit_13")
 
@@ -789,11 +779,6 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 253, 500))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_23)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_search_holders = QLabel(self.scrollAreaWidgetContents_23)
-        self.label_search_holders.setObjectName(u"label_search_holders")
-
-        self.gridLayout.addWidget(self.label_search_holders, 0, 0, 1, 1)
-
         self.line_edit_search_holders = QLineEdit(self.scrollAreaWidgetContents_23)
         self.line_edit_search_holders.setObjectName(u"line_edit_search_holders")
 
@@ -1000,11 +985,6 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 253, 432))
         self.gridLayout_8 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.label_search_niches = QLabel(self.scrollAreaWidgetContents_5)
-        self.label_search_niches.setObjectName(u"label_search_niches")
-
-        self.gridLayout_8.addWidget(self.label_search_niches, 0, 0, 1, 1)
-
         self.line_edit_search_niches = QLineEdit(self.scrollAreaWidgetContents_5)
         self.line_edit_search_niches.setObjectName(u"line_edit_search_niches")
 
@@ -1116,10 +1096,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.label_row_create_niche)
 
-        self.combo_box_create_niche = QComboBox(self.scrollAreaWidgetContents_6)
-        self.combo_box_create_niche.setObjectName(u"combo_box_create_niche")
+        self.combo_box_create_niche_row = QComboBox(self.scrollAreaWidgetContents_6)
+        self.combo_box_create_niche_row.setObjectName(u"combo_box_create_niche_row")
 
-        self.verticalLayout_3.addWidget(self.combo_box_create_niche)
+        self.verticalLayout_3.addWidget(self.combo_box_create_niche_row)
 
         self.label_number_create_niche = QLabel(self.scrollAreaWidgetContents_6)
         self.label_number_create_niche.setObjectName(u"label_number_create_niche")
@@ -1135,6 +1115,13 @@ class Ui_MainWindow(object):
         self.label_holder_create_niche.setObjectName(u"label_holder_create_niche")
 
         self.verticalLayout_3.addWidget(self.label_holder_create_niche)
+
+        self.line_edit_create_niche_holder_search = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.line_edit_create_niche_holder_search.setObjectName(u"line_edit_create_niche_holder_search")
+        self.line_edit_create_niche_holder_search.setInputMethodHints(Qt.ImhNone)
+        self.line_edit_create_niche_holder_search.setDragEnabled(False)
+
+        self.verticalLayout_3.addWidget(self.line_edit_create_niche_holder_search)
 
         self.combo_box_create_niche_holder = QComboBox(self.scrollAreaWidgetContents_6)
         self.combo_box_create_niche_holder.setObjectName(u"combo_box_create_niche_holder")
@@ -1462,7 +1449,7 @@ class Ui_MainWindow(object):
         self.push_button_modify_user_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_user_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.push_button_modify_user_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        self.label_search_users.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
+        self.line_edit_search_users.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar usuario...", None))
         self.label_users.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.push_button_create_user_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Fallecidos", None))
@@ -1487,10 +1474,10 @@ class Ui_MainWindow(object):
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"Nicho:", None))
         self.pushButton_23.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.pushButton_24.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
+        self.lineEdit_13.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar fallecido...", None))
         self.label_holders.setText(QCoreApplication.translate("MainWindow", u"Titulares", None))
         self.push_button_create_holder_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
-        self.label_search_holders.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
+        self.line_edit_search_holders.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar titular...", None))
         self.label_create_holder.setText(QCoreApplication.translate("MainWindow", u"Crear titular", None))
         self.label_create_holder_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.label_create_holder_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
@@ -1506,7 +1493,7 @@ class Ui_MainWindow(object):
         self.push_button_modify_holder_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_modify_holder_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_holder_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
-        self.label_search_niches.setText(QCoreApplication.translate("MainWindow", u"Buscar:", None))
+        self.line_edit_search_niches.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar nicho...", None))
         self.label_modify_niche.setText(QCoreApplication.translate("MainWindow", u"Modificar nicho", None))
         self.label_holder_modify_niche.setText(QCoreApplication.translate("MainWindow", u"Titular:", None))
         self.check_box_modify_niche_is_busy.setText(QCoreApplication.translate("MainWindow", u"Ocupado", None))
@@ -1518,6 +1505,7 @@ class Ui_MainWindow(object):
         self.label_row_create_niche.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_number_create_niche.setText(QCoreApplication.translate("MainWindow", u"N\u00famero:", None))
         self.label_holder_create_niche.setText(QCoreApplication.translate("MainWindow", u"Titular:", None))
+        self.line_edit_create_niche_holder_search.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar titular...", None))
         self.check_box_create_niche_is_busy.setText(QCoreApplication.translate("MainWindow", u"Ocupado", None))
         self.check_box_create_niche_is_paid_off.setText(QCoreApplication.translate("MainWindow", u"Pagado", None))
         self.push_button_create_niche_save_niche.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))

@@ -21,17 +21,17 @@ class RowDaoMapper:
                 Row mapped from RealDictRow 
         """
         if real_dict_row is None:
-            row = Row()
+            return None
         module = Module()
         module.existing_module(
-            real_dict_row["id_module"],
+            real_dict_row["module_id"],
             real_dict_row["module_name"],
             real_dict_row["module_created_at"],
             real_dict_row["module_updated_at"]
         )
         row = Row()
         row.existing_row(
-            real_dict_row["id_module"],
+            real_dict_row["id"],
             real_dict_row["name"],
             module,
             real_dict_row["created_at"],

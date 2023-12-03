@@ -20,6 +20,8 @@ class RowMapper:
             row_dto : RowDto
                 RowDto mapped from Row 
         """
+        if row is None:
+            return None
         module_mapper = ModuleMapper()
         row_dto = RowDto()
         row_dto.set_id(row.get_id())
@@ -51,6 +53,8 @@ class RowMapper:
             row : Row
                 Row mapped from RowDto 
         """
+        if row_dto is None:
+            return None
         module_mapper = ModuleMapper()
         row = Row()
         row.set_id(row_dto.get_id())

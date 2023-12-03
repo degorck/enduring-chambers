@@ -19,6 +19,8 @@ class HolderMapper:
             holder_dto : HolderDto
                 HolderDto mapped from Holder 
         """
+        if holder is None:
+            return None
         holder_dto = HolderDto()
         holder_dto.set_id(holder.get_id())
         holder_dto.set_name(holder.get_name())
@@ -47,6 +49,8 @@ class HolderMapper:
             holder : Holder
                 Holder mapped from HolderDto 
         """
+        if holder_dto is None:
+            return None
         holder = Holder()
         holder.set_id(holder_dto.get_id())
         holder.set_name(holder_dto.get_name())

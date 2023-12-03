@@ -20,10 +20,10 @@ class UserDaoMapper:
                 User mapped from RealDictRow 
         """
         if real_dict_row is None:
-            user = User()
+            return None
         user = User()
         user.existing_user(
-            real_dict_row["id_user"],
+            real_dict_row["id"],
             real_dict_row["name"],
             real_dict_row["paternal_surname"],
             real_dict_row["maternal_surname"],

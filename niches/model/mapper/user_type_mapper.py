@@ -19,6 +19,8 @@ class UserTypeMapper:
             user_type_dto : UserTypeDto
                 UserTypeDto mapped from UserType 
         """
+        if user_type is None:
+            return None
         user_type_dto = UserTypeDto()
         user_type_dto.existing_user_type(
             user_type.get_id(),
@@ -39,6 +41,8 @@ class UserTypeMapper:
             user_type : UserType
                 UserType mapped from UserTypeDto 
         """
+        if user_type_dto is None:
+            return None
         user_type = UserType()
         user_type.existing_user_type(
             user_type_dto.get_id(),

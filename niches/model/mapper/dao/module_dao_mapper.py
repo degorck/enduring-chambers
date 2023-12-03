@@ -20,10 +20,10 @@ class ModuleDaoMapper:
                 Module mapped from RealDictRow 
         """
         if real_dict_row is None:
-            module = Module()
+            return None
         module = Module()
         module.existing_module(
-            real_dict_row["id_module"],
+            real_dict_row["id"],
             real_dict_row["name"],
             real_dict_row["created_at"],
             real_dict_row["updated_at"]

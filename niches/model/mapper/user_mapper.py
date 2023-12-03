@@ -19,6 +19,8 @@ class UserMapper:
             user_dto : UserDto
                 UserDto mapped from User 
         """
+        if user is None:
+            return None
         user_dto = UserDto()
         user_dto.set_id(int(user.get_id()))
         user_dto.set_name(str(user.get_name()))
@@ -49,6 +51,8 @@ class UserMapper:
             user : User
                 User mapped from UserDto 
         """
+        if user_dto is None:
+            return None
         user = User()
         if user_dto.get_id() is None:
             pass
