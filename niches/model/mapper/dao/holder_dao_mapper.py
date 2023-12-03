@@ -20,10 +20,10 @@ class HolderDaoMapper:
                 Holder mapped from RealDictRow 
         """
         if real_dict_row is None:
-            holder = Holder()
+            return None
         holder = Holder()
         holder.existing_holder(
-            real_dict_row["id_holder"],
+            real_dict_row["id"],
             real_dict_row["name"],
             real_dict_row["paternal_surname"],
             real_dict_row["maternal_surname"],

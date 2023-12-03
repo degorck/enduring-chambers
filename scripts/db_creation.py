@@ -17,7 +17,7 @@ def __create_tables():
     commands = (
         '''
         CREATE TABLE IF NOT EXISTS tb_user_type(
-            id_user_type serial PRIMARY KEY,
+            id serial PRIMARY KEY,
             name VARCHAR(50) NOT NULL,
             key VARCHAR(10) NOT NULL UNIQUE,
             created_at TIMESTAMP NOT NULL,
@@ -25,26 +25,26 @@ def __create_tables():
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_module(
-            id_module serial PRIMARY KEY,
+            id serial PRIMARY KEY,
             name VARCHAR(10) NOT NULL UNIQUE,
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_row(
-            id_row serial PRIMARY KEY,
+            id serial PRIMARY KEY,
             name VARCHAR(10) NOT NULL,
-            module_id int REFERENCES tb_module(id_module),
+            module_id int REFERENCES tb_module(id),
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_user (
-            id_user serial PRIMARY KEY,
+            id serial PRIMARY KEY,
             name VARCHAR(50) NOT NULL,
             paternal_surname VARCHAR(50) NOT NULL,
             maternal_surname VARCHAR(50),
-            user_type_id int REFERENCES tb_user_type(id_user_type),
+            user_type_id int REFERENCES tb_user_type(id),
             user_name VARCHAR(50) NOT NULL UNIQUE,
             password VARCHAR(150) NOT NULL,
             is_active BOOLEAN NOT NULL,
@@ -53,7 +53,7 @@ def __create_tables():
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_holder(
-            id_holder serial PRIMARY KEY,
+            id serial PRIMARY KEY,
             name VARCHAR(50) NOT NULL,
             paternal_surname VARCHAR(50) NOT NULL,
             maternal_surname VARCHAR(50),
@@ -64,20 +64,20 @@ def __create_tables():
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_niche(
-            id_niche serial PRIMARY KEY,
-            row_id int REFERENCES tb_row(id_row) NOT NULL,
+            id serial PRIMARY KEY,
+            row_id int REFERENCES tb_row(id) NOT NULL,
             number int NOT NULL,
             is_busy BOOLEAN NOT NULL,
             is_paid_off BOOLEAN NOT NULL,
-            holder_id int REFERENCES tb_holder(id_holder),
+            holder_id int REFERENCES tb_holder(id),
             is_active BOOLEAN NOT NULL,
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_payment(
-            id_payment serial PRIMARY KEY,
-            niche_id int REFERENCES tb_niche(id_niche),
+            id serial PRIMARY KEY,
+            niche_id int REFERENCES tb_niche(id),
             quantity FLOAT NOT NULL,
             payment_date TIMESTAMP NOT NULL,
             created_at TIMESTAMP NOT NULL,
@@ -85,7 +85,7 @@ def __create_tables():
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_remain_type(
-            id_remain_type serial PRIMARY KEY,
+            id serial PRIMARY KEY,
             name VARCHAR(50) NOT NULL,
             key VARCHAR(10) NOT NULL UNIQUE,
             created_at TIMESTAMP NOT NULL,
@@ -93,14 +93,14 @@ def __create_tables():
         ''',
         '''
         CREATE TABLE IF NOT EXISTS tb_deceased(
-        id_deceased serial PRIMARY KEY,
+        id serial PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
         paternal_surname VARCHAR(50) NOT NULL,
         maternal_surname VARCHAR(50),
         birth_date DATE NOT NULL,
         death_date DATE NOT NULL,
-        remain_type_id int REFERENCES tb_remain_type(id_remain_type) NOT NULL,
-        niche_id int REFERENCES tb_niche(id_niche) NOT NULL,
+        remain_type_id int REFERENCES tb_remain_type(id) NOT NULL,
+        niche_id int REFERENCES tb_niche(id) NOT NULL,
         book TEXT,
         sheet TEXT,
         image_route VARCHAR(300),

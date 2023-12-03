@@ -1,31 +1,31 @@
 """
-Niche entity module
+NicheDto module
 """
 import datetime
-from niches.model.entity.row import Row
-from niches.model.entity.holder import Holder
+from niches.model.dto.row_dto import RowDto
+from niches.model.dto.holder_dto import HolderDto
 
-class Niche:
+class NicheDto:
     """
-    Class niche entity
+    Class NicheDto
         Properties:
             id: int
-            row: Row
+            row: RowDto
             number: int
             is_busy: bool
             is_paid_off: bool
-            holder: Holder
+            holder: HolderDto
             is_active: bool
             created_at: datetime
             updated_at: datetime
     """
     def __init__(self):
         self.__id:int = 0
-        self.__row:Row = None
+        self.__row_dto:RowDto = None
         self.__number:int = 0
         self.__is_busy:bool = False
         self.__is_paid_off:bool = False
-        self.__holder:Holder = None
+        self.__holder_dto:HolderDto = None
         self.__is_active:bool = False
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
@@ -42,7 +42,7 @@ class Niche:
         Returns
             row : Row
         """
-        return self.__row
+        return self.__row_dto
 
     def get_number(self):
         """
@@ -70,7 +70,7 @@ class Niche:
         Returns
             holder : Holder
         """
-        return self.__holder
+        return self.__holder_dto
 
     def is_active(self):
         """
@@ -103,7 +103,7 @@ class Niche:
         """
         self.__id = niche_id
 
-    def set_row(self, row:Row):
+    def set_row(self, row:RowDto):
         """
         Sets row
 
@@ -111,7 +111,7 @@ class Niche:
             row : Row
                 row to set
         """
-        self.__row = row
+        self.__row_dto = row
 
     def set_number(self, number:int):
         """
@@ -143,7 +143,7 @@ class Niche:
         """
         self.__is_paid_off = is_paid_off
 
-    def set_holder(self, holder:Holder):
+    def set_holder(self, holder:HolderDto):
         """
         Sets holder
 
@@ -151,7 +151,7 @@ class Niche:
             holder : Holder
                 Holder to set
         """
-        self.__holder = holder
+        self.__holder_dto = holder
 
     def set_active(self, is_active:bool):
         """
@@ -183,7 +183,7 @@ class Niche:
         """
         self.__updated_at = updated_at
 
-    def new_niche(self, row:Row, number:int, is_busy:bool, is_paid_off:bool, holder:Holder):
+    def new_niche(self, row:RowDto, number:int, is_busy:bool, is_paid_off:bool, holder:HolderDto):
         """
         Loads data for new niche
 
@@ -199,14 +199,17 @@ class Niche:
             holder: Holder
                 holder of the niche
         """
-        self.__row = row
+        self.__row_dto = row
         self.__number = number
         self.__is_busy = is_busy
         self.__is_paid_off = is_paid_off
-        self.__holder:Holder = holder
+        if holder is None:
+            pass
+        else:
+            self.__holder_dto = holder
 
-    def existing_niche(self, niche_id:int, row:Row, number:int, is_busy:bool,
-                       is_paid_off:bool, holder:Holder, is_active:bool,
+    def existing_niche(self, niche_id:int, row:RowDto, number:int, is_busy:bool,
+                       is_paid_off:bool, holder:HolderDto, is_active:bool,
                        created_at:datetime, updated_at:datetime):
         """
         Loads data of an existing niche
@@ -220,11 +223,11 @@ class Niche:
             updated_at: datetime
         """
         self.__id = niche_id
-        self.__row = row
+        self.__row_dto = row
         self.__number = number
         self.__is_busy = is_busy
         self.__is_paid_off = is_paid_off
-        self.__holder = holder
+        self.__holder_dto = holder
         self.__is_active = is_active
         self.__created_at = created_at
         self.__updated_at = updated_at

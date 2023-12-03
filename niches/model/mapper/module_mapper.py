@@ -19,6 +19,8 @@ class ModuleMapper:
             module_dto : ModuleDto
                 ModuleDto mapped from Module 
         """
+        if module is None:
+            return None
         module_dto = ModuleDto()
         module_dto.set_id(module.get_id())
         module_dto.set_name(module.get_name())
@@ -43,6 +45,8 @@ class ModuleMapper:
             module : Module
                 Module mapped from ModuleDto 
         """
+        if module_dto is None:
+            return None
         module = Module()
         module.set_id(module_dto.get_id())
         module.set_name(module_dto.get_name())

@@ -710,12 +710,9 @@
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="0" column="1">
-             <widget class="QLineEdit" name="line_edit_search_users"/>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_search_users">
-              <property name="text">
-               <string>Buscar:</string>
+             <widget class="QLineEdit" name="line_edit_search_users">
+              <property name="placeholderText">
+               <string>Buscar usuario...</string>
               </property>
              </widget>
             </item>
@@ -1155,15 +1152,12 @@
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_7">
-              <property name="text">
-               <string>Buscar:</string>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineEdit_13">
+              <property name="placeholderText">
+               <string>Buscar fallecido...</string>
               </property>
              </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit_13"/>
             </item>
             <item row="1" column="0" colspan="2">
              <widget class="QTableView" name="tableView_4"/>
@@ -1233,15 +1227,12 @@
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_search_holders">
-              <property name="text">
-               <string>Buscar:</string>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="line_edit_search_holders">
+              <property name="placeholderText">
+               <string>Buscar titular...</string>
               </property>
              </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="line_edit_search_holders"/>
             </item>
             <item row="1" column="0" colspan="2">
              <widget class="QTableWidget" name="table_widget_holders"/>
@@ -1542,15 +1533,12 @@
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_search_niches">
-              <property name="text">
-               <string>Buscar:</string>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="line_edit_search_niches">
+              <property name="placeholderText">
+               <string>Buscar nicho...</string>
               </property>
              </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="line_edit_search_niches"/>
             </item>
             <item row="1" column="0" colspan="2">
              <widget class="QTableWidget" name="table_widget_niches"/>
@@ -1741,7 +1729,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="combo_box_create_niche"/>
+             <widget class="QComboBox" name="combo_box_create_niche_row"/>
             </item>
             <item>
              <widget class="QLabel" name="label_number_create_niche">
@@ -1757,6 +1745,19 @@
              <widget class="QLabel" name="label_holder_create_niche">
               <property name="text">
                <string>Titular:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="line_edit_create_niche_holder_search">
+              <property name="inputMethodHints">
+               <set>Qt::ImhNone</set>
+              </property>
+              <property name="dragEnabled">
+               <bool>false</bool>
+              </property>
+              <property name="placeholderText">
+               <string>Buscar titular...</string>
               </property>
              </widget>
             </item>

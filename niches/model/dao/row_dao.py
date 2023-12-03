@@ -28,17 +28,17 @@ class RowDao:
                  Row entity found 
         """
         command = '''
-                SELECT tb_row.id_row,
+                SELECT tb_row.id,
                 tb_row.name,
                 tb_row.created_at,
                 tb_row.updated_at,
-                tb_module.id_module,
+                tb_module.id as module_id,
                 tb_module.name as module_name,
                 tb_module.created_at as module_created_at,
                 tb_module.updated_at as module_updated_at
                 FROM tb_row
-                INNER JOIN tb_module ON tb_row.module_id = tb_module.id_module
-                WHERE id_row = %s
+                INNER JOIN tb_module ON tb_row.module_id = tb_module.id
+                WHERE id = %s
                 '''
 
         try:
@@ -67,17 +67,17 @@ class RowDao:
                 All the row list
         """
         command = '''
-                SELECT tb_row.id_row,
+                SELECT tb_row.id,
                 tb_row.name,
                 tb_row.created_at,
                 tb_row.updated_at,
-                tb_module.id_module,
+                tb_module.id as module_id,
                 tb_module.name as module_name,
                 tb_module.created_at as module_created_at,
                 tb_module.updated_at as module_updated_at
                 FROM tb_row
-                INNER JOIN tb_module ON tb_row.module_id = tb_module.id_module
-                ORDER BY id_row
+                INNER JOIN tb_module ON tb_row.module_id = tb_module.id
+                ORDER BY id
                 '''
 
         try:
@@ -114,18 +114,18 @@ class RowDao:
                 All the row list
         """
         command = '''
-                SELECT tb_row.id_row,
+                SELECT tb_row.id,
                 tb_row.name,
                 tb_row.created_at,
                 tb_row.updated_at,
-                tb_module.id_module,
+                tb_module.id as module_id,
                 tb_module.name as module_name,
                 tb_module.created_at as module_created_at,
                 tb_module.updated_at as module_updated_at
                 FROM tb_row
-                INNER JOIN tb_module ON tb_row.module_id = tb_module.id_module
+                INNER JOIN tb_module ON tb_row.module_id = tb_module.id
                 WHERE module_id = %s
-                ORDER BY id_row
+                ORDER BY id
                 '''
 
         try:

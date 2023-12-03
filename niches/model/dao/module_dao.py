@@ -31,7 +31,7 @@ class ModuleDao:
                 SELECT * 
                 FROM tb_module
                 WHERE
-                id_module = %s
+                id = %s
                 '''
 
         try:
@@ -62,7 +62,7 @@ class ModuleDao:
         command = '''
                 SELECT * 
                 FROM tb_module
-                ORDER BY id_module
+                ORDER BY id
                 '''
 
         try:
