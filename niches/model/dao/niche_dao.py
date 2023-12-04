@@ -136,3 +136,143 @@ class NicheDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def search_niches(self, search_string:str):
+        """
+        Search all niches by search_string
+        
+        Arguments:
+            search_string: str
+                String to match with the niches search
+
+        Returns:
+            niche_list = list<Niche>
+        """
+        search_string = "%" + search_string + "%"
+        niche_list = []
+        command = '''
+                SELECT tb_niche.id,
+                tb_niche.number,
+                tb_niche.is_busy,
+                tb_niche.is_paid_off,
+                tb_niche.is_active,
+                tb_niche.created_at,
+                tb_niche.updated_at,
+                tb_module.id as module_id,
+                tb_module.name as module_name,
+                tb_module.created_at as module_created_at,
+                tb_module.updated_at as module_updated_at,
+                tb_row.id as row_id,
+                tb_row.name as row_name,
+                tb_row.created_at as row_created_at,
+                tb_row.updated_at as row_updated_at,
+                tb_holder.id as holder_id,
+                tb_holder.name as holder_name,
+                tb_holder.paternal_surname,
+                tb_holder.maternal_surname,
+                tb_holder.phone,
+                tb_holder.is_active as holder_is_active,
+                tb_holder.created_at as holder_created_at,
+                tb_holder.updated_at as holder_updated_at
+                FROM tb_niche
+                FULL OUTER JOIN tb_holder ON tb_niche.holder_id = tb_holder.id
+                INNER JOIN tb_row ON tb_niche.row_id = tb_row.id
+                INNER JOIN tb_module ON tb_row.module_id = tb_module.id
+                WHERE
+                tb_module.name LIKE %s OR
+                tb_row.name LIKE %s
+                ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
+                '''
+        values = (
+            search_string,
+            search_string)
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
+            for row in rows:
+                niche = self.__niche_dao_mapper.real_dict_row_to_niche(row)
+                niche_list.append(niche)
+            self.__db_connection.end_connection()
+            logging.debug("Se buscaron todos los nichos")
+            return niche_list
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+
+    def search_niches_by_module_id_and_row_id(self, search_string:str, module_id:int, row_id:int):
+        """
+        Search all niches by search_string
+        
+        Arguments:
+            search_string: str
+                String to match with the niches search
+            module_id: int
+                module to filter list
+
+        Returns:
+            niche_list = list<Niche>
+        """
+        search_string = "%" + search_string + "%"
+        niche_list = []
+        command = '''
+                SELECT tb_niche.id,
+                tb_niche.number,
+                tb_niche.is_busy,
+                tb_niche.is_paid_off,
+                tb_niche.is_active,
+                tb_niche.created_at,
+                tb_niche.updated_at,
+                tb_module.id as module_id,
+                tb_module.name as module_name,
+                tb_module.created_at as module_created_at,
+                tb_module.updated_at as module_updated_at,
+                tb_row.id as row_id,
+                tb_row.name as row_name,
+                tb_row.created_at as row_created_at,
+                tb_row.updated_at as row_updated_at,
+                tb_holder.id as holder_id,
+                tb_holder.name as holder_name,
+                tb_holder.paternal_surname,
+                tb_holder.maternal_surname,
+                tb_holder.phone,
+                tb_holder.is_active as holder_is_active,
+                tb_holder.created_at as holder_created_at,
+                tb_holder.updated_at as holder_updated_at
+                FROM tb_niche
+                FULL OUTER JOIN tb_holder ON tb_niche.holder_id = tb_holder.id
+                INNER JOIN tb_row ON tb_niche.row_id = tb_row.id
+                INNER JOIN tb_module ON tb_row.module_id = tb_module.id
+                WHERE
+                (tb_module.name LIKE %s OR
+                tb_row.name LIKE %s)
+                AND (tb_row.module_id = %s)
+                AND (tb_niche.row_id = %s)
+                ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
+                '''
+        values = (
+            search_string,
+            search_string,
+            module_id,
+            row_id)
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
+            for row in rows:
+                niche = self.__niche_dao_mapper.real_dict_row_to_niche(row)
+                niche_list.append(niche)
+            self.__db_connection.end_connection()
+            logging.debug("Se buscaron todos los nichos")
+            return niche_list
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
