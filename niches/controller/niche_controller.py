@@ -13,6 +13,7 @@ from niches.model.dto.row_dto import RowDto
 from niches.model.dto.holder_dto import HolderDto
 from niches.model.dto.niche_dto import NicheDto
 from niches.controller.error_controller import ErrorController
+from niches.constants.constants import UserTypeKey
 
 class NicheController:
     """
@@ -29,9 +30,12 @@ class NicheController:
         self.__holder_service = HolderService()
         self.__niche_service = NicheService()
         self.__error_controller = ErrorController()
+        self.main_window.scroll_modify_niche.hide()
+        self.main_window.scroll_area_create_niche.hide()
         self.__configure_combo_box_niches()
         self.__configure_combo_box_holders()
         self.__configure_actions()
+        self.__search_niches()
 
     def __configure_combo_box_niches(self):
         list_module_dto:list[ModuleDto] = self.__module_service.find_all()
@@ -82,6 +86,10 @@ class NicheController:
             self.main_window.scroll_area_create_niche.show)
         self.main_window.push_button_create_niche_save_niche.clicked.connect(
             self.__save_niche)
+        self.main_window.combo_box_niches_module.currentIndexChanged.connect(
+            self.__search_niches)
+        self.main_window.combo_box_niches_row.currentIndexChanged.connect(
+            self.__search_niches)
 
     def __save_niche(self):
         niche_dto = NicheDto()
@@ -112,3 +120,111 @@ class NicheController:
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
+
+    def __configure_table(self):
+        self.main_window.table_widget_niches.clear()
+        self.main_window.table_widget_niches.setRowCount(self.__row)
+        self.main_window.table_widget_niches.setColumnCount(9)
+        self.main_window.table_widget_niches.setHorizontalHeaderLabels(("id",
+                                                                        "Modulo",
+                                                                        "Fila",
+                                                                        "Número",
+                                                                        "Titular",
+                                                                        "Ocupado",
+                                                                        "Pagado",
+                                                                        "Activo",
+                                                                        "Creado",
+                                                                        "Actualizado"))
+        self.main_window.table_widget_niches.setEditTriggers(
+            QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.main_window.table_widget_niches.resizeColumnsToContents()
+
+    def __search_niches(self):
+        if self.main_window.combo_box_niches_row.currentData() is None:
+            row_id = 0
+        else:
+            row_id = self.main_window.combo_box_niches_row.currentData().get_id()
+
+        if self.main_window.get_logged_user_type_key() == UserTypeKey.ADMINISTRATOR.value:
+            if self.main_window.combo_box_niches_module.currentData() is None:
+                list_niche_dto = self.__niche_service.search_niches(
+                    self.main_window.line_edit_search_niches.text())
+            else:
+                list_niche_dto = self.__niche_service.search_niches_by_module_id_and_row_id(
+                    self.main_window.line_edit_search_niches.text(),
+                    self.main_window.combo_box_niches_module.currentData().get_id(),
+                    row_id)
+        else:
+            if self.main_window.combo_box_niches_module.currentData() is None:
+                list_niche_dto = self.__niche_service.search_niches(
+                    self.main_window.line_edit_search_niches.text())
+            else:
+                list_niche_dto = self.__niche_service.search_niches_by_module_id_and_row_id(
+                    self.main_window.line_edit_search_niches.text(),
+                    self.main_window.combo_box_niches_module.currentData().get_id(),
+                    row_id)
+
+        self.__row = len(list_niche_dto)
+        self.__configure_table()
+        row = 0
+
+        for niche_dto in list_niche_dto:
+            if niche_dto.get_holder() is None:
+                holder_name = "Sin titular"
+            else:
+                holder_name = (niche_dto.get_holder().get_name() + " " +
+                               niche_dto.get_holder().get_paternal_surname() + " " +
+                               niche_dto.get_holder().get_maternal_surname())
+
+            self.main_window.table_widget_niches.setItem(
+                row,
+                0,
+                QtWidgets.QTableWidgetItem(
+                str(niche_dto.get_id())))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                1,
+                QtWidgets.QTableWidgetItem(
+                niche_dto.get_row().get_module().get_name()))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                2,
+                QtWidgets.QTableWidgetItem(
+                    niche_dto.get_row().get_name()))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                3,
+                QtWidgets.QTableWidgetItem(
+                    str(niche_dto.get_number())))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                4,
+                QtWidgets.QTableWidgetItem(
+                    holder_name))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                5,
+                QtWidgets.QTableWidgetItem(
+                    str(niche_dto.is_busy())))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                6,
+                QtWidgets.QTableWidgetItem(
+                    str(niche_dto.is_paid_off())))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                7,
+                QtWidgets.QTableWidgetItem(
+                    str(niche_dto.is_active())))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                8,
+                QtWidgets.QTableWidgetItem(
+                    str(niche_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                9,
+                QtWidgets.QTableWidgetItem(
+                    str(niche_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
+            self.main_window.table_widget_niches.resizeColumnsToContents()
+            row = row + 1

@@ -42,3 +42,50 @@ class NicheService:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
             return None
+
+    def search_niches(self, search_string:str):
+        """
+        Search niches on database.
+        Arguments:
+            search_string: str
+                String to search niches
+            module_id: int
+                module_id to filter the list
+            row_id: int
+                row_id to filter the list
+        Returns:
+            list_niche_dto : list<NicheDto> 
+                Niche list found
+        """
+        list_niche_dto = []
+        list_niche = []
+        list_niche = self.__niche_dao.search_niches(search_string)
+        for niche in list_niche:
+            niche_dto = NicheDto()
+            niche_dto = self.__niche_mapper.niche_to_niche_dto(niche)
+            list_niche_dto.append(niche_dto)
+        return list_niche_dto
+    
+    def search_niches_by_module_id_and_row_id(self, search_string:str, module_id:int, row_id:int):
+        """
+        Search niches on database.
+        Arguments:
+            search_string: str
+                String to search niches
+            module_id: int
+                module_id to filter the list
+            row_id: int
+                row_id to filter the list
+        Returns:
+            list_niche_dto : list<NicheDto> 
+                Niche list found
+        """
+        list_niche_dto = []
+        list_niche = []
+        list_niche = self.__niche_dao.search_niches_by_module_id_and_row_id(search_string,
+                                                                            module_id, row_id)
+        for niche in list_niche:
+            niche_dto = NicheDto()
+            niche_dto = self.__niche_mapper.niche_to_niche_dto(niche)
+            list_niche_dto.append(niche_dto)
+        return list_niche_dto
