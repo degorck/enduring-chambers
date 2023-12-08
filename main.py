@@ -33,6 +33,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.scroll_area_modify_user.hide()
         self.scroll_area_create_holder.hide()
         self.scroll_area_modify_holder.hide()
+        self.spin_box_create_niche_number.setEnabled(False)
         self.__user_controller = UserController(self)
         self.__my_account_controller = MyAccountController(self)
         self.__holder_controller = HolderController(self)

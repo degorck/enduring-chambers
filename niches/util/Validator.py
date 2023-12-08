@@ -71,3 +71,20 @@ def validate_phone_number(phone_number):
 Utiliza estos formatos:
 México: 477-123-45-67, (+52) 477-123-45-67
 US: 456-7890, 212-456-7890, +1-212-456-7890, 1-212-456-7890""")
+
+def validate_not_none(item, name:str):
+    """
+    Validates if the item is not None
+    
+    Arguments:
+        item:
+            Item to validate
+        name: str
+            name of the item
+
+    Raises:
+        ValueError:
+            Raises a ValueError exception if the number does not have the right format
+    """
+    if item is None:
+        raise ValueError(name +" no debe estar vacío")
