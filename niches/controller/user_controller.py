@@ -4,7 +4,7 @@ User Controller Module
 from PySide6 import QtWidgets
 from niches.model.dto.user_dto import UserDto
 from niches.util.validator import validate_is_not_empty, validate_password
-from niches.constants.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER
+from niches.constants.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.controller.error_controller import ErrorController
 from niches.service.user_service import UserService
 from niches.service.user_type_service import UserTypeService
@@ -90,7 +90,7 @@ class UserController:
                 row,
                 5,
                 QtWidgets.QTableWidgetItem(
-                HASHED_BOOLEAN_CONVERTER[str(user_dto.is_active())]))
+                HASHED_BOOLEAN_CONVERTER_IS_ACTIVE[str(user_dto.is_active())]))
             self.main_window.table_widget_users.setItem(
                 row,
                 6,
@@ -113,8 +113,6 @@ class UserController:
             self.main_window.combo_box_modify_user_user_type.addItem(
                 user_type_dto.get_name(), user_type_dto)
             self.__hash_list_user_type[user_type_dto.get_id()] = user_type_dto.get_name()
-        #self.main_window.combo_box_create_user_user_type.setEditable(True)
-        #self.main_window.combo_box_create_user_user_type.setInsertPolicy(QtWidgets.QComboBox.NoInsert)
 
     def __configure_table(self):
         self.main_window.table_widget_users.clear()
