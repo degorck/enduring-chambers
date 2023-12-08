@@ -204,7 +204,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_user.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 194, 466))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_create_user = QLabel(self.scrollAreaWidgetContents_3)
@@ -325,7 +325,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_user.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 194, 346))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label_modify_user = QLabel(self.scrollAreaWidgetContents_2)
@@ -416,7 +416,7 @@ class Ui_MainWindow(object):
         self.scroll_area_users.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 253, 500))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 98, 117))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.line_edit_search_users = QLineEdit(self.scrollAreaWidgetContents_4)
@@ -493,7 +493,7 @@ class Ui_MainWindow(object):
         self.scrollArea_12.setWidgetResizable(True)
         self.scrollAreaWidgetContents_22 = QWidget()
         self.scrollAreaWidgetContents_22.setObjectName(u"scrollAreaWidgetContents_22")
-        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 194, 466))
         self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents_22)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_5 = QLabel(self.scrollAreaWidgetContents_22)
@@ -610,7 +610,7 @@ class Ui_MainWindow(object):
         self.scrollArea_11.setWidgetResizable(True)
         self.scrollAreaWidgetContents_21 = QWidget()
         self.scrollAreaWidgetContents_21.setObjectName(u"scrollAreaWidgetContents_21")
-        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 194, 466))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_21)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_19 = QLabel(self.scrollAreaWidgetContents_21)
@@ -725,7 +725,7 @@ class Ui_MainWindow(object):
         self.scrollArea_10.setWidgetResizable(True)
         self.scrollAreaWidgetContents_20 = QWidget()
         self.scrollAreaWidgetContents_20.setObjectName(u"scrollAreaWidgetContents_20")
-        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 253, 500))
+        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 98, 117))
         self.gridLayout_7 = QGridLayout(self.scrollAreaWidgetContents_20)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.lineEdit_13 = QLineEdit(self.scrollAreaWidgetContents_20)
@@ -776,7 +776,7 @@ class Ui_MainWindow(object):
         self.scroll_area_holders.setWidgetResizable(True)
         self.scrollAreaWidgetContents_23 = QWidget()
         self.scrollAreaWidgetContents_23.setObjectName(u"scrollAreaWidgetContents_23")
-        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 253, 500))
+        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 98, 117))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_23)
         self.gridLayout.setObjectName(u"gridLayout")
         self.line_edit_search_holders = QLineEdit(self.scrollAreaWidgetContents_23)
@@ -800,7 +800,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_25 = QWidget()
         self.scrollAreaWidgetContents_25.setObjectName(u"scrollAreaWidgetContents_25")
-        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 194, 316))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_25)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.label_create_holder = QLabel(self.scrollAreaWidgetContents_25)
@@ -887,7 +887,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_24 = QWidget()
         self.scrollAreaWidgetContents_24.setObjectName(u"scrollAreaWidgetContents_24")
-        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 198, 500))
+        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 194, 346))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_24)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.label_modify_holder = QLabel(self.scrollAreaWidgetContents_24)
@@ -999,11 +999,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.scroll_area_search_niches, 1, 0, 1, 1)
 
-        self.scroll_modify_niche = QScrollArea(self.niches)
-        self.scroll_modify_niche.setObjectName(u"scroll_modify_niche")
-        self.scroll_modify_niche.setMinimumSize(QSize(200, 0))
-        self.scroll_modify_niche.setMaximumSize(QSize(200, 16777215))
-        self.scroll_modify_niche.setWidgetResizable(True)
+        self.scroll_area_modify_niche = QScrollArea(self.niches)
+        self.scroll_area_modify_niche.setObjectName(u"scroll_area_modify_niche")
+        self.scroll_area_modify_niche.setMinimumSize(QSize(200, 0))
+        self.scroll_area_modify_niche.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_modify_niche.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
         self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 198, 432))
@@ -1019,10 +1019,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addItem(self.horizontal_spacer_modify_niche)
 
+        self.label_modify_niche_name = QLabel(self.scrollAreaWidgetContents_7)
+        self.label_modify_niche_name.setObjectName(u"label_modify_niche_name")
+        self.label_modify_niche_name.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_4.addWidget(self.label_modify_niche_name)
+
         self.label_holder_modify_niche = QLabel(self.scrollAreaWidgetContents_7)
         self.label_holder_modify_niche.setObjectName(u"label_holder_modify_niche")
 
         self.verticalLayout_4.addWidget(self.label_holder_modify_niche)
+
+        self.line_edit_modify_niche_search_holder = QLineEdit(self.scrollAreaWidgetContents_7)
+        self.line_edit_modify_niche_search_holder.setObjectName(u"line_edit_modify_niche_search_holder")
+
+        self.verticalLayout_4.addWidget(self.line_edit_modify_niche_search_holder)
 
         self.combo_box_modify_niche_holder = QComboBox(self.scrollAreaWidgetContents_7)
         self.combo_box_modify_niche_holder.setObjectName(u"combo_box_modify_niche_holder")
@@ -1067,9 +1078,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.frame)
 
-        self.scroll_modify_niche.setWidget(self.scrollAreaWidgetContents_7)
+        self.scroll_area_modify_niche.setWidget(self.scrollAreaWidgetContents_7)
 
-        self.gridLayout_4.addWidget(self.scroll_modify_niche, 1, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.scroll_area_modify_niche, 1, 2, 1, 1)
 
         self.scroll_area_create_niche = QScrollArea(self.niches)
         self.scroll_area_create_niche.setObjectName(u"scroll_area_create_niche")
@@ -1091,16 +1102,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addItem(self.horizontal_spacer_create_niche)
 
-        self.label_row_create_niche = QLabel(self.scrollAreaWidgetContents_6)
-        self.label_row_create_niche.setObjectName(u"label_row_create_niche")
-
-        self.verticalLayout_3.addWidget(self.label_row_create_niche)
-
-        self.combo_box_create_niche_row = QComboBox(self.scrollAreaWidgetContents_6)
-        self.combo_box_create_niche_row.setObjectName(u"combo_box_create_niche_row")
-
-        self.verticalLayout_3.addWidget(self.combo_box_create_niche_row)
-
         self.label_number_create_niche = QLabel(self.scrollAreaWidgetContents_6)
         self.label_number_create_niche.setObjectName(u"label_number_create_niche")
 
@@ -1108,6 +1109,7 @@ class Ui_MainWindow(object):
 
         self.spin_box_create_niche_number = QSpinBox(self.scrollAreaWidgetContents_6)
         self.spin_box_create_niche_number.setObjectName(u"spin_box_create_niche_number")
+        self.spin_box_create_niche_number.setEnabled(False)
 
         self.verticalLayout_3.addWidget(self.spin_box_create_niche_number)
 
@@ -1495,14 +1497,15 @@ class Ui_MainWindow(object):
         self.push_button_modify_holder_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.line_edit_search_niches.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar nicho...", None))
         self.label_modify_niche.setText(QCoreApplication.translate("MainWindow", u"Modificar nicho", None))
+        self.label_modify_niche_name.setText(QCoreApplication.translate("MainWindow", u"nombre", None))
         self.label_holder_modify_niche.setText(QCoreApplication.translate("MainWindow", u"Titular:", None))
+        self.line_edit_modify_niche_search_holder.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar titular...", None))
         self.check_box_modify_niche_is_busy.setText(QCoreApplication.translate("MainWindow", u"Ocupado", None))
         self.check_box_modify_niche_paid_off.setText(QCoreApplication.translate("MainWindow", u"Pagado", None))
         self.push_button_modify_niche_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_niche_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.push_button_modify_niche_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.label_create_niche.setText(QCoreApplication.translate("MainWindow", u"Crear nicho", None))
-        self.label_row_create_niche.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_number_create_niche.setText(QCoreApplication.translate("MainWindow", u"N\u00famero:", None))
         self.label_holder_create_niche.setText(QCoreApplication.translate("MainWindow", u"Titular:", None))
         self.line_edit_create_niche_holder_search.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar titular...", None))

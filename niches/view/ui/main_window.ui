@@ -396,8 +396,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -573,8 +573,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -704,8 +704,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -833,8 +833,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -996,8 +996,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1147,8 +1147,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1222,8 +1222,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1263,8 +1263,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1396,8 +1396,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1548,7 +1548,7 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QScrollArea" name="scroll_modify_niche">
+         <widget class="QScrollArea" name="scroll_area_modify_niche">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -1598,9 +1598,26 @@
              </spacer>
             </item>
             <item>
+             <widget class="QLabel" name="label_modify_niche_name">
+              <property name="text">
+               <string>nombre</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QLabel" name="label_holder_modify_niche">
               <property name="text">
                <string>Titular:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="line_edit_modify_niche_search_holder">
+              <property name="placeholderText">
+               <string>Buscar titular...</string>
               </property>
              </widget>
             </item>
@@ -1722,16 +1739,6 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_row_create_niche">
-              <property name="text">
-               <string>Fila:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="combo_box_create_niche_row"/>
-            </item>
-            <item>
              <widget class="QLabel" name="label_number_create_niche">
               <property name="text">
                <string>Número:</string>
@@ -1739,7 +1746,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spin_box_create_niche_number"/>
+             <widget class="QSpinBox" name="spin_box_create_niche_number">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_holder_create_niche">
