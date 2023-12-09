@@ -1,11 +1,10 @@
 """
 User Type Service Module for Enduring Chambers
 """
+import logging
 from niches.model.dto.user_type_dto import UserTypeDto
 from niches.model.dao.user_type_dao import UserTypeDao
 from niches.model.mapper.user_type_mapper import UserTypeMapper
-from niches.util.logging_configuration import get_loging
-logging = get_loging()
 
 class UserTypeService:
     """
@@ -15,11 +14,11 @@ class UserTypeService:
         self.__user_type_dao = UserTypeDao()
         self.__user_type_mapper = UserTypeMapper()
 
-    def find_by_id(self, id:int):
+    def find_by_id(self, id_user_type:int):
         """
         Find user_type by its id
-        Args:
-            id : int
+        Arguments:
+            id_user_type : int
                 Data transfer object of the user to be saved
         Returns:
             user_type_dto : UserTypeDto
@@ -27,13 +26,13 @@ class UserTypeService:
         """
         user_type_dto = UserTypeDto()
         user_type_dto = self.__user_type_mapper.user_type_to_user_type_dto(
-            self.__user_type_dao.find_by_id(id))
+            self.__user_type_dao.find_by_id(id_user_type))
         return user_type_dto
 
     def find_all(self):
         """
         Find all user types
-        Args:
+        Arguments:
             id : int
                 Data transfer object of the user to be saved
         Returns:

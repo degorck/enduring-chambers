@@ -86,7 +86,7 @@ class HolderDao:
                 SELECT * 
                 FROM tb_holder
                 WHERE
-                id_holder = %s
+                id = %s
                 '''
 
         try:
@@ -125,6 +125,7 @@ class HolderDao:
                 maternal_surname LIKE %s OR
                 phone LIKE %s OR
                 CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                ORDER BY id
                 '''
         values = (
             search_string,
@@ -172,6 +173,7 @@ class HolderDao:
                 CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s)
                 AND
                 (is_active = True)
+                ORDER BY id
                 '''
 
         values = (
@@ -214,7 +216,7 @@ class HolderDao:
                 maternal_surname = %s,
                 phone = %s,
                 updated_at = %s
-                WHERE id_holder = %s
+                WHERE id = %s
                 '''
         values = (
             holder.get_name(),
@@ -251,7 +253,7 @@ class HolderDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id_holder = %s
+                WHERE id = %s
                 '''
         values = (
             False,
@@ -285,7 +287,7 @@ class HolderDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id_holder = %s
+                WHERE id = %s
                 '''
         values = (
             True,

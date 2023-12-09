@@ -5,7 +5,7 @@ import logging
 from PySide6 import QtWidgets
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.util.validator import validate_is_not_empty, validate_phone_number
-from niches.constants.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER
+from niches.constants.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.model.dto.holder_dto import HolderDto
 from niches.service.holder_service import HolderService
 from niches.controller.error_controller import ErrorController
@@ -61,6 +61,7 @@ class HolderController:
                 self.main_window.line_edit_create_holder_maternal_surname.text(),
                 self.main_window.line_edit_create_holder_phone.text()
             )
+            logging.info(holder_dto.to_string())
 
             self.__holder_service.create_holder(holder_dto)
             self.__clean_stacked_widget_holders()
@@ -141,7 +142,7 @@ class HolderController:
                 row,
                 5,
                 QtWidgets.QTableWidgetItem(
-                HASHED_BOOLEAN_CONVERTER[str(holder_dto.is_active())]))
+                HASHED_BOOLEAN_CONVERTER_IS_ACTIVE[str(holder_dto.is_active())]))
             self.main_window.table_widget_holders.setItem(
                 row,
                 6,

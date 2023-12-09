@@ -171,7 +171,7 @@ class HolderDto:
         """
         Loads data of an existing holder
 
-        Args:
+        Arguments:
             holder_id: int
                 id of the holder
             name: str
@@ -195,3 +195,15 @@ class HolderDto:
         self.__is_active = is_active
         self.__created_at = created_at
         self.__updated_at = updated_at
+
+    def to_string(self):
+        """
+        Returns object as a string
+
+        Returns:
+            holder_dto: str
+        """
+        return ("id: " + f"\"{self.__id}\" name: \"{self.__name}\" paternal_surname: " +
+                f"\"{self.__paternal_surname}\" maternal_surname: \"{self.__maternal_surname}\" " +
+                f"phone: \"{self.__phone}\" is_active: \"{self.__is_active}\" created_at: " +
+                f"\"{self.__created_at}\" updated_at: \"{self.__updated_at}\"")
