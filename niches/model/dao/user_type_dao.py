@@ -31,7 +31,7 @@ class UserTypeDao:
                 SELECT * 
                 FROM tb_user_type
                 WHERE
-                id_user_type = %s
+                id = %s
                 '''
 
         try:
@@ -62,6 +62,7 @@ class UserTypeDao:
         command = '''
                 SELECT * 
                 FROM tb_user_type
+                ORDER BY id
                 '''
 
         try:

@@ -1,5 +1,5 @@
 """
-User Controller Module
+MyAccount Controller Module
 """
 from niches.util.logging_configuration import get_loging
 from niches.model.dto.user_dto import UserDto

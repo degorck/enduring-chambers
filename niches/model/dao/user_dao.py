@@ -96,7 +96,7 @@ class UserDao:
                 maternal_surname = %s,
                 user_type_id = %s,
                 updated_at = %s
-                WHERE id_user = %s
+                WHERE id = %s
                 '''
         values = (
             user.get_name(),
@@ -133,7 +133,7 @@ class UserDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id_user = %s
+                WHERE id = %s
                 '''
         values = (
             False,
@@ -167,7 +167,7 @@ class UserDao:
                 SET
                 is_active = %s,
                 updated_at = %s
-                WHERE id_user = %s
+                WHERE id = %s
                 '''
         values = (
             True,
@@ -244,6 +244,7 @@ class UserDao:
                 maternal_surname LIKE %s OR
                 user_name LIKE %s OR
                 CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
+                ORDER BY id
                 '''
         values = (
             search_string,
@@ -291,6 +292,7 @@ class UserDao:
                 CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s)
                 AND
                 (is_active = True)
+                ORDER BY id
                 '''
 
         values = (
@@ -332,7 +334,7 @@ class UserDao:
                 SELECT * 
                 FROM tb_user
                 WHERE
-                id_user = %s
+                id = %s
                 '''
 
         try:

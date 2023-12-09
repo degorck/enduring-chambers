@@ -11,6 +11,7 @@ from niches.controller.login_controller import LoginController
 from niches.controller.user_controller import UserController
 from niches.controller.my_account_controller import MyAccountController
 from niches.controller.holder_controller import HolderController
+from niches.controller.niche_controller import NicheController
 logging = get_loging()
 
 class Main(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -32,14 +33,16 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.scroll_area_modify_user.hide()
         self.scroll_area_create_holder.hide()
         self.scroll_area_modify_holder.hide()
+        self.spin_box_create_niche_number.setEnabled(False)
         self.__user_controller = UserController(self)
         self.__my_account_controller = MyAccountController(self)
         self.__holder_controller = HolderController(self)
+        self.__niche_controller = NicheController(self)
         self.__configure_actions()
         self.__configure_windows_by_user_type()
         self.show()
         self.__login_controller.show()
-        logging.debug("System started")
+        logging.info("System started")
 
     def get_logged_user_type_key(self):
         """
@@ -174,7 +177,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.stacked_widget.setCurrentIndex(3)
         logging.debug("Holders stacked widget selected")
-    
+
     def __logout(self):
         self.__configure_not_logged_window()
         self.__login_controller.line_edit_password.clear()

@@ -13,14 +13,26 @@ THE_FIELD_LABEL = "El campo "
 UTF_8 = 'utf-8'
 PASSWORDS_MUST_BE_EQUAL = "Las contraseñas deben ser iguales"
 PASSWORD_MINIMAL_CHARACTERS = 10
-PASSWORD_MUST_HAVE_CHARACTERS = "Las contraseñas deben tener " + str(PASSWORD_MINIMAL_CHARACTERS) + " caracteres."
+PASSWORD_MUST_HAVE_CHARACTERS = ("Las contraseñas deben tener " +
+                                 str(PASSWORD_MINIMAL_CHARACTERS) + " caracteres.")
 LOGIN_ERROR = "Error en login. Verifica tu usuario y contraseña"
 USER_NOT_EXIST = "El usuario no existe o está inactivo"
 
-HASHED_BOOLEAN_CONVERTER = {
+HASHED_BOOLEAN_CONVERTER_IS_ACTIVE = {
     "True" : "Activo",
     "False": "Inactivo"
 }
+
+HASHED_BOOLEAN_CONVERTER_IS_BUSY = {
+    "True" : "Ocupado",
+    "False": "Desocupado"
+}
+
+HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF = {
+    "True" : "Pagado",
+    "False": "Sin liquidar"
+}
+
 
 ##############################################################################################
 ##                                                                                          ##
@@ -37,11 +49,13 @@ LOG_FORMAT = '''
 :: 
 %(funcName)s]
 '''
-LOG_FILENAME = "enduring-chambers"
+LOG_ROUTE = "./log/"
+LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
 LOGING_LEVEL = logging.DEBUG
 '''
 Logging levels:
     - INFO - info message
+    - DEBUG - debug message
     - WARNING - warn message
     - ERROR - error message
     - CRITICAL - critical message
