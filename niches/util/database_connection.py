@@ -20,12 +20,10 @@ class DatabaseConnection:
                                              password = self.__db_password,
                                              port = self.__db_port)
         self.__cursor = self.__connection.cursor(cursor_factory=RealDictCursor)
-        logging.debug("Database connection started")
 
     def end_connection(self):
         self.__cursor.close()
         self.__connection.commit()
-        logging.debug("Database connection finished")
 
     def get_cursor(self):
         return self.__cursor
