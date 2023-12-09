@@ -42,7 +42,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__configure_windows_by_user_type()
         self.show()
         self.__login_controller.show()
-        logging.debug("System started")
+        logging.info("System started")
 
     def get_logged_user_type_key(self):
         """

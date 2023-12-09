@@ -61,6 +61,7 @@ class HolderController:
                 self.main_window.line_edit_create_holder_maternal_surname.text(),
                 self.main_window.line_edit_create_holder_phone.text()
             )
+            logging.info(holder_dto.to_string())
 
             self.__holder_service.create_holder(holder_dto)
             self.__clean_stacked_widget_holders()

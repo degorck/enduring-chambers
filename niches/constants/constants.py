@@ -49,11 +49,13 @@ LOG_FORMAT = '''
 :: 
 %(funcName)s]
 '''
-LOG_FILENAME = "./log/enduring-chambers"
-LOGING_LEVEL = logging.INFO
+LOG_ROUTE = "./log/"
+LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
+LOGING_LEVEL = logging.DEBUG
 '''
 Logging levels:
     - INFO - info message
+    - DEBUG - debug message
     - WARNING - warn message
     - ERROR - error message
     - CRITICAL - critical message
