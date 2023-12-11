@@ -6,7 +6,7 @@ import logging
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.module import Module
-from niches.model.mapper.dao.module_dao_mapper import ModuleDaoMapper
+from niches.model.mapper.dao.module_dao_mapper import real_dict_row_to_module
 
 class ModuleDao:
     """
@@ -14,7 +14,6 @@ class ModuleDao:
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
-        self.__module_dao_mapper = ModuleDaoMapper()
 
     def find_by_id(self, module_id:int):
         """
@@ -40,7 +39,7 @@ class ModuleDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             module = Module()
-            module =  self.__module_dao_mapper.real_dict_row_to_module(row)
+            module =  real_dict_row_to_module(row)
             logging.debug("Se encontró un usuario por su id")
             return module
         except (Exception, psycopg2.DatabaseError) as error:
@@ -72,7 +71,7 @@ class ModuleDao:
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
                 module = Module()
-                module =  self.__module_dao_mapper.real_dict_row_to_module(row)
+                module =  real_dict_row_to_module(row)
                 list_module.append(module)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los modulos")
@@ -110,7 +109,7 @@ class ModuleDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             module = Module()
-            module =  self.__module_dao_mapper.real_dict_row_to_module(row)
+            module =  real_dict_row_to_module(row)
             logging.debug("Se encontró un usuario por su id")
             return module
         except (Exception, psycopg2.DatabaseError) as error:

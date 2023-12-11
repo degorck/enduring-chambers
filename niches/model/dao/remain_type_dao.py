@@ -6,7 +6,7 @@ import logging
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.remain_type import RemainType
-from niches.model.mapper.dao.remain_type_dao_mapper import RemainTypeDaoMapper
+from niches.model.mapper.dao.remain_type_dao_mapper import real_dict_row_to_remain_type
 
 class RemainTypeDao:
     """
@@ -14,7 +14,6 @@ class RemainTypeDao:
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
-        self.__remain_type_dao_mapper = RemainTypeDaoMapper()
 
     def find_by_id(self, remain_type_id:int):
         """
@@ -40,7 +39,7 @@ class RemainTypeDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             remain_type = RemainType()
-            remain_type =  self.__remain_type_dao_mapper.real_dict_row_to_remain_type(row)
+            remain_type =  real_dict_row_to_remain_type(row)
             logging.debug("Se encontró un tipo de resto por su id")
             return remain_type
         except (Exception, psycopg2.DatabaseError) as error:
@@ -72,7 +71,7 @@ class RemainTypeDao:
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
                 remain_type = RemainType()
-                remain_type =  self.__remain_type_dao_mapper.real_dict_row_to_remain_type(row)
+                remain_type =  real_dict_row_to_remain_type(row)
                 list_remain_type.append(remain_type)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los tipos de resto")

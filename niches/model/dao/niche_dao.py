@@ -7,7 +7,7 @@ import logging
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.niche import Niche
-from niches.model.mapper.dao.niche_dao_mapper import NicheDaoMapper
+from niches.model.mapper.dao.niche_dao_mapper import real_dict_row_to_niche
 
 class NicheDao:
     """
@@ -15,7 +15,6 @@ class NicheDao:
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
-        self.__niche_dao_mapper = NicheDaoMapper()
 
     def create_niche(self, niche:Niche):
         """
@@ -126,7 +125,7 @@ class NicheDao:
             self.__db_connection.get_cursor().execute(command % niche_id)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            niche = self.__niche_dao_mapper.real_dict_row_to_niche(row)
+            niche = real_dict_row_to_niche(row)
             logging.debug("Se buscó el nicho por su id")
             return niche
         except (Exception, psycopg2.DatabaseError) as error:
@@ -193,7 +192,7 @@ class NicheDao:
             self.__db_connection.get_cursor().execute(command, values)
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                niche = self.__niche_dao_mapper.real_dict_row_to_niche(row)
+                niche = real_dict_row_to_niche(row)
                 niche_list.append(niche)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los nichos")
@@ -272,7 +271,7 @@ class NicheDao:
             self.__db_connection.get_cursor().execute(command, values)
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                niche = self.__niche_dao_mapper.real_dict_row_to_niche(row)
+                niche = real_dict_row_to_niche(row)
                 niche_list.append(niche)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los nichos")
@@ -347,7 +346,7 @@ class NicheDao:
             self.__db_connection.get_cursor().execute(command, values)
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                niche = self.__niche_dao_mapper.real_dict_row_to_niche(row)
+                niche = real_dict_row_to_niche(row)
                 niche_list.append(niche)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los nichos")

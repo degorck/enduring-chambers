@@ -6,7 +6,7 @@ import logging
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.row import Row
-from niches.model.mapper.dao.row_dao_mapper import RowDaoMapper
+from niches.model.mapper.dao.row_dao_mapper import real_dict_row_to_row
 
 class RowDao:
     """
@@ -14,7 +14,6 @@ class RowDao:
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
-        self.__row_dao_mapper = RowDaoMapper()
 
     def find_by_id(self, row_id:int):
         """
@@ -47,7 +46,7 @@ class RowDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             row = Row()
-            row =  self.__row_dao_mapper.real_dict_row_to_row(row)
+            row =  real_dict_row_to_row(row)
             logging.debug("Se encontró una fila por su id")
             return row
         except (Exception, psycopg2.DatabaseError) as error:
@@ -87,7 +86,7 @@ class RowDao:
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
                 row_entity = Row()
-                row_entity =  self.__row_dao_mapper.real_dict_row_to_row(row)
+                row_entity =  real_dict_row_to_row(row)
                 list_row.append(row_entity)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos las filas")
@@ -135,7 +134,7 @@ class RowDao:
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
                 row_entity = Row()
-                row_entity =  self.__row_dao_mapper.real_dict_row_to_row(row)
+                row_entity =  real_dict_row_to_row(row)
                 list_row.append(row_entity)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos las filas")
