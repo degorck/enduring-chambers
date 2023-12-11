@@ -4,7 +4,7 @@ Niche Service Module for Enduring Chambers
 import logging
 from niches.model.dto.niche_dto import NicheDto
 from niches.model.dao.niche_dao import NicheDao
-from niches.model.mapper.niche_mapper import NicheMapper
+from niches.model.mapper.niche_mapper import niche_dto_to_niche, niche_to_niche_dto
 from niches.controller.error_controller import ErrorController
 
 class NicheService:
@@ -14,7 +14,6 @@ class NicheService:
     def __init__(self):
         self.__error_controller = ErrorController()
         self.__niche_dao = NicheDao()
-        self.__niche_mapper = NicheMapper()
 
     def create_niche(self, niche_dto:NicheDto):
         """
@@ -28,8 +27,8 @@ class NicheService:
                 Niche created
         """
         try:
-            output = self.__niche_mapper.niche_to_niche_dto(
-                self.__niche_dao.create_niche(self.__niche_mapper.niche_dto_to_niche(niche_dto)))
+            output = niche_to_niche_dto(
+                self.__niche_dao.create_niche(niche_dto_to_niche(niche_dto)))
 
             logging.debug("Niche created")
             return output
@@ -64,7 +63,7 @@ class NicheService:
         list_niche = self.__niche_dao.search_niches(search_string)
         for niche in list_niche:
             niche_dto = NicheDto()
-            niche_dto = self.__niche_mapper.niche_to_niche_dto(niche)
+            niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
         return list_niche_dto
 
@@ -89,7 +88,7 @@ class NicheService:
                                                                             module_id, row_id)
         for niche in list_niche:
             niche_dto = NicheDto()
-            niche_dto = self.__niche_mapper.niche_to_niche_dto(niche)
+            niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
         return list_niche_dto
 
@@ -112,7 +111,7 @@ class NicheService:
                                                                  module_id)
         for niche in list_niche:
             niche_dto = NicheDto()
-            niche_dto = self.__niche_mapper.niche_to_niche_dto(niche)
+            niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
         return list_niche_dto
 
@@ -128,7 +127,7 @@ class NicheService:
                 Founded NicheDto.
         """
         niche_dto = NicheDto()
-        niche_dto = self.__niche_mapper.niche_to_niche_dto(
+        niche_dto = niche_to_niche_dto(
             self.__niche_dao.find_by_id(id_niche))
         logging.debug("Se encontró el nicho por su id")
         return niche_dto
@@ -141,7 +140,7 @@ class NicheService:
             niche_dto: NicheDto
                 NicheDto to be modified
         """
-        self.__niche_dao.modify_niche(self.__niche_mapper.niche_dto_to_niche(niche_dto))
+        self.__niche_dao.modify_niche(niche_dto_to_niche(niche_dto))
 
     def reactivate_niche(self, niche_id:int):
         """

@@ -8,7 +8,7 @@ import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.user import User
 from niches.util.encryptor import Encryptor
-from niches.model.mapper.dao.user_dao_mapper import UserDaoMapper
+from niches.model.mapper.dao.user_dao_mapper import real_dict_row_to_user
 
 
 class UserDao:
@@ -17,7 +17,6 @@ class UserDao:
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
-        self.__user_dao_mapper = UserDaoMapper()
         self.__encryptor = Encryptor()
 
     def create_user(self, user:User):
@@ -257,7 +256,7 @@ class UserDao:
             self.__db_connection.get_cursor().execute(command, values)
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                user = real_dict_row_to_user(row)
                 user_list.append(user)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los usuarios")
@@ -306,7 +305,7 @@ class UserDao:
             self.__db_connection.get_cursor().execute(command, values)
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                user = real_dict_row_to_user(row)
                 user_list.append(user)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron los usuarios activos")
@@ -342,7 +341,7 @@ class UserDao:
             self.__db_connection.get_cursor().execute(command % user_id)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            user = self.__user_dao_mapper.real_dict_row_to_user(row)
+            user = real_dict_row_to_user(row)
             logging.debug("Se buscó el usuario por su id")
             return user
         except (Exception, psycopg2.DatabaseError) as error:
@@ -380,7 +379,7 @@ class UserDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             if row is not None:
-                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                user = real_dict_row_to_user(row)
                 logging.debug("Se buscó el usuario activo por su nombre de usuario")
                 return user
             else:
@@ -418,7 +417,7 @@ class UserDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             if row is not None:
-                user = self.__user_dao_mapper.real_dict_row_to_user(row)
+                user = real_dict_row_to_user(row)
                 logging.debug("Se buscó el usuario activo por su nombre de usuario")
                 return user
             else:
