@@ -11,9 +11,9 @@ from niches.model.dto.user_dto import UserDto
 from niches.model.entity.user import User
 from niches.controller.error_controller import ErrorController
 from niches.util.validator import validate_is_not_empty
-from niches.constants.constants import UserTypeKey, UserField
-from niches.constants.constants import LOGIN_ERROR
-from niches.constants.constants import USER_NOT_EXIST
+from niches.constant.constants import UserTypeKey, UserField
+from niches.constant.constants import LOGIN_ERROR
+from niches.constant.constants import USER_NOT_EXIST
 from niches.model.mapper.user_type_mapper import user_type_to_user_type_dto
 from niches.model.dao.user_type_dao import UserTypeDao
 from niches.model.dto.user_type_dto import UserTypeDto

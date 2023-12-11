@@ -13,8 +13,8 @@ from niches.model.dto.row_dto import RowDto
 from niches.model.dto.holder_dto import HolderDto
 from niches.model.dto.niche_dto import NicheDto
 from niches.controller.error_controller import ErrorController
-from niches.constants.constants import UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
-from niches.constants.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY, HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
+from niches.constant.constants import UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY, HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
 from niches.util.validator import validate_not_none
 
 class NicheController:

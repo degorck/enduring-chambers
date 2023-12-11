@@ -6,7 +6,7 @@ from PySide6 import QtWidgets
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.model.dto.user_dto import UserDto
 from niches.util.logging_configuration import get_loging
-from niches.constants.constants import UserTypeKey
+from niches.constant.constants import UserTypeKey
 from niches.controller.login_controller import LoginController
 from niches.controller.user_controller import UserController
 from niches.controller.my_account_controller import MyAccountController
