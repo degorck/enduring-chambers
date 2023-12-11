@@ -30,9 +30,9 @@ class UserDto:
         self.__user_name = user_name
         self.__password = password
 
-    def existing_user(self, id:int, name:str, paternal_surname:str,
+    def existing_user(self, user_id:int, name:str, paternal_surname:str,
                       maternal_surname:str, user_type:int, user_name:str):
-        self.__id = id
+        self.__id = user_id
         self.__name = name
         self.__paternal_surname = paternal_surname
         self.__maternal_surname = maternal_surname
@@ -69,8 +69,8 @@ class UserDto:
     def get_updated_at(self):
         return self.__updated_at
 
-    def set_id(self, id:int):
-        self.__id = id
+    def set_id(self, user_id:int):
+        self.__id = user_id
 
     def set_name(self, name:str):
         self.__name = name
