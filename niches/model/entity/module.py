@@ -15,6 +15,7 @@ class Module:
     def __init__(self):
         self.__id:int = 0
         self.__name:str = ""
+        self.__is_active:bool  = False
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
 
@@ -31,6 +32,13 @@ class Module:
             name : str
         """
         return self.__name
+
+    def is_active(self):
+        """
+        Returns:
+            is_active:bool
+        """
+        return self.__is_active
 
     def get_created_at(self):
         """
@@ -66,6 +74,15 @@ class Module:
         """
         self.__name = name
 
+    def set_is_active(self, is_active:bool):
+        """
+        Sets is_active
+
+        Arguments:
+            is_active : bool
+        """
+        self.__is_active = is_active
+
     def set_created_at(self, created_at:datetime):
         """
         Sets created_at
@@ -96,7 +113,8 @@ class Module:
         """
         self.__name = name
 
-    def existing_module(self, module_id:int, name:str, created_at:datetime, updated_at:datetime):
+    def existing_module(self, module_id:int, name:str, is_active:bool,
+                        created_at:datetime, updated_at:datetime):
         """
         Loads data of an existing module
 
@@ -110,5 +128,6 @@ class Module:
         """
         self.__id = module_id
         self.__name = name
+        self.__is_active = is_active
         self.__created_at = created_at
         self.__updated_at = updated_at

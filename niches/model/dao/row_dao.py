@@ -33,6 +33,7 @@ class RowDao:
                 tb_row.updated_at,
                 tb_module.id as module_id,
                 tb_module.name as module_name,
+                tb_module.is_active as module_is_active,
                 tb_module.created_at as module_created_at,
                 tb_module.updated_at as module_updated_at
                 FROM tb_row
@@ -72,6 +73,7 @@ class RowDao:
                 tb_row.updated_at,
                 tb_module.id as module_id,
                 tb_module.name as module_name,
+                tb_module.is_active as module_is_active,
                 tb_module.created_at as module_created_at,
                 tb_module.updated_at as module_updated_at
                 FROM tb_row
@@ -119,6 +121,7 @@ class RowDao:
                 tb_row.updated_at,
                 tb_module.id as module_id,
                 tb_module.name as module_name,
+                tb_module.is_active as module_is_active,
                 tb_module.created_at as module_created_at,
                 tb_module.updated_at as module_updated_at
                 FROM tb_row
