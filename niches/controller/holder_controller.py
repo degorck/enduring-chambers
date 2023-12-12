@@ -13,7 +13,8 @@ from niches.controller.error_controller import ErrorController
 class HolderController:
     """
     Holder controller class
-    Args:
+
+    Arguments:
         main_window : Ui_MainWindow
             Reuses the main_main window to add the configuration of this class
     """

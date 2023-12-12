@@ -231,3 +231,25 @@ class NicheDto:
         self.__is_active = is_active
         self.__created_at = created_at
         self.__updated_at = updated_at
+
+    def to_string(self):
+        """
+        Returns:
+            niche_dto: str
+            niche_dto as string value
+        """
+        if self.__row_dto is None:
+            row_dto_str = None
+        else:
+            row_dto_str = self.__row_dto.to_string()
+
+        if self.__holder_dto is None:
+            holder_dto_str = None
+        else:
+            holder_dto_str = self.__holder_dto.to_string()
+
+        return (f'id: \"{str(self.__id)}\" row: \"[{row_dto_str}]\" number: ' +
+                f'\"{str(self.__number)}\" is_busy: \"{self.__is_busy}\" is_paid_off: ' +
+                f'\"{self.__is_paid_off}\" holder: \"[{holder_dto_str}]\" ' +
+                f'is_active \"{self.__is_active}\" created_at: \"{self.__created_at}\" ' +
+                f'updated_at: \"{self.__updated_at}\"')

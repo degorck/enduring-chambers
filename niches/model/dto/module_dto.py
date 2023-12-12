@@ -131,3 +131,13 @@ class ModuleDto:
         self.__is_active = is_active
         self.__created_at = created_at
         self.__updated_at = updated_at
+
+    def to_string(self):
+        """
+        Return:
+            module_dto: str
+                module_dto as string
+        """
+        return (f'id: \"{str(self.__id)}\" name: \"{self.__name}\" is_active: ' +
+                f'\"{self.__is_active}\" created_at: \"{self.__created_at}\" ' +
+                f'updated_at: \"{self.__updated_at}\"')

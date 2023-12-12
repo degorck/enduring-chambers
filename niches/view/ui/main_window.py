@@ -493,7 +493,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_22 = QWidget()
         self.scrollAreaWidgetContents_22.setObjectName(u"scrollAreaWidgetContents_22")
-        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, -284, 196, 784))
+        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 196, 784))
         self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents_22)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_create_deceased = QLabel(self.scrollAreaWidgetContents_22)
@@ -670,7 +670,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_21 = QWidget()
         self.scrollAreaWidgetContents_21.setObjectName(u"scrollAreaWidgetContents_21")
-        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, -284, 196, 784))
+        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, -314, 196, 814))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_21)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_modify_deceased = QLabel(self.scrollAreaWidgetContents_21)
@@ -821,12 +821,22 @@ class Ui_MainWindow(object):
         self.frame_17.setObjectName(u"frame_17")
         self.frame_17.setFrameShape(QFrame.StyledPanel)
         self.frame_17.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_14 = QHBoxLayout(self.frame_17)
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.formLayout_5 = QFormLayout(self.frame_17)
+        self.formLayout_5.setObjectName(u"formLayout_5")
+        self.push_button_modify_deceased_active = QPushButton(self.frame_17)
+        self.push_button_modify_deceased_active.setObjectName(u"push_button_modify_deceased_active")
+
+        self.formLayout_5.setWidget(0, QFormLayout.LabelRole, self.push_button_modify_deceased_active)
+
         self.push_button_modify_deceased_save = QPushButton(self.frame_17)
         self.push_button_modify_deceased_save.setObjectName(u"push_button_modify_deceased_save")
 
-        self.horizontalLayout_14.addWidget(self.push_button_modify_deceased_save)
+        self.formLayout_5.setWidget(1, QFormLayout.SpanningRole, self.push_button_modify_deceased_save)
+
+        self.push_button_modify_deceased_deactivate = QPushButton(self.frame_17)
+        self.push_button_modify_deceased_deactivate.setObjectName(u"push_button_modify_deceased_deactivate")
+
+        self.formLayout_5.setWidget(0, QFormLayout.FieldRole, self.push_button_modify_deceased_deactivate)
 
 
         self.verticalLayout_13.addWidget(self.frame_17)
@@ -1065,11 +1075,6 @@ class Ui_MainWindow(object):
         self.frame_modify_holder_buttons.setFrameShadow(QFrame.Raised)
         self.formLayout = QFormLayout(self.frame_modify_holder_buttons)
         self.formLayout.setObjectName(u"formLayout")
-        self.push_button_modify_holder_save = QPushButton(self.frame_modify_holder_buttons)
-        self.push_button_modify_holder_save.setObjectName(u"push_button_modify_holder_save")
-
-        self.formLayout.setWidget(1, QFormLayout.SpanningRole, self.push_button_modify_holder_save)
-
         self.push_button_modify_holder_activate = QPushButton(self.frame_modify_holder_buttons)
         self.push_button_modify_holder_activate.setObjectName(u"push_button_modify_holder_activate")
 
@@ -1079,6 +1084,11 @@ class Ui_MainWindow(object):
         self.push_button_modify_holder_deactivate.setObjectName(u"push_button_modify_holder_deactivate")
 
         self.formLayout.setWidget(0, QFormLayout.FieldRole, self.push_button_modify_holder_deactivate)
+
+        self.push_button_modify_holder_save = QPushButton(self.frame_modify_holder_buttons)
+        self.push_button_modify_holder_save.setObjectName(u"push_button_modify_holder_save")
+
+        self.formLayout.setWidget(1, QFormLayout.SpanningRole, self.push_button_modify_holder_save)
 
 
         self.verticalLayout_15.addWidget(self.frame_modify_holder_buttons)
@@ -1601,7 +1611,9 @@ class Ui_MainWindow(object):
         self.label_modify_deceased_sheet.setText(QCoreApplication.translate("MainWindow", u"Foja", None))
         self.label__modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"IMAGE", None))
         self.tool_button_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"...", None))
+        self.push_button_modify_deceased_active.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_deceased_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.push_button_modify_deceased_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.line_edit_search_deceased.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar fallecido...", None))
         self.label_holders.setText(QCoreApplication.translate("MainWindow", u"Titulares", None))
         self.push_button_create_holder_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
@@ -1618,9 +1630,9 @@ class Ui_MainWindow(object):
         self.label_modify_holder_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
         self.label_modify_holder_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno", None))
         self.label_modify_holder_name_phone.setText(QCoreApplication.translate("MainWindow", u"Tel\u00e9fono:", None))
-        self.push_button_modify_holder_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_modify_holder_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_holder_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
+        self.push_button_modify_holder_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.line_edit_search_niches.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar nicho...", None))
         self.label_modify_niche.setText(QCoreApplication.translate("MainWindow", u"Modificar nicho", None))
         self.label_modify_niche_name.setText(QCoreApplication.translate("MainWindow", u"nombre", None))

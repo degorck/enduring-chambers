@@ -31,6 +31,7 @@ def deceased_to_deceased_dto(deceased:Deceased):
         deceased.get_book(),
         deceased.get_sheet(),
         deceased.get_image_route(),
+        deceased.is_active(),
         deceased.get_created_at() if (deceased.get_created_at() is not None) else None,
         deceased.get_updated_at() if (deceased.get_updated_at() is not None) else None
     )
@@ -65,6 +66,7 @@ def deceased_dto_to_deceased(deceased_dto:DeceasedDto):
         deceased_dto.get_book(),
         deceased_dto.get_sheet(),
         deceased_dto.get_image_route() if (deceased_dto.get_image_route() is not None) else None,
+        deceased_dto.is_active(),
         deceased_dto.get_created_at() if (deceased_dto.get_created_at() is not None) else None,
         deceased_dto.get_updated_at() if (deceased_dto.get_updated_at() is not None) else None,
     )

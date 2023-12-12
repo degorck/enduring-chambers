@@ -15,7 +15,8 @@ logging = get_loging()
 class UserController:
     """
     User controller class
-    Args:
+    
+    Arguments:
         main_window : Ui_MainWindow
             Reuses the main_main window to add the configuration of this class
     """
