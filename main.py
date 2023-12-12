@@ -12,6 +12,7 @@ from niches.controller.user_controller import UserController
 from niches.controller.my_account_controller import MyAccountController
 from niches.controller.holder_controller import HolderController
 from niches.controller.niche_controller import NicheController
+from niches.controller.deceased_controller import DeceasedController
 logging = get_loging()
 
 class Main(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -33,11 +34,14 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.scroll_area_modify_user.hide()
         self.scroll_area_create_holder.hide()
         self.scroll_area_modify_holder.hide()
+        self.scroll_area_create_deceased.hide()
+        self.scroll_area_modify_deceased.hide()
         self.spin_box_create_niche_number.setEnabled(False)
         self.__user_controller = UserController(self)
         self.__my_account_controller = MyAccountController(self)
         self.__holder_controller = HolderController(self)
         self.__niche_controller = NicheController(self)
+        self.__deceased_controller = DeceasedController(self)
         self.__configure_actions()
         self.__configure_windows_by_user_type()
         self.show()

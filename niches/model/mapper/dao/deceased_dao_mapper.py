@@ -103,6 +103,7 @@ def real_dict_row_to_deceased(real_dict_row:RealDictRow):
         real_dict_row["book"],
         real_dict_row["sheet"],
         real_dict_row["image_route"],
+        real_dict_row["is_active"],
         real_dict_row["created_at"],
         real_dict_row["updated_at"]
         )

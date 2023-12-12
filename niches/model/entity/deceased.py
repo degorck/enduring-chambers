@@ -20,6 +20,7 @@ class Deceased:
             book: str
             sheet: str
             image_route: str
+            is_active: bool
             created_at: datetime
             updated_at: datetime
     """
@@ -35,6 +36,7 @@ class Deceased:
         self.__book:str = ""
         self.__sheet:str = ""
         self.__image_route:str = ""
+        self.__is_active:bool = False
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
 
@@ -115,6 +117,12 @@ class Deceased:
         """
         return self.__image_route
 
+    def is_active(self):
+        """
+        Returns:
+            is_active : bool
+        """
+
     def get_created_at(self):
         """
         Returns
@@ -141,7 +149,7 @@ class Deceased:
             pass
         else:
             self.__id = deceased_id
-    
+
     def set_name(self, name:str):
         """
         Sets name
@@ -272,6 +280,15 @@ class Deceased:
         else:
             self.__image_route = image_route
 
+    def set_is_active(self, is_active:bool):
+        """
+        Sets is_active
+
+        Arguments:
+            is_active : bool
+        """
+        self.__is_active = is_active
+
     def set_created_at(self, created_at:datetime):
         """
         Sets created_at
@@ -340,7 +357,8 @@ class Deceased:
     def existing_deceased(self, deceased_id:int, name:str, paternal_surname:str,
                           maternal_surname:str, birth_date:datetime, death_date:datetime,
                           remain_type:RemainType, niche:Niche, book:str, sheet:str,
-                          image_route:str, created_at:datetime, updated_at:datetime):
+                          image_route:str, is_active:bool, created_at:datetime,
+                          updated_at:datetime):
         """
         Loads data for existing deceased
 
@@ -383,5 +401,6 @@ class Deceased:
         self.set_book(book)
         self.set_sheet(sheet)
         self.set_image_route(image_route)
+        self.set_is_active(is_active)
         self.set_created_at(created_at)
         self.set_updated_at(updated_at)

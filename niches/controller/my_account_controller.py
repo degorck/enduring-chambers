@@ -14,7 +14,8 @@ logging = get_loging()
 class MyAccountController:
     """
     My Account controller class
-    Args:
+    
+    Arguments:
         main_window : Ui_MainWindow
             Reuses the main_main window to add the configuration of this class
     """

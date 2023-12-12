@@ -35,6 +35,7 @@ class DeceasedDto:
         self.__book:str = ""
         self.__sheet:str = ""
         self.__image_route:str = ""
+        self.__is_active:bool = False
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
 
@@ -114,6 +115,13 @@ class DeceasedDto:
             image_route : str
         """
         return self.__image_route
+
+    def is_active(self):
+        """
+        Returns
+            is_active : bool
+        """
+        return self.__is_active
 
     def get_created_at(self):
         """
@@ -272,6 +280,15 @@ class DeceasedDto:
         else:
             self.__image_route = image_route
 
+    def set_is_active(self, is_active:bool):
+        """
+        Sets is_active
+
+        Arguments:
+            is_active : bool
+        """
+        self.__is_active = is_active
+
     def set_created_at(self, created_at:datetime):
         """
         Sets created_at
@@ -340,11 +357,57 @@ class DeceasedDto:
     def existing_deceased(self, deceased_id:int, name:str, paternal_surname:str,
                           maternal_surname:str, birth_date:datetime, death_date:datetime,
                           remain_type:RemainTypeDto, niche:NicheDto, book:str, sheet:str,
-                          image_route:str, created_at:datetime, updated_at:datetime):
+                          image_route:str, is_active:bool, created_at:datetime, 
+                          updated_at:datetime):
         """
         Loads data for existing deceased
 
         Arguments:
+            id: int
+                id of the deceased
+            name: str
+                name of the deceased
+            paternal_surname: str
+                paternal_surname of the deceased
+            maternal_surname: str
+                maternal_surname of the deceased
+            birth_date: datetime
+                datetime of the deceased
+            death_date: datetime
+                death_date of the deceased
+            remain_type: RemainType
+                remain_type of the deceased
+            niche: Niche
+                niche of the deceased
+            book: str
+                book of the deceased
+            sheet: str
+                sheet of the deceased
+            image_route: str
+                image_route of the deceased
+            is_active: bool
+            created_at: datetime
+                created_at of the deceased
+            updated_at: datetime
+                updated_at of the deceased
+        """
+        self.set_id(deceased_id)
+        self.set_name(name)
+        self.set_paternal_surname(paternal_surname)
+        self.set_maternal_surname(maternal_surname)
+        self.set_birth_date(birth_date)
+        self.set_death_date(death_date)
+        self.set_remain_type(remain_type)
+        self.set_niche(niche)
+        self.set_book(book)
+        self.set_sheet(sheet)
+        self.set_image_route(image_route)
+        self.set_is_active(is_active)
+        self.set_created_at(created_at)
+        self.set_updated_at(updated_at)
+
+    def to_string(self):
+        """
             id: int
                 id of the deceased
             name: str
@@ -372,16 +435,22 @@ class DeceasedDto:
             updated_at: datetime
                 updated_at of the deceased
         """
-        self.set_id(deceased_id)
-        self.set_name(name)
-        self.set_paternal_surname(paternal_surname)
-        self.set_maternal_surname(maternal_surname)
-        self.set_birth_date(birth_date)
-        self.set_death_date(death_date)
-        self.set_remain_type(remain_type)
-        self.set_niche(niche)
-        self.set_book(book)
-        self.set_sheet(sheet)
-        self.set_image_route(image_route)
-        self.set_created_at(created_at)
-        self.set_updated_at(updated_at)
+        if self.__remain_type_dto is None:
+            remain_type_dto_str = None
+        else:
+            remain_type_dto_str = self.__remain_type_dto.to_string()
+
+        if self.__niche_dto is None:
+            niche_dto_str = None
+        else:
+            niche_dto_str = self.__niche_dto.to_string()
+
+        return (f'id: \"{str(self.__id)}\" name:  \"{self.__name}\" paternal_surname: ' +
+                f'\"{self.__paternal_surname}\" maternal_surname: \"{self.__maternal_surname}\" ' +
+                f'bith_date: \"{self.__birth_date}\" death_date: ' +
+                f'\"{self.__death_date}\" remain_type: ' +
+                f'\"[{remain_type_dto_str}]\" ' +
+                f'niche: \"[{niche_dto_str}]\" book: \"{self.__book}\" ' +
+                f'sheet: \"{self.__sheet}\" image_route: \"{self.__image_route}\" ' +
+                f'is_active: \"{self.__is_active}\" created_at \"{self.__created_at}\" ' +
+                f'updated_at \"{self.__updated_at}\"')

@@ -29,3 +29,7 @@ class RemainTypeDto:
         self.__key = key
         self.__created_at = created_at
         self.__updated_at = updated_at
+
+    def to_string(self):
+        return (f'id: \"{str(self.__id)}\" name: \"{self.__name}\" key: \"{self.__key}\" ' +
+                f'created_at: \"{self.__created_at}\" updated_at: \"{self.__updated_at}\"')

@@ -40,15 +40,8 @@ HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF = {
 ##                                                                                          ##
 ##############################################################################################
 CONSOLE_LOG_ENABLED = True
-LOG_FORMAT = '''
-[ %(asctime)s ][%(levelname)s][%(name)s] 
-::::: 
-%(message)s 
-::::: 
-[%(module)s 
-:: 
-%(funcName)s]
-'''
+LOG_FORMAT = ('[ %(asctime)s ][%(levelname)s][%(name)s] ' +
+              '::::: %(message)s ::::: [%(module)s :: %(funcName)s]')
 LOG_ROUTE = "./log/"
 LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
 LOGING_LEVEL = logging.DEBUG
