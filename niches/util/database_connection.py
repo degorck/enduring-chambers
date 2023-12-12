@@ -17,6 +17,8 @@ class DatabaseConnection:
         self.__db_password = os.getenv("DB_PASSWORD")
         self.__db_user = os.getenv("DB_USER")
         self.__db_port = os.getenv("DB_PORT")
+        self.__cursor = None
+        self.__connection = None
 
     def start_connection(self):
         """
