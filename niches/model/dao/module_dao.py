@@ -50,7 +50,7 @@ class ModuleDao:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
 
-    def find_all(self):
+    def find_all_active(self):
         """
         Find the all the modules
 
@@ -61,7 +61,8 @@ class ModuleDao:
         command = '''
                 SELECT * 
                 FROM tb_module
-                ORDER BY id
+                WHERE tb_module.is_active = True
+                ORDER BY id                
                 '''
 
         try:

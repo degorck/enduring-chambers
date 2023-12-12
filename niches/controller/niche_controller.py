@@ -42,7 +42,7 @@ class NicheController:
         self.__search_niches()
 
     def __configure_combo_box_niches(self):
-        list_module_dto:list[ModuleDto] = self.__module_service.find_all()
+        list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
         self.main_window.combo_box_niches_module.addItem("", None)
         for module_dto in list_module_dto:
             self.main_window.combo_box_niches_module.addItem(

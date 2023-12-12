@@ -29,7 +29,7 @@ class ModuleService:
         logging.debug("Se encontró el módulo por su id")
         return module_dto
 
-    def find_all(self):
+    def find_all_active(self):
         """
         Find all modules
 
@@ -38,7 +38,7 @@ class ModuleService:
                 All the ModuleDto
         """
         list_module_dto = []
-        list_module = self.__module_dao.find_all()
+        list_module = self.__module_dao.find_all_active()
         for module in list_module:
             list_module_dto.append(module_to_module_dto(module))
         logging.debug("Se obtuvieron todos los módulos")
