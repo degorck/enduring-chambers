@@ -69,5 +69,4 @@ def deceased_dto_to_deceased(deceased_dto:DeceasedDto):
         deceased_dto.get_updated_at() if (deceased_dto.get_updated_at() is not None) else None,
     )
 
-
     return deceased

@@ -110,7 +110,7 @@ class ModuleDao:
             self.__db_connection.end_connection()
             module = Module()
             module =  real_dict_row_to_module(row)
-            logging.debug("Se encontró un usuario por su id")
+            logging.debug("Se encontró un módulo por su nombre")
             return module
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)

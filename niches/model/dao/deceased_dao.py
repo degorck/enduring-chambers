@@ -39,9 +39,11 @@ class DeceasedDao:
                     book,
                     sheet,
                     image_route,
+                    is_active,
                     created_at,
                     updated_at)
                 VALUES (
+                    %s,
                     %s,
                     %s,
                     %s,
@@ -66,9 +68,11 @@ class DeceasedDao:
             deceased.get_book(),
             deceased.get_sheet(),
             deceased.get_image_route(),
+            True,
             datetime.datetime.now(),
             datetime.datetime.now()
             )
+
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -123,6 +127,7 @@ class DeceasedDao:
                 tb_niche.updated_at as niche_updated_at,
                 tb_module.id as module_id,
                 tb_module.name as module_name,
+                tb_module.is_active as module_is_active,
                 tb_module.created_at as module_created_at,
                 tb_module.updated_at as module_updated_at,
                 tb_row.id as row_id,

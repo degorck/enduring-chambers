@@ -22,6 +22,7 @@ def real_dict_row_to_module(real_dict_row:RealDictRow):
     module.existing_module(
         real_dict_row["id"],
         real_dict_row["name"],
+        real_dict_row["is_active"],
         real_dict_row["created_at"],
         real_dict_row["updated_at"]
         )

@@ -21,6 +21,7 @@ def module_to_module_dto(module:Module):
     module_dto = ModuleDto()
     module_dto.set_id(module.get_id())
     module_dto.set_name(module.get_name())
+    module_dto.set_is_active(module.is_active())
     if module.get_created_at() is None:
         pass
     else:
@@ -48,6 +49,7 @@ def module_dto_to_module(module_dto:ModuleDto):
     module = Module()
     module.set_id(module_dto.get_id())
     module.set_name(module_dto.get_name())
+    module.set_is_active(module_dto.is_active())
     if module_dto.get_created_at() is None:
         pass
     else:

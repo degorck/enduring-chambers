@@ -40,6 +40,7 @@ def real_dict_row_to_deceased(real_dict_row:RealDictRow):
         module.existing_module(
             real_dict_row["module_id"],
             real_dict_row["module_name"],
+            real_dict_row["module_is_active"],
             real_dict_row["module_created_at"],
             real_dict_row["module_updated_at"]
         )
