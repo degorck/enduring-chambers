@@ -4,7 +4,7 @@ Label Image Module controller for drag and drop image
 from PySide6.QtWidgets import QLabel
 from PySide6.QtCore import Qt
 
-class ImageLabelController(QLabel):
+class ImageLabelUtil(QLabel):
     """
     Class that configures drag and drop label image
     """

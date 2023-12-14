@@ -4,22 +4,22 @@ Controller for DragAndDrop image items
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
-from niches.controller.image_label_controller import ImageLabelController
+from niches.util.image_label_util import ImageLabelUtil
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.constant.constants import ValidImageExtension, NOT_VALID_IMAGE
 from niches.controller.error_controller import ErrorController
 
-class DragAndDropController(QWidget):
+class DragAndDropUtil(QWidget):
     def __init__(self, main_window:Ui_MainWindow):
         super().__init__()
         self.main_window = main_window
         self.setWindowTitle("Arrastra la imagen...")
         self.resize(400, 400)
         self.setAcceptDrops(True)
-        main_layout = QVBoxLayout()
-        self.photo_viewer = ImageLabelController()
-        main_layout.addWidget(self.photo_viewer)
-        self.setLayout(main_layout)
+        self.__main_layout = QVBoxLayout()
+        self.__image_label_util = ImageLabelUtil()
+        self.__main_layout.addWidget(self.__image_label_util)
+        self.setLayout(self.__main_layout)
         self.__file_path = None
         self.__error_controller = ErrorController()
 
@@ -67,7 +67,7 @@ class DragAndDropController(QWidget):
     def set_image(self, file_path):
         self.resize(400, 400)
         self.__file_path = file_path
-        self.photo_viewer.set_pixmap(QPixmap(file_path).scaled(
+        self.__image_label_util.set_pixmap(QPixmap(file_path).scaled(
             400, self.height(), Qt.AspectRatioMode.KeepAspectRatio,
             Qt.TransformationMode.SmoothTransformation))
         self.main_window.label_create_deceased_image.setPixmap(QPixmap(file_path).scaled(
@@ -79,7 +79,7 @@ class DragAndDropController(QWidget):
 
     def open_window_configuration(self):
         self.__file_path = None
-        self.photo_viewer.clear()
-        self.photo_viewer.setText("\n\n Arrastra tu imagen aquí \n\n")
+        self.__image_label_util.clear()
+        self.__image_label_util.setText("\n\n Arrastra tu imagen aquí \n\n")
         self.main_window.label_create_deceased_image.clear()
         self.main_window.label_create_deceased_image.setText("Sin imagen")
