@@ -19,7 +19,7 @@ class UserTypeDao:
         """
         Find the user type by its id
 
-        Args:
+        Arguments:
             user_type_id: int
                 user_type_id of the user type to find
         Returns:

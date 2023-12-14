@@ -17,6 +17,7 @@ PASSWORD_MUST_HAVE_CHARACTERS = ("Las contraseñas deben tener " +
                                  str(PASSWORD_MINIMAL_CHARACTERS) + " caracteres.")
 LOGIN_ERROR = "Error en login. Verifica tu usuario y contraseña"
 USER_NOT_EXIST = "El usuario no existe o está inactivo"
+NOT_VALID_IMAGE = "El archivo no es una imagen. \n Utiliza archivos *.png, *.jpg o *.jpeg"
 
 HASHED_BOOLEAN_CONVERTER_IS_ACTIVE = {
     "True" : "Activo",
@@ -32,7 +33,6 @@ HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF = {
     "True" : "Pagado",
     "False": "Sin liquidar"
 }
-
 
 ##############################################################################################
 ##                                                                                          ##
@@ -80,3 +80,11 @@ class UserTypeKey(StrEnum):
     CAPTURIST = "cpt"
     GUEST = "gst"
     NOT_LOGGED = "ntl"
+
+class ValidImageExtension(StrEnum):
+    """
+    Enum that includes valid image extensions
+    """
+    PNG = "png"
+    JPG = "jpg"
+    JPEG = "jpeg"

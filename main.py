@@ -115,7 +115,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
             case UserTypeKey.NOT_LOGGED.value:
                 self.__configure_not_logged_window()
         logging.debug(
-            "Se ha configurado la ventana de acuerdo al usuario loggeado: " + self.__user_type_key)
+            "Se ha configurado la ventana de acuerdo al usuario loggeado: %s", self.__user_type_key)
 
     def __configure_guest_window(self):
         self.label_welcome_user_name.setText("Invitado")

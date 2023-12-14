@@ -20,8 +20,8 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDateEdit,
     QHeaderView, QLabel, QLineEdit, QMainWindow,
     QMenuBar, QPlainTextEdit, QPushButton, QScrollArea,
     QSizePolicy, QSpacerItem, QSpinBox, QStackedWidget,
-    QStatusBar, QTableWidget, QTableWidgetItem, QToolButton,
-    QVBoxLayout, QWidget)
+    QStatusBar, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -493,7 +493,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_22 = QWidget()
         self.scrollAreaWidgetContents_22.setObjectName(u"scrollAreaWidgetContents_22")
-        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 196, 784))
+        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, -290, 196, 790))
         self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents_22)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_create_deceased = QLabel(self.scrollAreaWidgetContents_22)
@@ -543,6 +543,7 @@ class Ui_MainWindow(object):
 
         self.date_edit_create_deceased_birth_date = QDateEdit(self.scrollAreaWidgetContents_22)
         self.date_edit_create_deceased_birth_date.setObjectName(u"date_edit_create_deceased_birth_date")
+        self.date_edit_create_deceased_birth_date.setCalendarPopup(True)
 
         self.verticalLayout_14.addWidget(self.date_edit_create_deceased_birth_date)
 
@@ -553,6 +554,7 @@ class Ui_MainWindow(object):
 
         self.date_edit_create_deceased_death_date = QDateEdit(self.scrollAreaWidgetContents_22)
         self.date_edit_create_deceased_death_date.setObjectName(u"date_edit_create_deceased_death_date")
+        self.date_edit_create_deceased_death_date.setCalendarPopup(True)
 
         self.verticalLayout_14.addWidget(self.date_edit_create_deceased_death_date)
 
@@ -625,20 +627,23 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.plain_text_edit_create_deceased_sheet)
 
+        self.label_create_deceased_image = QLabel(self.scrollAreaWidgetContents_22)
+        self.label_create_deceased_image.setObjectName(u"label_create_deceased_image")
+        self.label_create_deceased_image.setStyleSheet(u"QLabel{\n"
+"	border: 2px dashed\n"
+"}")
+        self.label_create_deceased_image.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_14.addWidget(self.label_create_deceased_image)
+
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_14.addItem(self.verticalSpacer_3)
 
-        self.label_create_deseased_image = QLabel(self.scrollAreaWidgetContents_22)
-        self.label_create_deseased_image.setObjectName(u"label_create_deseased_image")
-        self.label_create_deseased_image.setAlignment(Qt.AlignCenter)
+        self.push_button_create_deceased_image = QPushButton(self.scrollAreaWidgetContents_22)
+        self.push_button_create_deceased_image.setObjectName(u"push_button_create_deceased_image")
 
-        self.verticalLayout_14.addWidget(self.label_create_deseased_image)
-
-        self.tool_button_create_deceased_image = QToolButton(self.scrollAreaWidgetContents_22)
-        self.tool_button_create_deceased_image.setObjectName(u"tool_button_create_deceased_image")
-
-        self.verticalLayout_14.addWidget(self.tool_button_create_deceased_image)
+        self.verticalLayout_14.addWidget(self.push_button_create_deceased_image)
 
         self.frame_18 = QFrame(self.scrollAreaWidgetContents_22)
         self.frame_18.setObjectName(u"frame_18")
@@ -670,7 +675,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_21 = QWidget()
         self.scrollAreaWidgetContents_21.setObjectName(u"scrollAreaWidgetContents_21")
-        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, -314, 196, 814))
+        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, -320, 196, 820))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_21)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_modify_deceased = QLabel(self.scrollAreaWidgetContents_21)
@@ -720,6 +725,7 @@ class Ui_MainWindow(object):
 
         self.date_edit_modify_deceased_birth_date = QDateEdit(self.scrollAreaWidgetContents_21)
         self.date_edit_modify_deceased_birth_date.setObjectName(u"date_edit_modify_deceased_birth_date")
+        self.date_edit_modify_deceased_birth_date.setCalendarPopup(True)
 
         self.verticalLayout_13.addWidget(self.date_edit_modify_deceased_birth_date)
 
@@ -730,6 +736,7 @@ class Ui_MainWindow(object):
 
         self.date_edit_modify_deceased_death_date = QDateEdit(self.scrollAreaWidgetContents_21)
         self.date_edit_modify_deceased_death_date.setObjectName(u"date_edit_modify_deceased_death_date")
+        self.date_edit_modify_deceased_death_date.setCalendarPopup(True)
 
         self.verticalLayout_13.addWidget(self.date_edit_modify_deceased_death_date)
 
@@ -806,16 +813,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addWidget(self.plain_text_edit_modify_deceased_sheet)
 
-        self.label__modify_deceased_image = QLabel(self.scrollAreaWidgetContents_21)
-        self.label__modify_deceased_image.setObjectName(u"label__modify_deceased_image")
-        self.label__modify_deceased_image.setAlignment(Qt.AlignCenter)
+        self.label_modify_deceased_image = QLabel(self.scrollAreaWidgetContents_21)
+        self.label_modify_deceased_image.setObjectName(u"label_modify_deceased_image")
+        self.label_modify_deceased_image.setStyleSheet(u"QLabel{\n"
+"	border: 2px dashed\n"
+"}")
+        self.label_modify_deceased_image.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_13.addWidget(self.label__modify_deceased_image)
+        self.verticalLayout_13.addWidget(self.label_modify_deceased_image)
 
-        self.tool_button_modify_deceased_image = QToolButton(self.scrollAreaWidgetContents_21)
-        self.tool_button_modify_deceased_image.setObjectName(u"tool_button_modify_deceased_image")
+        self.push_button_modify_deceased_image = QPushButton(self.scrollAreaWidgetContents_21)
+        self.push_button_modify_deceased_image.setObjectName(u"push_button_modify_deceased_image")
 
-        self.verticalLayout_13.addWidget(self.tool_button_modify_deceased_image)
+        self.verticalLayout_13.addWidget(self.push_button_modify_deceased_image)
 
         self.frame_17 = QFrame(self.scrollAreaWidgetContents_21)
         self.frame_17.setObjectName(u"frame_17")
@@ -1593,8 +1603,8 @@ class Ui_MainWindow(object):
         self.label_create_deceased_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_create_deceased_book.setText(QCoreApplication.translate("MainWindow", u"Libro:", None))
         self.label_create_deceased_sheet.setText(QCoreApplication.translate("MainWindow", u"Foja:", None))
-        self.label_create_deseased_image.setText(QCoreApplication.translate("MainWindow", u"IMAGE", None))
-        self.tool_button_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"...", None))
+        self.label_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
+        self.push_button_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.push_button_create_deceased_save_deceased.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_create_deceased_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.label_modify_deceased.setText(QCoreApplication.translate("MainWindow", u"Modificar fallecido", None))
@@ -1609,8 +1619,8 @@ class Ui_MainWindow(object):
         self.label_modify_deceased_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_modify_deceased_book.setText(QCoreApplication.translate("MainWindow", u"Libro:", None))
         self.label_modify_deceased_sheet.setText(QCoreApplication.translate("MainWindow", u"Foja", None))
-        self.label__modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"IMAGE", None))
-        self.tool_button_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"...", None))
+        self.label_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
+        self.push_button_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.push_button_modify_deceased_active.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_deceased_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_modify_deceased_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))

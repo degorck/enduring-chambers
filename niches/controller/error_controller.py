@@ -40,4 +40,3 @@ class ErrorController(QtWidgets.QWidget, Ui_Error):
 
     def __hide_window(self):
         self.close()
-        
