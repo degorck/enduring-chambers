@@ -10,7 +10,7 @@ from niches.service.remain_type_service import RemainTypeService
 from niches.service.module_service import ModuleService
 from niches.service.row_service import RowService
 from niches.service.niche_service import NicheService
-from niches.controller.drag_and_drop_controller import DragAndDropController
+from niches.util.drag_and_drop_util import DragAndDropUtil
 
 
 class DeceasedController:
@@ -23,7 +23,7 @@ class DeceasedController:
     """
     def __init__(self, main_window:Ui_MainWindow):
         self.main_window = main_window
-        self.__drag_and_drop_create_deceased = DragAndDropController(main_window)
+        self.__drag_and_drop_util_create_deceased = DragAndDropUtil(main_window)
         today = datetime.datetime.now()
         today_qdate = QtCore.QDate(today.year, today.month, today.day)
         self.main_window.date_edit_create_deceased_birth_date.setDate(today_qdate)
@@ -38,9 +38,6 @@ class DeceasedController:
         self.__configure_combo_box_remain_type()
         self.__configure_combo_box_module()
         self.__configure_combo_box_row_create()
-        #self.main_window.plain_text_edit_create_deceased_sheet.setReadOnly(True)
-        #self.main_window.plain_text_edit_create_deceased_sheet.setAcceptDrops(True)
-        #self.main_window.setCentralWidget(self.main_window.label_create_deseased_image)
 
     def __configure_actions(self):
         self.main_window.push_button_create_deceased_create.clicked.connect(
@@ -60,8 +57,8 @@ class DeceasedController:
             self.__show_create_deceased_image_widget)
 
     def __show_create_deceased_image_widget(self):
-        self.__drag_and_drop_create_deceased.show()
-        self.__drag_and_drop_create_deceased.open_window_configuration()
+        self.__drag_and_drop_util_create_deceased.show()
+        self.__drag_and_drop_util_create_deceased.open_window_configuration()
 
     def __configure_combo_box_remain_type(self):
         list_remain_type_dto = self.__remain_type_service.find_all()
@@ -155,7 +152,7 @@ class DeceasedController:
             self.main_window.combo_box_create_deceased_niche.currentData(),
             self.main_window.plain_text_edit_create_deceased_book.toPlainText(),
             self.main_window.plain_text_edit_create_deceased_sheet.toPlainText(),
-            self.__drag_and_drop_create_deceased.get_file_path() if (
-                self.__drag_and_drop_create_deceased.get_file_path() is not None) else "None"
+            self.__drag_and_drop_util_create_deceased.get_file_path() if (
+                self.__drag_and_drop_util_create_deceased.get_file_path() is not None) else "None"
         )
         logging.debug("Se guardó el difunto [%s]", deceased_dto.to_string())
