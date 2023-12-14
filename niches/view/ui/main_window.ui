@@ -832,9 +832,9 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-290</y>
              <width>196</width>
-             <height>784</height>
+             <height>790</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -899,7 +899,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="date_edit_create_deceased_birth_date"/>
+             <widget class="QDateEdit" name="date_edit_create_deceased_birth_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_create_deceased_death_date">
@@ -909,7 +913,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="date_edit_create_deceased_death_date"/>
+             <widget class="QDateEdit" name="date_edit_create_deceased_death_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_create_deceased_remain_type">
@@ -984,6 +992,21 @@
              <widget class="QPlainTextEdit" name="plain_text_edit_create_deceased_sheet"/>
             </item>
             <item>
+             <widget class="QLabel" name="label_create_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
+              <property name="text">
+               <string>Sin imagen</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="verticalSpacer_3">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -997,19 +1020,9 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_create_deseased_image">
+             <widget class="QPushButton" name="push_button_create_deceased_image">
               <property name="text">
-               <string>IMAGE</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QToolButton" name="tool_button_create_deceased_image">
-              <property name="text">
-               <string>...</string>
+               <string>Cargar imagen...</string>
               </property>
              </widget>
             </item>
@@ -1064,9 +1077,9 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-314</y>
+             <y>-320</y>
              <width>196</width>
-             <height>814</height>
+             <height>820</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1131,7 +1144,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="date_edit_modify_deceased_birth_date"/>
+             <widget class="QDateEdit" name="date_edit_modify_deceased_birth_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_modify_deceased_death_date">
@@ -1141,7 +1158,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="date_edit_modify_deceased_death_date"/>
+             <widget class="QDateEdit" name="date_edit_modify_deceased_death_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label__modify_deceased_remaint_type">
@@ -1229,9 +1250,14 @@
              <widget class="QPlainTextEdit" name="plain_text_edit_modify_deceased_sheet"/>
             </item>
             <item>
-             <widget class="QLabel" name="label__modify_deceased_image">
+             <widget class="QLabel" name="label_modify_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
               <property name="text">
-               <string>IMAGE</string>
+               <string>Sin imagen</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -1239,9 +1265,9 @@
              </widget>
             </item>
             <item>
-             <widget class="QToolButton" name="tool_button_modify_deceased_image">
+             <widget class="QPushButton" name="push_button_modify_deceased_image">
               <property name="text">
-               <string>...</string>
+               <string>Cargar imagen...</string>
               </property>
              </widget>
             </item>
