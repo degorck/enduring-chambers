@@ -13,7 +13,7 @@ from niches.controller.my_account_controller import MyAccountController
 from niches.controller.holder_controller import HolderController
 from niches.controller.niche_controller import NicheController
 from niches.controller.deceased_controller import DeceasedController
-from niches.util.combo_box_wheel_filter import WheelEventFilter
+from niches.util.wheel_event_filter import WheelEventFilter
 logging = get_loging()
 
 class Main(QtWidgets.QMainWindow, Ui_MainWindow):
