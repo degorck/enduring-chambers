@@ -10,8 +10,11 @@ from niches.service.remain_type_service import RemainTypeService
 from niches.service.module_service import ModuleService
 from niches.service.row_service import RowService
 from niches.service.niche_service import NicheService
+from niches.service.deceased_service import DeceasedService
 from niches.util.drag_and_drop_util import DragAndDropUtil
-
+from niches.util.ftp_util import send_image, delete_image, dowloand_image
+from niches.util.validator import validate_is_not_empty
+from niches.controller.error_controller import ErrorController
 
 class DeceasedController:
     """
@@ -34,6 +37,8 @@ class DeceasedController:
         self.__module_service = ModuleService()
         self.__row_service = RowService()
         self.__niche_service = NicheService()
+        self.__deceased_service = DeceasedService()
+        self.__error_controller = ErrorController()
         self.__configure_actions()
         self.__configure_combo_box_remain_type()
         self.__configure_combo_box_module()
@@ -135,24 +140,41 @@ class DeceasedController:
                     str(niche_dto.get_number()), niche_dto)
 
     def __create_deceased(self):
-        deceased_dto = DeceasedDto()
-        q_date_birth_date = self.main_window.date_edit_create_deceased_birth_date.date()
-        birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
-                                       q_date_birth_date.day())
-        q_date_death_date = self.main_window.date_edit_create_deceased_death_date.date()
-        death_date = datetime.datetime(q_date_death_date.year(), q_date_death_date.month(),
-                                       q_date_death_date.day())
-        deceased_dto.new_deceased(
-            self.main_window.line_edit_create_deceased_name.text(),
-            self.main_window.line_edit_create_deceased_paternal_surname.text(),
-            self.main_window.line_edit_create_deceased_maternal_surname.text(),
-            birth_date,
-            death_date,
-            self.main_window.combo_box_create_deceased_remain_type.currentData(),
-            self.main_window.combo_box_create_deceased_niche.currentData(),
-            self.main_window.plain_text_edit_create_deceased_book.toPlainText(),
-            self.main_window.plain_text_edit_create_deceased_sheet.toPlainText(),
-            self.__drag_and_drop_util_create_deceased.get_file_path() if (
-                self.__drag_and_drop_util_create_deceased.get_file_path() is not None) else "None"
-        )
-        logging.debug("Se guardó el difunto [%s]", deceased_dto.to_string())
+        try:
+            deceased_dto = DeceasedDto()
+            q_date_birth_date = self.main_window.date_edit_create_deceased_birth_date.date()
+            birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
+                                           q_date_birth_date.day())
+            q_date_death_date = self.main_window.date_edit_create_deceased_death_date.date()
+            death_date = datetime.datetime(q_date_death_date.year(), q_date_death_date.month(),
+                                           q_date_death_date.day())
+            image_route_loaded = self.__drag_and_drop_util_create_deceased.get_file_path() if (
+                self.__drag_and_drop_util_create_deceased.get_file_path() is not None) else None
+
+            if image_route_loaded is not None:
+                image_route = send_image(image_route_loaded)
+            else:
+                image_route = None
+
+            deceased_dto.new_deceased(
+                self.main_window.line_edit_create_deceased_name.text(),
+                self.main_window.line_edit_create_deceased_paternal_surname.text(),
+                self.main_window.line_edit_create_deceased_maternal_surname.text(),
+                birth_date,
+                death_date,
+                self.main_window.combo_box_create_deceased_remain_type.currentData(),
+                self.main_window.combo_box_create_deceased_niche.currentData(),
+                self.main_window.plain_text_edit_create_deceased_book.toPlainText(),
+                self.main_window.plain_text_edit_create_deceased_sheet.toPlainText(),
+                image_route
+            )
+            self.__deceased_service.create_deceased(deceased_dto)
+            logging.debug("Se guardó el difunto [%s]", deceased_dto.to_string())
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
