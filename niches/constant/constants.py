@@ -1,8 +1,12 @@
 """
 Constants required for enduring-chambers system
 """
+import os
 import logging
 from enum import StrEnum
+from decouple import config
+from dotenv import load_dotenv
+load_dotenv()
 ##############################################################################################
 ##                                                                                          ##
 ## Constants for enduring chambers system                                                   ##
@@ -39,12 +43,12 @@ HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF = {
 ## Console log configuration                                                                ##
 ##                                                                                          ##
 ##############################################################################################
-CONSOLE_LOG_ENABLED = True
+CONSOLE_LOG_ENABLED = config("CONSOLE_LOG_ENABLED", default=False, cast=bool)
 LOG_FORMAT = ('[ %(asctime)s ][%(levelname)s][%(name)s] ' +
               '::::: %(message)s ::::: [%(module)s :: %(funcName)s]')
 LOG_ROUTE = "./log/"
 LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
-LOGING_LEVEL = logging.DEBUG
+LOGGING_LEVEL = int(os.getenv("LOGGING_LEVEL"))
 '''
 Logging levels:
     - INFO - info message
@@ -71,6 +75,7 @@ class UserField(StrEnum):
     USER_NAME = "Nombre de usuario"
     PASSWORD = "Contraseña"
     PHONE = "Teléfono"
+    NICHE = "Nicho"
 
 class UserTypeKey(StrEnum):
     """

@@ -12,8 +12,9 @@ from niches.service.row_service import RowService
 from niches.service.niche_service import NicheService
 from niches.service.deceased_service import DeceasedService
 from niches.util.drag_and_drop_util import DragAndDropUtil
+from niches.constant.constants import UserField
 from niches.util.ftp_util import send_image, delete_image, dowloand_image
-from niches.util.validator import validate_is_not_empty
+from niches.util.validator import validate_is_not_empty, validate_not_none
 from niches.controller.error_controller import ErrorController
 
 class DeceasedController:
@@ -27,12 +28,6 @@ class DeceasedController:
     def __init__(self, main_window:Ui_MainWindow):
         self.main_window = main_window
         self.__drag_and_drop_util_create_deceased = DragAndDropUtil(main_window)
-        today = datetime.datetime.now()
-        today_qdate = QtCore.QDate(today.year, today.month, today.day)
-        self.main_window.date_edit_create_deceased_birth_date.setDate(today_qdate)
-        self.main_window.date_edit_create_deceased_death_date.setDate(today_qdate)
-        self.main_window.date_edit_modify_deceased_birth_date.setDate(today_qdate)
-        self.main_window.date_edit_modify_deceased_death_date.setDate(today_qdate)
         self.__remain_type_service = RemainTypeService()
         self.__module_service = ModuleService()
         self.__row_service = RowService()
@@ -43,6 +38,15 @@ class DeceasedController:
         self.__configure_combo_box_remain_type()
         self.__configure_combo_box_module()
         self.__configure_combo_box_row_create()
+        self.__initialize_date_edit()
+
+    def __initialize_date_edit(self):
+        today = datetime.datetime.now()
+        today_qdate = QtCore.QDate(today.year, today.month, today.day)
+        self.main_window.date_edit_create_deceased_birth_date.setDate(today_qdate)
+        self.main_window.date_edit_create_deceased_death_date.setDate(today_qdate)
+        self.main_window.date_edit_modify_deceased_birth_date.setDate(today_qdate)
+        self.main_window.date_edit_modify_deceased_death_date.setDate(today_qdate)
 
     def __configure_actions(self):
         self.main_window.push_button_create_deceased_create.clicked.connect(
@@ -141,6 +145,16 @@ class DeceasedController:
 
     def __create_deceased(self):
         try:
+            validate_is_not_empty(self.main_window.line_edit_create_deceased_name.text(),
+                                  UserField.NAME)
+            validate_is_not_empty(
+                self.main_window.line_edit_create_deceased_paternal_surname.text(),
+                UserField.PATERNAL_SURNAME)
+            validate_is_not_empty(
+                self.main_window.line_edit_create_deceased_maternal_surname.text(),
+                UserField.MATERNAL_SURNAME)
+            validate_not_none(self.main_window.combo_box_create_deceased_niche.currentData(),
+                              UserField.NICHE)
             deceased_dto = DeceasedDto()
             q_date_birth_date = self.main_window.date_edit_create_deceased_birth_date.date()
             birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
@@ -169,6 +183,8 @@ class DeceasedController:
                 image_route
             )
             self.__deceased_service.create_deceased(deceased_dto)
+            self.main_window.scroll_area_create_deceased.hide()
+            self.__clear_scroll_area_create_deceased()
             logging.debug("Se guardó el difunto [%s]", deceased_dto.to_string())
 
         except ValueError as ve:
@@ -178,3 +194,14 @@ class DeceasedController:
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
+
+    def __clear_scroll_area_create_deceased(self):
+        self.main_window.line_edit_create_deceased_name.clear()
+        self.main_window.line_edit_create_deceased_paternal_surname.clear()
+        self.main_window.line_edit_create_deceased_maternal_surname.clear()
+        self.main_window.combo_box_create_deceased_module.setCurrentText("")
+        self.main_window.label_create_deceased_image.clear()
+        self.main_window.plain_text_edit_create_deceased_book.clear()
+        self.main_window.plain_text_edit_create_deceased_sheet.clear()
+        self.__initialize_date_edit()
+        self.__drag_and_drop_util_create_deceased.open_window_configuration()
