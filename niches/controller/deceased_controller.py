@@ -5,6 +5,7 @@ import logging
 import datetime
 from PySide6 import QtWidgets, QtCore
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QPixmap
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.model.dto.deceased_dto import DeceasedDto
 from niches.service.remain_type_service import RemainTypeService
@@ -14,7 +15,7 @@ from niches.service.niche_service import NicheService
 from niches.service.deceased_service import DeceasedService
 from niches.util.drag_and_drop_util import DragAndDropUtil
 from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
-from niches.util.ftp_util import send_image, delete_image, dowloand_image
+from niches.util.ftp_util import send_image, delete_image, download_image
 from niches.util.validator import validate_is_not_empty, validate_not_none
 from niches.controller.error_controller import ErrorController
 
@@ -36,6 +37,7 @@ class DeceasedController:
         self.__niche_service = NicheService()
         self.__deceased_service = DeceasedService()
         self.__error_controller = ErrorController()
+        self.__loaded_deceased_dto = DeceasedDto()
         self.__configure_actions()
         self.__configure_combo_box_remain_type()
         self.__configure_combo_box_module()
@@ -69,6 +71,7 @@ class DeceasedController:
         self.main_window.push_button_create_deceased_image.clicked.connect(
             self.__show_create_deceased_image_widget)
         self.main_window.line_edit_search_deceased.textChanged.connect(self.__search_deceased)
+        self.main_window.table_widget_deceased.cellDoubleClicked.connect(self.__select_deceased)
 
     def __show_create_deceased_image_widget(self):
         self.__drag_and_drop_util_create_deceased.show()
@@ -197,10 +200,12 @@ class DeceasedController:
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
+            logging.error(ve)
             self.__error_controller.show()
 
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
+            logging.error(e)
             self.__error_controller.show()
 
     def __clear_scroll_area_create_deceased(self):
@@ -341,3 +346,70 @@ class DeceasedController:
         self.main_window.table_widget_deceased.horizontalHeader().setMaximumSectionSize(500)
         self.main_window.table_widget_deceased.resizeRowsToContents()
         self.main_window.table_widget_deceased.resizeColumnsToContents()
+
+    def __select_deceased(self):
+        row = self.main_window.table_widget_deceased.currentRow()
+        deceased_id = int(self.main_window.table_widget_deceased.item(row, 0).text())
+        self.main_window.scroll_area_modify_deceased.show()
+        self.__load_deceased(deceased_id)
+
+    def __load_deceased(self, deceased_id:int):
+        deceased_dto = self.__deceased_service.find_by_id(deceased_id)
+        self.__loaded_deceased_dto.existing_deceased(
+            deceased_dto.get_id(),
+            deceased_dto.get_name(),
+            deceased_dto.get_paternal_surname(),
+            deceased_dto.get_maternal_surname(),
+            deceased_dto.get_birth_date(),
+            deceased_dto.get_death_date(),
+            deceased_dto.get_remain_type(),
+            deceased_dto.get_niche(),
+            deceased_dto.get_book(),
+            deceased_dto.get_sheet(),
+            deceased_dto.get_image_route(),
+            deceased_dto.is_active(),
+            deceased_dto.get_created_at(),
+            deceased_dto.get_updated_at()
+        )
+        try:
+            tmp_image_path = download_image(self.__loaded_deceased_dto.get_image_route())
+
+        except Exception as e:
+            tmp_image_path = None
+            self.main_window.label_modify_deceased_image.clear()
+            self.main_window.label_modify_deceased_image.setText("Sin imagen")
+            self.__error_controller.handle_exception_error("Al parecer, " +
+                                    f'la imagen destino no existe\n Error : [{e}]')
+            logging.error(e)
+            self.__error_controller.show()
+
+        if tmp_image_path is None:
+            pass
+        else:
+            self.__load_modify_image(tmp_image_path)
+
+        self.main_window.line_edit_modify_deceased_name.setText(
+            self.__loaded_deceased_dto.get_name())
+        self.main_window.line_edit_modify_deceased_paternal_surname.setText(
+            self.__loaded_deceased_dto.get_paternal_surname())
+        self.main_window.line_edit_modify_deceased_maternal_surname.setText(
+            self.__loaded_deceased_dto.get_maternal_surname())
+        self.main_window.combo_box_modify_deceased_remain_type.setCurrentText(
+            self.__loaded_deceased_dto.get_remain_type().get_name())
+        self.main_window.combo_box_modify_deceased_module.setCurrentText(
+            self.__loaded_deceased_dto.get_niche().get_row().get_module().get_name())
+        self.main_window.combo_box_modify_deceased_row.setCurrentText(
+            self.__loaded_deceased_dto.get_niche().get_row().get_name())
+        self.main_window.combo_box_modify_deceased_niche.setCurrentText(
+            str(self.__loaded_deceased_dto.get_niche().get_number()))
+        self.main_window.plain_text_edit_modify_deceased_book.setPlainText(
+            self.__loaded_deceased_dto.get_book())
+        self.main_window.plain_text_edit_modify_deceased_sheet.setPlainText(
+            self.__loaded_deceased_dto.get_sheet())
+
+        logging.debug("Se cargó el difunto [%s]", self.__loaded_deceased_dto.to_string())
+
+    def __load_modify_image(self, file_path):
+        self.main_window.label_modify_deceased_image.setPixmap(QPixmap("." + file_path).scaled(
+            200, 200, Qt.AspectRatioMode.KeepAspectRatio,
+            Qt.TransformationMode.SmoothTransformation))

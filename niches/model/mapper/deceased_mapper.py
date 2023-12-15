@@ -3,6 +3,9 @@ DeceasedMapper Module
 """
 from niches.model.entity.deceased import Deceased
 from niches.model.dto.deceased_dto import DeceasedDto
+from niches.model.mapper.niche_mapper import niche_dto_to_niche, niche_to_niche_dto
+from niches.model.mapper.remain_type_mapper import remain_type_dto_to_remain_type
+from niches.model.mapper.remain_type_mapper import remain_type_to_remain_type_dto
 
 def deceased_to_deceased_dto(deceased:Deceased):
     """
@@ -26,8 +29,10 @@ def deceased_to_deceased_dto(deceased:Deceased):
         deceased.get_maternal_surname(),
         deceased.get_birth_date() if (deceased.get_birth_date() is not None) else None,
         deceased.get_death_date() if (deceased.get_death_date() is not None) else None,
-        deceased.get_remain_type() if (deceased.get_remain_type() is not None) else None,
-        deceased.get_niche() if (deceased.get_niche() is not None) else None,
+        remain_type_to_remain_type_dto(deceased.get_remain_type()) if (
+            deceased.get_remain_type() is not None) else None,
+        niche_to_niche_dto(deceased.get_niche()) if (
+            deceased.get_niche() is not None) else None,
         deceased.get_book(),
         deceased.get_sheet(),
         deceased.get_image_route(),
@@ -61,8 +66,10 @@ def deceased_dto_to_deceased(deceased_dto:DeceasedDto):
             deceased_dto.get_maternal_surname() is not None) else None,
         deceased_dto.get_birth_date() if (deceased_dto.get_birth_date() is not None) else None,
         deceased_dto.get_death_date() if (deceased_dto.get_death_date() is not None) else None,
-        deceased_dto.get_remain_type() if (deceased_dto.get_remain_type() is not None) else None,
-        deceased_dto.get_niche() if (deceased_dto.get_niche() is not None) else None,
+        remain_type_dto_to_remain_type(deceased_dto.get_remain_type()) if (
+            deceased_dto.get_remain_type() is not None) else None,
+        niche_dto_to_niche(deceased_dto.get_niche()) if (
+            deceased_dto.get_niche() is not None) else None,
         deceased_dto.get_book(),
         deceased_dto.get_sheet(),
         deceased_dto.get_image_route() if (deceased_dto.get_image_route() is not None) else None,
