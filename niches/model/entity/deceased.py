@@ -122,6 +122,7 @@ class Deceased:
         Returns:
             is_active : bool
         """
+        return self.__is_active
 
     def get_created_at(self):
         """

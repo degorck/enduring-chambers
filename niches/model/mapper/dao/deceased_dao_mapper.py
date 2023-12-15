@@ -60,17 +60,20 @@ def real_dict_row_to_deceased(real_dict_row:RealDictRow):
         row = None
 
     if "holder_id" in real_dict_row:
-        holder = Holder()
-        holder.existing_holder(
-            real_dict_row["holder_id"],
-            real_dict_row["holder_name"],
-            real_dict_row["holder_paternal_surname"],
-            real_dict_row["holder_maternal_surname"],
-            real_dict_row["holder_phone"],
-            real_dict_row["holder_is_active"],
-            real_dict_row["holder_created_at"],
-            real_dict_row["holder_updated_at"]
-        )
+        if real_dict_row["holder_id"] is None:
+            holder = None
+        else:
+            holder = Holder()
+            holder.existing_holder(
+                real_dict_row["holder_id"],
+                real_dict_row["holder_name"],
+                real_dict_row["holder_paternal_surname"],
+                real_dict_row["holder_maternal_surname"],
+                real_dict_row["holder_phone"],
+                real_dict_row["holder_is_active"],
+                real_dict_row["holder_created_at"],
+                real_dict_row["holder_updated_at"]
+            )
     else:
         holder = None
 

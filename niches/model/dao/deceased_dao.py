@@ -111,6 +111,7 @@ class DeceasedDao:
                 tb_deceased.book,
                 tb_deceased.sheet,
                 tb_deceased.image_route,
+                tb_deceased.is_active,
                 tb_deceased.created_at,
                 tb_deceased.updated_at,
                 tb_remain_type.id as remain_type_id,
@@ -136,9 +137,9 @@ class DeceasedDao:
                 tb_row.updated_at as row_updated_at,
                 tb_holder.id as holder_id,
                 tb_holder.name as holder_name,
-                tb_holder.paternal_surname,
-                tb_holder.maternal_surname,
-                tb_holder.phone,
+                tb_holder.paternal_surname as holder_paternal_surname,
+                tb_holder.maternal_surname as holder_maternal_surname,
+                tb_holder.phone as holder_phone,
                 tb_holder.created_at as holder_created_at,
                 tb_holder.updated_at as holder_updated_at
                 FROM tb_deceased
@@ -158,6 +159,95 @@ class DeceasedDao:
             deceased:Deceased = real_dict_row_to_deceased(row)
             logging.debug("Se buscó el difunto por su id")
             return deceased
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+
+    def search_all_deceased(self, search_string:str):
+        """
+        Search all deceased by search_string
+        
+        Arguments:
+            search_string: str
+                String to match with the deceased search
+        Returns:
+            deceased_list = list<Deceased>
+        """
+        search_string = "%" + search_string + "%"
+        deceased_list = []
+        command = '''
+                SELECT tb_deceased.id,
+                tb_deceased.name,
+                tb_deceased.paternal_surname,
+                tb_deceased.maternal_surname,
+                tb_deceased.birth_date,
+                tb_deceased.death_date,
+                tb_deceased.book,
+                tb_deceased.sheet,
+                tb_deceased.image_route,
+                tb_deceased.is_active,
+                tb_deceased.created_at,
+                tb_deceased.updated_at,
+                tb_remain_type.id as remain_type_id,
+                tb_remain_type.name as remain_type_name,
+                tb_remain_type.key as remain_type_key,
+                tb_remain_type.created_at as remain_type_created_at,
+                tb_remain_type.updated_at as remain_type_updated_at,
+                tb_niche.id as niche_id,
+                tb_niche.number as niche_number,
+                tb_niche.is_busy as niche_is_busy,
+                tb_niche.is_paid_off as niche_is_paid_off,
+                tb_niche.is_active as niche_is_active,
+                tb_niche.created_at as niche_created_at,
+                tb_niche.updated_at as niche_updated_at,
+                tb_module.id as module_id,
+                tb_module.name as module_name,
+                tb_module.is_active as module_is_active,
+                tb_module.created_at as module_created_at,
+                tb_module.updated_at as module_updated_at,
+                tb_row.id as row_id,
+                tb_row.name as row_name,
+                tb_row.created_at as row_created_at,
+                tb_row.updated_at as row_updated_at,
+                tb_holder.id as holder_id,
+                tb_holder.name as holder_name,
+                tb_holder.paternal_surname as holder_paternal_surname,
+                tb_holder.maternal_surname as holder_maternal_surnam,
+                tb_holder.phone as holder_phone,
+                tb_holder.created_at as holder_created_at,
+                tb_holder.updated_at as holder_updated_at
+                FROM tb_deceased
+                INNER JOIN tb_remain_type ON tb_deceased.remain_type_id = tb_remain_type.id
+                INNER JOIN tb_niche ON tb_deceased.niche_id = tb_niche.id
+                INNER JOIN tb_row ON tb_niche.row_id = tb_row.id
+                FULL OUTER JOIN tb_holder ON tb_niche.holder_id = tb_holder.id
+                INNER JOIN tb_module ON tb_row.module_id = tb_module.id
+                WHERE
+                tb_deceased.name LIKE %s OR
+                tb_deceased.paternal_surname LIKE %s OR
+                tb_deceased.maternal_surname LIKE %s OR
+                CONCAT (tb_deceased.name , ' ', tb_deceased.paternal_surname, ' ', tb_deceased.maternal_surname) LIKE %s
+                ORDER BY id
+                '''
+        values = (
+            search_string,
+            search_string,
+            search_string,
+            search_string)
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
+            for row in rows:
+                deceased = real_dict_row_to_deceased(row)
+                deceased_list.append(deceased)
+            self.__db_connection.end_connection()
+            logging.debug("Se buscaron todos los difuntos")
+            return deceased_list
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)
             raise error
