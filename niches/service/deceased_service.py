@@ -58,3 +58,22 @@ class DeceasedService:
         deceased_dto = deceased_to_deceased_dto(
             self.__deceased_dao.find_by_id(deceased_id))
         return deceased_dto
+
+    def search_all_deceased(self, search_string:str):
+        """
+        Search deceased on database.
+        Arguments:
+            search_string: str
+                String to search deceased
+        Returns:
+            list_deceased_dto : list<DeceasedDto> 
+                Deceased type key of the logged deceased.
+        """
+        list_deceased_dto = []
+        list_deceased = []
+        list_deceased = self.__deceased_dao.search_all_deceased(search_string)
+        for deceased in list_deceased:
+            deceased_dto = DeceasedDto()
+            deceased_dto = deceased_to_deceased_dto(deceased)
+            list_deceased_dto.append(deceased_dto)
+        return list_deceased_dto

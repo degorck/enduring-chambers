@@ -3,7 +3,8 @@ Deceased Controller Module
 """
 import logging
 import datetime
-from PySide6 import QtCore
+from PySide6 import QtWidgets, QtCore
+from PySide6.QtCore import Qt
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.model.dto.deceased_dto import DeceasedDto
 from niches.service.remain_type_service import RemainTypeService
@@ -12,7 +13,7 @@ from niches.service.row_service import RowService
 from niches.service.niche_service import NicheService
 from niches.service.deceased_service import DeceasedService
 from niches.util.drag_and_drop_util import DragAndDropUtil
-from niches.constant.constants import UserField
+from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.util.ftp_util import send_image, delete_image, dowloand_image
 from niches.util.validator import validate_is_not_empty, validate_not_none
 from niches.controller.error_controller import ErrorController
@@ -27,6 +28,7 @@ class DeceasedController:
     """
     def __init__(self, main_window:Ui_MainWindow):
         self.main_window = main_window
+        self.__row = 0
         self.__drag_and_drop_util_create_deceased = DragAndDropUtil(main_window)
         self.__remain_type_service = RemainTypeService()
         self.__module_service = ModuleService()
@@ -39,6 +41,8 @@ class DeceasedController:
         self.__configure_combo_box_module()
         self.__configure_combo_box_row_create()
         self.__initialize_date_edit()
+        self.__configure_table()
+        self.__search_deceased()
 
     def __initialize_date_edit(self):
         today = datetime.datetime.now()
@@ -64,6 +68,7 @@ class DeceasedController:
         self.main_window.label_create_deceased_image.setMaximumWidth(175)
         self.main_window.push_button_create_deceased_image.clicked.connect(
             self.__show_create_deceased_image_widget)
+        self.main_window.line_edit_search_deceased.textChanged.connect(self.__search_deceased)
 
     def __show_create_deceased_image_widget(self):
         self.__drag_and_drop_util_create_deceased.show()
@@ -183,6 +188,9 @@ class DeceasedController:
                 image_route
             )
             self.__deceased_service.create_deceased(deceased_dto)
+            self.__error_controller.handle_value_error("El difunto se ha creado")
+            self.__error_controller.show()
+            self.main_window.scroll_area_modify_user.hide()
             self.main_window.scroll_area_create_deceased.hide()
             self.__clear_scroll_area_create_deceased()
             logging.debug("Se guardó el difunto [%s]", deceased_dto.to_string())
@@ -205,3 +213,131 @@ class DeceasedController:
         self.main_window.plain_text_edit_create_deceased_sheet.clear()
         self.__initialize_date_edit()
         self.__drag_and_drop_util_create_deceased.open_window_configuration()
+
+    def __search_deceased(self):
+        if self.main_window.get_logged_user_type_key() == UserTypeKey.ADMINISTRATOR.value:
+            list_deceased_dto = self.__deceased_service.search_all_deceased(
+                self.main_window.line_edit_search_deceased.text())
+        else:
+            list_deceased_dto = self.__deceased_service.search_all_deceased(
+                self.main_window.line_edit_search_deceased.text())
+        self.__row = len(list_deceased_dto)
+        self.__configure_table()
+        row = 0
+
+        for deceased_dto in list_deceased_dto:
+            if deceased_dto.get_niche().get_holder() is None:
+                holder_name = "Sin titular"
+            else:
+                holder_name = (deceased_dto.get_niche().get_holder().get_name() + " " +
+                               deceased_dto.get_niche().get_holder().get_paternal_surname() + " " +
+                               deceased_dto.get_niche().get_holder().get_maternal_surname())
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                0,
+                QtWidgets.QTableWidgetItem(
+                str(deceased_dto.get_id())))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                1,
+                QtWidgets.QTableWidgetItem(
+                deceased_dto.get_name()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                2,
+                QtWidgets.QTableWidgetItem(
+                deceased_dto.get_paternal_surname()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                3,
+                QtWidgets.QTableWidgetItem(
+                deceased_dto.get_maternal_surname()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                4,
+                QtWidgets.QTableWidgetItem(
+                    str(deceased_dto.get_birth_date().strftime('%d/%b/%Y'))))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                5,
+                QtWidgets.QTableWidgetItem(
+                    str(deceased_dto.get_death_date().strftime('%d/%b/%Y'))))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                6,
+                QtWidgets.QTableWidgetItem(
+                    deceased_dto.get_remain_type().get_name()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                7,
+                QtWidgets.QTableWidgetItem(
+                    deceased_dto.get_niche().get_row().get_module().get_name()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                8,
+                QtWidgets.QTableWidgetItem(
+                    deceased_dto.get_niche().get_row().get_name()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                9,
+                QtWidgets.QTableWidgetItem(
+                    str(deceased_dto.get_niche().get_number())))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                10,
+                QtWidgets.QTableWidgetItem(
+                    deceased_dto.get_book()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                11,
+                QtWidgets.QTableWidgetItem(
+                    deceased_dto.get_sheet()))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                12,
+                QtWidgets.QTableWidgetItem(
+                    holder_name))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                13,
+                QtWidgets.QTableWidgetItem(
+                    HASHED_BOOLEAN_CONVERTER_IS_ACTIVE[str(deceased_dto.is_active())]))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                14,
+                QtWidgets.QTableWidgetItem(
+                    str(deceased_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+            self.main_window.table_widget_deceased.setItem(
+                row,
+                15,
+                QtWidgets.QTableWidgetItem(
+                    str(deceased_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
+            self.main_window.table_widget_deceased.resizeColumnsToContents()
+            self.main_window.table_widget_deceased.resizeRowsToContents()
+            row = row + 1
+
+    def __configure_table(self):
+        self.main_window.table_widget_deceased.clear()
+        self.main_window.table_widget_deceased.setRowCount(self.__row)
+        self.main_window.table_widget_deceased.setColumnCount(16)
+        self.main_window.table_widget_deceased.setHorizontalHeaderLabels(("id",
+                                                           "Nombre",
+                                                           "Apellido Paterno",
+                                                           "Apellido Materno",
+                                                           "Fecha de Nacimiento",
+                                                           "Fecha de Defunción",
+                                                           "Tipo de restos",
+                                                           "Módulo",
+                                                           "Fila",
+                                                           "Número",
+                                                           "Libro",
+                                                           "Foja",
+                                                           "Titular",
+                                                           "Activo",
+                                                           "Creado",
+                                                           "Actualizado"))
+        self.main_window.table_widget_deceased.setEditTriggers(
+            QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.main_window.table_widget_deceased.horizontalHeader().setMaximumSectionSize(500)
+        self.main_window.table_widget_deceased.resizeRowsToContents()
+        self.main_window.table_widget_deceased.resizeColumnsToContents()
