@@ -89,7 +89,7 @@ def delete_image(image_route:str):
         except Exception as e:
             logging.error("Error deleting directory %s: %s", folder_route, e)
 
-def dowloand_image(image_route):
+def download_image(image_route):
     """
     Downloads image to ftp server
     
@@ -118,4 +118,5 @@ def dowloand_image(image_route):
             # Download the file from the FTP server
             ftp.retrbinary(f'RETR {image_route}', local_file.write)
 
+    logging.debug("Se descargó la imagen [%s]", file_route + file_name)
     return file_route + file_name

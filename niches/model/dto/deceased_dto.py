@@ -408,32 +408,9 @@ class DeceasedDto:
 
     def to_string(self):
         """
-            id: int
-                id of the deceased
-            name: str
-                name of the deceased
-            paternal_surname: str
-                paternal_surname of the deceased
-            maternal_surname: str
-                maternal_surname of the deceased
-            birth_date: datetime
-                datetime of the deceased
-            death_date: datetime
-                death_date of the deceased
-            remain_type: RemainType
-                remain_type of the deceased
-            niche: Niche
-                niche of the deceased
-            book: str
-                book of the deceased
-            sheet: str
-                sheet of the deceased
-            image_route: str
-                image_route of the deceased
-            created_at: datetime
-                created_at of the deceased
-            updated_at: datetime
-                updated_at of the deceased
+        Returns:
+            deceased_dto:str
+                deceased_dto as string
         """
         if self.__remain_type_dto is None:
             remain_type_dto_str = None

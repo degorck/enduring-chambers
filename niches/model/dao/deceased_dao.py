@@ -148,7 +148,7 @@ class DeceasedDao:
                 INNER JOIN tb_row ON tb_niche.row_id = tb_row.id
                 FULL OUTER JOIN tb_holder ON tb_niche.holder_id = tb_holder.id
                 INNER JOIN tb_module ON tb_row.module_id = tb_module.id
-                WHERE tb_niche.id = %s
+                WHERE tb_deceased.id = %s
                 '''
 
         try:
