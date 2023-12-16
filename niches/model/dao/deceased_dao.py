@@ -196,6 +196,7 @@ class DeceasedDao:
                 tb_holder.paternal_surname as holder_paternal_surname,
                 tb_holder.maternal_surname as holder_maternal_surname,
                 tb_holder.phone as holder_phone,
+                tb_holder.is_active as holder_is_active,
                 tb_holder.created_at as holder_created_at,
                 tb_holder.updated_at as holder_updated_at
                 FROM tb_deceased
@@ -272,8 +273,9 @@ class DeceasedDao:
                 tb_holder.id as holder_id,
                 tb_holder.name as holder_name,
                 tb_holder.paternal_surname as holder_paternal_surname,
-                tb_holder.maternal_surname as holder_maternal_surnam,
+                tb_holder.maternal_surname as holder_maternal_surname,
                 tb_holder.phone as holder_phone,
+                tb_holder.is_active as holder_is_active,
                 tb_holder.created_at as holder_created_at,
                 tb_holder.updated_at as holder_updated_at
                 FROM tb_deceased
