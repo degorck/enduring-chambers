@@ -378,7 +378,7 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -396,8 +396,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>466</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -552,7 +552,7 @@
          <widget class="QScrollArea" name="scroll_area_modify_user">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -573,8 +573,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>346</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -704,8 +704,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -770,7 +770,7 @@
       <widget class="QWidget" name="deceased">
        <layout class="QGridLayout" name="gridLayout_11">
         <item row="0" column="0" colspan="3">
-         <widget class="QFrame" name="frame_16">
+         <widget class="QFrame" name="frame_deceased_header">
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -782,14 +782,14 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_13">
            <item>
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="label_deceased">
              <property name="text">
               <string>Fallecidos</string>
              </property>
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_8">
+            <spacer name="horizontal_spacer_deceased_header">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -802,7 +802,7 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_22">
+            <widget class="QPushButton" name="push_button_create_deceased_create">
              <property name="text">
               <string>Crear</string>
              </property>
@@ -812,10 +812,10 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QScrollArea" name="scrollArea_12">
+         <widget class="QScrollArea" name="scroll_area_create_deceased">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -832,14 +832,14 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>194</width>
-             <height>466</height>
+             <y>-290</y>
+             <width>196</width>
+             <height>790</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
             <item>
-             <widget class="QLabel" name="label_5">
+             <widget class="QLabel" name="label_create_deceased">
               <property name="text">
                <string>Crear fallecido</string>
               </property>
@@ -849,7 +849,7 @@
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_5">
+             <spacer name="horizontal_spacer_create_deceased">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -862,74 +862,149 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_6">
+             <widget class="QLabel" name="label_create_deceased_name">
               <property name="text">
                <string>Nombre:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_4"/>
+             <widget class="QLineEdit" name="line_edit_create_deceased_name"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_13">
+             <widget class="QLabel" name="label_create_deceased_paternal_surname">
               <property name="text">
                <string>Apellido Paterno:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_5"/>
+             <widget class="QLineEdit" name="line_edit_create_deceased_paternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_14">
+             <widget class="QLabel" name="label_create_deceased_maternal_surname">
               <property name="text">
                <string>Apellido Materno:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_6"/>
+             <widget class="QLineEdit" name="line_edit_create_deceased_maternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_16">
+             <widget class="QLabel" name="label_create_deceased_birth_date">
               <property name="text">
                <string>Fecha de nacimiento:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="dateEdit"/>
+             <widget class="QDateEdit" name="date_edit_create_deceased_birth_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_17">
+             <widget class="QLabel" name="label_create_deceased_death_date">
               <property name="text">
                <string>Fecha de defunción:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="dateEdit_2"/>
+             <widget class="QDateEdit" name="date_edit_create_deceased_death_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_15">
+             <widget class="QLabel" name="label_create_deceased_remain_type">
               <property name="text">
                <string>Tipo de restos:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox"/>
+             <widget class="QComboBox" name="combo_box_create_deceased_remain_type"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_18">
+             <widget class="QLabel" name="label_create_deceased_niche">
               <property name="text">
                <string>Nicho:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_3"/>
+             <widget class="QFrame" name="frame_2">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_9">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_create_deceased_module">
+                 <property name="text">
+                  <string>Módulo:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_create_deceased_row">
+                 <property name="text">
+                  <string>Fila:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="combo_box_create_deceased_module"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="combo_box_create_deceased_row"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="combo_box_create_deceased_niche"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_create_deceased_book">
+              <property name="text">
+               <string>Libro:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plain_text_edit_create_deceased_book"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_create_deceased_sheet">
+              <property name="text">
+               <string>Foja:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plain_text_edit_create_deceased_sheet"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_create_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
+              <property name="text">
+               <string>Sin imagen</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="verticalSpacer_3">
@@ -945,6 +1020,13 @@
              </spacer>
             </item>
             <item>
+             <widget class="QPushButton" name="push_button_create_deceased_image">
+              <property name="text">
+               <string>Cargar imagen...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QFrame" name="frame_18">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -954,14 +1036,14 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_15">
                <item>
-                <widget class="QPushButton" name="pushButton_25">
+                <widget class="QPushButton" name="push_button_create_deceased_save_deceased">
                  <property name="text">
                   <string>Guardar</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_26">
+                <widget class="QPushButton" name="push_button_create_deceased_clean">
                  <property name="text">
                   <string>Limpiar</string>
                  </property>
@@ -975,10 +1057,10 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QScrollArea" name="scrollArea_11">
+         <widget class="QScrollArea" name="scroll_area_modify_deceased">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -995,14 +1077,14 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>194</width>
-             <height>466</height>
+             <y>-320</y>
+             <width>196</width>
+             <height>820</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
             <item>
-             <widget class="QLabel" name="label_19">
+             <widget class="QLabel" name="label_modify_deceased">
               <property name="text">
                <string>Modificar fallecido</string>
               </property>
@@ -1025,64 +1107,72 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_20">
+             <widget class="QLabel" name="label_modify_deceased_name">
               <property name="text">
                <string>Nombre:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_7"/>
+             <widget class="QLineEdit" name="line_edit_modify_deceased_name"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_25">
+             <widget class="QLabel" name="label_modify_deceased_paternal_surname">
               <property name="text">
                <string>Apellido Paterno:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_9"/>
+             <widget class="QLineEdit" name="line_edit_modify_deceased_paternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_27">
+             <widget class="QLabel" name="label_modify_deceased_maternal_surname">
               <property name="text">
                <string>Apellido Materno:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_10"/>
+             <widget class="QLineEdit" name="line_edit_modify_deceased_maternal_surname"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_28">
+             <widget class="QLabel" name="label_modify_deceased_birth_date">
               <property name="text">
                <string>Fecha de nacimiento</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="dateEdit_3"/>
+             <widget class="QDateEdit" name="date_edit_modify_deceased_birth_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_29">
+             <widget class="QLabel" name="label_modify_deceased_death_date">
               <property name="text">
                <string>Fecha de defunción</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="dateEdit_4"/>
+             <widget class="QDateEdit" name="date_edit_modify_deceased_death_date">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_30">
+             <widget class="QLabel" name="label__modify_deceased_remaint_type">
               <property name="text">
                <string>Tipo de restos:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_4"/>
+             <widget class="QComboBox" name="combo_box_modify_deceased_remain_type"/>
             </item>
             <item>
              <widget class="QLabel" name="label_31">
@@ -1092,7 +1182,39 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_5"/>
+             <widget class="QFrame" name="frame_3">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_10">
+               <item row="1" column="1">
+                <widget class="QComboBox" name="combo_box_modify_deceased_row"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="combo_box_modify_deceased_module"/>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_modify_deceased_module">
+                 <property name="text">
+                  <string>Módulo:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_modify_deceased_row">
+                 <property name="text">
+                  <string>Fila:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="combo_box_modify_deceased_niche"/>
             </item>
             <item>
              <spacer name="verticalSpacer_4">
@@ -1108,6 +1230,48 @@
              </spacer>
             </item>
             <item>
+             <widget class="QLabel" name="label_modify_deceased_book">
+              <property name="text">
+               <string>Libro:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plain_text_edit_modify_deceased_book"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_modify_deceased_sheet">
+              <property name="text">
+               <string>Foja</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plain_text_edit_modify_deceased_sheet"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_modify_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
+              <property name="text">
+               <string>Sin imagen</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_modify_deceased_image">
+              <property name="text">
+               <string>Cargar imagen...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QFrame" name="frame_17">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1115,18 +1279,25 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_14">
-               <item>
-                <widget class="QPushButton" name="pushButton_23">
+              <layout class="QFormLayout" name="formLayout_5">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="push_button_modify_deceased_active">
+                 <property name="text">
+                  <string>Activar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QPushButton" name="push_button_modify_deceased_save">
                  <property name="text">
                   <string>Guardar</string>
                  </property>
                 </widget>
                </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_24">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="push_button_modify_deceased_deactivate">
                  <property name="text">
-                  <string>Limpiar</string>
+                  <string>Desactivar</string>
                  </property>
                 </widget>
                </item>
@@ -1138,7 +1309,7 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QScrollArea" name="scrollArea_10">
+         <widget class="QScrollArea" name="scroll_area_search_deceased">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -1147,20 +1318,20 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="lineEdit_13">
+            <item row="0" column="0">
+             <widget class="QLineEdit" name="line_edit_search_deceased">
               <property name="placeholderText">
                <string>Buscar fallecido...</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="0" colspan="2">
-             <widget class="QTableView" name="tableView_4"/>
+            <item row="1" column="0">
+             <widget class="QTableWidget" name="table_widget_deceased"/>
             </item>
            </layout>
           </widget>
@@ -1222,8 +1393,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1245,7 +1416,7 @@
          <widget class="QScrollArea" name="scroll_area_create_holder">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -1263,8 +1434,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>316</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1378,7 +1549,7 @@
          <widget class="QScrollArea" name="scroll_area_modify_holder">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -1396,8 +1567,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>346</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1486,13 +1657,6 @@
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QFormLayout" name="formLayout">
-               <item row="1" column="0" colspan="2">
-                <widget class="QPushButton" name="push_button_modify_holder_save">
-                 <property name="text">
-                  <string>Guardar</string>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0">
                 <widget class="QPushButton" name="push_button_modify_holder_activate">
                  <property name="text">
@@ -1504,6 +1668,13 @@
                 <widget class="QPushButton" name="push_button_modify_holder_deactivate">
                  <property name="text">
                   <string>Desactivar</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QPushButton" name="push_button_modify_holder_save">
+                 <property name="text">
+                  <string>Guardar</string>
                  </property>
                 </widget>
                </item>
@@ -1528,7 +1699,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>253</width>
+             <width>223</width>
              <height>432</height>
             </rect>
            </property>
@@ -1551,7 +1722,7 @@
          <widget class="QScrollArea" name="scroll_area_modify_niche">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -1569,7 +1740,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
+             <width>213</width>
              <height>432</height>
             </rect>
            </property>
@@ -1692,7 +1863,7 @@
          <widget class="QScrollArea" name="scroll_area_create_niche">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>0</height>
            </size>
           </property>
@@ -1710,7 +1881,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
+             <width>213</width>
              <height>432</height>
             </rect>
            </property>
@@ -2045,7 +2216,7 @@
          <widget class="QScrollArea" name="scroll_area_change_password">
           <property name="maximumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>16777215</height>
            </size>
           </property>
@@ -2057,7 +2228,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>198</width>
+             <width>213</width>
              <height>454</height>
             </rect>
            </property>

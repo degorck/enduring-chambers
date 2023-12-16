@@ -13,13 +13,14 @@ from niches.model.dto.row_dto import RowDto
 from niches.model.dto.holder_dto import HolderDto
 from niches.model.dto.niche_dto import NicheDto
 from niches.controller.error_controller import ErrorController
-from niches.constants.constants import UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
-from niches.constants.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY, HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
+from niches.constant.constants import UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY, HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
 from niches.util.validator import validate_not_none
 
 class NicheController:
     """
     Niche controller class
+    
     Arguments:
         main_window : Ui_MainWindow
             Reuses the main_main window to add the configuration of this class
@@ -42,7 +43,8 @@ class NicheController:
         self.__search_niches()
 
     def __configure_combo_box_niches(self):
-        list_module_dto:list[ModuleDto] = self.__module_service.find_all()
+        list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
+        self.main_window.combo_box_niches_module.clear()
         self.main_window.combo_box_niches_module.addItem("", None)
         for module_dto in list_module_dto:
             self.main_window.combo_box_niches_module.addItem(
@@ -121,7 +123,15 @@ class NicheController:
         self.main_window.push_button_modify_niche_save.clicked.connect(self.__update_niche)
         self.main_window.push_button_modify_niche_activate.clicked.connect(self.__activate)
         self.main_window.push_button_modify_niche_deactivate.clicked.connect(self.__deactivate)
-        self.main_window.push_button_create_niche_clean.clicked.connect(self.__clean_stacked_widget_niches)
+        self.main_window.push_button_create_niche_clean.clicked.connect(
+            self.__clean_stacked_widget_niches)
+        self.main_window.push_button_niches.clicked.connect(self.__reload)
+
+    def __reload(self):
+        self.__configure_combo_box_holders()
+        self.__configure_combo_box_holders_modify()
+        self.__configure_combo_box_niches()
+        self.__configure_combo_box_rows()
 
     def __save_niche(self):
         niche_dto = NicheDto()
@@ -145,7 +155,7 @@ class NicheController:
             self.__search_niches()
             self.__error_controller.handle_value_error("El nicho se ha creado exitosamente")
             self.__error_controller.show()
-            logging.debug("Niche created")
+            logging.debug("Niche created [%s]", niche_dto.to_string())
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()

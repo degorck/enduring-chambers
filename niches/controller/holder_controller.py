@@ -5,7 +5,7 @@ import logging
 from PySide6 import QtWidgets
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.util.validator import validate_is_not_empty, validate_phone_number
-from niches.constants.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.model.dto.holder_dto import HolderDto
 from niches.service.holder_service import HolderService
 from niches.controller.error_controller import ErrorController
@@ -13,7 +13,8 @@ from niches.controller.error_controller import ErrorController
 class HolderController:
     """
     Holder controller class
-    Args:
+
+    Arguments:
         main_window : Ui_MainWindow
             Reuses the main_main window to add the configuration of this class
     """

@@ -4,7 +4,7 @@ User Service Module for Enduring Chambers
 import logging
 from niches.model.dto.user_dto import UserDto
 from niches.model.dao.user_dao import UserDao
-from niches.model.mapper.user_mapper import UserMapper
+from niches.model.mapper.user_mapper import user_dto_to_user, user_to_user_dto
 from niches.controller.error_controller import ErrorController
 
 class UserService:
@@ -14,7 +14,6 @@ class UserService:
     def __init__(self):
         self.__error_controller = ErrorController()
         self.__user_dao = UserDao()
-        self.__user_mapper = UserMapper()
 
     def create_user(self, user_dto:UserDto):
         """
@@ -27,8 +26,8 @@ class UserService:
                 User created
         """
         try:
-            output = self.__user_mapper.user_to_user_dto(
-                self.__user_dao.create_user(self.__user_mapper.user_dto_to_user(user_dto)))
+            output = user_to_user_dto(
+                self.__user_dao.create_user(user_dto_to_user(user_dto)))
 
             logging.debug("User created")
             return output
@@ -58,7 +57,7 @@ class UserService:
         list_user = self.__user_dao.search_users(search_string)
         for user in list_user:
             user_dto = UserDto()
-            user_dto = self.__user_mapper.user_to_user_dto(user)
+            user_dto = user_to_user_dto(user)
             list_user_dto.append(user_dto)
         return list_user_dto
 
@@ -77,7 +76,7 @@ class UserService:
         list_user = self.__user_dao.search_active_users(search_string)
         for user in list_user:
             user_dto = UserDto()
-            user_dto = self.__user_mapper.user_to_user_dto(user)
+            user_dto = user_to_user_dto(user)
             list_user_dto.append(user_dto)
         return list_user_dto
 
@@ -91,7 +90,7 @@ class UserService:
             user_dto : UserDto 
                 Finded UserDto.
         """
-        return self.__user_mapper.user_to_user_dto(
+        return user_to_user_dto(
             self.__user_dao.find_user_by_user_name(user_name))
 
     def modify_user(self, user_dto:UserDto):
@@ -101,7 +100,7 @@ class UserService:
             user_dto: UserDto
                 UserDto to be modified
         """
-        self.__user_dao.modify_user(self.__user_mapper.user_dto_to_user(user_dto))
+        self.__user_dao.modify_user(user_dto_to_user(user_dto))
 
     def deactivate_user(self, user_id:int):
         """

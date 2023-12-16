@@ -27,6 +27,7 @@ def __create_tables():
         CREATE TABLE IF NOT EXISTS tb_module(
             id serial PRIMARY KEY,
             name VARCHAR(10) NOT NULL UNIQUE,
+            is_active BOOLEAN NOT NULL,
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
@@ -104,6 +105,7 @@ def __create_tables():
         book TEXT,
         sheet TEXT,
         image_route VARCHAR(300),
+        is_active BOOLEAN NOT NULL,
         created_at TIMESTAMP NOT NULL,
         updated_at TIMESTAMP NOT NULL)
         ''')
@@ -253,14 +255,17 @@ def __insert_module(name):
     command = '''
             INSERT INTO tb_module(
                 name,
+                is_active,
                 created_at,
                 updated_at) 
             VALUES(
                 %s,
                 %s,
+                %s,
                 %s)
         '''
     values = (name,
+              True,
               datetime.datetime.now(),
               datetime.datetime.now())
     try:

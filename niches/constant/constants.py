@@ -1,8 +1,12 @@
 """
 Constants required for enduring-chambers system
 """
+import os
 import logging
 from enum import StrEnum
+from decouple import config
+from dotenv import load_dotenv
+load_dotenv()
 ##############################################################################################
 ##                                                                                          ##
 ## Constants for enduring chambers system                                                   ##
@@ -17,6 +21,7 @@ PASSWORD_MUST_HAVE_CHARACTERS = ("Las contraseñas deben tener " +
                                  str(PASSWORD_MINIMAL_CHARACTERS) + " caracteres.")
 LOGIN_ERROR = "Error en login. Verifica tu usuario y contraseña"
 USER_NOT_EXIST = "El usuario no existe o está inactivo"
+NOT_VALID_IMAGE = "El archivo no es una imagen. \n Utiliza archivos *.png, *.jpg o *.jpeg"
 
 HASHED_BOOLEAN_CONVERTER_IS_ACTIVE = {
     "True" : "Activo",
@@ -33,25 +38,17 @@ HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF = {
     "False": "Sin liquidar"
 }
 
-
 ##############################################################################################
 ##                                                                                          ##
 ## Console log configuration                                                                ##
 ##                                                                                          ##
 ##############################################################################################
-CONSOLE_LOG_ENABLED = True
-LOG_FORMAT = '''
-[ %(asctime)s ][%(levelname)s][%(name)s] 
-::::: 
-%(message)s 
-::::: 
-[%(module)s 
-:: 
-%(funcName)s]
-'''
+CONSOLE_LOG_ENABLED = config("CONSOLE_LOG_ENABLED", default=False, cast=bool)
+LOG_FORMAT = ('[ %(asctime)s ][%(levelname)s][%(name)s] ' +
+              '::::: %(message)s ::::: [%(module)s :: %(funcName)s]')
 LOG_ROUTE = "./log/"
 LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
-LOGING_LEVEL = logging.DEBUG
+LOGGING_LEVEL = int(os.getenv("LOGGING_LEVEL"))
 '''
 Logging levels:
     - INFO - info message
@@ -78,6 +75,7 @@ class UserField(StrEnum):
     USER_NAME = "Nombre de usuario"
     PASSWORD = "Contraseña"
     PHONE = "Teléfono"
+    NICHE = "Nicho"
 
 class UserTypeKey(StrEnum):
     """
@@ -87,3 +85,11 @@ class UserTypeKey(StrEnum):
     CAPTURIST = "cpt"
     GUEST = "gst"
     NOT_LOGGED = "ntl"
+
+class ValidImageExtension(StrEnum):
+    """
+    Enum that includes valid image extensions
+    """
+    PNG = "png"
+    JPG = "jpg"
+    JPEG = "jpeg"

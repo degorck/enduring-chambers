@@ -10,6 +10,7 @@ class ModuleDto:
     def __init__(self):
         self.__id:int = 0
         self.__name:str = ""
+        self.__is_active = False
         self.__created_at:datetime = None
         self.__updated_at:datetime = None
 
@@ -29,6 +30,12 @@ class ModuleDto:
         """
         return self.__name
 
+    def is_active(self):
+        """
+        Returns:
+            is_active: bool
+        """
+        return self.__is_active
     def get_created_at(self):
         """
         Returns:
@@ -65,6 +72,14 @@ class ModuleDto:
         """
         self.__name = name
 
+    def set_is_active(self, is_active:bool):
+        """
+        Sets is_active
+
+        Arguments:
+            is_active: bool
+        """
+
     def set_created_at(self, created_at:datetime):
         """
         Sets created_at
@@ -95,7 +110,8 @@ class ModuleDto:
         """
         self.__name = name
 
-    def existing_module(self, module_id:int, name:str, created_at:datetime, updated_at:datetime):
+    def existing_module(self, module_id:int, name:str, is_active:bool,
+                        created_at:datetime, updated_at:datetime):
         """
         Loads data for a new module
 
@@ -104,6 +120,7 @@ class ModuleDto:
                 id for new module
             name: str
                 name for new module
+            is_active: bool
             created_at: datetime
                 created_at of new module
             updated_at: datetime
@@ -111,5 +128,16 @@ class ModuleDto:
         """
         self.__id = module_id
         self.__name = name
+        self.__is_active = is_active
         self.__created_at = created_at
         self.__updated_at = updated_at
+
+    def to_string(self):
+        """
+        Return:
+            module_dto: str
+                module_dto as string
+        """
+        return (f'id: \"{str(self.__id)}\" name: \"{self.__name}\" is_active: ' +
+                f'\"{self.__is_active}\" created_at: \"{self.__created_at}\" ' +
+                f'updated_at: \"{self.__updated_at}\"')
