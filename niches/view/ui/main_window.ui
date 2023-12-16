@@ -832,7 +832,7 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-290</y>
+             <y>0</y>
              <width>196</width>
              <height>790</height>
             </rect>
@@ -1077,7 +1077,7 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-320</y>
+             <y>0</y>
              <width>196</width>
              <height>820</height>
             </rect>
@@ -1422,7 +1422,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>16777215</height>
            </size>
           </property>
@@ -1555,7 +1555,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>16777215</height>
            </size>
           </property>
@@ -1728,7 +1728,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>16777215</height>
            </size>
           </property>
@@ -1869,7 +1869,7 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>200</width>
+            <width>215</width>
             <height>16777215</height>
            </size>
           </property>
@@ -2414,6 +2414,816 @@
               </size>
              </property>
             </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="payments">
+       <layout class="QGridLayout" name="gridLayout_15">
+        <item row="1" column="0">
+         <widget class="QScrollArea" name="scroll_area_payment_search">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>223</width>
+             <height>404</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_17">
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_payment_search_total">
+              <property name="text">
+               <string>Total:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_payment_search_total_value">
+              <property name="text">
+               <string>0.00 MXN</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <widget class="QTableWidget" name="table_widget_payments"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QScrollArea" name="scroll_area_payment_create">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_8">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>213</width>
+             <height>404</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_payment_register">
+              <property name="text">
+               <string>Registrar pago</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_payment_create_quantity">
+              <property name="text">
+               <string>Cantidad:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="double_spin_box_payment_create_quantity"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_payment_create_payment_date">
+              <property name="text">
+               <string>Fecha de pago:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDateEdit" name="date_edit_payment_create_payment_date"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_payment_create_comments">
+              <property name="text">
+               <string>Comentarios:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plain_text_edit_payment_create_comments"/>
+            </item>
+            <item>
+             <spacer name="vertical_spacer_payment_create">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_6">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QPushButton" name="push_button_payment_create_save">
+                 <property name="text">
+                  <string>Guardar</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="push_button_payment_create_clean">
+                 <property name="text">
+                  <string>Limpiar</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QScrollArea" name="scroll_area_payment_modify">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_9">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>213</width>
+             <height>404</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>Modificar pago</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_payment_modify_quantity">
+              <property name="text">
+               <string>Cantidad:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="double_spin_box_payment_modify_quantity"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_payment_modify_payment_date">
+              <property name="text">
+               <string>Fecha de pago:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDateEdit" name="date_edit_payment_modify_payment_date"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_payment_modify_comments">
+              <property name="text">
+               <string>Comentarios:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPlainTextEdit" name="plain_text_edit_payment_modify_comments"/>
+            </item>
+            <item>
+             <spacer name="vertical_spacer_payment_modify">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_payment_modify_save">
+              <property name="text">
+               <string>Guardar</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QFrame" name="frame_5">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QFrame" name="frame_7">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_16">
+              <item row="4" column="1">
+               <widget class="QLabel" name="label_payment_niche">
+                <property name="text">
+                 <string>Nicho:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="comboBox"/>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="label_payment_module">
+                <property name="text">
+                 <string>Módulo:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QComboBox" name="comboBox_3"/>
+              </item>
+              <item row="3" column="2">
+               <widget class="QComboBox" name="comboBox_2"/>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLabel" name="label_payment_row">
+                <property name="text">
+                 <string>Fila:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="2">
+               <widget class="QLabel" name="label_payments">
+                <property name="text">
+                 <string>Pagos</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_9">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <spacer name="horizontal_spacer_payment_header">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="push_button_payment_create">
+                <property name="text">
+                 <string>Crear</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="modules">
+       <layout class="QGridLayout" name="gridLayout_19">
+        <item row="1" column="0">
+         <widget class="QScrollArea" name="scroll_area_module_search">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_10">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>223</width>
+             <height>500</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_18">
+            <item row="0" column="0">
+             <widget class="QTableWidget" name="table_widget_modules"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QScrollArea" name="scroll_area_create_module">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_11">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>213</width>
+             <height>500</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QLabel" name="label_create_module">
+              <property name="text">
+               <string>Crear módulo</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_create_module_name">
+              <property name="text">
+               <string>Nombre:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="line_edit_create_module_name"/>
+            </item>
+            <item>
+             <spacer name="vertical_spacer_create_module">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_create_module_save">
+              <property name="text">
+               <string>Guardar</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QScrollArea" name="scroll_area_modify_module">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_12">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>213</width>
+             <height>500</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <widget class="QLabel" name="label_modify_module">
+              <property name="text">
+               <string>Modificar módulo</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_modify_module_name">
+              <property name="text">
+               <string>Nombre:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="line_edit_modify_module_name"/>
+            </item>
+            <item>
+             <spacer name="vertical_spacer_modify_module">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_modify_module_buttons">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <item>
+                <widget class="QPushButton" name="push_button_modify_module_activate">
+                 <property name="text">
+                  <string>Activar</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="push_button_modify_button_deactivate">
+                 <property name="text">
+                  <string>Desactivar</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_modify_module_save">
+              <property name="text">
+               <string>Guardar</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QFrame" name="frame_modules_header">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_module">
+             <property name="text">
+              <string>Módulos</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontal_spacer_module_header">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="push_button_module_create">
+             <property name="text">
+              <string>Crear</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="push_button_modules_return">
+             <property name="text">
+              <string>Regresar</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="rows">
+       <layout class="QGridLayout" name="gridLayout_20">
+        <item row="1" column="1">
+         <widget class="QScrollArea" name="scroll_area_create_row">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_14">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>213</width>
+             <height>460</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <widget class="QLabel" name="label_create_row">
+              <property name="text">
+               <string>Crear fila</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_create_row_name">
+              <property name="text">
+               <string>Nombre:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="line_edit_create_row_name"/>
+            </item>
+            <item>
+             <spacer name="vertical_spacer_create_row">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_create_row_save">
+              <property name="text">
+               <string>Guardar</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QScrollArea" name="scroll_area_modify_row">
+          <property name="minimumSize">
+           <size>
+            <width>215</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_15">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>213</width>
+             <height>460</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <widget class="QLabel" name="label_modify_row">
+              <property name="text">
+               <string>Modificar fila</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_modify_row_name">
+              <property name="text">
+               <string>Nombre:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="line_edit_modify_row_name"/>
+            </item>
+            <item>
+             <spacer name="vertical_spacer_modify_row">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_modify_row_save">
+              <property name="text">
+               <string>Guardar</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QScrollArea" name="scroll_area_rows_search">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_13">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>223</width>
+             <height>460</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_23">
+            <item row="0" column="0">
+             <widget class="QTableWidget" name="table_widget_rows_search"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QFrame" name="frame_10">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_21">
+           <item row="0" column="3">
+            <widget class="QPushButton" name="push_button_row_create">
+             <property name="text">
+              <string>Crear</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QFrame" name="frame_11">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_22">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_row_module">
+                <property name="text">
+                 <string>Módulo:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_rows">
+                <property name="text">
+                 <string>Filas</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="combo_box_row_module"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="push_button_rows_return">
+             <property name="text">
+              <string>Regresar</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
