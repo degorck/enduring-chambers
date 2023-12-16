@@ -92,7 +92,8 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
     def __configure_actions(self):
         self.push_button_niches.clicked.connect(self.__set_stacked_widget_niches)
         self.push_button_deceased.clicked.connect(self.__set_stacked_widget_deceased)
-        self.push_button_holders.clicked.connect(self.__set_stacked_widget_holders)        
+        self.push_button_holders.clicked.connect(self.__set_stacked_widget_holders)
+        self.push_button_payments.clicked.connect(self.__set_stacked_widget_payments) 
         self.__login_controller.push_button_login.clicked.connect(
             self.__configure_windows_by_user_type)
         self.__login_controller.line_edit_password.returnPressed.connect(
@@ -160,6 +161,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_my_account.setChecked(False)
         self.push_button_niches.setChecked(True)
         self.push_button_users.setChecked(False)
+        self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(4)
         logging.debug("Niches stacked widget selected")
 
@@ -169,6 +171,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_my_account.setChecked(False)
         self.push_button_niches.setChecked(False)
         self.push_button_users.setChecked(False)
+        self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(2)
         logging.debug("Deceased stacked widget selected")
 
@@ -180,7 +183,20 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_my_account.setChecked(False)
         self.push_button_niches.setChecked(False)
         self.push_button_users.setChecked(False)
+        self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(3)
+        logging.debug("Holders stacked widget selected")
+
+    def __set_stacked_widget_payments(self):
+        #self.scroll_area_create_payments.hide()
+        #self.scroll_area_modify_payments.hide()
+        self.push_button_deceased.setChecked(False)
+        self.push_button_holders.setChecked(False)
+        self.push_button_my_account.setChecked(False)
+        self.push_button_niches.setChecked(False)
+        self.push_button_users.setChecked(False)
+        self.push_button_payments.setChecked(True)
+        #self.stacked_widget.setCurrentIndex(4)
         logging.debug("Holders stacked widget selected")
 
     def __logout(self):
