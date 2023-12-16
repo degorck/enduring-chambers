@@ -201,6 +201,7 @@ class DeceasedController:
                 image_route
             )
             self.__deceased_service.create_deceased(deceased_dto)
+            self.__search_deceased()
             self.__error_controller.handle_value_error("El difunto se ha creado")
             self.__error_controller.show()
             self.main_window.scroll_area_modify_user.hide()
@@ -422,6 +423,13 @@ class DeceasedController:
             self.__loaded_deceased_dto.get_book())
         self.main_window.plain_text_edit_modify_deceased_sheet.setPlainText(
             self.__loaded_deceased_dto.get_sheet())
+
+        birth_date = self.__loaded_deceased_dto.get_birth_date()
+        birth_qdate = QtCore.QDate(birth_date.year, birth_date.month, birth_date.day)
+        death_date = self.__loaded_deceased_dto.get_death_date()
+        death_qdate = QtCore.QDate(death_date.year, death_date.month, death_date.day)
+        self.main_window.date_edit_modify_deceased_birth_date.setDate(birth_qdate)
+        self.main_window.date_edit_modify_deceased_death_date.setDate(death_qdate)
 
         logging.debug("Se cargó el difunto [%s]", self.__loaded_deceased_dto.to_string())
 

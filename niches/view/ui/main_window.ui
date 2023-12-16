@@ -396,8 +396,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -573,8 +573,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -704,8 +704,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -833,7 +833,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>790</height>
             </rect>
            </property>
@@ -1078,7 +1078,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>820</height>
             </rect>
            </property>
@@ -1318,8 +1318,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1393,8 +1393,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1434,8 +1434,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1567,8 +1567,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1699,8 +1699,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>432</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
@@ -1740,8 +1740,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>432</height>
+             <width>194</width>
+             <height>298</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1881,8 +1881,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>432</height>
+             <width>194</width>
+             <height>296</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2228,8 +2228,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>454</height>
+             <width>152</width>
+             <height>266</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -2503,7 +2503,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QDoubleSpinBox" name="double_spin_box_payment_create_quantity"/>
+             <widget class="QDoubleSpinBox" name="double_spin_box_payment_create_quantity">
+              <property name="maximum">
+               <double>500000.989999999990687</double>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_payment_create_payment_date">
@@ -2613,7 +2617,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QDoubleSpinBox" name="double_spin_box_payment_modify_quantity"/>
+             <widget class="QDoubleSpinBox" name="double_spin_box_payment_modify_quantity">
+              <property name="maximum">
+               <double>500000.989999999990687</double>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_payment_modify_payment_date">
