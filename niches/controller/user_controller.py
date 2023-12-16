@@ -4,7 +4,7 @@ User Controller Module
 from PySide6 import QtWidgets
 from niches.model.dto.user_dto import UserDto
 from niches.util.validator import validate_is_not_empty, validate_password
-from niches.constants.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.controller.error_controller import ErrorController
 from niches.service.user_service import UserService
 from niches.service.user_type_service import UserTypeService
@@ -15,7 +15,8 @@ logging = get_loging()
 class UserController:
     """
     User controller class
-    Args:
+    
+    Arguments:
         main_window : Ui_MainWindow
             Reuses the main_main window to add the configuration of this class
     """

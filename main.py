@@ -6,12 +6,14 @@ from PySide6 import QtWidgets
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.model.dto.user_dto import UserDto
 from niches.util.logging_configuration import get_loging
-from niches.constants.constants import UserTypeKey
+from niches.constant.constants import UserTypeKey
 from niches.controller.login_controller import LoginController
 from niches.controller.user_controller import UserController
 from niches.controller.my_account_controller import MyAccountController
 from niches.controller.holder_controller import HolderController
 from niches.controller.niche_controller import NicheController
+from niches.controller.deceased_controller import DeceasedController
+from niches.util.wheel_event_filter import WheelEventFilter
 logging = get_loging()
 
 class Main(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -33,11 +35,14 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.scroll_area_modify_user.hide()
         self.scroll_area_create_holder.hide()
         self.scroll_area_modify_holder.hide()
+        self.scroll_area_create_deceased.hide()
+        self.scroll_area_modify_deceased.hide()
         self.spin_box_create_niche_number.setEnabled(False)
         self.__user_controller = UserController(self)
         self.__my_account_controller = MyAccountController(self)
         self.__holder_controller = HolderController(self)
         self.__niche_controller = NicheController(self)
+        self.__deceased_controller = DeceasedController(self)
         self.__configure_actions()
         self.__configure_windows_by_user_type()
         self.show()
@@ -111,7 +116,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
             case UserTypeKey.NOT_LOGGED.value:
                 self.__configure_not_logged_window()
         logging.debug(
-            "Se ha configurado la ventana de acuerdo al usuario loggeado: " + self.__user_type_key)
+            "Se ha configurado la ventana de acuerdo al usuario loggeado: %s", self.__user_type_key)
 
     def __configure_guest_window(self):
         self.label_welcome_user_name.setText("Invitado")
@@ -186,5 +191,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
+    filter = WheelEventFilter()
+    app.installEventFilter(filter)
     window = Main()
     sys.exit(app.exec())

@@ -6,7 +6,7 @@ import logging
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.user_type import UserType
-from niches.model.mapper.dao.user_type_dao_mapper import UserTypeDaoMapper
+from niches.model.mapper.dao.user_type_dao_mapper import real_dict_row_to_user
 
 class UserTypeDao:
     """
@@ -14,13 +14,12 @@ class UserTypeDao:
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
-        self.__user_type_dao_mapper = UserTypeDaoMapper()
 
     def find_by_id(self, user_type_id:int):
         """
         Find the user type by its id
 
-        Args:
+        Arguments:
             user_type_id: int
                 user_type_id of the user type to find
         Returns:
@@ -40,7 +39,7 @@ class UserTypeDao:
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
             user_type = UserType()
-            user_type =  self.__user_type_dao_mapper.real_dict_row_to_user(row)
+            user_type =  real_dict_row_to_user(row)
             logging.debug("Se encontró un usuario por su id")
             return user_type
         except (Exception, psycopg2.DatabaseError) as error:
@@ -72,7 +71,7 @@ class UserTypeDao:
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
                 user_type = UserType()
-                user_type =  self.__user_type_dao_mapper.real_dict_row_to_user(row)
+                user_type =  real_dict_row_to_user(row)
                 list_user_type.append(user_type)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los usuarios")

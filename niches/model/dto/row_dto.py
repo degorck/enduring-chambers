@@ -139,3 +139,18 @@ class RowDto:
         self.__module = module_dto
         self.__created_at = created_at
         self.__updated_at = updated_at
+
+    def to_string(self):
+        """
+        Returns:
+            row_dto:str
+                Returns row_dto as string
+        """
+        if self.__module is None:
+            module_str = None
+        else:
+            module_str = self.__module.to_string()
+
+        return (f'id: \"{str(self.__id)}\" name: \"{self.__name}\" module: ' +
+                f'\"[{module_str}]\" created_at \"{self.__created_at}\" ' +
+                f'updated_at: \"{self.__updated_at}\"')

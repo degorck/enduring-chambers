@@ -5,7 +5,7 @@ from niches.util.logging_configuration import get_loging
 from niches.model.dto.user_dto import UserDto
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.util.validator import validate_is_not_empty, validate_password
-from niches.constants.constants import UserField
+from niches.constant.constants import UserField
 from niches.service.user_service import UserService
 from niches.util.encryptor import Encryptor
 from niches.controller.error_controller import ErrorController
@@ -14,7 +14,8 @@ logging = get_loging()
 class MyAccountController:
     """
     My Account controller class
-    Args:
+    
+    Arguments:
         main_window : Ui_MainWindow
             Reuses the main_main window to add the configuration of this class
     """

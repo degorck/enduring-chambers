@@ -4,7 +4,7 @@ Holder Service Module for Enduring Chambers
 import logging
 from niches.model.dto.holder_dto import HolderDto
 from niches.model.dao.holder_dao import HolderDao
-from niches.model.mapper.holder_mapper import HolderMapper
+from niches.model.mapper.holder_mapper import holder_dto_to_holder, holder_to_holder_dto
 from niches.controller.error_controller import ErrorController
 
 class HolderService:
@@ -14,7 +14,6 @@ class HolderService:
     def __init__(self):
         self.__error_controller = ErrorController()
         self.__holder_dao = HolderDao()
-        self.__holder_mapper = HolderMapper()
 
     def create_holder(self, holder_dto:HolderDto):
         """
@@ -28,9 +27,9 @@ class HolderService:
                 Holder created
         """
         try:
-            output = self.__holder_mapper.holder_to_holder_dto(
+            output = holder_to_holder_dto(
                 self.__holder_dao.create_holder(
-                    self.__holder_mapper.holder_dto_to_holder(holder_dto)))
+                    holder_dto_to_holder(holder_dto)))
 
             logging.debug("Holder created")
             return output
@@ -60,7 +59,7 @@ class HolderService:
         list_holder = self.__holder_dao.search_holders(search_string)
         for holder in list_holder:
             holder_dto = HolderDto()
-            holder_dto = self.__holder_mapper.holder_to_holder_dto(holder)
+            holder_dto = holder_to_holder_dto(holder)
             list_holder_dto.append(holder_dto)
         return list_holder_dto
 
@@ -79,7 +78,7 @@ class HolderService:
         list_holder = self.__holder_dao.search_active_holders(search_string)
         for holder in list_holder:
             holder_dto = HolderDto()
-            holder_dto = self.__holder_mapper.holder_to_holder_dto(holder)
+            holder_dto = holder_to_holder_dto(holder)
             list_holder_dto.append(holder_dto)
         return list_holder_dto
 
@@ -94,7 +93,7 @@ class HolderService:
                 HolderDto founded
         """
         holder_dto = HolderDto()
-        holder_dto = self.__holder_mapper.holder_to_holder_dto(
+        holder_dto = holder_to_holder_dto(
             self.__holder_dao.find_by_id(holder_id))
         return holder_dto
 
@@ -105,7 +104,7 @@ class HolderService:
             holder_dto: HolderDto
                 HolderDto to be modified
         """
-        self.__holder_dao.modify_holder(self.__holder_mapper.holder_dto_to_holder(holder_dto))
+        self.__holder_dao.modify_holder(holder_dto_to_holder(holder_dto))
 
     def deactivate_holder(self, holder_id:int):
         """

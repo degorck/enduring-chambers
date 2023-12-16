@@ -6,7 +6,7 @@ import logging
 import datetime
 import psycopg2
 from niches.util.database_connection import DatabaseConnection
-from niches.model.mapper.dao.holder_dao_mapper import HolderDaoMapper
+from niches.model.mapper.dao.holder_dao_mapper import real_dict_row_to_holder
 from niches.model.entity.holder import Holder
 
 class HolderDao:
@@ -15,7 +15,6 @@ class HolderDao:
     """
     def __init__(self):
         self.__db_connection = DatabaseConnection()
-        self.__holder_dao_mapper = HolderDaoMapper()
 
     def create_holder(self, holder:Holder):
         """
@@ -94,7 +93,7 @@ class HolderDao:
             self.__db_connection.get_cursor().execute(command % holder_id)
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            holder = self.__holder_dao_mapper.real_dict_row_to_holder(row)
+            holder = real_dict_row_to_holder(row)
             logging.debug("Se buscó el titular por su id")
             return holder
         except (Exception, psycopg2.DatabaseError) as error:
@@ -138,7 +137,7 @@ class HolderDao:
             self.__db_connection.get_cursor().execute(command, values)
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                holder = self.__holder_dao_mapper.real_dict_row_to_holder(row)
+                holder = real_dict_row_to_holder(row)
                 holder_list.append(holder)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron todos los titulares")
@@ -187,7 +186,7 @@ class HolderDao:
             self.__db_connection.get_cursor().execute(command, values)
             rows = self.__db_connection.get_cursor().fetchall()
             for row in rows:
-                holder = self.__holder_dao_mapper.real_dict_row_to_holder(row)
+                holder = real_dict_row_to_holder(row)
                 holder_list.append(holder)
             self.__db_connection.end_connection()
             logging.debug("Se buscaron los usuarios activos")
