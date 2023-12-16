@@ -77,3 +77,12 @@ class DeceasedService:
             deceased_dto = deceased_to_deceased_dto(deceased)
             list_deceased_dto.append(deceased_dto)
         return list_deceased_dto
+
+    def modify_deceased(self, deceased_dto:DeceasedDto):
+        """
+        Modify deceased
+        Arguments:
+            deceased_dto: DeceasedDto
+                DeceasedDto to be modified
+        """
+        self.__deceased_dao.modify_deceased(deceased_dto_to_deceased(deceased_dto))

@@ -13,7 +13,8 @@ from niches.service.module_service import ModuleService
 from niches.service.row_service import RowService
 from niches.service.niche_service import NicheService
 from niches.service.deceased_service import DeceasedService
-from niches.util.drag_and_drop_util import DragAndDropUtil
+from niches.util.drag_and_drop_create_util import DragAndDropCreateUtil
+from niches.util.drag_and_drop_modify_util import DragAndDropModifyUtil
 from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.util.ftp_util import send_image, delete_image, download_image
 from niches.util.validator import validate_is_not_empty, validate_not_none
@@ -30,7 +31,8 @@ class DeceasedController:
     def __init__(self, main_window:Ui_MainWindow):
         self.main_window = main_window
         self.__row = 0
-        self.__drag_and_drop_util_create_deceased = DragAndDropUtil(main_window)
+        self.__drag_and_drop_util_create_deceased = DragAndDropCreateUtil(main_window)
+        self.__drag_and_drop_util_modify_deceased = DragAndDropModifyUtil(main_window)
         self.__remain_type_service = RemainTypeService()
         self.__module_service = ModuleService()
         self.__row_service = RowService()
@@ -72,10 +74,18 @@ class DeceasedController:
             self.__show_create_deceased_image_widget)
         self.main_window.line_edit_search_deceased.textChanged.connect(self.__search_deceased)
         self.main_window.table_widget_deceased.cellDoubleClicked.connect(self.__select_deceased)
+        self.main_window.push_button_modify_deceased_image.clicked.connect(
+            self.__show_modify_deceased_image_widget)
+        self.main_window.push_button_modify_deceased_save.clicked.connect(
+            self.__update_deceased)
 
     def __show_create_deceased_image_widget(self):
         self.__drag_and_drop_util_create_deceased.show()
         self.__drag_and_drop_util_create_deceased.open_window_configuration()
+
+    def __show_modify_deceased_image_widget(self):
+        self.__drag_and_drop_util_modify_deceased.show()
+        self.__drag_and_drop_util_modify_deceased.open_window_configuration()
 
     def __configure_combo_box_remain_type(self):
         list_remain_type_dto = self.__remain_type_service.find_all()
@@ -372,7 +382,13 @@ class DeceasedController:
             deceased_dto.get_updated_at()
         )
         try:
-            tmp_image_path = download_image(self.__loaded_deceased_dto.get_image_route())
+            if (self.__loaded_deceased_dto.get_image_route() is None) or (
+                self.__loaded_deceased_dto.get_image_route() == ""):
+                tmp_image_path = None
+                self.main_window.label_modify_deceased_image.clear()
+                self.main_window.label_modify_deceased_image.setText("Sin imagen")
+            else:
+                tmp_image_path = download_image(self.__loaded_deceased_dto.get_image_route())
 
         except Exception as e:
             tmp_image_path = None
@@ -411,5 +427,91 @@ class DeceasedController:
 
     def __load_modify_image(self, file_path):
         self.main_window.label_modify_deceased_image.setPixmap(QPixmap("." + file_path).scaled(
-            200, 200, Qt.AspectRatioMode.KeepAspectRatio,
+            170, 200, Qt.AspectRatioMode.KeepAspectRatio,
             Qt.TransformationMode.SmoothTransformation))
+
+    def __update_deceased(self):
+        try:
+            validate_is_not_empty(self.main_window.line_edit_modify_deceased_name.text(),
+                                  UserField.NAME)
+            validate_is_not_empty(
+                self.main_window.line_edit_modify_deceased_paternal_surname.text(),
+                UserField.PATERNAL_SURNAME)
+            validate_is_not_empty(
+                self.main_window.line_edit_modify_deceased_maternal_surname.text(),
+                UserField.MATERNAL_SURNAME)
+            validate_not_none(self.main_window.combo_box_modify_deceased_niche.currentData(),
+                              UserField.NICHE)
+            q_date_birth_date = self.main_window.date_edit_modify_deceased_birth_date.date()
+            birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
+                                           q_date_birth_date.day())
+            q_death_birth_date = self.main_window.date_edit_modify_deceased_death_date.date()
+            death_date = datetime.datetime(q_death_birth_date.year(), q_death_birth_date.month(),
+                                           q_death_birth_date.day())
+            image_route_loaded = self.__drag_and_drop_util_modify_deceased.get_file_path() if (
+                self.__drag_and_drop_util_modify_deceased.get_file_path() is not None) else None
+
+            if image_route_loaded is not None:
+                image_route = send_image(image_route_loaded)
+                if (self.__loaded_deceased_dto.get_image_route() is None) or(
+                    self.__loaded_deceased_dto.get_image_route() == ""):
+                    pass
+                else:
+                    delete_image(self.__loaded_deceased_dto.get_image_route())
+            else:
+                if (self.__loaded_deceased_dto.get_image_route() is None) or (
+                    self.__loaded_deceased_dto.get_image_route() == ""):
+                    image_route = None
+                else:
+                    image_route = self.__loaded_deceased_dto.get_image_route()
+
+            deceased_dto = DeceasedDto()
+            deceased_dto.set_id(self.__loaded_deceased_dto.get_id())
+            deceased_dto.set_name(self.main_window.line_edit_modify_deceased_name.text())
+            deceased_dto.set_paternal_surname(
+                self.main_window.line_edit_modify_deceased_paternal_surname.text())
+            deceased_dto.set_maternal_surname(
+                self.main_window.line_edit_modify_deceased_maternal_surname.text())
+            deceased_dto.set_birth_date(birth_date)
+            deceased_dto.set_death_date(death_date)
+            deceased_dto.set_remain_type(
+                self.main_window.combo_box_modify_deceased_remain_type.currentData())
+            deceased_dto.set_niche(
+                self.main_window.combo_box_modify_deceased_niche.currentData())
+            deceased_dto.set_book(
+                self.main_window.plain_text_edit_modify_deceased_book.toPlainText())
+            deceased_dto.set_sheet(
+                self.main_window.plain_text_edit_modify_deceased_sheet.toPlainText())
+            deceased_dto.set_image_route(image_route)
+
+            self.__deceased_service.modify_deceased(deceased_dto)
+
+            self.__loaded_deceased_dto.existing_deceased(
+                deceased_dto.get_id(),
+                deceased_dto.get_name(),
+                deceased_dto.get_paternal_surname(),
+                deceased_dto.get_maternal_surname(),
+                deceased_dto.get_birth_date(),
+                deceased_dto.get_death_date(),
+                deceased_dto.get_remain_type(),
+                deceased_dto.get_niche(),
+                deceased_dto.get_book(),
+                deceased_dto.get_sheet(),
+                deceased_dto.get_image_route(),
+                deceased_dto.is_active(),
+                deceased_dto.get_created_at(),
+                deceased_dto.get_updated_at()
+            )
+            self.__search_deceased()
+            self.__error_controller.handle_value_error("El difunto se ha modificado exitosamente")
+            self.__error_controller.show()
+            self.main_window.scroll_area_modify_deceased.hide()
+            logging.debug("El difunto se ha modificado exitosamente")
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
