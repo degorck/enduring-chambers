@@ -9,7 +9,7 @@ from niches.view.ui.main_window import Ui_MainWindow
 from niches.constant.constants import ValidImageExtension, NOT_VALID_IMAGE
 from niches.controller.error_controller import ErrorController
 
-class DragAndDropUtil(QWidget):
+class DragAndDropModifyUtil(QWidget):
     def __init__(self, main_window:Ui_MainWindow):
         super().__init__()
         self.main_window = main_window
@@ -70,8 +70,8 @@ class DragAndDropUtil(QWidget):
         self.__image_label_util.set_pixmap(QPixmap(file_path).scaled(
             400, self.height(), Qt.AspectRatioMode.KeepAspectRatio,
             Qt.TransformationMode.SmoothTransformation))
-        self.main_window.label_create_deceased_image.setPixmap(QPixmap(file_path).scaled(
-            200, self.height(), Qt.AspectRatioMode.KeepAspectRatio,
+        self.main_window.label_modify_deceased_image.setPixmap(QPixmap(file_path).scaled(
+            160, self.height(), Qt.AspectRatioMode.KeepAspectRatio,
             Qt.TransformationMode.SmoothTransformation))
 
     def get_file_path(self):
@@ -81,5 +81,5 @@ class DragAndDropUtil(QWidget):
         self.__file_path = None
         self.__image_label_util.clear()
         self.__image_label_util.setText("\n\n Arrastra tu imagen aquí \n\n")
-        self.main_window.label_create_deceased_image.clear()
-        self.main_window.label_create_deceased_image.setText("Sin imagen")
+        self.main_window.label_modify_deceased_image.clear()
+        self.main_window.label_modify_deceased_image.setText("Sin imagen")

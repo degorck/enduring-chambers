@@ -79,7 +79,7 @@ class DeceasedDao:
             self.__db_connection.get_cursor().execute('SELECT LASTVAL()')
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            logging.debug("Se creó el nicho")
+            logging.debug("Se creó el difunto")
             return self.find_by_id(int(row["lastval"]))
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)
@@ -89,6 +89,62 @@ class DeceasedDao:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
 
+    def modify_deceased(self, deceased:Deceased):
+        """
+        Modify the deceased on database
+
+        Arguments:
+            deceased: Deceased
+                Deceased entity to be created
+        Returns:
+            deceased : Deceased
+                Created deceased entity 
+        """
+        command = '''
+                UPDATE tb_deceased
+                SET
+                name = %s,
+                paternal_surname = %s,
+                maternal_surname = %s,
+                birth_date = %s,
+                death_date = %s,
+                remain_type_id = %s,
+                niche_id = %s,
+                book = %s,
+                sheet = %s,
+                image_route = %s,
+                is_active = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            deceased.get_name(),
+            deceased.get_paternal_surname(),
+            deceased.get_maternal_surname(),
+            deceased.get_birth_date(),
+            deceased.get_death_date(),
+            deceased.get_remain_type().get_id(),
+            deceased.get_niche().get_id(),
+            deceased.get_book(),
+            deceased.get_sheet(),
+            deceased.get_image_route(),
+            True,
+            datetime.datetime.now(),
+            deceased.get_id()
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se modificó el difunto")
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
 
     def find_by_id(self, deceased_id:int):
         """
