@@ -16,12 +16,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDateEdit,
-    QFormLayout, QFrame, QGridLayout, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QMainWindow,
-    QMenuBar, QPlainTextEdit, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QSpinBox, QStackedWidget,
-    QStatusBar, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+    QDoubleSpinBox, QFormLayout, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QMainWindow, QMenuBar, QPlainTextEdit, QPushButton,
+    QScrollArea, QSizePolicy, QSpacerItem, QSpinBox,
+    QStackedWidget, QStatusBar, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -493,7 +493,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_22 = QWidget()
         self.scrollAreaWidgetContents_22.setObjectName(u"scrollAreaWidgetContents_22")
-        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, -290, 196, 790))
+        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 196, 790))
         self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents_22)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_create_deceased = QLabel(self.scrollAreaWidgetContents_22)
@@ -675,7 +675,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_21 = QWidget()
         self.scrollAreaWidgetContents_21.setObjectName(u"scrollAreaWidgetContents_21")
-        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, -320, 196, 820))
+        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 196, 820))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_21)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_modify_deceased = QLabel(self.scrollAreaWidgetContents_21)
@@ -931,7 +931,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_holder = QScrollArea(self.holders)
         self.scroll_area_create_holder.setObjectName(u"scroll_area_create_holder")
         self.scroll_area_create_holder.setMinimumSize(QSize(215, 0))
-        self.scroll_area_create_holder.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_create_holder.setMaximumSize(QSize(215, 16777215))
         self.scroll_area_create_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_25 = QWidget()
         self.scrollAreaWidgetContents_25.setObjectName(u"scrollAreaWidgetContents_25")
@@ -1018,7 +1018,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_holder = QScrollArea(self.holders)
         self.scroll_area_modify_holder.setObjectName(u"scroll_area_modify_holder")
         self.scroll_area_modify_holder.setMinimumSize(QSize(215, 0))
-        self.scroll_area_modify_holder.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_modify_holder.setMaximumSize(QSize(215, 16777215))
         self.scroll_area_modify_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_24 = QWidget()
         self.scrollAreaWidgetContents_24.setObjectName(u"scrollAreaWidgetContents_24")
@@ -1137,7 +1137,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_niche = QScrollArea(self.niches)
         self.scroll_area_modify_niche.setObjectName(u"scroll_area_modify_niche")
         self.scroll_area_modify_niche.setMinimumSize(QSize(215, 0))
-        self.scroll_area_modify_niche.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_modify_niche.setMaximumSize(QSize(215, 16777215))
         self.scroll_area_modify_niche.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
@@ -1220,7 +1220,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_niche = QScrollArea(self.niches)
         self.scroll_area_create_niche.setObjectName(u"scroll_area_create_niche")
         self.scroll_area_create_niche.setMinimumSize(QSize(215, 0))
-        self.scroll_area_create_niche.setMaximumSize(QSize(200, 16777215))
+        self.scroll_area_create_niche.setMaximumSize(QSize(215, 16777215))
         self.scroll_area_create_niche.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
@@ -1536,6 +1536,535 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addWidget(self.frame_8, 1, 0, 1, 3)
 
         self.stacked_widget.addWidget(self.my_account)
+        self.payments = QWidget()
+        self.payments.setObjectName(u"payments")
+        self.gridLayout_15 = QGridLayout(self.payments)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.scroll_area_payment_search = QScrollArea(self.payments)
+        self.scroll_area_payment_search.setObjectName(u"scroll_area_payment_search")
+        self.scroll_area_payment_search.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 223, 404))
+        self.gridLayout_17 = QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_17.setObjectName(u"gridLayout_17")
+        self.label_payment_search_total = QLabel(self.scrollAreaWidgetContents)
+        self.label_payment_search_total.setObjectName(u"label_payment_search_total")
+
+        self.gridLayout_17.addWidget(self.label_payment_search_total, 1, 0, 1, 1)
+
+        self.label_payment_search_total_value = QLabel(self.scrollAreaWidgetContents)
+        self.label_payment_search_total_value.setObjectName(u"label_payment_search_total_value")
+
+        self.gridLayout_17.addWidget(self.label_payment_search_total_value, 1, 1, 1, 1)
+
+        self.table_widget_payments = QTableWidget(self.scrollAreaWidgetContents)
+        self.table_widget_payments.setObjectName(u"table_widget_payments")
+
+        self.gridLayout_17.addWidget(self.table_widget_payments, 0, 0, 1, 2)
+
+        self.scroll_area_payment_search.setWidget(self.scrollAreaWidgetContents)
+
+        self.gridLayout_15.addWidget(self.scroll_area_payment_search, 1, 0, 1, 1)
+
+        self.scroll_area_payment_create = QScrollArea(self.payments)
+        self.scroll_area_payment_create.setObjectName(u"scroll_area_payment_create")
+        self.scroll_area_payment_create.setMinimumSize(QSize(215, 0))
+        self.scroll_area_payment_create.setMaximumSize(QSize(215, 16777215))
+        self.scroll_area_payment_create.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_8 = QWidget()
+        self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 213, 404))
+        self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_8)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.label_payment_register = QLabel(self.scrollAreaWidgetContents_8)
+        self.label_payment_register.setObjectName(u"label_payment_register")
+        self.label_payment_register.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_6.addWidget(self.label_payment_register)
+
+        self.label_payment_create_quantity = QLabel(self.scrollAreaWidgetContents_8)
+        self.label_payment_create_quantity.setObjectName(u"label_payment_create_quantity")
+
+        self.verticalLayout_6.addWidget(self.label_payment_create_quantity)
+
+        self.double_spin_box_payment_create_quantity = QDoubleSpinBox(self.scrollAreaWidgetContents_8)
+        self.double_spin_box_payment_create_quantity.setObjectName(u"double_spin_box_payment_create_quantity")
+
+        self.verticalLayout_6.addWidget(self.double_spin_box_payment_create_quantity)
+
+        self.label_payment_create_payment_date = QLabel(self.scrollAreaWidgetContents_8)
+        self.label_payment_create_payment_date.setObjectName(u"label_payment_create_payment_date")
+
+        self.verticalLayout_6.addWidget(self.label_payment_create_payment_date)
+
+        self.date_edit_payment_create_payment_date = QDateEdit(self.scrollAreaWidgetContents_8)
+        self.date_edit_payment_create_payment_date.setObjectName(u"date_edit_payment_create_payment_date")
+
+        self.verticalLayout_6.addWidget(self.date_edit_payment_create_payment_date)
+
+        self.label_payment_create_comments = QLabel(self.scrollAreaWidgetContents_8)
+        self.label_payment_create_comments.setObjectName(u"label_payment_create_comments")
+
+        self.verticalLayout_6.addWidget(self.label_payment_create_comments)
+
+        self.plain_text_edit_payment_create_comments = QPlainTextEdit(self.scrollAreaWidgetContents_8)
+        self.plain_text_edit_payment_create_comments.setObjectName(u"plain_text_edit_payment_create_comments")
+
+        self.verticalLayout_6.addWidget(self.plain_text_edit_payment_create_comments)
+
+        self.vertical_spacer_payment_create = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_6.addItem(self.vertical_spacer_payment_create)
+
+        self.frame_6 = QFrame(self.scrollAreaWidgetContents_8)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_8 = QHBoxLayout(self.frame_6)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.push_button_payment_create_save = QPushButton(self.frame_6)
+        self.push_button_payment_create_save.setObjectName(u"push_button_payment_create_save")
+
+        self.horizontalLayout_8.addWidget(self.push_button_payment_create_save)
+
+        self.push_button_payment_create_clean = QPushButton(self.frame_6)
+        self.push_button_payment_create_clean.setObjectName(u"push_button_payment_create_clean")
+
+        self.horizontalLayout_8.addWidget(self.push_button_payment_create_clean)
+
+
+        self.verticalLayout_6.addWidget(self.frame_6)
+
+        self.scroll_area_payment_create.setWidget(self.scrollAreaWidgetContents_8)
+
+        self.gridLayout_15.addWidget(self.scroll_area_payment_create, 1, 1, 1, 1)
+
+        self.scroll_area_payment_modify = QScrollArea(self.payments)
+        self.scroll_area_payment_modify.setObjectName(u"scroll_area_payment_modify")
+        self.scroll_area_payment_modify.setMinimumSize(QSize(215, 0))
+        self.scroll_area_payment_modify.setMaximumSize(QSize(215, 16777215))
+        self.scroll_area_payment_modify.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_9 = QWidget()
+        self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 213, 404))
+        self.verticalLayout_7 = QVBoxLayout(self.scrollAreaWidgetContents_9)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.label_8 = QLabel(self.scrollAreaWidgetContents_9)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_7.addWidget(self.label_8)
+
+        self.label_payment_modify_quantity = QLabel(self.scrollAreaWidgetContents_9)
+        self.label_payment_modify_quantity.setObjectName(u"label_payment_modify_quantity")
+
+        self.verticalLayout_7.addWidget(self.label_payment_modify_quantity)
+
+        self.double_spin_box_payment_modify_quantity = QDoubleSpinBox(self.scrollAreaWidgetContents_9)
+        self.double_spin_box_payment_modify_quantity.setObjectName(u"double_spin_box_payment_modify_quantity")
+
+        self.verticalLayout_7.addWidget(self.double_spin_box_payment_modify_quantity)
+
+        self.label_payment_modify_payment_date = QLabel(self.scrollAreaWidgetContents_9)
+        self.label_payment_modify_payment_date.setObjectName(u"label_payment_modify_payment_date")
+
+        self.verticalLayout_7.addWidget(self.label_payment_modify_payment_date)
+
+        self.date_edit_payment_modify_payment_date = QDateEdit(self.scrollAreaWidgetContents_9)
+        self.date_edit_payment_modify_payment_date.setObjectName(u"date_edit_payment_modify_payment_date")
+
+        self.verticalLayout_7.addWidget(self.date_edit_payment_modify_payment_date)
+
+        self.label_payment_modify_comments = QLabel(self.scrollAreaWidgetContents_9)
+        self.label_payment_modify_comments.setObjectName(u"label_payment_modify_comments")
+
+        self.verticalLayout_7.addWidget(self.label_payment_modify_comments)
+
+        self.plain_text_edit_payment_modify_comments = QPlainTextEdit(self.scrollAreaWidgetContents_9)
+        self.plain_text_edit_payment_modify_comments.setObjectName(u"plain_text_edit_payment_modify_comments")
+
+        self.verticalLayout_7.addWidget(self.plain_text_edit_payment_modify_comments)
+
+        self.vertical_spacer_payment_modify = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_7.addItem(self.vertical_spacer_payment_modify)
+
+        self.push_button_payment_modify_save = QPushButton(self.scrollAreaWidgetContents_9)
+        self.push_button_payment_modify_save.setObjectName(u"push_button_payment_modify_save")
+
+        self.verticalLayout_7.addWidget(self.push_button_payment_modify_save)
+
+        self.scroll_area_payment_modify.setWidget(self.scrollAreaWidgetContents_9)
+
+        self.gridLayout_15.addWidget(self.scroll_area_payment_modify, 1, 2, 1, 1)
+
+        self.frame_5 = QFrame(self.payments)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_4 = QHBoxLayout(self.frame_5)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.frame_7 = QFrame(self.frame_5)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.gridLayout_16 = QGridLayout(self.frame_7)
+        self.gridLayout_16.setObjectName(u"gridLayout_16")
+        self.label_payment_niche = QLabel(self.frame_7)
+        self.label_payment_niche.setObjectName(u"label_payment_niche")
+
+        self.gridLayout_16.addWidget(self.label_payment_niche, 4, 1, 1, 1)
+
+        self.comboBox = QComboBox(self.frame_7)
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.gridLayout_16.addWidget(self.comboBox, 1, 2, 1, 1)
+
+        self.label_payment_module = QLabel(self.frame_7)
+        self.label_payment_module.setObjectName(u"label_payment_module")
+
+        self.gridLayout_16.addWidget(self.label_payment_module, 1, 1, 1, 1)
+
+        self.comboBox_3 = QComboBox(self.frame_7)
+        self.comboBox_3.setObjectName(u"comboBox_3")
+
+        self.gridLayout_16.addWidget(self.comboBox_3, 4, 2, 1, 1)
+
+        self.comboBox_2 = QComboBox(self.frame_7)
+        self.comboBox_2.setObjectName(u"comboBox_2")
+
+        self.gridLayout_16.addWidget(self.comboBox_2, 3, 2, 1, 1)
+
+        self.label_payment_row = QLabel(self.frame_7)
+        self.label_payment_row.setObjectName(u"label_payment_row")
+
+        self.gridLayout_16.addWidget(self.label_payment_row, 3, 1, 1, 1)
+
+        self.label_payments = QLabel(self.frame_7)
+        self.label_payments.setObjectName(u"label_payments")
+
+        self.gridLayout_16.addWidget(self.label_payments, 0, 1, 1, 2)
+
+
+        self.horizontalLayout_4.addWidget(self.frame_7)
+
+        self.frame_9 = QFrame(self.frame_5)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_9)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontal_spacer_payment_header = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontal_spacer_payment_header)
+
+        self.push_button_payment_create = QPushButton(self.frame_9)
+        self.push_button_payment_create.setObjectName(u"push_button_payment_create")
+
+        self.horizontalLayout_6.addWidget(self.push_button_payment_create)
+
+
+        self.horizontalLayout_4.addWidget(self.frame_9)
+
+
+        self.gridLayout_15.addWidget(self.frame_5, 0, 0, 1, 3)
+
+        self.stacked_widget.addWidget(self.payments)
+        self.modules = QWidget()
+        self.modules.setObjectName(u"modules")
+        self.gridLayout_19 = QGridLayout(self.modules)
+        self.gridLayout_19.setObjectName(u"gridLayout_19")
+        self.scroll_area_module_search = QScrollArea(self.modules)
+        self.scroll_area_module_search.setObjectName(u"scroll_area_module_search")
+        self.scroll_area_module_search.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_10 = QWidget()
+        self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 223, 500))
+        self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_10)
+        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.table_widget_modules = QTableWidget(self.scrollAreaWidgetContents_10)
+        self.table_widget_modules.setObjectName(u"table_widget_modules")
+
+        self.gridLayout_18.addWidget(self.table_widget_modules, 0, 0, 1, 1)
+
+        self.scroll_area_module_search.setWidget(self.scrollAreaWidgetContents_10)
+
+        self.gridLayout_19.addWidget(self.scroll_area_module_search, 1, 0, 1, 1)
+
+        self.scroll_area_create_module = QScrollArea(self.modules)
+        self.scroll_area_create_module.setObjectName(u"scroll_area_create_module")
+        self.scroll_area_create_module.setMinimumSize(QSize(215, 0))
+        self.scroll_area_create_module.setMaximumSize(QSize(215, 16777215))
+        self.scroll_area_create_module.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_11 = QWidget()
+        self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 213, 500))
+        self.verticalLayout_8 = QVBoxLayout(self.scrollAreaWidgetContents_11)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.label_create_module = QLabel(self.scrollAreaWidgetContents_11)
+        self.label_create_module.setObjectName(u"label_create_module")
+        self.label_create_module.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_8.addWidget(self.label_create_module)
+
+        self.label_create_module_name = QLabel(self.scrollAreaWidgetContents_11)
+        self.label_create_module_name.setObjectName(u"label_create_module_name")
+
+        self.verticalLayout_8.addWidget(self.label_create_module_name)
+
+        self.line_edit_create_module_name = QLineEdit(self.scrollAreaWidgetContents_11)
+        self.line_edit_create_module_name.setObjectName(u"line_edit_create_module_name")
+
+        self.verticalLayout_8.addWidget(self.line_edit_create_module_name)
+
+        self.vertical_spacer_create_module = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.vertical_spacer_create_module)
+
+        self.push_button_create_module_save = QPushButton(self.scrollAreaWidgetContents_11)
+        self.push_button_create_module_save.setObjectName(u"push_button_create_module_save")
+
+        self.verticalLayout_8.addWidget(self.push_button_create_module_save)
+
+        self.scroll_area_create_module.setWidget(self.scrollAreaWidgetContents_11)
+
+        self.gridLayout_19.addWidget(self.scroll_area_create_module, 1, 1, 1, 1)
+
+        self.scroll_area_modify_module = QScrollArea(self.modules)
+        self.scroll_area_modify_module.setObjectName(u"scroll_area_modify_module")
+        self.scroll_area_modify_module.setMinimumSize(QSize(215, 0))
+        self.scroll_area_modify_module.setMaximumSize(QSize(215, 16777215))
+        self.scroll_area_modify_module.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_12 = QWidget()
+        self.scrollAreaWidgetContents_12.setObjectName(u"scrollAreaWidgetContents_12")
+        self.scrollAreaWidgetContents_12.setGeometry(QRect(0, 0, 213, 500))
+        self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_12)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.label_modify_module = QLabel(self.scrollAreaWidgetContents_12)
+        self.label_modify_module.setObjectName(u"label_modify_module")
+        self.label_modify_module.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_9.addWidget(self.label_modify_module)
+
+        self.label_modify_module_name = QLabel(self.scrollAreaWidgetContents_12)
+        self.label_modify_module_name.setObjectName(u"label_modify_module_name")
+
+        self.verticalLayout_9.addWidget(self.label_modify_module_name)
+
+        self.line_edit_modify_module_name = QLineEdit(self.scrollAreaWidgetContents_12)
+        self.line_edit_modify_module_name.setObjectName(u"line_edit_modify_module_name")
+
+        self.verticalLayout_9.addWidget(self.line_edit_modify_module_name)
+
+        self.vertical_spacer_modify_module = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_9.addItem(self.vertical_spacer_modify_module)
+
+        self.frame_modify_module_buttons = QFrame(self.scrollAreaWidgetContents_12)
+        self.frame_modify_module_buttons.setObjectName(u"frame_modify_module_buttons")
+        self.frame_modify_module_buttons.setFrameShape(QFrame.StyledPanel)
+        self.frame_modify_module_buttons.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_10 = QHBoxLayout(self.frame_modify_module_buttons)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.push_button_modify_module_activate = QPushButton(self.frame_modify_module_buttons)
+        self.push_button_modify_module_activate.setObjectName(u"push_button_modify_module_activate")
+
+        self.horizontalLayout_10.addWidget(self.push_button_modify_module_activate)
+
+        self.push_button_modify_button_deactivate = QPushButton(self.frame_modify_module_buttons)
+        self.push_button_modify_button_deactivate.setObjectName(u"push_button_modify_button_deactivate")
+
+        self.horizontalLayout_10.addWidget(self.push_button_modify_button_deactivate)
+
+
+        self.verticalLayout_9.addWidget(self.frame_modify_module_buttons)
+
+        self.push_button_modify_module_save = QPushButton(self.scrollAreaWidgetContents_12)
+        self.push_button_modify_module_save.setObjectName(u"push_button_modify_module_save")
+
+        self.verticalLayout_9.addWidget(self.push_button_modify_module_save)
+
+        self.scroll_area_modify_module.setWidget(self.scrollAreaWidgetContents_12)
+
+        self.gridLayout_19.addWidget(self.scroll_area_modify_module, 1, 2, 1, 1)
+
+        self.frame_modules_header = QFrame(self.modules)
+        self.frame_modules_header.setObjectName(u"frame_modules_header")
+        self.frame_modules_header.setFrameShape(QFrame.StyledPanel)
+        self.frame_modules_header.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.frame_modules_header)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.label_module = QLabel(self.frame_modules_header)
+        self.label_module.setObjectName(u"label_module")
+
+        self.horizontalLayout_9.addWidget(self.label_module)
+
+        self.horizontal_spacer_module_header = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_9.addItem(self.horizontal_spacer_module_header)
+
+        self.push_button_module_create = QPushButton(self.frame_modules_header)
+        self.push_button_module_create.setObjectName(u"push_button_module_create")
+
+        self.horizontalLayout_9.addWidget(self.push_button_module_create)
+
+        self.push_button_modules_return = QPushButton(self.frame_modules_header)
+        self.push_button_modules_return.setObjectName(u"push_button_modules_return")
+
+        self.horizontalLayout_9.addWidget(self.push_button_modules_return)
+
+
+        self.gridLayout_19.addWidget(self.frame_modules_header, 0, 0, 1, 3)
+
+        self.stacked_widget.addWidget(self.modules)
+        self.rows = QWidget()
+        self.rows.setObjectName(u"rows")
+        self.gridLayout_20 = QGridLayout(self.rows)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.scroll_area_create_row = QScrollArea(self.rows)
+        self.scroll_area_create_row.setObjectName(u"scroll_area_create_row")
+        self.scroll_area_create_row.setMinimumSize(QSize(215, 0))
+        self.scroll_area_create_row.setMaximumSize(QSize(215, 16777215))
+        self.scroll_area_create_row.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_14 = QWidget()
+        self.scrollAreaWidgetContents_14.setObjectName(u"scrollAreaWidgetContents_14")
+        self.scrollAreaWidgetContents_14.setGeometry(QRect(0, 0, 213, 460))
+        self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_14)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.label_create_row = QLabel(self.scrollAreaWidgetContents_14)
+        self.label_create_row.setObjectName(u"label_create_row")
+        self.label_create_row.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_10.addWidget(self.label_create_row)
+
+        self.label_create_row_name = QLabel(self.scrollAreaWidgetContents_14)
+        self.label_create_row_name.setObjectName(u"label_create_row_name")
+
+        self.verticalLayout_10.addWidget(self.label_create_row_name)
+
+        self.line_edit_create_row_name = QLineEdit(self.scrollAreaWidgetContents_14)
+        self.line_edit_create_row_name.setObjectName(u"line_edit_create_row_name")
+
+        self.verticalLayout_10.addWidget(self.line_edit_create_row_name)
+
+        self.vertical_spacer_create_row = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_10.addItem(self.vertical_spacer_create_row)
+
+        self.push_create_row_save = QPushButton(self.scrollAreaWidgetContents_14)
+        self.push_create_row_save.setObjectName(u"push_create_row_save")
+
+        self.verticalLayout_10.addWidget(self.push_create_row_save)
+
+        self.scroll_area_create_row.setWidget(self.scrollAreaWidgetContents_14)
+
+        self.gridLayout_20.addWidget(self.scroll_area_create_row, 1, 1, 1, 1)
+
+        self.scroll_area_modify_row = QScrollArea(self.rows)
+        self.scroll_area_modify_row.setObjectName(u"scroll_area_modify_row")
+        self.scroll_area_modify_row.setMinimumSize(QSize(215, 0))
+        self.scroll_area_modify_row.setMaximumSize(QSize(215, 16777215))
+        self.scroll_area_modify_row.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_15 = QWidget()
+        self.scrollAreaWidgetContents_15.setObjectName(u"scrollAreaWidgetContents_15")
+        self.scrollAreaWidgetContents_15.setGeometry(QRect(0, 0, 213, 460))
+        self.verticalLayout_11 = QVBoxLayout(self.scrollAreaWidgetContents_15)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.label_modify_row = QLabel(self.scrollAreaWidgetContents_15)
+        self.label_modify_row.setObjectName(u"label_modify_row")
+        self.label_modify_row.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_11.addWidget(self.label_modify_row)
+
+        self.label_modify_row_name = QLabel(self.scrollAreaWidgetContents_15)
+        self.label_modify_row_name.setObjectName(u"label_modify_row_name")
+
+        self.verticalLayout_11.addWidget(self.label_modify_row_name)
+
+        self.line_edit_modify_row_name = QLineEdit(self.scrollAreaWidgetContents_15)
+        self.line_edit_modify_row_name.setObjectName(u"line_edit_modify_row_name")
+
+        self.verticalLayout_11.addWidget(self.line_edit_modify_row_name)
+
+        self.vertical_spacer_modify_row = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_11.addItem(self.vertical_spacer_modify_row)
+
+        self.push_button_modify_row_save = QPushButton(self.scrollAreaWidgetContents_15)
+        self.push_button_modify_row_save.setObjectName(u"push_button_modify_row_save")
+
+        self.verticalLayout_11.addWidget(self.push_button_modify_row_save)
+
+        self.scroll_area_modify_row.setWidget(self.scrollAreaWidgetContents_15)
+
+        self.gridLayout_20.addWidget(self.scroll_area_modify_row, 1, 2, 1, 1)
+
+        self.scroll_area_rows_search = QScrollArea(self.rows)
+        self.scroll_area_rows_search.setObjectName(u"scroll_area_rows_search")
+        self.scroll_area_rows_search.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_13 = QWidget()
+        self.scrollAreaWidgetContents_13.setObjectName(u"scrollAreaWidgetContents_13")
+        self.scrollAreaWidgetContents_13.setGeometry(QRect(0, 0, 223, 460))
+        self.gridLayout_23 = QGridLayout(self.scrollAreaWidgetContents_13)
+        self.gridLayout_23.setObjectName(u"gridLayout_23")
+        self.table_widget_rows_search = QTableWidget(self.scrollAreaWidgetContents_13)
+        self.table_widget_rows_search.setObjectName(u"table_widget_rows_search")
+
+        self.gridLayout_23.addWidget(self.table_widget_rows_search, 0, 0, 1, 1)
+
+        self.scroll_area_rows_search.setWidget(self.scrollAreaWidgetContents_13)
+
+        self.gridLayout_20.addWidget(self.scroll_area_rows_search, 1, 0, 1, 1)
+
+        self.frame_10 = QFrame(self.rows)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.gridLayout_21 = QGridLayout(self.frame_10)
+        self.gridLayout_21.setObjectName(u"gridLayout_21")
+        self.push_button_row_create = QPushButton(self.frame_10)
+        self.push_button_row_create.setObjectName(u"push_button_row_create")
+
+        self.gridLayout_21.addWidget(self.push_button_row_create, 0, 3, 1, 1)
+
+        self.frame_11 = QFrame(self.frame_10)
+        self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Raised)
+        self.gridLayout_22 = QGridLayout(self.frame_11)
+        self.gridLayout_22.setObjectName(u"gridLayout_22")
+        self.label_row_module = QLabel(self.frame_11)
+        self.label_row_module.setObjectName(u"label_row_module")
+
+        self.gridLayout_22.addWidget(self.label_row_module, 1, 0, 1, 1)
+
+        self.label_rows = QLabel(self.frame_11)
+        self.label_rows.setObjectName(u"label_rows")
+
+        self.gridLayout_22.addWidget(self.label_rows, 0, 0, 1, 1)
+
+        self.combo_box_row_module = QComboBox(self.frame_11)
+        self.combo_box_row_module.setObjectName(u"combo_box_row_module")
+
+        self.gridLayout_22.addWidget(self.combo_box_row_module, 1, 1, 1, 1)
+
+
+        self.gridLayout_21.addWidget(self.frame_11, 0, 1, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_21.addItem(self.horizontalSpacer, 0, 2, 1, 1)
+
+        self.push_button_rows_return = QPushButton(self.frame_10)
+        self.push_button_rows_return.setObjectName(u"push_button_rows_return")
+
+        self.gridLayout_21.addWidget(self.push_button_rows_return, 0, 4, 1, 1)
+
+
+        self.gridLayout_20.addWidget(self.frame_10, 0, 0, 1, 3)
+
+        self.stacked_widget.addWidget(self.rows)
 
         self.horizontalLayout_7.addWidget(self.stacked_widget)
 
@@ -1676,5 +2205,44 @@ class Ui_MainWindow(object):
         self.push_button_my_account_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.label_my_account_user_name.setText(QCoreApplication.translate("MainWindow", u"Nombre de usuario:", None))
         self.label_my_account_your_user_name.setText(QCoreApplication.translate("MainWindow", u"your_user_name", None))
+        self.label_payment_search_total.setText(QCoreApplication.translate("MainWindow", u"Total:", None))
+        self.label_payment_search_total_value.setText(QCoreApplication.translate("MainWindow", u"0.00 MXN", None))
+        self.label_payment_register.setText(QCoreApplication.translate("MainWindow", u"Registrar pago", None))
+        self.label_payment_create_quantity.setText(QCoreApplication.translate("MainWindow", u"Cantidad:", None))
+        self.label_payment_create_payment_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de pago:", None))
+        self.label_payment_create_comments.setText(QCoreApplication.translate("MainWindow", u"Comentarios:", None))
+        self.push_button_payment_create_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.push_button_payment_create_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Modificar pago", None))
+        self.label_payment_modify_quantity.setText(QCoreApplication.translate("MainWindow", u"Cantidad:", None))
+        self.label_payment_modify_payment_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de pago:", None))
+        self.label_payment_modify_comments.setText(QCoreApplication.translate("MainWindow", u"Comentarios:", None))
+        self.push_button_payment_modify_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.label_payment_niche.setText(QCoreApplication.translate("MainWindow", u"Nicho:", None))
+        self.label_payment_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))
+        self.label_payment_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
+        self.label_payments.setText(QCoreApplication.translate("MainWindow", u"Pagos", None))
+        self.push_button_payment_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
+        self.label_create_module.setText(QCoreApplication.translate("MainWindow", u"Crear m\u00f3dulo", None))
+        self.label_create_module_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.push_button_create_module_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.label_modify_module.setText(QCoreApplication.translate("MainWindow", u"Modificar m\u00f3dulo", None))
+        self.label_modify_module_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.push_button_modify_module_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
+        self.push_button_modify_button_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
+        self.push_button_modify_module_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.label_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulos", None))
+        self.push_button_module_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
+        self.push_button_modules_return.setText(QCoreApplication.translate("MainWindow", u"Regresar", None))
+        self.label_create_row.setText(QCoreApplication.translate("MainWindow", u"Crear fila", None))
+        self.label_create_row_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.push_create_row_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.label_modify_row.setText(QCoreApplication.translate("MainWindow", u"Modificar fila", None))
+        self.label_modify_row_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.push_button_modify_row_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.push_button_row_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
+        self.label_row_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))
+        self.label_rows.setText(QCoreApplication.translate("MainWindow", u"Filas", None))
+        self.push_button_rows_return.setText(QCoreApplication.translate("MainWindow", u"Regresar", None))
     # retranslateUi
 

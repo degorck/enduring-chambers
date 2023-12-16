@@ -81,6 +81,7 @@ def __create_tables():
             niche_id int REFERENCES tb_niche(id),
             quantity FLOAT NOT NULL,
             payment_date TIMESTAMP NOT NULL,
+            comments TEXT,
             created_at TIMESTAMP NOT NULL,
             updated_at TIMESTAMP NOT NULL)
         ''',
