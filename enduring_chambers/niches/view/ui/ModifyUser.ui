@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ModifyUser</class>
+ <widget class="QDialog" name="ModifyUser">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>509</width>
+    <height>298</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Modificación de usuario</string>
+  </property>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>220</y>
+     <width>239</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="push_button_save">
+      <property name="text">
+       <string>Guardar</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="push_button_activate">
+      <property name="text">
+       <string>Alta</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="push_button_deactivate">
+      <property name="text">
+       <string>Baja</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>40</y>
+     <width>401</width>
+     <height>164</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_name">
+      <property name="text">
+       <string>Nombre:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_maternal_surname">
+      <property name="text">
+       <string>Apellido Materno:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="line_edit_paternal_surname"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="line_edit_maternal_surname"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="line_edit_name"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="combo_box_user_type"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_user_type">
+      <property name="text">
+       <string>Tipo de usuario:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_paternal_surname">
+      <property name="text">
+       <string>Apellido Paterno:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>line_edit_name</tabstop>
+  <tabstop>line_edit_paternal_surname</tabstop>
+  <tabstop>line_edit_maternal_surname</tabstop>
+  <tabstop>combo_box_user_type</tabstop>
+  <tabstop>push_button_save</tabstop>
+  <tabstop>push_button_activate</tabstop>
+  <tabstop>push_button_deactivate</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
