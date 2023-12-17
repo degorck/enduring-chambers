@@ -2,6 +2,7 @@
 /enduring_chambers/.env
 /enduring_chambers/dist
 /enduring_chambers/build
+/enduring_chambers/main.spec
 **__pycache__
 **.bkp
 **.log
