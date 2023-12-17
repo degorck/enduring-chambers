@@ -11,7 +11,7 @@
 Build application script
 
 ```
-pyinstaller -w -D --add-data ".env;." --add-data ".\log;.\log" --add-data ".\niches\tmp;.\niches\tmp" main.py
+pyinstaller -w -D --add-data ".env;." --add-data ".\log;.\log" --add-data ".\tmp;.\tmp" main.py
 ```
 
 continue
