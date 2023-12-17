@@ -1548,20 +1548,24 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 223, 404))
         self.gridLayout_17 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
-        self.label_payment_search_total = QLabel(self.scrollAreaWidgetContents)
-        self.label_payment_search_total.setObjectName(u"label_payment_search_total")
-
-        self.gridLayout_17.addWidget(self.label_payment_search_total, 1, 0, 1, 1)
-
         self.label_payment_search_total_value = QLabel(self.scrollAreaWidgetContents)
         self.label_payment_search_total_value.setObjectName(u"label_payment_search_total_value")
 
         self.gridLayout_17.addWidget(self.label_payment_search_total_value, 1, 1, 1, 1)
 
+        self.label_payment_search_total = QLabel(self.scrollAreaWidgetContents)
+        self.label_payment_search_total.setObjectName(u"label_payment_search_total")
+
+        self.gridLayout_17.addWidget(self.label_payment_search_total, 1, 0, 1, 1)
+
+        self.horizontal_spacer_search_payments = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontal_spacer_search_payments, 1, 2, 1, 1)
+
         self.table_widget_payments = QTableWidget(self.scrollAreaWidgetContents)
         self.table_widget_payments.setObjectName(u"table_widget_payments")
 
-        self.gridLayout_17.addWidget(self.table_widget_payments, 0, 0, 1, 2)
+        self.gridLayout_17.addWidget(self.table_widget_payments, 0, 0, 1, 3)
 
         self.scroll_area_payment_search.setWidget(self.scrollAreaWidgetContents)
 
@@ -1718,25 +1722,25 @@ class Ui_MainWindow(object):
 
         self.gridLayout_16.addWidget(self.label_payment_niche, 4, 1, 1, 1)
 
-        self.comboBox = QComboBox(self.frame_7)
-        self.comboBox.setObjectName(u"comboBox")
+        self.combo_box_payments_module = QComboBox(self.frame_7)
+        self.combo_box_payments_module.setObjectName(u"combo_box_payments_module")
 
-        self.gridLayout_16.addWidget(self.comboBox, 1, 2, 1, 1)
+        self.gridLayout_16.addWidget(self.combo_box_payments_module, 1, 2, 1, 1)
 
         self.label_payment_module = QLabel(self.frame_7)
         self.label_payment_module.setObjectName(u"label_payment_module")
 
         self.gridLayout_16.addWidget(self.label_payment_module, 1, 1, 1, 1)
 
-        self.comboBox_3 = QComboBox(self.frame_7)
-        self.comboBox_3.setObjectName(u"comboBox_3")
+        self.combo_box_payment_niche = QComboBox(self.frame_7)
+        self.combo_box_payment_niche.setObjectName(u"combo_box_payment_niche")
 
-        self.gridLayout_16.addWidget(self.comboBox_3, 4, 2, 1, 1)
+        self.gridLayout_16.addWidget(self.combo_box_payment_niche, 4, 2, 1, 1)
 
-        self.comboBox_2 = QComboBox(self.frame_7)
-        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.combo_box_payments_row = QComboBox(self.frame_7)
+        self.combo_box_payments_row.setObjectName(u"combo_box_payments_row")
 
-        self.gridLayout_16.addWidget(self.comboBox_2, 3, 2, 1, 1)
+        self.gridLayout_16.addWidget(self.combo_box_payments_row, 3, 2, 1, 1)
 
         self.label_payment_row = QLabel(self.frame_7)
         self.label_payment_row.setObjectName(u"label_payment_row")
@@ -2207,8 +2211,8 @@ class Ui_MainWindow(object):
         self.push_button_my_account_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.label_my_account_user_name.setText(QCoreApplication.translate("MainWindow", u"Nombre de usuario:", None))
         self.label_my_account_your_user_name.setText(QCoreApplication.translate("MainWindow", u"your_user_name", None))
-        self.label_payment_search_total.setText(QCoreApplication.translate("MainWindow", u"Total:", None))
         self.label_payment_search_total_value.setText(QCoreApplication.translate("MainWindow", u"0.00 MXN", None))
+        self.label_payment_search_total.setText(QCoreApplication.translate("MainWindow", u"Total:", None))
         self.label_payment_register.setText(QCoreApplication.translate("MainWindow", u"Registrar pago", None))
         self.label_payment_create_quantity.setText(QCoreApplication.translate("MainWindow", u"Cantidad:", None))
         self.label_payment_create_payment_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de pago:", None))

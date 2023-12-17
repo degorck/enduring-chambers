@@ -122,6 +122,7 @@ class DeceasedController:
         self.main_window.combo_box_modify_deceased_row.clear()
         self.main_window.combo_box_modify_deceased_row.addItem("", None)
         if self.main_window.combo_box_modify_deceased_module.currentData() is None:
+            self.main_window.combo_box_modify_deceased_row.setCurrentText("")
             self.main_window.combo_box_modify_deceased_row.setEnabled(False)
         else:
             self.main_window.combo_box_modify_deceased_row.setEnabled(True)

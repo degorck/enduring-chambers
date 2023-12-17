@@ -197,6 +197,7 @@ class UserController:
         self.main_window.push_button_my_account.setChecked(False)
         self.main_window.push_button_niches.setChecked(False)
         self.main_window.push_button_users.setChecked(True)
+        self.main_window.push_button_payments.setChecked(False)
         self.main_window.stacked_widget.setCurrentIndex(1)
         logging.debug("Users stacked widget selected")
 

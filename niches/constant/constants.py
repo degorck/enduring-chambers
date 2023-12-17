@@ -48,7 +48,7 @@ LOG_FORMAT = ('[ %(asctime)s ][%(levelname)s][%(name)s] ' +
               '::::: %(message)s ::::: [%(module)s :: %(funcName)s]')
 LOG_ROUTE = "./log/"
 LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
-LOGGING_LEVEL = int(os.getenv("LOGGING_LEVEL"))
+LOGGING_LEVEL = logging.DEBUG
 '''
 Logging levels:
     - INFO - info message
