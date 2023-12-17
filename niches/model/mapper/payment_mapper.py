@@ -24,7 +24,8 @@ def payment_to_payment_dto(payment:Payment):
     payment_dto = PaymentDto()
     payment_dto.existing_payment(
         payment.get_id(),
-        niche_to_niche_dto(payment_dto.get_niche()) if (payment_dto.get_niche() is None) else None,
+        niche_to_niche_dto(payment.get_niche()) if (
+            payment.get_niche() is not None) else None,
         payment.get_quantity(),
         payment.get_payment_date() if (payment.get_payment_date() is not None) else None,
         payment.get_comments(),
