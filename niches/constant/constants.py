@@ -76,6 +76,7 @@ class UserField(StrEnum):
     PASSWORD = "Contraseña"
     PHONE = "Teléfono"
     NICHE = "Nicho"
+    QUANTITY = "Cantidad"
 
 class UserTypeKey(StrEnum):
     """

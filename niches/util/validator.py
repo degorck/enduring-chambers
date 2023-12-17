@@ -88,3 +88,20 @@ def validate_not_none(item, name:str):
     """
     if item is None:
         raise ValueError(name +" no debe estar vacío")
+    
+def validate_not_zero(value:float, name:str):
+    """
+    Validates if the value is not zero
+    
+    Arguments:
+        value:
+            value to validate
+        name: str
+            name of the item
+
+    Raises:
+        ValueError:
+            Raises a ValueError exception if the number does not have the right format
+    """
+    if value == 0:
+        raise ValueError(name + " debe ser mayor a cero")

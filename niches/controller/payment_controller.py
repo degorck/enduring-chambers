@@ -15,7 +15,7 @@ from niches.model.dto.niche_dto import NicheDto
 from niches.model.dto.payment_dto import PaymentDto
 from niches.service.payment_service import PaymentService
 from niches.controller.error_controller import ErrorController
-from niches.util.validator import validate_not_none
+from niches.util.validator import validate_not_none, validate_not_zero
 from niches.constant.constants import UserField, UserTypeKey
 
 class PaymentController:
@@ -118,6 +118,8 @@ class PaymentController:
         try:
             validate_not_none(self.main_window.combo_box_payment_niche.currentData(),
                               UserField.NICHE)
+            validate_not_zero(self.main_window.double_spin_box_payment_create_quantity.value(),
+                              UserField.QUANTITY)
 
             q_date_payment_date = self.main_window.date_edit_payment_create_payment_date.date()
             payment_date = datetime.datetime(q_date_payment_date.year(),
