@@ -17,7 +17,7 @@ from niches.controller.payment_controller import PaymentController
 from niches.util.wheel_event_filter import WheelEventFilter
 logging = get_loging()
 
-class Main(QtWidgets.QMainWindow, Ui_MainWindow):
+class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
     """
     Class with the functionality of MainWindow
 
@@ -241,5 +241,5 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     filter = WheelEventFilter()
     app.installEventFilter(filter)
-    window = Main()
+    window = EnduringChambers()
     sys.exit(app.exec())
