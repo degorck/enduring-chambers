@@ -12,8 +12,6 @@ FTP_HOST = os.getenv("FTP_HOST")
 FTP_USER = os.getenv("FTP_USER")
 FTP_PASSWORD = os.getenv("FTP_PASSWORD")
 
-#local_file_path = 'C:/Users/small/Downloads/Captura.PNG'
-
 FTP_REMOTE_DIRECTORY = os.getenv("FTP_REMOTE_DIRECTORY")
 
 def __configure_routes_send_image(image_route):
@@ -110,7 +108,7 @@ def download_image(image_route):
         # ftp.cwd('/path/on/ftp/server/')
 
         # Open the local file in binary write mode
-        file_route = "/niches/tmp/"
+        file_route = "/tmp/"
         file_name = "tmp." + image_details[3]
         local_file_path = os.path.join("." + file_route, file_name)
 
