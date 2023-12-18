@@ -8,7 +8,7 @@ from niches.service.module_service import ModuleService
 from niches.service.row_service import RowService
 from niches.model.dto.module_dto import ModuleDto
 from niches.model.dto.row_dto import RowDto
-from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_ACTIVE, UserField
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_ACTIVE, FieldName
 from niches.util.validator import validate_is_not_empty, validate_not_none
 from niches.controller.error_controller import ErrorController
 
@@ -101,9 +101,9 @@ class RowController:
     def __create_row(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_create_row_name.text(),
-                                  UserField.NAME)
+                                  FieldName.NAME)
             validate_not_none(self.main_window.combo_box_row_module.currentData(),
-                              UserField.MODULE)
+                              FieldName.MODULE)
             row_dto = RowDto()
             row_dto.new_row(
                 self.main_window.line_edit_create_row_name.text(),
@@ -131,7 +131,7 @@ class RowController:
     def __modify_row(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_modify_row_name.text(),
-                                  UserField.NAME)
+                                  FieldName.NAME)
 
             self.__loaded_row_dto.set_name(
                 self.main_window.line_edit_modify_row_name.text())
@@ -173,7 +173,7 @@ class RowController:
     def __modify_row(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_modify_row_name.text(),
-                                  UserField.NAME)
+                                  FieldName.NAME)
 
             self.__loaded_row_dto.set_name(
                 self.main_window.line_edit_modify_row_name.text())
