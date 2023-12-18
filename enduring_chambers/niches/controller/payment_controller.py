@@ -29,6 +29,7 @@ class PaymentController:
     def __init__(self, main_window:Ui_MainWindow):
         self.main_window = main_window
         self.__row = 0
+        self.__loaded_payment_dto = PaymentDto()
         self.__module_service = ModuleService()
         self.__row_service = RowService()
         self.__niche_service = NicheService()
@@ -59,6 +60,8 @@ class PaymentController:
             self.__create_payment)
         self.main_window.combo_box_payment_niche.currentIndexChanged.connect(
             self.__search_payment)
+        self.main_window.table_widget_payments.cellDoubleClicked.connect(self.__select_payment)
+        self.main_window.push_button_payment_modify_save.clicked.connect(self.__modify_payment)
 
     def __configure_combo_box_module(self):
         list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
@@ -220,3 +223,67 @@ class PaymentController:
             total = total + payment_dto.get_quantity()
             self.main_window.label_payment_search_total_value.setText(str(total))
             row = row + 1
+
+    def __select_payment(self):
+        row = self.main_window.table_widget_payments.currentRow()
+        id_payment = int(self.main_window.table_widget_payments.item(row, 0).text())
+        self.main_window.scroll_area_payment_modify.show()
+        self.__load_payment(id_payment)
+
+    def __load_payment(self, id_payment:int):
+        payment_dto:PaymentDto = self.__payment_service.find_by_id(id_payment)
+        self.__loaded_payment_dto.existing_payment(
+            payment_dto.get_id(),
+            payment_dto.get_niche(),
+            payment_dto.get_quantity(),
+            payment_dto.get_payment_date(),
+            payment_dto.get_comments(),
+            payment_dto.get_created_at(),
+            payment_dto.get_updated_at()
+        )
+
+        payment_date = self.__loaded_payment_dto.get_payment_date()
+        q_payment_date =  QtCore.QDate(payment_date.year, payment_date.month, payment_date.day)
+        self.main_window.double_spin_box_payment_modify_quantity.setValue(
+            self.__loaded_payment_dto.get_quantity())
+        self.main_window.date_edit_payment_modify_payment_date.setDate(q_payment_date)
+        self.main_window.plain_text_edit_payment_modify_comments.setPlainText(
+            self.__loaded_payment_dto.get_comments())
+        logging.debug("Se cargó el pago: [%s]", self.__loaded_payment_dto.to_string())
+
+    def __modify_payment(self):
+        try:
+            validate_not_zero(self.main_window.double_spin_box_payment_modify_quantity.value(),
+                              UserField.QUANTITY)
+            q_payment_date = self.main_window.date_edit_payment_modify_payment_date.date()
+            payment_date = datetime.datetime(q_payment_date.year(),
+                                             q_payment_date.month(),
+                                             q_payment_date.day())
+            payment_dto = PaymentDto()
+            payment_dto.existing_payment(
+                self.__loaded_payment_dto.get_id(),
+                self.__loaded_payment_dto.get_niche(),
+                self.main_window.double_spin_box_payment_modify_quantity.value(),
+                payment_date,
+                self.main_window.plain_text_edit_payment_modify_comments.toPlainText(),
+                self.__loaded_payment_dto.get_created_at(),
+                self.__loaded_payment_dto.get_updated_at()
+            )
+
+            self.__payment_service.modify_payment(payment_dto)
+
+            self.__search_payment()
+            self.__error_controller.handle_value_error("El pago se ha modificado exitosamente")
+            self.__error_controller.show()
+            self.main_window.scroll_area_payment_modify.hide()
+            logging.debug("El pago se ha modificado exitosamente")
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            logging.error(ve)
+            self.__error_controller.show()
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            logging.error(e)
+            self.__error_controller.show()
