@@ -85,6 +85,7 @@ class UserField(StrEnum):
     PHONE = "Teléfono"
     NICHE = "Nicho"
     QUANTITY = "Cantidad"
+    MODULE = "Módulo"
 
 class UserTypeKey(StrEnum):
     """

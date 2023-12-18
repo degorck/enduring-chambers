@@ -1786,7 +1786,7 @@ class Ui_MainWindow(object):
         self.scroll_area_module_search.setWidgetResizable(True)
         self.scrollAreaWidgetContents_10 = QWidget()
         self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
-        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 223, 500))
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 98, 89))
         self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_10)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
         self.table_widget_modules = QTableWidget(self.scrollAreaWidgetContents_10)
@@ -1805,7 +1805,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_module.setWidgetResizable(True)
         self.scrollAreaWidgetContents_11 = QWidget()
         self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
-        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 213, 500))
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 98, 120))
         self.verticalLayout_8 = QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.label_create_module = QLabel(self.scrollAreaWidgetContents_11)
@@ -1844,7 +1844,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_module.setWidgetResizable(True)
         self.scrollAreaWidgetContents_12 = QWidget()
         self.scrollAreaWidgetContents_12.setObjectName(u"scrollAreaWidgetContents_12")
-        self.scrollAreaWidgetContents_12.setGeometry(QRect(0, 0, 213, 500))
+        self.scrollAreaWidgetContents_12.setGeometry(QRect(0, 0, 194, 170))
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_12)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.label_modify_module = QLabel(self.scrollAreaWidgetContents_12)
@@ -1958,10 +1958,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addItem(self.vertical_spacer_create_row)
 
-        self.push_create_row_save = QPushButton(self.scrollAreaWidgetContents_14)
-        self.push_create_row_save.setObjectName(u"push_create_row_save")
+        self.push_button_create_row_save = QPushButton(self.scrollAreaWidgetContents_14)
+        self.push_button_create_row_save.setObjectName(u"push_button_create_row_save")
 
-        self.verticalLayout_10.addWidget(self.push_create_row_save)
+        self.verticalLayout_10.addWidget(self.push_button_create_row_save)
 
         self.scroll_area_create_row.setWidget(self.scrollAreaWidgetContents_14)
 
@@ -2045,15 +2045,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_22.addWidget(self.label_row_module, 1, 0, 1, 1)
 
+        self.combo_box_row_module = QComboBox(self.frame_11)
+        self.combo_box_row_module.setObjectName(u"combo_box_row_module")
+        self.combo_box_row_module.setMinimumSize(QSize(65, 0))
+
+        self.gridLayout_22.addWidget(self.combo_box_row_module, 1, 1, 1, 1)
+
         self.label_rows = QLabel(self.frame_11)
         self.label_rows.setObjectName(u"label_rows")
 
-        self.gridLayout_22.addWidget(self.label_rows, 0, 0, 1, 1)
-
-        self.combo_box_row_module = QComboBox(self.frame_11)
-        self.combo_box_row_module.setObjectName(u"combo_box_row_module")
-
-        self.gridLayout_22.addWidget(self.combo_box_row_module, 1, 1, 1, 1)
+        self.gridLayout_22.addWidget(self.label_rows, 0, 0, 1, 2)
 
 
         self.gridLayout_21.addWidget(self.frame_11, 0, 1, 1, 1)
@@ -2242,7 +2243,7 @@ class Ui_MainWindow(object):
         self.push_button_modules_return.setText(QCoreApplication.translate("MainWindow", u"Regresar", None))
         self.label_create_row.setText(QCoreApplication.translate("MainWindow", u"Crear fila", None))
         self.label_create_row_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
-        self.push_create_row_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.push_button_create_row_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.label_modify_row.setText(QCoreApplication.translate("MainWindow", u"Modificar fila", None))
         self.label_modify_row_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.push_button_modify_row_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))

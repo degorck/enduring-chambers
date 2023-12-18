@@ -2787,8 +2787,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>89</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_18">
@@ -2821,8 +2821,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>98</width>
+             <height>120</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -2892,8 +2892,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>170</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -3078,7 +3078,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="push_create_row_save">
+             <widget class="QPushButton" name="push_button_create_row_save">
               <property name="text">
                <string>Guardar</string>
               </property>
@@ -3213,15 +3213,22 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="0">
+              <item row="1" column="1">
+               <widget class="QComboBox" name="combo_box_row_module">
+                <property name="minimumSize">
+                 <size>
+                  <width>65</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="label_rows">
                 <property name="text">
                  <string>Filas</string>
                 </property>
                </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QComboBox" name="combo_box_row_module"/>
               </item>
              </layout>
             </widget>

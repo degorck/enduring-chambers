@@ -15,6 +15,7 @@ from niches.controller.niche_controller import NicheController
 from niches.controller.deceased_controller import DeceasedController
 from niches.controller.payment_controller import PaymentController
 from niches.controller.module_controller import ModuleController
+from niches.controller.row_controller import RowController
 from niches.util.wheel_event_filter import WheelEventFilter
 logging = get_loging()
 
@@ -47,6 +48,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__deceased_controller = DeceasedController(self)
         self.__payment_controller = PaymentController(self)
         self.__module_controller = ModuleController(self)
+        self.__row_controller = RowController(self)
         self.__configure_actions()
         self.__configure_windows_by_user_type()
         self.show()
@@ -222,8 +224,8 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         logging.debug("Modules stacked widget selected")
 
     def __set_stacked_widget_rows(self):
-        #self.scroll_area_create_payments.hide()
-        #self.scroll_area_modify_payments.hide()
+        self.scroll_area_create_row.hide()
+        self.scroll_area_modify_row.hide()
         self.push_button_deceased.setChecked(False)
         self.push_button_holders.setChecked(False)
         self.push_button_my_account.setChecked(False)

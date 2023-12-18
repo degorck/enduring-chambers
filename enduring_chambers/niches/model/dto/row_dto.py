@@ -104,7 +104,7 @@ class RowDto:
             updated_at : datetime
                 updated_at to set
         """
-        self.__created_at = updated_at
+        self.__updated_at = updated_at
 
     def new_row(self, name:str, module_dto:ModuleDto):
         """
