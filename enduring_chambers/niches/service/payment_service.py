@@ -79,3 +79,13 @@ class PaymentService:
             self.__payment_dao.find_by_id(payment_id))
         logging.debug("Se encontró el pago por su id")
         return payment_dto
+
+    def modify_payment(self, payment_dto:PaymentDto):
+        """
+        Modify payment
+
+        Arguments:
+            payment_dto: PaymentDto
+                PaymentDto to be modified
+        """
+        self.__payment_dao.modify_payment(payment_dto_to_payment(payment_dto))

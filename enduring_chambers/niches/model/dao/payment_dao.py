@@ -206,3 +206,43 @@ class PaymentDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def modify_payment(self, payment:Payment):
+        """
+        Modifies the payment on database
+        
+        Arguments:
+            payment: Payment
+                Payment entity to be modified
+        """
+        command = '''
+                UPDATE tb_payment
+                SET
+                niche_id = %s,
+                quantity = %s,
+                payment_date = %s,
+                comments = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            payment.get_niche().get_id(),
+            payment.get_quantity(),
+            payment.get_payment_date(),
+            payment.get_comments(),
+            datetime.datetime.now(),
+            payment.get_id()
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se modificó el pago")
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
