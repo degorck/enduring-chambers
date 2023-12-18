@@ -48,7 +48,15 @@ LOG_FORMAT = ('[ %(asctime)s ][%(levelname)s][%(name)s] ' +
               '::::: %(message)s ::::: [%(module)s :: %(funcName)s]')
 LOG_ROUTE = "./log/"
 LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
-LOGGING_LEVEL = int(os.getenv("LOGGING_LEVEL"))
+LOGGING_LEVEL_ENUM = {
+    "INFO" : logging.INFO,
+    "DEBUG" : logging.DEBUG,
+    "WARNING" : logging.WARNING,
+    "ERROR": logging.ERROR,
+    "CRITICAl": logging.CRITICAL
+    }
+
+LOGGING_LEVEL = LOGGING_LEVEL_ENUM[os.getenv("LOGGING_LEVEL")]
 '''
 Logging levels:
     - INFO - info message
@@ -76,6 +84,7 @@ class UserField(StrEnum):
     PASSWORD = "Contraseña"
     PHONE = "Teléfono"
     NICHE = "Nicho"
+    QUANTITY = "Cantidad"
 
 class UserTypeKey(StrEnum):
     """

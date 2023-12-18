@@ -1,8 +1,12 @@
-.env
+.venv
+/enduring_chambers/.env
+/enduring_chambers/dist
+/enduring_chambers/build
+/enduring_chambers/enduring_chambers.spec
+/enduring_chambers/enduring_chambers_terminal.spec
 **__pycache__
-/develop
 **.bkp
 **.log
-notes.txt
 **.jpg
 **.png
+.vscode
