@@ -1545,7 +1545,7 @@ class Ui_MainWindow(object):
         self.scroll_area_payment_search.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 223, 404))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 109, 115))
         self.gridLayout_17 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.label_payment_search_total_value = QLabel(self.scrollAreaWidgetContents)
@@ -1578,7 +1578,7 @@ class Ui_MainWindow(object):
         self.scroll_area_payment_create.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 213, 404))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 194, 289))
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_payment_register = QLabel(self.scrollAreaWidgetContents_8)
@@ -1652,7 +1652,7 @@ class Ui_MainWindow(object):
         self.scroll_area_payment_modify.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 213, 404))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 99, 269))
         self.verticalLayout_7 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.label_8 = QLabel(self.scrollAreaWidgetContents_9)
@@ -1878,10 +1878,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10.addWidget(self.push_button_modify_module_activate)
 
-        self.push_button_modify_button_deactivate = QPushButton(self.frame_modify_module_buttons)
-        self.push_button_modify_button_deactivate.setObjectName(u"push_button_modify_button_deactivate")
+        self.push_button_modify_module_deactivate = QPushButton(self.frame_modify_module_buttons)
+        self.push_button_modify_module_deactivate.setObjectName(u"push_button_modify_module_deactivate")
 
-        self.horizontalLayout_10.addWidget(self.push_button_modify_button_deactivate)
+        self.horizontalLayout_10.addWidget(self.push_button_modify_module_deactivate)
 
 
         self.verticalLayout_9.addWidget(self.frame_modify_module_buttons)
@@ -2235,7 +2235,7 @@ class Ui_MainWindow(object):
         self.label_modify_module.setText(QCoreApplication.translate("MainWindow", u"Modificar m\u00f3dulo", None))
         self.label_modify_module_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.push_button_modify_module_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
-        self.push_button_modify_button_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
+        self.push_button_modify_module_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.push_button_modify_module_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.label_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulos", None))
         self.push_button_module_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))

@@ -2432,8 +2432,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>404</height>
+             <width>109</width>
+             <height>115</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_17">
@@ -2493,8 +2493,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>404</height>
+             <width>194</width>
+             <height>289</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2607,8 +2607,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>404</height>
+             <width>99</width>
+             <height>269</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -2947,7 +2947,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="push_button_modify_button_deactivate">
+                <widget class="QPushButton" name="push_button_modify_module_deactivate">
                  <property name="text">
                   <string>Desactivar</string>
                  </property>

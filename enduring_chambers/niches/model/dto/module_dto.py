@@ -79,6 +79,7 @@ class ModuleDto:
         Arguments:
             is_active: bool
         """
+        self.__is_active = is_active
 
     def set_created_at(self, created_at:datetime):
         """
@@ -100,7 +101,7 @@ class ModuleDto:
         """
         self.__updated_at = updated_at
 
-    def new_module(self, name):
+    def new_module(self, name:str):
         """
         Loads data for a new module
 
