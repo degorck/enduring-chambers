@@ -191,7 +191,7 @@ class ModuleDao:
             self.__db_connection.get_cursor().execute('SELECT LASTVAL()')
             row = self.__db_connection.get_cursor().fetchone()
             self.__db_connection.end_connection()
-            logging.debug("Se creó el pago")
+            logging.debug("Se creó el módulo")
             return self.find_by_id(int(row["lastval"]))
 
         except (Exception, psycopg2.DatabaseError) as error:
