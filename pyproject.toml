@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "enduring_chambers"
+version = "0.1.0"
+description = "System to manage niches"
+authors = ["Degorck <degorckterr@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+bcrypt = "^4.1.2"
+psycopg2 = "^2.9.9"
+pyside6 = "^6.6.1"
+python-dotenv = "^1.0.0"
+python-decouple = "^3.8"
+pyinstaller = "^6.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

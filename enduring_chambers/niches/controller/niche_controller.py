@@ -14,7 +14,8 @@ from niches.model.dto.holder_dto import HolderDto
 from niches.model.dto.niche_dto import NicheDto
 from niches.controller.error_controller import ErrorController
 from niches.constant.constants import UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
-from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY, HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY
 from niches.util.validator import validate_not_none
 
 class NicheController:
@@ -36,13 +37,13 @@ class NicheController:
         self.__error_controller = ErrorController()
         self.main_window.scroll_area_modify_niche.hide()
         self.main_window.scroll_area_create_niche.hide()
-        self.__configure_combo_box_niches()
+        self.__configure_combo_box_niches_module()
         self.__configure_combo_box_holders()
         self.__configure_combo_box_holders_modify()
         self.__configure_actions()
         self.__search_niches()
 
-    def __configure_combo_box_niches(self):
+    def __configure_combo_box_niches_module(self):
         list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
         self.main_window.combo_box_niches_module.clear()
         self.main_window.combo_box_niches_module.addItem("", None)
@@ -130,7 +131,7 @@ class NicheController:
     def __reload(self):
         self.__configure_combo_box_holders()
         self.__configure_combo_box_holders_modify()
-        self.__configure_combo_box_niches()
+        self.__configure_combo_box_niches_module()
         self.__configure_combo_box_rows()
 
     def __save_niche(self):

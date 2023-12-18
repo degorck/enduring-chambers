@@ -13,10 +13,11 @@ from niches.controller.my_account_controller import MyAccountController
 from niches.controller.holder_controller import HolderController
 from niches.controller.niche_controller import NicheController
 from niches.controller.deceased_controller import DeceasedController
+from niches.controller.payment_controller import PaymentController
 from niches.util.wheel_event_filter import WheelEventFilter
 logging = get_loging()
 
-class Main(QtWidgets.QMainWindow, Ui_MainWindow):
+class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
     """
     Class with the functionality of MainWindow
 
@@ -43,6 +44,7 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__holder_controller = HolderController(self)
         self.__niche_controller = NicheController(self)
         self.__deceased_controller = DeceasedController(self)
+        self.__payment_controller = PaymentController(self)
         self.__configure_actions()
         self.__configure_windows_by_user_type()
         self.show()
@@ -101,6 +103,10 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__login_controller.push_button_guest.clicked.connect(
             self.__configure_windows_by_user_type)
         self.push_button_my_account_logout.clicked.connect(self.__logout)
+        self.push_button_modules.clicked.connect(self.__set_stacked_widget_modules)
+        self.push_button_modules_return.clicked.connect(self.__set_stacked_widget_niches)
+        self.push_button_rows.clicked.connect(self.__set_stacked_widget_rows)
+        self.push_button_rows_return.clicked.connect(self.__set_stacked_widget_niches)
 
     def __configure_windows_by_user_type(self):
         self.__user_type_key = self.__login_controller.get_logged_user_type_key()
@@ -156,6 +162,8 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         self.stacked_widget.setEnabled(False)
 
     def __set_stacked_widget_niches(self):
+        self.scroll_area_create_niche.hide()
+        self.scroll_area_modify_niche.hide()
         self.push_button_deceased.setChecked(False)
         self.push_button_holders.setChecked(False)
         self.push_button_my_account.setChecked(False)
@@ -188,16 +196,40 @@ class Main(QtWidgets.QMainWindow, Ui_MainWindow):
         logging.debug("Holders stacked widget selected")
 
     def __set_stacked_widget_payments(self):
-        #self.scroll_area_create_payments.hide()
-        #self.scroll_area_modify_payments.hide()
+        self.scroll_area_payment_create.hide()
+        self.scroll_area_payment_modify.hide()
         self.push_button_deceased.setChecked(False)
         self.push_button_holders.setChecked(False)
         self.push_button_my_account.setChecked(False)
         self.push_button_niches.setChecked(False)
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(True)
-        #self.stacked_widget.setCurrentIndex(4)
-        logging.debug("Holders stacked widget selected")
+        self.stacked_widget.setCurrentIndex(6)
+        logging.debug("Payments stacked widget selected")
+
+    def __set_stacked_widget_modules(self):
+        #self.scroll_area_create_payments.hide()
+        #self.scroll_area_modify_payments.hide()
+        self.push_button_deceased.setChecked(False)
+        self.push_button_holders.setChecked(False)
+        self.push_button_my_account.setChecked(False)
+        self.push_button_niches.setChecked(True)
+        self.push_button_users.setChecked(False)
+        self.push_button_payments.setChecked(False)
+        self.stacked_widget.setCurrentIndex(7)
+        logging.debug("Modules stacked widget selected")
+
+    def __set_stacked_widget_rows(self):
+        #self.scroll_area_create_payments.hide()
+        #self.scroll_area_modify_payments.hide()
+        self.push_button_deceased.setChecked(False)
+        self.push_button_holders.setChecked(False)
+        self.push_button_my_account.setChecked(False)
+        self.push_button_niches.setChecked(True)
+        self.push_button_users.setChecked(False)
+        self.push_button_payments.setChecked(False)
+        self.stacked_widget.setCurrentIndex(8)
+        logging.debug("Rows stacked widget selected")
 
     def __logout(self):
         self.__configure_not_logged_window()
@@ -209,5 +241,5 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     filter = WheelEventFilter()
     app.installEventFilter(filter)
-    window = Main()
+    window = EnduringChambers()
     sys.exit(app.exec())
