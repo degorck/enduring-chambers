@@ -17,6 +17,7 @@ from niches.controller.payment_controller import PaymentController
 from niches.controller.module_controller import ModuleController
 from niches.controller.row_controller import RowController
 from niches.util.wheel_event_filter import WheelEventFilter
+from niches.util.delete_old_log_files_util import delete_old_logs
 logging = get_loging()
 
 class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -30,6 +31,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        delete_old_logs()
         self.__login_controller = LoginController()
         self.__loaded_user_dto = UserDto()
         self.__logged_user_dto = UserDto()

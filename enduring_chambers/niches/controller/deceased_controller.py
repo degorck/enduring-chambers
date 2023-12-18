@@ -15,7 +15,7 @@ from niches.service.niche_service import NicheService
 from niches.service.deceased_service import DeceasedService
 from niches.util.drag_and_drop_create_util import DragAndDropCreateUtil
 from niches.util.drag_and_drop_modify_util import DragAndDropModifyUtil
-from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import FieldName, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.util.ftp_util import send_image, delete_image, download_image
 from niches.util.validator import validate_is_not_empty, validate_not_none
 from niches.controller.error_controller import ErrorController
@@ -165,15 +165,15 @@ class DeceasedController:
     def __create_deceased(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_create_deceased_name.text(),
-                                  UserField.NAME)
+                                  FieldName.NAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_deceased_paternal_surname.text(),
-                UserField.PATERNAL_SURNAME)
+                FieldName.PATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_deceased_maternal_surname.text(),
-                UserField.MATERNAL_SURNAME)
+                FieldName.MATERNAL_SURNAME)
             validate_not_none(self.main_window.combo_box_create_deceased_niche.currentData(),
-                              UserField.NICHE)
+                              FieldName.NICHE)
             deceased_dto = DeceasedDto()
             q_date_birth_date = self.main_window.date_edit_create_deceased_birth_date.date()
             birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
@@ -442,15 +442,15 @@ class DeceasedController:
     def __update_deceased(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_modify_deceased_name.text(),
-                                  UserField.NAME)
+                                  FieldName.NAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_deceased_paternal_surname.text(),
-                UserField.PATERNAL_SURNAME)
+                FieldName.PATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_deceased_maternal_surname.text(),
-                UserField.MATERNAL_SURNAME)
+                FieldName.MATERNAL_SURNAME)
             validate_not_none(self.main_window.combo_box_modify_deceased_niche.currentData(),
-                              UserField.NICHE)
+                              FieldName.NICHE)
             q_date_birth_date = self.main_window.date_edit_modify_deceased_birth_date.date()
             birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
                                            q_date_birth_date.day())

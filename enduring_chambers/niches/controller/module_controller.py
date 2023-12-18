@@ -6,7 +6,7 @@ from PySide6 import QtWidgets
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.service.module_service import ModuleService
 from niches.model.dto.module_dto import ModuleDto
-from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_ACTIVE, UserField
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_ACTIVE, FieldName
 from niches.util.validator import validate_is_not_empty
 from niches.controller.error_controller import ErrorController
 
@@ -111,7 +111,7 @@ class ModuleController:
     def __create_module(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_create_module_name.text(),
-                                  UserField.NAME)
+                                  FieldName.NAME)
             module_dto = ModuleDto()
             module_dto.new_module(
                 self.main_window.line_edit_create_module_name.text()
@@ -138,7 +138,7 @@ class ModuleController:
     def __modify_module(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_modify_module_name.text(),
-                                  UserField.NAME)
+                                  FieldName.NAME)
 
             self.__loaded_module_dto.set_name(
                 self.main_window.line_edit_modify_module_name.text())
