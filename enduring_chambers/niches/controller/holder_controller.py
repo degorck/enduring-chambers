@@ -5,7 +5,7 @@ import logging
 from PySide6 import QtWidgets
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.util.validator import validate_is_not_empty, validate_phone_number
-from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import FieldName, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.model.dto.holder_dto import HolderDto
 from niches.service.holder_service import HolderService
 from niches.controller.error_controller import ErrorController
@@ -44,16 +44,16 @@ class HolderController:
         try:
             validate_is_not_empty(
                 self.main_window.line_edit_create_holder_name.text(),
-                UserField.NAME)
+                FieldName.NAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_holder_paternal_surname.text(),
-                UserField.PATERNAL_SURNAME)
+                FieldName.PATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_holder_maternal_surname.text(),
-                UserField.MATERNAL_SURNAME)
+                FieldName.MATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_holder_phone.text(),
-                UserField.PHONE)
+                FieldName.PHONE)
             validate_phone_number(self.main_window.line_edit_create_holder_phone.text())
 
             holder_dto.new_holder(
@@ -187,16 +187,16 @@ class HolderController:
         try:
             validate_is_not_empty(
                 self.main_window.line_edit_modify_holder_name.text(),
-                UserField.NAME)
+                FieldName.NAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_holder_paternal_surname.text(),
-                UserField.PATERNAL_SURNAME)
+                FieldName.PATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_holder_maternal_surname.text(),
-                UserField.MATERNAL_SURNAME)
+                FieldName.MATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_holder_phone.text(),
-                UserField.PHONE)
+                FieldName.PHONE)
             holder_dto = HolderDto()
             holder_dto = self.__loaded_holder_dto
             holder_dto.set_name(self.main_window.line_edit_modify_holder_name.text())

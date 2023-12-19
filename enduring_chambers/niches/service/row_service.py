@@ -4,7 +4,8 @@ RowService Module for Enduring Chambers
 import logging
 from niches.model.dto.row_dto import RowDto
 from niches.model.dao.row_dao import RowDao
-from niches.model.mapper.row_mapper import row_to_row_dto
+from niches.model.mapper.row_mapper import row_to_row_dto, row_dto_to_row
+from niches.controller.error_controller import ErrorController
 
 class RowService:
     """
@@ -12,6 +13,7 @@ class RowService:
     """
     def __init__(self):
         self.__row_dao = RowDao()
+        self.__error_controller = ErrorController()
 
     def find_by_id(self, id_row:int):
         """
@@ -62,3 +64,44 @@ class RowService:
             list_row_dto.append(row_to_row_dto(row))
         logging.debug("Se obtuvieron todas las filas de módulo")
         return list_row_dto
+
+    def modify_row(self, row_dto:RowDto):
+        """
+        Modify row
+
+        Arguments:
+            row_dto: RowDto
+                RowDto to be modified
+        """
+        self.__row_dao.modify_row(row_dto_to_row(row_dto))
+
+    def create_row(self, row_dto:RowDto):
+        """
+        Saves the row on database.
+
+        Arguments:
+            row_dto: RowDto
+                Data transfer object of the row to be saved
+        Returns:
+            row_dto: RowDto
+                Row created
+        """
+        try:
+            output = row_to_row_dto(
+                self.__row_dao.create_row(
+                    row_dto_to_row(row_dto)))
+
+            logging.debug("Row created")
+            return output
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            logging.error(ve)
+            self.__error_controller.show()
+            return None
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            logging.error(e)
+            self.__error_controller.show()
+            return None
