@@ -11,7 +11,7 @@ from niches.model.dto.user_dto import UserDto
 from niches.model.entity.user import User
 from niches.controller.error_controller import ErrorController
 from niches.util.validator import validate_is_not_empty
-from niches.constant.constants import UserTypeKey, UserField
+from niches.constant.constants import UserTypeKey, FieldName
 from niches.constant.constants import LOGIN_ERROR
 from niches.constant.constants import USER_NOT_EXIST
 from niches.model.mapper.user_type_mapper import user_type_to_user_type_dto
@@ -45,9 +45,9 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
         user = User()
         try:
             validate_is_not_empty(self.line_edit_user.text(),
-                                                   UserField.USER_NAME)
+                                                   FieldName.USER_NAME)
             validate_is_not_empty(self.line_edit_password.text(),
-                                                   UserField.PASSWORD)
+                                                   FieldName.PASSWORD)
             user = self.__user_dao.find_active_user_by_user_name(self.line_edit_user.text())
             user_dto = user_to_user_dto(user)
             if (user_dto.get_user_name() == self.line_edit_user.text()

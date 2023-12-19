@@ -4,7 +4,7 @@ User Controller Module
 from PySide6 import QtWidgets
 from niches.model.dto.user_dto import UserDto
 from niches.util.validator import validate_is_not_empty, validate_password
-from niches.constant.constants import UserField, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import FieldName, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.controller.error_controller import ErrorController
 from niches.service.user_service import UserService
 from niches.service.user_type_service import UserTypeService
@@ -136,22 +136,22 @@ class UserController:
         try:
             validate_is_not_empty(
                 self.main_window.line_edit_create_user_name.text(),
-                UserField.NAME)
+                FieldName.NAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_user_paternal_surname.text(),
-                UserField.PATERNAL_SURNAME)
+                FieldName.PATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_user_maternal_surname.text(),
-                UserField.MATERNAL_SURNAME)
+                FieldName.MATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_user_user_name.text(),
-                UserField.USER_NAME)
+                FieldName.USER_NAME)
             validate_is_not_empty(
                 self.main_window.line_edit_create_user_password.text(),
-                UserField.PASSWORD)
+                FieldName.PASSWORD)
             validate_is_not_empty(
                 self.main_window.line_edit_create_user_repeat_password.text(),
-                UserField.PASSWORD)
+                FieldName.PASSWORD)
             validate_password(self.main_window.line_edit_create_user_password.text(),
                               self.main_window.line_edit_create_user_repeat_password.text())
 
@@ -224,13 +224,13 @@ class UserController:
         try:
             validate_is_not_empty(
                 self.main_window.line_edit_modify_user_name.text(),
-                UserField.NAME)
+                FieldName.NAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_user_paternal_surname.text(),
-                UserField.PATERNAL_SURNAME)
+                FieldName.PATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_user_maternal_surname.text(),
-                UserField.MATERNAL_SURNAME)
+                FieldName.MATERNAL_SURNAME)
             user_dto = UserDto()
             user_dto = self.main_window.get_loaded_user_dto()
             user_dto.set_name(self.main_window.line_edit_modify_user_name.text())

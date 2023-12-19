@@ -5,7 +5,7 @@ from niches.util.logging_configuration import get_loging
 from niches.model.dto.user_dto import UserDto
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.util.validator import validate_is_not_empty, validate_password
-from niches.constant.constants import UserField
+from niches.constant.constants import FieldName
 from niches.service.user_service import UserService
 from niches.util.encryptor import Encryptor
 from niches.controller.error_controller import ErrorController
@@ -43,7 +43,7 @@ class MyAccountController:
     def __change_password(self):
         try:
             validate_is_not_empty(self.main_window.line_edit_my_account_current_password.text(),
-                                                   UserField.PASSWORD)
+                                                   FieldName.PASSWORD)
             validate_password(self.main_window.line_edit_my_account_new_password.text(),
                               self.main_window.line_edit_my_account_repeat_new_password.text())
             user_dto = UserDto()
