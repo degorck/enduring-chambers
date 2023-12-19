@@ -46,8 +46,8 @@ HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF = {
 CONSOLE_LOG_ENABLED = config("CONSOLE_LOG_ENABLED", default=False, cast=bool)
 LOG_FORMAT = ('[ %(asctime)s ][%(levelname)s][%(name)s] ' +
               '::::: %(message)s ::::: [%(module)s :: %(funcName)s]')
-LOG_ROUTE = "./log/"
-LOG_FILENAME = LOG_ROUTE + "enduring-chambers"
+LOG_FOLDER = "." + os.getenv("LOG_FOLDER")
+LOG_FILENAME = LOG_FOLDER + "enduring-chambers"
 LOGGING_LEVEL_ENUM = {
     "INFO" : logging.INFO,
     "DEBUG" : logging.DEBUG,
@@ -72,7 +72,7 @@ Logging levels:
 ##                                                                                          ##
 ##############################################################################################
 
-class UserField(StrEnum):
+class FieldName(StrEnum):
     """
     Enum that includes the field names of an user
     """
@@ -85,6 +85,7 @@ class UserField(StrEnum):
     PHONE = "Teléfono"
     NICHE = "Nicho"
     QUANTITY = "Cantidad"
+    MODULE = "Módulo"
 
 class UserTypeKey(StrEnum):
     """

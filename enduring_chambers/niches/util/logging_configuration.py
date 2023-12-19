@@ -3,8 +3,11 @@ Module configuration for logging
 """
 import logging
 import datetime
-from niches.constant.constants import LOG_FILENAME, LOGGING_LEVEL
+from niches.constant.constants import LOG_FILENAME, LOGGING_LEVEL, LOG_FOLDER
 from niches.constant.constants import UTF_8, LOG_FORMAT, CONSOLE_LOG_ENABLED
+from niches.util.folder_creation_util import create_folder
+
+create_folder(LOG_FOLDER)
 
 logging.basicConfig(filename = LOG_FILENAME + "-"+ str(datetime.date.today()) + ".log",
                     encoding = UTF_8,
