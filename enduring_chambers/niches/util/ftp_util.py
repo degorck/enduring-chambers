@@ -6,13 +6,15 @@ import logging
 from ftplib import FTP
 import os
 from dotenv import load_dotenv
+from niches.util.folder_creation_util import create_folder
+
 load_dotenv()
-# FTP server details
 FTP_HOST = os.getenv("FTP_HOST")
 FTP_USER = os.getenv("FTP_USER")
 FTP_PASSWORD = os.getenv("FTP_PASSWORD")
-
 FTP_REMOTE_DIRECTORY = os.getenv("FTP_REMOTE_DIRECTORY")
+TEMP_FILE_FOLDER = "." + os.getenv("TEMP_FILE_FOLDER")
+create_folder(TEMP_FILE_FOLDER)
 
 def __configure_routes_send_image(image_route):
     # Extract the drive and the rest of the path
@@ -108,13 +110,13 @@ def download_image(image_route):
         # ftp.cwd('/path/on/ftp/server/')
 
         # Open the local file in binary write mode
-        file_route = "/tmp/"
+
         file_name = "tmp." + image_details[3]
-        local_file_path = os.path.join("." + file_route, file_name)
+        local_file_path = os.path.join("." + TEMP_FILE_FOLDER, file_name)
 
         with open(local_file_path, 'wb') as local_file:
             # Download the file from the FTP server
             ftp.retrbinary(f'RETR {image_route}', local_file.write)
 
-    logging.debug("Se descargó la imagen [%s]", file_route + file_name)
-    return file_route + file_name
+    logging.debug("Se descargó la imagen [%s]", TEMP_FILE_FOLDER + file_name)
+    return TEMP_FILE_FOLDER + file_name
