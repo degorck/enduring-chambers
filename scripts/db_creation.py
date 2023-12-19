@@ -13,6 +13,8 @@ db_password = os.getenv("DB_PASSWORD")
 db_user = os.getenv("DB_USER")
 db_port = os.getenv("DB_PORT")
 
+encryptor = Encryptor()
+
 def __create_tables():
     commands = (
         '''

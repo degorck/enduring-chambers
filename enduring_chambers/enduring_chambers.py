@@ -3,6 +3,7 @@ Module that controls the MainWindow
 """
 import sys
 from PySide6 import QtWidgets
+from PySide6.QtCore import Qt
 from niches.view.ui.main_window import Ui_MainWindow
 from niches.model.dto.user_dto import UserDto
 from niches.util.logging_configuration import get_loging
@@ -135,6 +136,8 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_create_holder_create.setEnabled(False)
         self.scroll_area_modify_holder.setEnabled(False)
         self.scroll_area_create_holder.setEnabled(False)
+        self.scroll_area_create_deceased.setEnabled(False)
+        self.scroll_area_modify_deceased.setEnabled(False)
 
     def __configure_administrator_window(self):
         self.stacked_widget.setEnabled(True)
@@ -174,6 +177,9 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         logging.debug("Niches stacked widget selected")
 
     def __set_stacked_widget_deceased(self):
+        self.scroll_area_modify_deceased.hide()
+        self.scroll_area_create_deceased.hide()
+        self.push_button_create_deceased_create.setEnabled(False)
         self.push_button_deceased.setChecked(True)
         self.push_button_holders.setChecked(False)
         self.push_button_my_account.setChecked(False)
