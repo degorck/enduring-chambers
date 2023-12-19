@@ -157,6 +157,7 @@ class NicheController:
             self.__error_controller.handle_value_error("El nicho se ha creado exitosamente")
             self.__error_controller.show()
             logging.debug("Niche created [%s]", niche_dto.to_string())
+
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
             self.__error_controller.show()
@@ -331,7 +332,7 @@ class NicheController:
             self.__loaded_niche_dto.set_is_busy(
                 self.main_window.check_box_modify_niche_is_busy.isChecked())
             self.__loaded_niche_dto.set_is_paid_off(
-                self.main_window.check_box_modify_niche_paid_off.isChecked()) 
+                self.main_window.check_box_modify_niche_paid_off.isChecked())
             self.__niche_service.modify_niche(self.__loaded_niche_dto)
             self.__search_niches()
             self.__error_controller.handle_value_error("El nicho se ha modificado exitosamente")

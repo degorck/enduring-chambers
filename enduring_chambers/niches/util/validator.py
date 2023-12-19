@@ -2,14 +2,14 @@
 Module util used to make validations
 """
 import re
-from niches.constant.constants import UserField
+from niches.constant.constants import FieldName
 from niches.constant.constants import THE_FIELD_LABEL
 from niches.constant.constants import SHOULD_NOT_BE_EMPTY_LABEL
 from niches.constant.constants import PASSWORDS_MUST_BE_EQUAL
 from niches.constant.constants import PASSWORD_MINIMAL_CHARACTERS
 from niches.constant.constants import PASSWORD_MUST_HAVE_CHARACTERS
 
-def validate_is_not_empty(string:str, name:UserField):
+def validate_is_not_empty(string:str, name:FieldName):
     """
     Validates if a string is not empty
     
