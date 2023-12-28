@@ -188,3 +188,13 @@ class NicheService:
             niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
         return list_niche_dto
+
+    def occupy_niche(self, niche_id:int):
+        """
+        Marks niche as occupied by its id
+
+        Arguments:
+            niche_id : int
+                niche_id of the niche to be modified
+        """
+        self.__niche_dao.occupy_niche(niche_id)

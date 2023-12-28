@@ -202,6 +202,7 @@ class DeceasedController:
                 image_route
             )
             self.__deceased_service.create_deceased(deceased_dto)
+            self.__niche_service.occupy_niche(deceased_dto.get_niche().get_id())
             self.__search_deceased()
             self.__error_controller.handle_value_error("El difunto se ha creado")
             self.__error_controller.show()
