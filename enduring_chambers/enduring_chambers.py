@@ -167,23 +167,73 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __configure_administrator_window(self):
         self.stacked_widget.setEnabled(True)
+        # User actions configuration
         self.push_button_create_user_create.setEnabled(True)
         self.scroll_area_modify_user.setEnabled(True)
         self.scroll_area_change_password.setEnabled(True)
+        # Holder actions configuration
         self.push_button_create_holder_create.setEnabled(True)
         self.scroll_area_modify_holder.setEnabled(True)
         self.scroll_area_create_holder.setEnabled(True)
+        self.push_button_modify_holder_activate.setEnabled(True)
+        self.push_button_modify_holder_deactivate.setEnabled(True)
+        # Deceased actions configuration
+        self.push_button_create_deceased_create.setEnabled(True)
+        self.scroll_area_create_deceased.setEnabled(True)
+        self.scroll_area_modify_deceased.setEnabled(True)
+        self.push_button_modify_deceased_active.setEnabled(True)
+        self.push_button_modify_deceased_deactivate.setEnabled(True)
+        # Niches actions configuration
+        self.push_button_create_niches_create.setEnabled(True)
+        self.scroll_area_create_niche.setEnabled(True)
+        self.scroll_area_modify_niche.setEnabled(True)
+        # Payments actions configuration
+        self.push_button_payment_create.setEnabled(True)
+        self.scroll_area_payment_create.setEnabled(True)
+        self.scroll_area_payment_modify.setEnabled(True)
+        # Modules actions configuration
+        self.push_button_module_create.setEnabled(True)
+        self.scroll_area_create_module.setEnabled(True)
+        self.scroll_area_modify_module.setEnabled(True)
+        # Rows actions configuration
+        self.push_button_row_create.setEnabled(True)
+        self.scroll_area_create_row.setEnabled(True)
+        self.scroll_area_modify_row.setEnabled(True)
 
     def __configure_capturist_window(self):
         self.stacked_widget.setEnabled(True)
+        # User actions configuration
         self.push_button_create_user_create.setEnabled(False)
         self.scroll_area_modify_user.setEnabled(False)
         self.scroll_area_change_password.setEnabled(True)
+        # Holder actions configuration
         self.push_button_create_holder_create.setEnabled(True)
         self.scroll_area_modify_holder.setEnabled(True)
         self.scroll_area_create_holder.setEnabled(True)
         self.push_button_modify_holder_activate.setEnabled(False)
         self.push_button_modify_holder_deactivate.setEnabled(False)
+        # Deceased actions configuration
+        self.push_button_create_deceased_create.setEnabled(True)
+        self.scroll_area_create_deceased.setEnabled(True)
+        self.scroll_area_modify_deceased.setEnabled(True)
+        self.push_button_modify_deceased_active.setEnabled(False)
+        self.push_button_modify_deceased_deactivate.setEnabled(False)
+        # Niches actions configuration
+        self.push_button_create_niches_create.setEnabled(False)
+        self.scroll_area_create_niche.setEnabled(False)
+        self.scroll_area_modify_niche.setEnabled(False)
+        # Payments actions configuration
+        self.push_button_payment_create.setEnabled(True)
+        self.scroll_area_payment_create.setEnabled(True)
+        self.scroll_area_payment_modify.setEnabled(False)
+        # Modules actions configuration
+        self.push_button_module_create.setEnabled(False)
+        self.scroll_area_create_module.setEnabled(False)
+        self.scroll_area_modify_module.setEnabled(False)
+        # Rows actions configuration
+        self.push_button_row_create.setEnabled(False)
+        self.scroll_area_create_row.setEnabled(False)
+        self.scroll_area_modify_row.setEnabled(False)
 
     def __configure_not_logged_window(self):
         self.__user_type_key = UserTypeKey.NOT_LOGGED.value
@@ -205,7 +255,6 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
     def __set_stacked_widget_deceased(self):
         self.scroll_area_modify_deceased.hide()
         self.scroll_area_create_deceased.hide()
-        self.push_button_create_deceased_create.setEnabled(False)
         self.push_button_deceased.setChecked(True)
         self.push_button_holders.setChecked(False)
         self.push_button_my_account.setChecked(False)
