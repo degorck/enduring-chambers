@@ -396,7 +396,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
+             <width>196</width>
              <height>466</height>
             </rect>
            </property>
@@ -573,7 +573,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
+             <width>196</width>
              <height>346</height>
             </rect>
            </property>
@@ -704,7 +704,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
+             <width>89</width>
              <height>117</height>
             </rect>
            </property>
@@ -833,7 +833,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
+             <width>196</width>
              <height>790</height>
             </rect>
            </property>
@@ -860,6 +860,28 @@
                </size>
               </property>
              </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_create_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
+              <property name="text">
+               <string>Sin imagen</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_create_deceased_image">
+              <property name="text">
+               <string>Cargar imagen...</string>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_create_deceased_name">
@@ -992,21 +1014,6 @@
              <widget class="QPlainTextEdit" name="plain_text_edit_create_deceased_sheet"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_create_deceased_image">
-              <property name="styleSheet">
-               <string notr="true">QLabel{
-	border: 2px dashed
-}</string>
-              </property>
-              <property name="text">
-               <string>Sin imagen</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
              <spacer name="verticalSpacer_3">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -1018,13 +1025,6 @@
                </size>
               </property>
              </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="push_button_create_deceased_image">
-              <property name="text">
-               <string>Cargar imagen...</string>
-              </property>
-             </widget>
             </item>
             <item>
              <widget class="QFrame" name="frame_18">
@@ -1078,7 +1078,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
+             <width>196</width>
              <height>820</height>
             </rect>
            </property>
@@ -1105,6 +1105,28 @@
                </size>
               </property>
              </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_modify_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
+              <property name="text">
+               <string>Sin imagen</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_modify_deceased_image">
+              <property name="text">
+               <string>Cargar imagen...</string>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_modify_deceased_name">
@@ -1250,28 +1272,6 @@
              <widget class="QPlainTextEdit" name="plain_text_edit_modify_deceased_sheet"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_modify_deceased_image">
-              <property name="styleSheet">
-               <string notr="true">QLabel{
-	border: 2px dashed
-}</string>
-              </property>
-              <property name="text">
-               <string>Sin imagen</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="push_button_modify_deceased_image">
-              <property name="text">
-               <string>Cargar imagen...</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QFrame" name="frame_17">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1318,8 +1318,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1393,8 +1393,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1434,8 +1434,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>316</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1567,8 +1567,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>346</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1699,8 +1699,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>432</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
@@ -1740,8 +1740,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>298</height>
+             <width>213</width>
+             <height>432</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1881,8 +1881,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>296</height>
+             <width>213</width>
+             <height>432</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2228,8 +2228,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>152</width>
-             <height>266</height>
+             <width>213</width>
+             <height>454</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -2432,8 +2432,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>109</width>
-             <height>115</height>
+             <width>223</width>
+             <height>404</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_17">
@@ -2493,8 +2493,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>289</height>
+             <width>213</width>
+             <height>404</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2607,8 +2607,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>99</width>
-             <height>269</height>
+             <width>213</width>
+             <height>404</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -2787,8 +2787,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>89</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_18">
@@ -2821,8 +2821,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>120</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -2892,8 +2892,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>170</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">

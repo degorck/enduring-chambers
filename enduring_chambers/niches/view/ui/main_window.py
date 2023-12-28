@@ -204,7 +204,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_user.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 194, 466))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 196, 466))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_create_user = QLabel(self.scrollAreaWidgetContents_3)
@@ -325,7 +325,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_user.setAlignment(Qt.AlignCenter)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 194, 346))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 196, 346))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label_modify_user = QLabel(self.scrollAreaWidgetContents_2)
@@ -416,7 +416,7 @@ class Ui_MainWindow(object):
         self.scroll_area_users.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 98, 117))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 89, 117))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.line_edit_search_users = QLineEdit(self.scrollAreaWidgetContents_4)
@@ -493,7 +493,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_22 = QWidget()
         self.scrollAreaWidgetContents_22.setObjectName(u"scrollAreaWidgetContents_22")
-        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 194, 790))
+        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 196, 790))
         self.verticalLayout_14 = QVBoxLayout(self.scrollAreaWidgetContents_22)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.label_create_deceased = QLabel(self.scrollAreaWidgetContents_22)
@@ -505,6 +505,20 @@ class Ui_MainWindow(object):
         self.horizontal_spacer_create_deceased = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_14.addItem(self.horizontal_spacer_create_deceased)
+
+        self.label_create_deceased_image = QLabel(self.scrollAreaWidgetContents_22)
+        self.label_create_deceased_image.setObjectName(u"label_create_deceased_image")
+        self.label_create_deceased_image.setStyleSheet(u"QLabel{\n"
+"	border: 2px dashed\n"
+"}")
+        self.label_create_deceased_image.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_14.addWidget(self.label_create_deceased_image)
+
+        self.push_button_create_deceased_image = QPushButton(self.scrollAreaWidgetContents_22)
+        self.push_button_create_deceased_image.setObjectName(u"push_button_create_deceased_image")
+
+        self.verticalLayout_14.addWidget(self.push_button_create_deceased_image)
 
         self.label_create_deceased_name = QLabel(self.scrollAreaWidgetContents_22)
         self.label_create_deceased_name.setObjectName(u"label_create_deceased_name")
@@ -627,23 +641,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.plain_text_edit_create_deceased_sheet)
 
-        self.label_create_deceased_image = QLabel(self.scrollAreaWidgetContents_22)
-        self.label_create_deceased_image.setObjectName(u"label_create_deceased_image")
-        self.label_create_deceased_image.setStyleSheet(u"QLabel{\n"
-"	border: 2px dashed\n"
-"}")
-        self.label_create_deceased_image.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_14.addWidget(self.label_create_deceased_image)
-
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_14.addItem(self.verticalSpacer_3)
-
-        self.push_button_create_deceased_image = QPushButton(self.scrollAreaWidgetContents_22)
-        self.push_button_create_deceased_image.setObjectName(u"push_button_create_deceased_image")
-
-        self.verticalLayout_14.addWidget(self.push_button_create_deceased_image)
 
         self.frame_18 = QFrame(self.scrollAreaWidgetContents_22)
         self.frame_18.setObjectName(u"frame_18")
@@ -675,7 +675,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_21 = QWidget()
         self.scrollAreaWidgetContents_21.setObjectName(u"scrollAreaWidgetContents_21")
-        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 194, 820))
+        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 196, 820))
         self.verticalLayout_13 = QVBoxLayout(self.scrollAreaWidgetContents_21)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.label_modify_deceased = QLabel(self.scrollAreaWidgetContents_21)
@@ -687,6 +687,20 @@ class Ui_MainWindow(object):
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_13.addItem(self.horizontalSpacer_6)
+
+        self.label_modify_deceased_image = QLabel(self.scrollAreaWidgetContents_21)
+        self.label_modify_deceased_image.setObjectName(u"label_modify_deceased_image")
+        self.label_modify_deceased_image.setStyleSheet(u"QLabel{\n"
+"	border: 2px dashed\n"
+"}")
+        self.label_modify_deceased_image.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_13.addWidget(self.label_modify_deceased_image)
+
+        self.push_button_modify_deceased_image = QPushButton(self.scrollAreaWidgetContents_21)
+        self.push_button_modify_deceased_image.setObjectName(u"push_button_modify_deceased_image")
+
+        self.verticalLayout_13.addWidget(self.push_button_modify_deceased_image)
 
         self.label_modify_deceased_name = QLabel(self.scrollAreaWidgetContents_21)
         self.label_modify_deceased_name.setObjectName(u"label_modify_deceased_name")
@@ -813,20 +827,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addWidget(self.plain_text_edit_modify_deceased_sheet)
 
-        self.label_modify_deceased_image = QLabel(self.scrollAreaWidgetContents_21)
-        self.label_modify_deceased_image.setObjectName(u"label_modify_deceased_image")
-        self.label_modify_deceased_image.setStyleSheet(u"QLabel{\n"
-"	border: 2px dashed\n"
-"}")
-        self.label_modify_deceased_image.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.label_modify_deceased_image)
-
-        self.push_button_modify_deceased_image = QPushButton(self.scrollAreaWidgetContents_21)
-        self.push_button_modify_deceased_image.setObjectName(u"push_button_modify_deceased_image")
-
-        self.verticalLayout_13.addWidget(self.push_button_modify_deceased_image)
-
         self.frame_17 = QFrame(self.scrollAreaWidgetContents_21)
         self.frame_17.setObjectName(u"frame_17")
         self.frame_17.setFrameShape(QFrame.StyledPanel)
@@ -860,7 +860,7 @@ class Ui_MainWindow(object):
         self.scroll_area_search_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_20 = QWidget()
         self.scrollAreaWidgetContents_20.setObjectName(u"scrollAreaWidgetContents_20")
-        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 98, 117))
+        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 223, 500))
         self.gridLayout_7 = QGridLayout(self.scrollAreaWidgetContents_20)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.line_edit_search_deceased = QLineEdit(self.scrollAreaWidgetContents_20)
@@ -911,7 +911,7 @@ class Ui_MainWindow(object):
         self.scroll_area_holders.setWidgetResizable(True)
         self.scrollAreaWidgetContents_23 = QWidget()
         self.scrollAreaWidgetContents_23.setObjectName(u"scrollAreaWidgetContents_23")
-        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 98, 117))
+        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 223, 500))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_23)
         self.gridLayout.setObjectName(u"gridLayout")
         self.line_edit_search_holders = QLineEdit(self.scrollAreaWidgetContents_23)
@@ -935,7 +935,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_25 = QWidget()
         self.scrollAreaWidgetContents_25.setObjectName(u"scrollAreaWidgetContents_25")
-        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 194, 316))
+        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 213, 500))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_25)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.label_create_holder = QLabel(self.scrollAreaWidgetContents_25)
@@ -1022,7 +1022,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_24 = QWidget()
         self.scrollAreaWidgetContents_24.setObjectName(u"scrollAreaWidgetContents_24")
-        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 194, 346))
+        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 213, 500))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_24)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.label_modify_holder = QLabel(self.scrollAreaWidgetContents_24)
@@ -1117,7 +1117,7 @@ class Ui_MainWindow(object):
         self.scroll_area_search_niches.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 98, 117))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 223, 432))
         self.gridLayout_8 = QGridLayout(self.scrollAreaWidgetContents_5)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.line_edit_search_niches = QLineEdit(self.scrollAreaWidgetContents_5)
@@ -1141,7 +1141,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_niche.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 194, 298))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 213, 432))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label_modify_niche = QLabel(self.scrollAreaWidgetContents_7)
@@ -1224,7 +1224,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_niche.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 194, 296))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 213, 432))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents_6)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_create_niche = QLabel(self.scrollAreaWidgetContents_6)
@@ -1419,7 +1419,7 @@ class Ui_MainWindow(object):
         self.scroll_area_change_password.setWidgetResizable(True)
         self.scrollAreaWidgetContents_28 = QWidget()
         self.scrollAreaWidgetContents_28.setObjectName(u"scrollAreaWidgetContents_28")
-        self.scrollAreaWidgetContents_28.setGeometry(QRect(0, 0, 152, 266))
+        self.scrollAreaWidgetContents_28.setGeometry(QRect(0, 0, 213, 454))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_28)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.label_my_account_change_password = QLabel(self.scrollAreaWidgetContents_28)
@@ -1545,7 +1545,7 @@ class Ui_MainWindow(object):
         self.scroll_area_payment_search.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 109, 115))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 223, 404))
         self.gridLayout_17 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_17.setObjectName(u"gridLayout_17")
         self.label_payment_search_total_value = QLabel(self.scrollAreaWidgetContents)
@@ -1578,7 +1578,7 @@ class Ui_MainWindow(object):
         self.scroll_area_payment_create.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 194, 289))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 213, 404))
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_payment_register = QLabel(self.scrollAreaWidgetContents_8)
@@ -1652,7 +1652,7 @@ class Ui_MainWindow(object):
         self.scroll_area_payment_modify.setWidgetResizable(True)
         self.scrollAreaWidgetContents_9 = QWidget()
         self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
-        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 99, 269))
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 213, 404))
         self.verticalLayout_7 = QVBoxLayout(self.scrollAreaWidgetContents_9)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.label_8 = QLabel(self.scrollAreaWidgetContents_9)
@@ -1786,7 +1786,7 @@ class Ui_MainWindow(object):
         self.scroll_area_module_search.setWidgetResizable(True)
         self.scrollAreaWidgetContents_10 = QWidget()
         self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
-        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 98, 89))
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 223, 500))
         self.gridLayout_18 = QGridLayout(self.scrollAreaWidgetContents_10)
         self.gridLayout_18.setObjectName(u"gridLayout_18")
         self.table_widget_modules = QTableWidget(self.scrollAreaWidgetContents_10)
@@ -1805,7 +1805,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_module.setWidgetResizable(True)
         self.scrollAreaWidgetContents_11 = QWidget()
         self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
-        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 98, 120))
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 213, 500))
         self.verticalLayout_8 = QVBoxLayout(self.scrollAreaWidgetContents_11)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.label_create_module = QLabel(self.scrollAreaWidgetContents_11)
@@ -1844,7 +1844,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_module.setWidgetResizable(True)
         self.scrollAreaWidgetContents_12 = QWidget()
         self.scrollAreaWidgetContents_12.setObjectName(u"scrollAreaWidgetContents_12")
-        self.scrollAreaWidgetContents_12.setGeometry(QRect(0, 0, 194, 170))
+        self.scrollAreaWidgetContents_12.setGeometry(QRect(0, 0, 213, 500))
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_12)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.label_modify_module = QLabel(self.scrollAreaWidgetContents_12)
@@ -2128,6 +2128,8 @@ class Ui_MainWindow(object):
         self.label_deceased.setText(QCoreApplication.translate("MainWindow", u"Fallecidos", None))
         self.push_button_create_deceased_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
         self.label_create_deceased.setText(QCoreApplication.translate("MainWindow", u"Crear fallecido", None))
+        self.label_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
+        self.push_button_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.label_create_deceased_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.label_create_deceased_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
         self.label_create_deceased_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
@@ -2139,11 +2141,11 @@ class Ui_MainWindow(object):
         self.label_create_deceased_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_create_deceased_book.setText(QCoreApplication.translate("MainWindow", u"Libro:", None))
         self.label_create_deceased_sheet.setText(QCoreApplication.translate("MainWindow", u"Foja:", None))
-        self.label_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
-        self.push_button_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.push_button_create_deceased_save_deceased.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_create_deceased_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.label_modify_deceased.setText(QCoreApplication.translate("MainWindow", u"Modificar fallecido", None))
+        self.label_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
+        self.push_button_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.label_modify_deceased_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.label_modify_deceased_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
         self.label_modify_deceased_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
@@ -2155,8 +2157,6 @@ class Ui_MainWindow(object):
         self.label_modify_deceased_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_modify_deceased_book.setText(QCoreApplication.translate("MainWindow", u"Libro:", None))
         self.label_modify_deceased_sheet.setText(QCoreApplication.translate("MainWindow", u"Foja", None))
-        self.label_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
-        self.push_button_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.push_button_modify_deceased_active.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_deceased_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_modify_deceased_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
