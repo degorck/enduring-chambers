@@ -62,6 +62,8 @@ class PaymentController:
             self.__search_payment)
         self.main_window.table_widget_payments.cellDoubleClicked.connect(self.__select_payment)
         self.main_window.push_button_payment_modify_save.clicked.connect(self.__modify_payment)
+        self.main_window.push_button_payment_create_clean.clicked.connect(
+            self.__clear_scroll_area_create_payment)
 
     def __configure_combo_box_module(self):
         list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
@@ -138,11 +140,13 @@ class PaymentController:
             )
 
             self.__payment_service.create_payment(payment_dto)
+            if self.main_window.check_box_payment_create_is_paid_off.isChecked():
+                self.__niche_service.pay_niche(payment_dto.get_niche().get_id())
             self.__search_payment()
             self.__error_controller.handle_value_error("El pago se ha creado")
             self.__error_controller.show()
             self.main_window.scroll_area_payment_create.hide()
-            # self.__clear_scroll_area_create_deceased()
+            self.__clear_scroll_area_create_payment()
             logging.debug("Se creó el pago: [%s]", payment_dto.to_string())
 
         except ValueError as ve:
@@ -287,3 +291,8 @@ class PaymentController:
             self.__error_controller.handle_exception_error(e)
             logging.error(e)
             self.__error_controller.show()
+
+    def __clear_scroll_area_create_payment(self):
+        self.main_window.double_spin_box_payment_create_quantity.setValue(0.0)
+        self.main_window.check_box_payment_create_is_paid_off.setChecked(False)
+        self.main_window.plain_text_edit_payment_create_comments.clear()

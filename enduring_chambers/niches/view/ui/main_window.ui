@@ -396,7 +396,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>466</height>
             </rect>
            </property>
@@ -573,7 +573,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>346</height>
             </rect>
            </property>
@@ -704,7 +704,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>89</width>
+             <width>98</width>
              <height>117</height>
             </rect>
            </property>
@@ -833,7 +833,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>790</height>
             </rect>
            </property>
@@ -1078,7 +1078,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>820</height>
             </rect>
            </property>
@@ -1318,8 +1318,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1393,8 +1393,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1434,8 +1434,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1567,8 +1567,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1699,8 +1699,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>432</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
@@ -1740,8 +1740,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>432</height>
+             <width>194</width>
+             <height>298</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1881,8 +1881,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>432</height>
+             <width>194</width>
+             <height>296</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2228,8 +2228,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>454</height>
+             <width>152</width>
+             <height>266</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -2541,6 +2541,13 @@
             </item>
             <item>
              <widget class="QPlainTextEdit" name="plain_text_edit_payment_create_comments"/>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="check_box_payment_create_is_paid_off">
+              <property name="text">
+               <string>Pagado</string>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="vertical_spacer_payment_create">
