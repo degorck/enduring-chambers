@@ -557,3 +557,37 @@ class NicheDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def occupy_niche(self, niche_id:int):
+        """        
+        Marks the niche as occupied on database
+        
+        Arguments:
+            niche_id: int
+                niche_id of the user to deactivate
+        """
+        command = '''
+                UPDATE tb_niche
+                SET
+                is_busy = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            True,
+            datetime.datetime.now(),
+            niche_id
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se ocupó el nicho")
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
