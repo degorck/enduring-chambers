@@ -29,6 +29,9 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(819, 631)
         MainWindow.setMinimumSize(QSize(650, 500))
+        icon = QIcon()
+        icon.addFile(u"C:/Users/small/Downloads/2-removebg-preview.ico", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"")
         MainWindow.setUnifiedTitleAndToolBarOnMac(False)
         self.centralwidget = QWidget(MainWindow)
@@ -72,9 +75,9 @@ class Ui_MainWindow(object):
         self.push_button_users.setContextMenuPolicy(Qt.DefaultContextMenu)
         self.push_button_users.setAcceptDrops(False)
         self.push_button_users.setLayoutDirection(Qt.RightToLeft)
-        icon = QIcon()
-        icon.addFile(u"C:/Users/small/Downloads/feather/users.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_users.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"C:/Users/small/Downloads/feather/users.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_users.setIcon(icon1)
         self.push_button_users.setIconSize(QSize(20, 20))
         self.push_button_users.setCheckable(True)
         self.push_button_users.setAutoDefault(False)
@@ -87,9 +90,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.push_button_deceased.sizePolicy().hasHeightForWidth())
         self.push_button_deceased.setSizePolicy(sizePolicy)
         self.push_button_deceased.setLayoutDirection(Qt.RightToLeft)
-        icon1 = QIcon()
-        icon1.addFile(u"C:/Users/small/Downloads/feather/user-minus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_deceased.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u"C:/Users/small/Downloads/feather/user-minus.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_deceased.setIcon(icon2)
         self.push_button_deceased.setIconSize(QSize(20, 20))
         self.push_button_deceased.setCheckable(True)
         self.push_button_deceased.setAutoDefault(False)
@@ -102,9 +105,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.push_button_holders.sizePolicy().hasHeightForWidth())
         self.push_button_holders.setSizePolicy(sizePolicy)
         self.push_button_holders.setLayoutDirection(Qt.RightToLeft)
-        icon2 = QIcon()
-        icon2.addFile(u"C:/Users/small/Downloads/feather/user-plus.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_holders.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"C:/Users/small/Downloads/feather/user-plus.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_holders.setIcon(icon3)
         self.push_button_holders.setIconSize(QSize(20, 20))
         self.push_button_holders.setCheckable(True)
         self.push_button_holders.setFlat(True)
@@ -116,9 +119,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.push_button_niches.sizePolicy().hasHeightForWidth())
         self.push_button_niches.setSizePolicy(sizePolicy)
         self.push_button_niches.setLayoutDirection(Qt.RightToLeft)
-        icon3 = QIcon()
-        icon3.addFile(u"C:/Users/small/Downloads/feather/archive.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_niches.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u"C:/Users/small/Downloads/feather/archive.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_niches.setIcon(icon4)
         self.push_button_niches.setIconSize(QSize(20, 20))
         self.push_button_niches.setCheckable(True)
         self.push_button_niches.setFlat(True)
@@ -130,9 +133,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.push_button_payments.sizePolicy().hasHeightForWidth())
         self.push_button_payments.setSizePolicy(sizePolicy)
         self.push_button_payments.setLayoutDirection(Qt.RightToLeft)
-        icon4 = QIcon()
-        icon4.addFile(u"C:/Users/small/Downloads/feather/credit-card.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_payments.setIcon(icon4)
+        icon5 = QIcon()
+        icon5.addFile(u"C:/Users/small/Downloads/feather/credit-card.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_payments.setIcon(icon5)
         self.push_button_payments.setIconSize(QSize(20, 20))
         self.push_button_payments.setCheckable(True)
         self.push_button_payments.setFlat(True)
@@ -147,9 +150,9 @@ class Ui_MainWindow(object):
         self.push_button_my_account.setObjectName(u"push_button_my_account")
         self.push_button_my_account.setLayoutDirection(Qt.RightToLeft)
         self.push_button_my_account.setAutoFillBackground(False)
-        icon5 = QIcon()
-        icon5.addFile(u"C:/Users/small/Downloads/feather/user-check.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_my_account.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u"C:/Users/small/Downloads/feather/user-check.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_my_account.setIcon(icon6)
         self.push_button_my_account.setIconSize(QSize(20, 20))
         self.push_button_my_account.setCheckable(True)
         self.push_button_my_account.setFlat(True)
@@ -506,6 +509,20 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addItem(self.horizontal_spacer_create_deceased)
 
+        self.label_create_deceased_image = QLabel(self.scrollAreaWidgetContents_22)
+        self.label_create_deceased_image.setObjectName(u"label_create_deceased_image")
+        self.label_create_deceased_image.setStyleSheet(u"QLabel{\n"
+"	border: 2px dashed\n"
+"}")
+        self.label_create_deceased_image.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_14.addWidget(self.label_create_deceased_image)
+
+        self.push_button_create_deceased_image = QPushButton(self.scrollAreaWidgetContents_22)
+        self.push_button_create_deceased_image.setObjectName(u"push_button_create_deceased_image")
+
+        self.verticalLayout_14.addWidget(self.push_button_create_deceased_image)
+
         self.label_create_deceased_name = QLabel(self.scrollAreaWidgetContents_22)
         self.label_create_deceased_name.setObjectName(u"label_create_deceased_name")
 
@@ -627,23 +644,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.plain_text_edit_create_deceased_sheet)
 
-        self.label_create_deceased_image = QLabel(self.scrollAreaWidgetContents_22)
-        self.label_create_deceased_image.setObjectName(u"label_create_deceased_image")
-        self.label_create_deceased_image.setStyleSheet(u"QLabel{\n"
-"	border: 2px dashed\n"
-"}")
-        self.label_create_deceased_image.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_14.addWidget(self.label_create_deceased_image)
-
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_14.addItem(self.verticalSpacer_3)
-
-        self.push_button_create_deceased_image = QPushButton(self.scrollAreaWidgetContents_22)
-        self.push_button_create_deceased_image.setObjectName(u"push_button_create_deceased_image")
-
-        self.verticalLayout_14.addWidget(self.push_button_create_deceased_image)
 
         self.frame_18 = QFrame(self.scrollAreaWidgetContents_22)
         self.frame_18.setObjectName(u"frame_18")
@@ -687,6 +690,20 @@ class Ui_MainWindow(object):
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.verticalLayout_13.addItem(self.horizontalSpacer_6)
+
+        self.label_modify_deceased_image = QLabel(self.scrollAreaWidgetContents_21)
+        self.label_modify_deceased_image.setObjectName(u"label_modify_deceased_image")
+        self.label_modify_deceased_image.setStyleSheet(u"QLabel{\n"
+"	border: 2px dashed\n"
+"}")
+        self.label_modify_deceased_image.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_13.addWidget(self.label_modify_deceased_image)
+
+        self.push_button_modify_deceased_image = QPushButton(self.scrollAreaWidgetContents_21)
+        self.push_button_modify_deceased_image.setObjectName(u"push_button_modify_deceased_image")
+
+        self.verticalLayout_13.addWidget(self.push_button_modify_deceased_image)
 
         self.label_modify_deceased_name = QLabel(self.scrollAreaWidgetContents_21)
         self.label_modify_deceased_name.setObjectName(u"label_modify_deceased_name")
@@ -812,20 +829,6 @@ class Ui_MainWindow(object):
         self.plain_text_edit_modify_deceased_sheet.setObjectName(u"plain_text_edit_modify_deceased_sheet")
 
         self.verticalLayout_13.addWidget(self.plain_text_edit_modify_deceased_sheet)
-
-        self.label_modify_deceased_image = QLabel(self.scrollAreaWidgetContents_21)
-        self.label_modify_deceased_image.setObjectName(u"label_modify_deceased_image")
-        self.label_modify_deceased_image.setStyleSheet(u"QLabel{\n"
-"	border: 2px dashed\n"
-"}")
-        self.label_modify_deceased_image.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.label_modify_deceased_image)
-
-        self.push_button_modify_deceased_image = QPushButton(self.scrollAreaWidgetContents_21)
-        self.push_button_modify_deceased_image.setObjectName(u"push_button_modify_deceased_image")
-
-        self.verticalLayout_13.addWidget(self.push_button_modify_deceased_image)
 
         self.frame_17 = QFrame(self.scrollAreaWidgetContents_21)
         self.frame_17.setObjectName(u"frame_17")
@@ -1362,9 +1365,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.push_button_modules.sizePolicy().hasHeightForWidth())
         self.push_button_modules.setSizePolicy(sizePolicy)
         self.push_button_modules.setLayoutDirection(Qt.RightToLeft)
-        icon6 = QIcon()
-        icon6.addFile(u"C:/Users/small/Downloads/feather/table.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_modules.setIcon(icon6)
+        icon7 = QIcon()
+        icon7.addFile(u"C:/Users/small/Downloads/feather/table.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_modules.setIcon(icon7)
         self.push_button_modules.setIconSize(QSize(20, 20))
         self.push_button_modules.setCheckable(False)
         self.push_button_modules.setFlat(True)
@@ -1376,9 +1379,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.push_button_rows.sizePolicy().hasHeightForWidth())
         self.push_button_rows.setSizePolicy(sizePolicy)
         self.push_button_rows.setLayoutDirection(Qt.RightToLeft)
-        icon7 = QIcon()
-        icon7.addFile(u"C:/Users/small/Downloads/feather/layers.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.push_button_rows.setIcon(icon7)
+        icon8 = QIcon()
+        icon8.addFile(u"C:/Users/small/Downloads/feather/layers.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.push_button_rows.setIcon(icon8)
         self.push_button_rows.setIconSize(QSize(20, 20))
         self.push_button_rows.setCheckable(False)
         self.push_button_rows.setFlat(True)
@@ -1578,7 +1581,7 @@ class Ui_MainWindow(object):
         self.scroll_area_payment_create.setWidgetResizable(True)
         self.scrollAreaWidgetContents_8 = QWidget()
         self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
-        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 194, 289))
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 194, 315))
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_8)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_payment_register = QLabel(self.scrollAreaWidgetContents_8)
@@ -1617,6 +1620,11 @@ class Ui_MainWindow(object):
         self.plain_text_edit_payment_create_comments.setObjectName(u"plain_text_edit_payment_create_comments")
 
         self.verticalLayout_6.addWidget(self.plain_text_edit_payment_create_comments)
+
+        self.check_box_payment_create_is_paid_off = QCheckBox(self.scrollAreaWidgetContents_8)
+        self.check_box_payment_create_is_paid_off.setObjectName(u"check_box_payment_create_is_paid_off")
+
+        self.verticalLayout_6.addWidget(self.check_box_payment_create_is_paid_off)
 
         self.vertical_spacer_payment_create = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1935,7 +1943,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_row.setWidgetResizable(True)
         self.scrollAreaWidgetContents_14 = QWidget()
         self.scrollAreaWidgetContents_14.setObjectName(u"scrollAreaWidgetContents_14")
-        self.scrollAreaWidgetContents_14.setGeometry(QRect(0, 0, 213, 460))
+        self.scrollAreaWidgetContents_14.setGeometry(QRect(0, 0, 98, 120))
         self.verticalLayout_10 = QVBoxLayout(self.scrollAreaWidgetContents_14)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.label_create_row = QLabel(self.scrollAreaWidgetContents_14)
@@ -1974,7 +1982,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_row.setWidgetResizable(True)
         self.scrollAreaWidgetContents_15 = QWidget()
         self.scrollAreaWidgetContents_15.setObjectName(u"scrollAreaWidgetContents_15")
-        self.scrollAreaWidgetContents_15.setGeometry(QRect(0, 0, 213, 460))
+        self.scrollAreaWidgetContents_15.setGeometry(QRect(0, 0, 98, 120))
         self.verticalLayout_11 = QVBoxLayout(self.scrollAreaWidgetContents_15)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.label_modify_row = QLabel(self.scrollAreaWidgetContents_15)
@@ -2011,7 +2019,7 @@ class Ui_MainWindow(object):
         self.scroll_area_rows_search.setWidgetResizable(True)
         self.scrollAreaWidgetContents_13 = QWidget()
         self.scrollAreaWidgetContents_13.setObjectName(u"scrollAreaWidgetContents_13")
-        self.scrollAreaWidgetContents_13.setGeometry(QRect(0, 0, 223, 460))
+        self.scrollAreaWidgetContents_13.setGeometry(QRect(0, 0, 98, 89))
         self.gridLayout_23 = QGridLayout(self.scrollAreaWidgetContents_13)
         self.gridLayout_23.setObjectName(u"gridLayout_23")
         self.table_widget_rows_search = QTableWidget(self.scrollAreaWidgetContents_13)
@@ -2128,6 +2136,8 @@ class Ui_MainWindow(object):
         self.label_deceased.setText(QCoreApplication.translate("MainWindow", u"Fallecidos", None))
         self.push_button_create_deceased_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
         self.label_create_deceased.setText(QCoreApplication.translate("MainWindow", u"Crear fallecido", None))
+        self.label_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
+        self.push_button_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.label_create_deceased_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.label_create_deceased_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
         self.label_create_deceased_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
@@ -2139,11 +2149,11 @@ class Ui_MainWindow(object):
         self.label_create_deceased_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_create_deceased_book.setText(QCoreApplication.translate("MainWindow", u"Libro:", None))
         self.label_create_deceased_sheet.setText(QCoreApplication.translate("MainWindow", u"Foja:", None))
-        self.label_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
-        self.push_button_create_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.push_button_create_deceased_save_deceased.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_create_deceased_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.label_modify_deceased.setText(QCoreApplication.translate("MainWindow", u"Modificar fallecido", None))
+        self.label_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
+        self.push_button_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.label_modify_deceased_name.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.label_modify_deceased_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
         self.label_modify_deceased_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
@@ -2155,8 +2165,6 @@ class Ui_MainWindow(object):
         self.label_modify_deceased_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
         self.label_modify_deceased_book.setText(QCoreApplication.translate("MainWindow", u"Libro:", None))
         self.label_modify_deceased_sheet.setText(QCoreApplication.translate("MainWindow", u"Foja", None))
-        self.label_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Sin imagen", None))
-        self.push_button_modify_deceased_image.setText(QCoreApplication.translate("MainWindow", u"Cargar imagen...", None))
         self.push_button_modify_deceased_active.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_deceased_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_modify_deceased_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
@@ -2218,6 +2226,7 @@ class Ui_MainWindow(object):
         self.label_payment_create_quantity.setText(QCoreApplication.translate("MainWindow", u"Cantidad:", None))
         self.label_payment_create_payment_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de pago:", None))
         self.label_payment_create_comments.setText(QCoreApplication.translate("MainWindow", u"Comentarios:", None))
+        self.check_box_payment_create_is_paid_off.setText(QCoreApplication.translate("MainWindow", u"Pagado", None))
         self.push_button_payment_create_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_payment_create_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Modificar pago", None))

@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string extracomment="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1">Enduring Chambers</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -862,6 +866,28 @@
              </spacer>
             </item>
             <item>
+             <widget class="QLabel" name="label_create_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
+              <property name="text">
+               <string>Sin imagen</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_create_deceased_image">
+              <property name="text">
+               <string>Cargar imagen...</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QLabel" name="label_create_deceased_name">
               <property name="text">
                <string>Nombre:</string>
@@ -992,21 +1018,6 @@
              <widget class="QPlainTextEdit" name="plain_text_edit_create_deceased_sheet"/>
             </item>
             <item>
-             <widget class="QLabel" name="label_create_deceased_image">
-              <property name="styleSheet">
-               <string notr="true">QLabel{
-	border: 2px dashed
-}</string>
-              </property>
-              <property name="text">
-               <string>Sin imagen</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
              <spacer name="verticalSpacer_3">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -1018,13 +1029,6 @@
                </size>
               </property>
              </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="push_button_create_deceased_image">
-              <property name="text">
-               <string>Cargar imagen...</string>
-              </property>
-             </widget>
             </item>
             <item>
              <widget class="QFrame" name="frame_18">
@@ -1105,6 +1109,28 @@
                </size>
               </property>
              </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_modify_deceased_image">
+              <property name="styleSheet">
+               <string notr="true">QLabel{
+	border: 2px dashed
+}</string>
+              </property>
+              <property name="text">
+               <string>Sin imagen</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="push_button_modify_deceased_image">
+              <property name="text">
+               <string>Cargar imagen...</string>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QLabel" name="label_modify_deceased_name">
@@ -1248,28 +1274,6 @@
             </item>
             <item>
              <widget class="QPlainTextEdit" name="plain_text_edit_modify_deceased_sheet"/>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_modify_deceased_image">
-              <property name="styleSheet">
-               <string notr="true">QLabel{
-	border: 2px dashed
-}</string>
-              </property>
-              <property name="text">
-               <string>Sin imagen</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="push_button_modify_deceased_image">
-              <property name="text">
-               <string>Cargar imagen...</string>
-              </property>
-             </widget>
             </item>
             <item>
              <widget class="QFrame" name="frame_17">
@@ -2494,7 +2498,7 @@
              <x>0</x>
              <y>0</y>
              <width>194</width>
-             <height>289</height>
+             <height>315</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2541,6 +2545,13 @@
             </item>
             <item>
              <widget class="QPlainTextEdit" name="plain_text_edit_payment_create_comments"/>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="check_box_payment_create_is_paid_off">
+              <property name="text">
+               <string>Pagado</string>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="vertical_spacer_payment_create">
@@ -3039,8 +3050,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>460</height>
+             <width>98</width>
+             <height>120</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -3110,8 +3121,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>460</height>
+             <width>98</width>
+             <height>120</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -3169,8 +3180,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>460</height>
+             <width>98</width>
+             <height>89</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_23">
