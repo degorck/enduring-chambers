@@ -37,6 +37,7 @@ class MyAccountController:
         self.main_window.push_button_my_account.setChecked(True)
         self.main_window.push_button_niches.setChecked(False)
         self.main_window.push_button_users.setChecked(False)
+        self.main_window.push_button_payments.setChecked(False)
         self.main_window.stacked_widget.setCurrentIndex(5)
         logging.debug("My account stacked widget selected")
 

@@ -26,5 +26,5 @@ def delete_old_logs():
         file_time = os.stat(file_location).st_mtime
 
         if (file_time < current_time - DAY_SECONDS*DAY_LIMIT) and (not file == "log.md"):
-            logging.info(" Deleted file \"%s\", %s days old", file, DAY_LIMIT)
+            logging.info(" Deleted file \"%s\", has more than %s days old", file, DAY_LIMIT)
             os.remove(file_location)

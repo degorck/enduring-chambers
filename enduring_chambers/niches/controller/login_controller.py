@@ -66,7 +66,6 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
                     user_dto.get_user_name()
                 )
                 self.__logged_user_dto.set_password(user_dto.get_password())
-                print(user_type_dto.get_key())
                 self.__user_type_key = user_type_dto.get_key()
                 self.close()
             else:
