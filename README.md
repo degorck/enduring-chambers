@@ -36,6 +36,9 @@ pyinstaller -n enduring_chambers_terminal -F -i .\icon\enduring_chambers_initial
 9.  Run db_creation.py
 10. Finish the configurations on the .env file
 11. Save the .env file in a safe place. It will be required for other installations.
+12. Allow remote connections for FTP, addind a firewall rule for the connection port (default is port 21)
+13. Allow remote connections for DB, adding a firewall rule for the connecction port (default port is 5432)
+14. Modify the pg_hba.conf file, adding  your _**network gateway IP**_ in the line:  ***host    all             all             192.168.86.1/24            md5***
 
 Note: Be sure that the server has static ip configured.
 
