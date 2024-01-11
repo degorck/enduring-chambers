@@ -93,3 +93,7 @@ LOG_FOLDER = Is the local folder where the logs will be stored. Is recomended to
 DAY_LIMIT: Indicates the number of days that the logs will be saved. All the older files that this value will be deleted. Recommended to use 7 as default.
 
 TEMP_FILE_FOLDER: Is the local folder where the local images will be stored. Is recomended to use "/tmp/" as default.
+
+## Generate icon package
+
+pyside6-rcc enduring_chambers_initials.qrc -o enduring_chambers_initials_rc.py
