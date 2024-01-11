@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Login.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.0
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+import niches.view.enduring_chambers_initials_rc
 
 class Ui_Login(object):
     def setupUi(self, Login):
@@ -25,6 +26,9 @@ class Ui_Login(object):
             Login.setObjectName(u"Login")
         Login.resize(384, 457)
         Login.setMaximumSize(QSize(384, 457))
+        icon = QIcon()
+        icon.addFile(u":/icons/enduring_chambers_initials.ico", QSize(), QIcon.Normal, QIcon.Off)
+        Login.setWindowIcon(icon)
         Login.setStyleSheet(u"")
         self.gridLayout = QGridLayout(Login)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -79,7 +83,7 @@ class Ui_Login(object):
         self.label.setMinimumSize(QSize(50, 50))
         self.label.setMaximumSize(QSize(50, 50))
         self.label.setTextFormat(Qt.RichText)
-        self.label.setPixmap(QPixmap(u"C:/Users/small/Downloads/feather/user.svg"))
+        self.label.setPixmap(QPixmap(u":/icons/user.svg"))
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setWordWrap(False)
 

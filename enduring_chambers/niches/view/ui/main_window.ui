@@ -20,8 +20,8 @@
    <string extracomment="Segoe UI,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1">Enduring Chambers</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</iconset>
+   <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+    <normaloff>:/icons/enduring_chambers_initials.ico</normaloff>:/icons/enduring_chambers_initials.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -108,8 +108,8 @@
           <string>Usuarios</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>C:/Users/small/Downloads/feather/users.svg</normaloff>C:/Users/small/Downloads/feather/users.svg</iconset>
+          <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+           <normaloff>:/icons/users.svg</normaloff>:/icons/users.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -143,8 +143,8 @@
           <string>Fallecidos</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>C:/Users/small/Downloads/feather/user-minus.svg</normaloff>C:/Users/small/Downloads/feather/user-minus.svg</iconset>
+          <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+           <normaloff>:/icons/user-minus.svg</normaloff>:/icons/user-minus.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -181,8 +181,8 @@
           <string>Titulares</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>C:/Users/small/Downloads/feather/user-plus.svg</normaloff>C:/Users/small/Downloads/feather/user-plus.svg</iconset>
+          <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+           <normaloff>:/icons/user-plus.svg</normaloff>:/icons/user-plus.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -213,8 +213,8 @@
           <string>Nichos</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>C:/Users/small/Downloads/feather/archive.svg</normaloff>C:/Users/small/Downloads/feather/archive.svg</iconset>
+          <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+           <normaloff>:/icons/archive.svg</normaloff>:/icons/archive.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -245,8 +245,8 @@
           <string>Pagos</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>C:/Users/small/Downloads/feather/credit-card.svg</normaloff>C:/Users/small/Downloads/feather/credit-card.svg</iconset>
+          <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+           <normaloff>:/icons/credit-card.svg</normaloff>:/icons/credit-card.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -287,8 +287,8 @@
           <string>Mi cuenta</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>C:/Users/small/Downloads/feather/user-check.svg</normaloff>C:/Users/small/Downloads/feather/user-check.svg</iconset>
+          <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+           <normaloff>:/icons/user-check.svg</normaloff>:/icons/user-check.svg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -2111,8 +2111,8 @@
                  <string>Módulos</string>
                 </property>
                 <property name="icon">
-                 <iconset>
-                  <normaloff>C:/Users/small/Downloads/feather/table.svg</normaloff>C:/Users/small/Downloads/feather/table.svg</iconset>
+                 <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+                  <normaloff>:/icons/table.svg</normaloff>:/icons/table.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -2143,8 +2143,8 @@
                  <string>Filas</string>
                 </property>
                 <property name="icon">
-                 <iconset>
-                  <normaloff>C:/Users/small/Downloads/feather/layers.svg</normaloff>C:/Users/small/Downloads/feather/layers.svg</iconset>
+                 <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+                  <normaloff>:/icons/layers.svg</normaloff>:/icons/layers.svg</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3285,6 +3285,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../icon/enduring_chambers_initials.qrc"/>
+ </resources>
  <connections/>
 </ui>

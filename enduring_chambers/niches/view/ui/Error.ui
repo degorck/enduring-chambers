@@ -20,8 +20,8 @@
    <string>Error</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</iconset>
+   <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+    <normaloff>:/icons/enduring_chambers_initials.ico</normaloff>:/icons/enduring_chambers_initials.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -114,6 +114,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../icon/enduring_chambers_initials.qrc"/>
+ </resources>
  <connections/>
 </ui>
