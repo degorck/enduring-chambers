@@ -208,3 +208,30 @@ class NicheService:
                 niche_id of the niche to be modified
         """
         self.__niche_dao.pay_niche(niche_id)
+
+    def search_active_niches_by_module_id_and_row_id(self, search_string:str,
+                                                       module_id:int, row_id:int):
+        """
+        Search active niches on database.
+        
+        Arguments:
+            search_string: str
+                String to search niches
+            module_id: int
+                module_id to filter the list
+            row_id: int
+                row_id to filter the list
+        Returns:
+            list_niche_dto : list<NicheDto> 
+                Niche list found
+        """
+        list_niche_dto = []
+        list_niche = []
+        list_niche = self.__niche_dao.search_active_niches_by_module_id_and_row_id(search_string,
+                                                                                     module_id,
+                                                                                     row_id)
+        for niche in list_niche:
+            niche_dto = NicheDto()
+            niche_dto = niche_to_niche_dto(niche)
+            list_niche_dto.append(niche_dto)
+        return list_niche_dto
