@@ -94,7 +94,7 @@ class PaymentController:
             self.main_window.combo_box_payment_niche.setEnabled(False)
         else:
             self.main_window.combo_box_payment_niche.setEnabled(True)
-            list_niche_dto = self.__niche_service.search_not_busy_niches_by_module_id_and_row_id(
+            list_niche_dto = self.__niche_service.search_active_niches_by_module_id_and_row_id(
                 "",
                 self.main_window.combo_box_payments_module.currentData().get_id(),
                 self.main_window.combo_box_payments_row.currentData().get_id())
