@@ -486,9 +486,7 @@ def __insert_deceased(name, paternal_surname, maternal_surname, birth_date,
     finally:
         if connection is not None:
             connection.close()
-
-    
-
+   
 def __insert_user_types():
     __insert_user_type("administrador", "dmn")
     __insert_user_type("capturista", "cpt")
@@ -519,6 +517,7 @@ def __insert_rows():
         __insert_row(row["nombre"], int(row["id_module"]))
 
 def __insert_holders():
+    print("################################### Holders ####################################")
     excel_holders = pd.read_excel("enduring_chambers\scripts\enduring_chambers.xlsx",
                                   sheet_name="titulares", dtype=str)
     for index, row in excel_holders.iterrows():
@@ -539,14 +538,16 @@ def __insert_holders():
             is_active:bool = True
         else:
             is_active:bool = False
-        print(name, paternal_surname, maternal_surname, phone, is_active)
+        #print(name, paternal_surname, maternal_surname, phone, is_active)
         __insert_holder(name,
                         paternal_surname,
                         maternal_surname,
                         phone,
                         is_active)
+    print("################################### Holders ####################################")
 
 def __insert_niches():
+    print("################################### Niches ####################################")
     excel_niches = pd.read_excel("enduring_chambers\scripts\enduring_chambers.xlsx",
                                   sheet_name="nichos", dtype=str)
     for index, row in excel_niches.iterrows():
@@ -575,10 +576,12 @@ def __insert_niches():
             is_active:bool = True
         else:
             is_active:bool = False
-        print(name, is_busy, is_paid, is_donated, id_row, id_holder, is_active)
+        #print(name, is_busy, is_paid, is_donated, id_row, id_holder, is_active)
         __insert_niche(name, is_busy, is_paid, is_donated, id_row, id_holder, is_active)
+    print("################################### Niches ####################################")
 
 def __insert_deceaseds():
+    print("################################### Deceaseds ####################################")
     excel_deceased = pd.read_excel("enduring_chambers\scripts\enduring_chambers.xlsx",
                                    sheet_name="difuntos", dtype=str)
     for index, row in excel_deceased.iterrows():
@@ -618,17 +621,19 @@ def __insert_deceaseds():
             is_active:bool = True
         else:
             is_active:bool = False
-        print(name, paternal_surname, maternal_surname, birth_date, death_date, remain_type, id_nicho, book, sheet, is_active)
-        __insert_deceased(name, paternal_surname, maternal_surname, birth_date, death_date, remain_type, id_nicho, book, sheet, is_active)
-    
+        #print(name, paternal_surname, maternal_surname, birth_date, death_date,
+              ##remain_type, id_nicho, book, sheet, is_active)
+        __insert_deceased(name, paternal_surname, maternal_surname, birth_date,
+                          death_date, remain_type, id_nicho, book, sheet, is_active)
+    print("#################################################################################################")
 
 if __name__ == '__main__':
-    ##__create_tables()
-    ##__insert_user_types()
-    ##__insert_remain_types()
-    ##__insert_admin_user()
-    ##__insert_modules()
-    ##__insert_rows()
-    ##__insert_holders()
-    ##__insert_niches()
+    __create_tables()
+    __insert_user_types()
+    __insert_remain_types()
+    __insert_admin_user()
+    __insert_modules()
+    __insert_rows()
+    __insert_holders()
+    __insert_niches()
     __insert_deceaseds()
