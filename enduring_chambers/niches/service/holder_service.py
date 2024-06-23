@@ -6,14 +6,17 @@ from niches.model.dto.holder_dto import HolderDto
 from niches.model.dao.holder_dao import HolderDao
 from niches.model.mapper.holder_mapper import holder_dto_to_holder, holder_to_holder_dto
 from niches.controller.error_controller import ErrorController
+from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT
 
 class HolderService:
     """
     Class with the functionality of HolderService
     """
     def __init__(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.__error_controller = ErrorController()
         self.__holder_dao = HolderDao()
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def create_holder(self, holder_dto:HolderDto):
         """
@@ -26,12 +29,14 @@ class HolderService:
             holder_dto: HolderDto
                 Holder created
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         try:
             output = holder_to_holder_dto(
                 self.__holder_dao.create_holder(
                     holder_dto_to_holder(holder_dto)))
 
             logging.debug("Holder created")
+            logging.debug(ENDS_LOGGING_CONSTANT)
             return output
 
         except ValueError as ve:
@@ -54,6 +59,7 @@ class HolderService:
             list_holder_dto : list<HolderDto> 
                 Holder list found
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_holder_dto = []
         list_holder = []
         list_holder = self.__holder_dao.search_holders(search_string)
@@ -61,6 +67,7 @@ class HolderService:
             holder_dto = HolderDto()
             holder_dto = holder_to_holder_dto(holder)
             list_holder_dto.append(holder_dto)
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return list_holder_dto
 
     def search_active_holders(self, search_string:str):
@@ -73,6 +80,7 @@ class HolderService:
             list_holder_dto : list<HolderDto> 
                 Holder list found
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_holder_dto = []
         list_holder = []
         list_holder = self.__holder_dao.search_active_holders(search_string)
@@ -80,6 +88,7 @@ class HolderService:
             holder_dto = HolderDto()
             holder_dto = holder_to_holder_dto(holder)
             list_holder_dto.append(holder_dto)
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return list_holder_dto
 
     def find_by_id(self, holder_id:int):
@@ -92,9 +101,11 @@ class HolderService:
             holder_dto : HolderDto 
                 HolderDto founded
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         holder_dto = HolderDto()
         holder_dto = holder_to_holder_dto(
             self.__holder_dao.find_by_id(holder_id))
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return holder_dto
 
     def modify_holder(self, holder_dto:HolderDto):

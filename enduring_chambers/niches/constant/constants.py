@@ -23,6 +23,9 @@ LOGIN_ERROR = "Error en login. Verifica tu usuario y contraseña"
 USER_NOT_EXIST = "El usuario no existe o está inactivo"
 NOT_VALID_IMAGE = "El archivo no es una imagen. \n Utiliza archivos *.png, *.jpg o *.jpeg"
 
+STARTS_LOGGING_CONSTANT = "STARTS"
+ENDS_LOGGING_CONSTANT = "ENDS"
+
 HASHED_BOOLEAN_CONVERTER_IS_ACTIVE = {
     "True" : "Activo",
     "False": "Inactivo"

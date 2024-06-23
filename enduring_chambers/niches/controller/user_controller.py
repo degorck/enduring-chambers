@@ -28,6 +28,7 @@ class UserController:
         self.__row = 0
         self.__configure_combo_box()
         self.__configure_actions()
+        logging.debug("User controller created")
 
     def __configure_actions(self):
         self.main_window.push_button_create_user_create.clicked.connect(
@@ -41,6 +42,7 @@ class UserController:
         self.main_window.push_button_modify_user_activate.clicked.connect(self.__activate)
         self.main_window.push_button_modify_user_deactivate.clicked.connect(self.__deactivate)
         self.main_window.table_widget_users.cellDoubleClicked.connect(self.__select_user)
+        logging.debug("User controller actions configured")
 
     def __clean_stacked_widget_users(self):
         self.main_window.line_edit_create_user_name.clear()
@@ -49,6 +51,7 @@ class UserController:
         self.main_window.line_edit_create_user_user_name.clear()
         self.main_window.line_edit_create_user_password.clear()
         self.main_window.line_edit_create_user_repeat_password.clear()
+        logging.debug("User cleaned")
 
     def __search_users(self):
         if self.main_window.get_logged_user_type_key() == UserTypeKey.ADMINISTRATOR.value:
@@ -104,6 +107,7 @@ class UserController:
                     str(user_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
             self.main_window.table_widget_users.resizeColumnsToContents()
             row = row + 1
+        logging.debug("User searched")
 
     def __configure_combo_box(self):
         self.__list_user_type_dto = self.__user_type_service.find_all()
@@ -114,6 +118,7 @@ class UserController:
             self.main_window.combo_box_modify_user_user_type.addItem(
                 user_type_dto.get_name(), user_type_dto)
             self.__hash_list_user_type[user_type_dto.get_id()] = user_type_dto.get_name()
+        logging.debug("User combo box configured")
 
     def __configure_table(self):
         self.main_window.table_widget_users.clear()
@@ -130,6 +135,7 @@ class UserController:
         self.main_window.table_widget_users.setEditTriggers(
             QtWidgets.QAbstractItemView.NoEditTriggers)
         self.main_window.table_widget_users.resizeColumnsToContents()
+        logging.debug("User table configured")
 
     def __save_user(self):
         user_dto = UserDto()
@@ -187,6 +193,7 @@ class UserController:
         self.main_window.line_edit_create_user_user_name.clear()
         self.main_window.line_edit_create_user_password.clear()
         self.main_window.line_edit_create_user_repeat_password.clear()
+        logging.debug("Cleane stacked widget users")
 
     def __set_stacked_widget_users(self):
         self.__search_users()
@@ -206,6 +213,7 @@ class UserController:
         user_name = self.main_window.table_widget_users.item(row, 0).text()
         self.main_window.scroll_area_modify_user.show()
         self.__load_user(user_name)
+        logging.debug("User selected")
 
     def __load_user(self, user_name:str):
         user_dto = self.__user_service.find_user_by_user_name(user_name)
@@ -219,6 +227,7 @@ class UserController:
         self.main_window.line_edit_modify_user_maternal_surname.setText(
             self.main_window.get_loaded_user_dto().get_maternal_surname())
         self.main_window.combo_box_modify_user_user_type.setCurrentText(user_type_dto.get_name())
+        logging.debug("User loaded")
 
     def __update_user(self):
         try:

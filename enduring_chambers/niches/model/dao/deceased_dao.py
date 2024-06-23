@@ -290,6 +290,7 @@ class DeceasedDao:
                 tb_deceased.maternal_surname LIKE %s OR
                 CONCAT (tb_deceased.name , ' ', tb_deceased.paternal_surname, ' ', tb_deceased.maternal_surname) LIKE %s
                 ORDER BY id
+                LIMIT 100
                 '''
         values = (
             search_string,

@@ -42,6 +42,7 @@ class NicheController:
         self.__configure_combo_box_holders_modify()
         self.__configure_actions()
         self.__search_niches()
+        logging.debug("Niche controller initialized")
 
     def __configure_combo_box_niches_module(self):
         list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
@@ -50,6 +51,7 @@ class NicheController:
         for module_dto in list_module_dto:
             self.main_window.combo_box_niches_module.addItem(
                 module_dto.get_name(), module_dto)
+        logging.debug("Combo box module configured")
 
 
     def __configure_combo_box_rows(self):
@@ -64,25 +66,42 @@ class NicheController:
             for row_dto in list_row_dto:
                 self.main_window.combo_box_niches_row.addItem(
                     row_dto.get_name(), row_dto)
+        logging.debug("Combo box row configured")
 
     def __configure_combo_box_holders(self):
+        logging.debug("Configuring combo box holder")
         self.main_window.combo_box_create_niche_holder.clear()
         self.main_window.combo_box_create_niche_holder.addItem("", None)
         list_holder_dto:list[HolderDto] = self.__holder_service.search_active_holders(
             self.main_window.line_edit_create_niche_holder_search.text())
         x = 1
         for holder_dto in list_holder_dto:
+            if holder_dto.get_paternal_surname() is None:
+                paternal_surname = ""
+            else:
+                paternal_surname = holder_dto.get_paternal_surname()
+            if holder_dto.get_maternal_surname() is None:
+                maternal_surname = ""
+            else:
+                maternal_surname = holder_dto.get_maternal_surname()
+            phone = holder_dto.get_phone()
+            if holder_dto.get_phone() is None:
+                phone = "Sin telefono"
+            else:
+                phone = holder_dto.get_phone()
             full_name = ("[" + str(holder_dto.get_id()) + "] " + holder_dto.get_name() + " " +
-                         holder_dto.get_paternal_surname() + " " +
-                         holder_dto.get_maternal_surname())
+                         paternal_surname + " " +
+                         maternal_surname)
+            logging.debug("Loading holder created [%s]", full_name)
             self.main_window.combo_box_create_niche_holder.addItem(full_name, holder_dto)
             self.main_window.combo_box_create_niche_holder.setItemData(x,
-                holder_dto.get_phone() + " - " + full_name, QtCore.Qt.ToolTipRole)
+                phone + " - " + full_name, QtCore.Qt.ToolTipRole)
             x = x + 1
         if self.main_window.line_edit_create_niche_holder_search.text() == "":
             self.main_window.combo_box_create_niche_holder.setCurrentIndex(0)
         else:
             self.main_window.combo_box_create_niche_holder.setCurrentIndex(1)
+        logging.debug("Combo box holder configured")
 
     def __configure_combo_box_holders_modify(self):
         self.main_window.combo_box_modify_niche_holder.clear()
@@ -91,17 +110,32 @@ class NicheController:
             self.main_window.line_edit_modify_niche_search_holder.text())
         x = 1
         for holder_dto in list_holder_dto:
+            paternal_surname = holder_dto.get_paternal_surname()
+            if holder_dto.get_paternal_surname() is None:
+                paternal_surname = ""
+            else:
+                paternal_surname = holder_dto.get_paternal_surname()
+            if holder_dto.get_maternal_surname() is None:
+                maternal_surname = ""
+            else:
+                maternal_surname = holder_dto.get_maternal_surname()
+            phone = holder_dto.get_phone()
+            if holder_dto.get_phone() is None:
+                phone = "Sin telefono"
+            else:
+                phone = holder_dto.get_phone()
             full_name = ("[" + str(holder_dto.get_id()) + "] " + holder_dto.get_name() + " " +
-                         holder_dto.get_paternal_surname() + " " +
-                         holder_dto.get_maternal_surname())
+                         paternal_surname + " " +
+                         maternal_surname)
             self.main_window.combo_box_modify_niche_holder.addItem(full_name, holder_dto)
             self.main_window.combo_box_modify_niche_holder.setItemData(x,
-                holder_dto.get_phone() + " - " + full_name, QtCore.Qt.ToolTipRole)
+                phone + " - " + full_name, QtCore.Qt.ToolTipRole)
             x = x + 1
         if self.main_window.line_edit_modify_niche_search_holder.text() == "":
             self.main_window.combo_box_modify_niche_holder.setCurrentIndex(0)
         else:
             self.main_window.combo_box_modify_niche_holder.setCurrentIndex(1)
+        logging.debug("Combo box holder configured")
 
     def __configure_actions(self):
         self.main_window.combo_box_niches_module.currentIndexChanged.connect(
@@ -127,12 +161,14 @@ class NicheController:
         self.main_window.push_button_create_niche_clean.clicked.connect(
             self.__clean_stacked_widget_niches)
         self.main_window.push_button_niches.clicked.connect(self.__reload)
+        logging.debug("Niche controller actions configured")
 
     def __reload(self):
         self.__configure_combo_box_holders()
         self.__configure_combo_box_holders_modify()
         self.__configure_combo_box_niches_module()
         self.__configure_combo_box_rows()
+        logging.debug("Niche controller reloaded")
 
     def __save_niche(self):
         niche_dto = NicheDto()
@@ -183,6 +219,7 @@ class NicheController:
         self.main_window.table_widget_niches.setEditTriggers(
             QtWidgets.QAbstractItemView.NoEditTriggers)
         self.main_window.table_widget_niches.resizeColumnsToContents()
+        logging.debug("Niche controller table configured")
 
     def __search_niches(self):
         if self.main_window.combo_box_niches_row.currentData() is None:
@@ -238,9 +275,17 @@ class NicheController:
             if niche_dto.get_holder() is None:
                 holder_name = "Sin titular"
             else:
+                if niche_dto.get_holder().get_paternal_surname() is None:
+                    paternal_name = ""
+                else:
+                    paternal_name = niche_dto.get_holder().get_paternal_surname()
+                if niche_dto.get_holder().get_maternal_surname() is None:
+                    maternal_name = ""
+                else:
+                    maternal_name = niche_dto.get_holder().get_maternal_surname()
                 holder_name = (niche_dto.get_holder().get_name() + " " +
-                               niche_dto.get_holder().get_paternal_surname() + " " +
-                               niche_dto.get_holder().get_maternal_surname())
+                               paternal_name + " " +
+                               maternal_name)
 
             self.main_window.table_widget_niches.setItem(
                 row,
@@ -294,12 +339,14 @@ class NicheController:
                     str(niche_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
             self.main_window.table_widget_niches.resizeColumnsToContents()
             row = row + 1
+        logging.debug("Niche loaded.")
 
     def __select_niche(self):
         row = self.main_window.table_widget_niches.currentRow()
         niche_id = int(self.main_window.table_widget_niches.item(row, 0).text())
         self.main_window.scroll_area_modify_niche.show()
         self.__load_niche(niche_id)
+        logging.debug("Niche selected.")
 
     def __load_niche(self, niche_id:int):
         niche_dto = self.__niche_service.find_by_id(niche_id)
@@ -320,6 +367,7 @@ class NicheController:
             self.__loaded_niche_dto.get_row().get_module().get_name() + "-" +
             self.__loaded_niche_dto.get_row().get_name() + "-" +
             str(self.__loaded_niche_dto.get_number()))
+        logging.debug("Niche loaded.")
 
     def __update_niche(self):
         try:
@@ -387,3 +435,4 @@ class NicheController:
         self.main_window.check_box_create_niche_is_busy.setChecked(False)
         self.main_window.check_box_create_niche_is_paid_off.setChecked(False)
         self.main_window.line_edit_create_niche_holder_search.clear()
+        logging.debug("Niche cleaned.")

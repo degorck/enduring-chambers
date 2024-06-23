@@ -27,6 +27,7 @@ class ModuleController:
         self.__configure_table()
         self.__search_module()
         self.__configure_actions()
+        logging.debug("Module controller initializes")
 
     def  __configure_actions(self):
         self.main_window.table_widget_modules.cellDoubleClicked.connect(self.__select_module)
@@ -38,6 +39,7 @@ class ModuleController:
             self.__activate)
         self.main_window.push_button_modify_module_deactivate.clicked.connect(
             self.__deactivate)
+        logging.debug("Module controller actions configured")
 
     def __configure_table(self):
         self.main_window.table_widget_modules.clear()
@@ -53,6 +55,7 @@ class ModuleController:
         self.main_window.table_widget_modules.horizontalHeader().setMaximumSectionSize(500)
         self.main_window.table_widget_modules.resizeRowsToContents()
         self.main_window.table_widget_modules.resizeColumnsToContents()
+        logging.debug("Module controller table configured")
 
     def __search_module(self):
         list_module_dto = []
@@ -90,12 +93,14 @@ class ModuleController:
             self.main_window.table_widget_modules.resizeColumnsToContents()
             self.main_window.table_widget_modules.resizeRowsToContents()
             row = row + 1
+        logging.debug("Module controller search module")
 
     def __select_module(self):
         row = self.main_window.table_widget_modules.currentRow()
         module_id = int(self.main_window.table_widget_modules.item(row, 0).text())
         self.main_window.scroll_area_modify_module.show()
         self.__load_module(module_id)
+        logging.debug("Module controller select module")
 
     def __load_module(self, module_id:int):
         module_dto = self.__module_service.find_by_id(module_id)
@@ -107,6 +112,7 @@ class ModuleController:
             module_dto.get_updated_at()
         )
         self.main_window.line_edit_modify_module_name.setText(self.__loaded_module_dto.get_name())
+        logging.debug("Module controller load module")
 
     def __create_module(self):
         try:

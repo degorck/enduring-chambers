@@ -70,7 +70,7 @@ def __create_tables():
         '''
         CREATE TABLE IF NOT EXISTS tb_niche(
             id serial PRIMARY KEY,
-            name VARCHAR(10) NOT NULL,
+            number VARCHAR(10) NOT NULL,
             is_busy BOOLEAN NOT NULL,
             is_paid_off BOOLEAN NOT NULL,
             is_donated BOOLEAN NOT NULL,
@@ -377,7 +377,7 @@ def __insert_holder(name, paternal_surname, maternal_surname, phone, is_active):
 def __insert_niche(name, is_busy, is_paid_off, is_donated, row_id, holder_id, is_active):
     command = '''
             INSERT INTO tb_niche(
-                name,
+                number,
                 is_busy,
                 is_paid_off,
                 is_donated,
@@ -522,14 +522,17 @@ def __insert_holders():
                                   sheet_name="titulares", dtype=str)
     for index, row in excel_holders.iterrows():
         name:str = row["nombre"]
+        name = name.strip()
         if row["apellido_paterno"] is np.nan:
             paternal_surname:str = None
         else:
             paternal_surname:str = row["apellido_paterno"]
+            paternal_surname = paternal_surname.strip()
         if row["apellido_materno"] is np.nan:
             maternal_surname:str = None
         else:
             maternal_surname:str = row["apellido_materno"]
+            maternal_surname = maternal_surname.strip()
         if row["teléfono"] is np.nan:
             phone:str = None
         else:
@@ -539,7 +542,7 @@ def __insert_holders():
         else:
             is_active:bool = False
         #print(name, paternal_surname, maternal_surname, phone, is_active)
-        __insert_holder(name,
+        __insert_holder(name.strip(),
                         paternal_surname,
                         maternal_surname,
                         phone,
@@ -586,14 +589,17 @@ def __insert_deceaseds():
                                    sheet_name="difuntos", dtype=str)
     for index, row in excel_deceased.iterrows():
         name:str = row["nombre"]
+        name = name.strip()
         if row["apellido_paterno"] is np.nan:
             paternal_surname:str = None
         else:
             paternal_surname:str = row["apellido_paterno"]
+            paternal_surname = paternal_surname.strip()
         if row["apellido_materno"] is np.nan:
             maternal_surname:str = None
         else:
             maternal_surname:str = row["apellido_materno"]
+            maternal_surname = maternal_surname.strip()
         if row["fecha_nacimiento"] is np.nan:
             birth_date:datetime = None
         else:
@@ -625,7 +631,7 @@ def __insert_deceaseds():
               ##remain_type, id_nicho, book, sheet, is_active)
         __insert_deceased(name, paternal_surname, maternal_surname, birth_date,
                           death_date, remain_type, id_nicho, book, sheet, is_active)
-    print("#################################################################################################")
+    print("################################### Deceaseds ####################################")
 
 if __name__ == '__main__':
     __create_tables()

@@ -39,6 +39,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
         self.push_button_guest.clicked.connect(self.__guest)
         self.line_edit_password.returnPressed.connect(self.__login)
         self.__set_windows_by_user_type(self.__user_type_key)
+        logging.debug("Login controller created")
 
     def __login(self):
         user_dto = UserDto()
@@ -71,6 +72,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             else:
                 self.__error_controller.handle_exception_error(LOGIN_ERROR)
                 self.__error_controller.show()
+            logging.debug("Login controller created")
 
         except ValueError as ve:
             logging.exception(ve)
@@ -96,6 +98,7 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             Returns:
                 user_type_key:str
         '''
+        logging.debug("User type key: %s", self.__user_type_key)
         return self.__user_type_key
 
     def get_logged_user(self):
@@ -104,8 +107,10 @@ class LoginController(QtWidgets.QDialog, Ui_Login):
             Returns:
                 logged_user_dto:UserDto    
         '''
+        logging.debug("Logged user: %s", self.__logged_user_dto)
         return self.__logged_user_dto
 
     def __guest(self):
         self.__user_type_key = UserTypeKey.GUEST.value
         self.close()
+        logging.debug("Login controller closed")

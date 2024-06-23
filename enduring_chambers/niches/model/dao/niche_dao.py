@@ -184,6 +184,7 @@ class NicheDao:
                 tb_row.name LIKE %s)
                 OR (CONCAT (tb_module.name, tb_row.name, CAST(tb_niche.number AS VARCHAR(3))) LIKE %s)
                 ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
+                LIMIT 100
                 '''
         values = (
             search_string,
@@ -260,7 +261,8 @@ class NicheDao:
                 CONCAT (tb_module.name, tb_row.name, CAST(tb_niche.number AS VARCHAR(3))) LIKE %s)
                 AND (tb_row.module_id = %s)
                 AND (tb_niche.row_id = %s)
-                ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
+                ORDER BY tb_niche.id
+                LIMIT 400
                 '''
         values = (
             search_string,
@@ -337,7 +339,8 @@ class NicheDao:
                 CAST (tb_niche.number AS VARCHAR(3)) LIKE %s OR
                 CONCAT (tb_module.name, tb_row.name, CAST(tb_niche.number AS VARCHAR(3))) LIKE %s)
                 AND (tb_row.module_id = %s)
-                ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
+                ORDER BY tb_row.name, tb_niche.id
+                LIMIT 400
                 '''
         values = (
             search_string,
@@ -532,6 +535,7 @@ class NicheDao:
                 AND (tb_niche.is_busy = False)
                 AND (tb_niche.is_active = True)
                 ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
+                LIMIT 100
                 '''
         values = (
             search_string,
@@ -613,7 +617,8 @@ class NicheDao:
                 AND (tb_row.module_id = %s)
                 AND (tb_niche.row_id = %s)
                 AND (tb_niche.is_active = True)
-                ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
+                ORDER BY tb_module.name, tb_row.name, tb_niche.id
+                LIMIT 400
                 '''
         values = (
             search_string,
