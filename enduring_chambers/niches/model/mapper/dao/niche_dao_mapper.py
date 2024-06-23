@@ -67,7 +67,7 @@ def real_dict_row_to_niche(real_dict_row:RealDictRow):
     niche.existing_niche(
     real_dict_row["id"],
     row,
-    int(real_dict_row["number"]),
+    str(real_dict_row["number"]),
     bool(real_dict_row["is_busy"]),
     bool(real_dict_row["is_paid_off"]),
     holder,

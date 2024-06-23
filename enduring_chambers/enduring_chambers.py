@@ -19,6 +19,7 @@ from niches.controller.module_controller import ModuleController
 from niches.controller.row_controller import RowController
 from niches.util.wheel_event_filter import WheelEventFilter
 from niches.util.delete_old_log_files_util import delete_old_logs
+from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT
 logging = get_loging()
 
 class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -30,6 +31,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow (Ui_MainWindow): Qt layer transformed to python code 
     """
     def __init__(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         super().__init__()
         self.setupUi(self)
         delete_old_logs()
@@ -56,7 +58,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__configure_windows_by_user_type()
         self.show()
         self.__login_controller.show()
-        logging.info("System started")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def get_logged_user_type_key(self):
         """
@@ -64,6 +66,8 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
             user_type_key : str
                 The logged user type key
         """
+        
+        logging.debug("User type key: %s", self.__user_type_key)
         return self.__user_type_key
 
     def set_loaded_user_dto(self, user_dto:UserDto):
@@ -81,6 +85,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
             user_dto.get_user_type_id(),
             user_dto.get_user_name()
         )
+        logging.debug("Loaded user dto: %s", self.__loaded_user_dto)
 
     def get_loaded_user_dto(self):
         """
@@ -88,6 +93,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
             loaded_user_dto : UserDto
                 The loaded UserDto
         """
+        logging.debug("Loaded user dto: %s", self.__loaded_user_dto)
         return self.__loaded_user_dto
 
     def get_logged_user_dto(self):
@@ -96,9 +102,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
             logged_user_dto : UserDto
                 The loaded UserDto
         """
+        logging.debug("Logged user dto: %s", self.__logged_user_dto)
         return self.__logged_user_dto
 
     def __configure_actions(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.push_button_niches.clicked.connect(self.__set_stacked_widget_niches)
         self.push_button_deceased.clicked.connect(self.__set_stacked_widget_deceased)
         self.push_button_holders.clicked.connect(self.__set_stacked_widget_holders)
@@ -114,8 +122,10 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_modules_return.clicked.connect(self.__set_stacked_widget_niches)
         self.push_button_rows.clicked.connect(self.__set_stacked_widget_rows)
         self.push_button_rows_return.clicked.connect(self.__set_stacked_widget_niches)
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_windows_by_user_type(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.__user_type_key = self.__login_controller.get_logged_user_type_key()
         self.__logged_user_dto = self.__login_controller.get_logged_user()
         self.label_welcome_user_name.setText(self.__logged_user_dto.get_user_name())
@@ -129,10 +139,12 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.__configure_capturist_window()
             case UserTypeKey.NOT_LOGGED.value:
                 self.__configure_not_logged_window()
-        logging.debug(
+        logging.info(
             "Se ha configurado la ventana de acuerdo al usuario loggeado: %s", self.__user_type_key)
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_guest_window(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.label_welcome_user_name.setText("Invitado")
         self.label_my_account_your_user_name.setText("Invitado")
         self.stacked_widget.setEnabled(True)
@@ -164,8 +176,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_row_create.setEnabled(False)
         self.scroll_area_create_row.setEnabled(False)
         self.scroll_area_modify_row.setEnabled(False)
+        logging.info("Guest window configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_administrator_window(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.stacked_widget.setEnabled(True)
         # User actions configuration
         self.push_button_create_user_create.setEnabled(True)
@@ -199,8 +214,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_row_create.setEnabled(True)
         self.scroll_area_create_row.setEnabled(True)
         self.scroll_area_modify_row.setEnabled(True)
+        logging.info("Administrator window configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_capturist_window(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.stacked_widget.setEnabled(True)
         # User actions configuration
         self.push_button_create_user_create.setEnabled(False)
@@ -234,13 +252,19 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_row_create.setEnabled(False)
         self.scroll_area_create_row.setEnabled(False)
         self.scroll_area_modify_row.setEnabled(False)
+        logging.info("Capturist window configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_not_logged_window(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.__user_type_key = UserTypeKey.NOT_LOGGED.value
         self.stacked_widget.setCurrentIndex(0)
         self.stacked_widget.setEnabled(False)
+        logging.info("Not logged window configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __set_stacked_widget_niches(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.scroll_area_create_niche.hide()
         self.scroll_area_modify_niche.hide()
         self.push_button_deceased.setChecked(False)
@@ -250,9 +274,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(4)
-        logging.debug("Niches stacked widget selected")
+        logging.info("Niches stacked widget selected")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __set_stacked_widget_deceased(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.scroll_area_modify_deceased.hide()
         self.scroll_area_create_deceased.hide()
         self.push_button_deceased.setChecked(True)
@@ -262,9 +288,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(2)
-        logging.debug("Deceased stacked widget selected")
+        logging.info("Deceased stacked widget selected")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __set_stacked_widget_holders(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.scroll_area_create_holder.hide()
         self.scroll_area_modify_holder.hide()
         self.push_button_deceased.setChecked(False)
@@ -274,9 +302,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(3)
-        logging.debug("Holders stacked widget selected")
+        logging.info("Holders stacked widget selected")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __set_stacked_widget_payments(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.scroll_area_payment_create.hide()
         self.scroll_area_payment_modify.hide()
         self.push_button_deceased.setChecked(False)
@@ -286,9 +316,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(True)
         self.stacked_widget.setCurrentIndex(6)
-        logging.debug("Payments stacked widget selected")
+        logging.info("Payments stacked widget selected")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __set_stacked_widget_modules(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.scroll_area_create_module.hide()
         self.scroll_area_modify_module.hide()
         self.push_button_deceased.setChecked(False)
@@ -298,9 +330,11 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(7)
-        logging.debug("Modules stacked widget selected")
+        logging.info("Modules stacked widget selected")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __set_stacked_widget_rows(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.scroll_area_create_row.hide()
         self.scroll_area_modify_row.hide()
         self.push_button_deceased.setChecked(False)
@@ -310,13 +344,16 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(False)
         self.stacked_widget.setCurrentIndex(8)
-        logging.debug("Rows stacked widget selected")
+        logging.info("Rows stacked widget selected")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __logout(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.__configure_not_logged_window()
         self.__login_controller.line_edit_password.clear()
         self.__login_controller.line_edit_user.clear()
         self.__login_controller.show()
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

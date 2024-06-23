@@ -26,18 +26,20 @@ class HolderController:
         self.__loaded_holder_dto = HolderDto()
         self.__search_holders()
         self.__configure_actions()
+        logging.debug("Holder controller initialized")
 
     def __configure_actions(self):
         self.main_window.push_button_create_holder_create.clicked.connect(
             self.main_window.scroll_area_create_holder.show)
         self.main_window.push_button_create_holder_save_holder.clicked.connect(self.__save_holder)
-        self.main_window.line_edit_search_holders.textChanged.connect(self.__search_holders)
+        self.main_window.line_edit_search_holders.editingFinished.connect(self.__search_holders)
         self.main_window.push_button_create_holder_clean_holder.clicked.connect(
             self.__clean_stacked_widget_holders)
         self.main_window.push_button_modify_holder_save.clicked.connect(self.__update_holder)
         self.main_window.push_button_modify_holder_activate.clicked.connect(self.__activate)
         self.main_window.push_button_modify_holder_deactivate.clicked.connect(self.__deactivate)
         self.main_window.table_widget_holders.cellDoubleClicked.connect(self.__select_holder)
+        logging.debug("Holder controller actions configured")
 
     def __save_holder(self):
         holder_dto = HolderDto()
@@ -85,6 +87,7 @@ class HolderController:
         self.main_window.line_edit_create_holder_paternal_surname.clear()
         self.main_window.line_edit_create_holder_maternal_surname.clear()
         self.main_window.line_edit_create_holder_phone.clear()
+        logging.debug("Holder cleaned")
 
     def __configure_table(self):
         self.main_window.table_widget_holders.clear()
@@ -101,8 +104,10 @@ class HolderController:
         self.main_window.table_widget_holders.setEditTriggers(
             QtWidgets.QAbstractItemView.NoEditTriggers)
         self.main_window.table_widget_holders.resizeColumnsToContents()
+        logging.debug("Holder table configured")
 
     def __search_holders(self):
+        logging.debug("Holder searching...")
         if self.main_window.get_logged_user_type_key() == UserTypeKey.ADMINISTRATOR.value:
             list_holder_dto:list[HolderDto] = self.__holder_service.search_holders(
                 self.main_window.line_edit_search_holders.text())
@@ -156,12 +161,14 @@ class HolderController:
                 str(holder_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
             self.main_window.table_widget_holders.resizeColumnsToContents()
             row = row + 1
+        logging.debug("Holder searched")
 
     def __select_holder(self):
         row = self.main_window.table_widget_holders.currentRow()
         holder_id = int(self.main_window.table_widget_holders.item(row, 0).text())
         self.main_window.scroll_area_modify_holder.show()
         self.__load_holder(holder_id)
+        logging.debug("Holder selected")
 
     def __load_holder(self, holder_id:int):
         holder_dto = self.__holder_service.find_by_id(holder_id)
@@ -182,6 +189,7 @@ class HolderController:
         self.main_window.line_edit_modify_holder_maternal_surname.setText(
             holder_dto.get_maternal_surname())
         self.main_window.line_edit_modify_holder_phone.setText(holder_dto.get_phone())
+        logging.debug("Holder loaded")
 
     def __update_holder(self):
         try:

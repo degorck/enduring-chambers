@@ -11,7 +11,7 @@ class Niche:
         Properties:
             id: int
             row: Row
-            number: int
+            number: str
             is_busy: bool
             is_paid_off: bool
             holder: Holder
@@ -22,7 +22,7 @@ class Niche:
     def __init__(self):
         self.__id:int = 0
         self.__row:Row = None
-        self.__number:int = 0
+        self.__number:str = ""
         self.__is_busy:bool = False
         self.__is_paid_off:bool = False
         self.__holder:Holder = None
@@ -47,7 +47,7 @@ class Niche:
     def get_number(self):
         """
         Returns
-            number : int
+            number : str
         """
         return self.__number
 
@@ -113,12 +113,12 @@ class Niche:
         """
         self.__row = row
 
-    def set_number(self, number:int):
+    def set_number(self, number:str):
         """
         Sets number
 
         Arguments:
-            number : int
+            number : str
                 number to set
         """
         self.__number = number
@@ -183,14 +183,14 @@ class Niche:
         """
         self.__updated_at = updated_at
 
-    def new_niche(self, row:Row, number:int, is_busy:bool, is_paid_off:bool, holder:Holder):
+    def new_niche(self, row:Row, number:str, is_busy:bool, is_paid_off:bool, holder:Holder):
         """
         Loads data for new niche
 
         Arguments:
             row: Row
                 Row of the niche
-            number: int
+            number: str
                 number of the niche
             is_busy: bool
                 if the niche is busy
@@ -205,7 +205,7 @@ class Niche:
         self.__is_paid_off = is_paid_off
         self.__holder:Holder = holder
 
-    def existing_niche(self, niche_id:int, row:Row, number:int, is_busy:bool,
+    def existing_niche(self, niche_id:int, row:Row, number:str, is_busy:bool,
                        is_paid_off:bool, holder:Holder, is_active:bool,
                        created_at:datetime, updated_at:datetime):
         """

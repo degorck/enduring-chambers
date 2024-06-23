@@ -6,14 +6,17 @@ from niches.model.dto.niche_dto import NicheDto
 from niches.model.dao.niche_dao import NicheDao
 from niches.model.mapper.niche_mapper import niche_dto_to_niche, niche_to_niche_dto
 from niches.controller.error_controller import ErrorController
+from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT
 
 class NicheService:
     """
     Class with the functionality of NicheService
     """
     def __init__(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.__error_controller = ErrorController()
         self.__niche_dao = NicheDao()
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def create_niche(self, niche_dto:NicheDto):
         """
@@ -58,6 +61,7 @@ class NicheService:
             list_niche_dto : list<NicheDto> 
                 Niche list found
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_niche_dto = []
         list_niche = []
         list_niche = self.__niche_dao.search_niches(search_string)
@@ -65,6 +69,7 @@ class NicheService:
             niche_dto = NicheDto()
             niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return list_niche_dto
 
     def search_niches_by_module_id_and_row_id(self, search_string:str, module_id:int, row_id:int):
@@ -82,6 +87,7 @@ class NicheService:
             list_niche_dto : list<NicheDto> 
                 Niche list found
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_niche_dto = []
         list_niche = []
         list_niche = self.__niche_dao.search_niches_by_module_id_and_row_id(search_string,
@@ -90,6 +96,7 @@ class NicheService:
             niche_dto = NicheDto()
             niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return list_niche_dto
 
     def search_niches_by_module_id(self, search_string:str, module_id:int):
@@ -105,6 +112,7 @@ class NicheService:
             list_niche_dto : list<NicheDto> 
                 Niche list found
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_niche_dto = []
         list_niche = []
         list_niche = self.__niche_dao.search_niches_by_module_id(search_string,
@@ -113,6 +121,7 @@ class NicheService:
             niche_dto = NicheDto()
             niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return list_niche_dto
 
     def find_by_id(self, id_niche:int):
@@ -178,6 +187,7 @@ class NicheService:
             list_niche_dto : list<NicheDto> 
                 Niche list found
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_niche_dto = []
         list_niche = []
         list_niche = self.__niche_dao.search_not_busy_niches_by_module_id_and_row_id(search_string,
@@ -187,6 +197,7 @@ class NicheService:
             niche_dto = NicheDto()
             niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return list_niche_dto
 
     def occupy_niche(self, niche_id:int):
@@ -225,6 +236,7 @@ class NicheService:
             list_niche_dto : list<NicheDto> 
                 Niche list found
         """
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_niche_dto = []
         list_niche = []
         list_niche = self.__niche_dao.search_active_niches_by_module_id_and_row_id(search_string,
@@ -234,4 +246,5 @@ class NicheService:
             niche_dto = NicheDto()
             niche_dto = niche_to_niche_dto(niche)
             list_niche_dto.append(niche_dto)
+        logging.debug(ENDS_LOGGING_CONSTANT)
         return list_niche_dto

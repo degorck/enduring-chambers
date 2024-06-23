@@ -47,6 +47,7 @@ class DeceasedController:
         self.__initialize_date_edit()
         self.__configure_table()
         self.__search_deceased()
+        logging.debug("Deceased controller initialized")
 
     def __initialize_date_edit(self):
         today = datetime.datetime.now()
@@ -55,6 +56,7 @@ class DeceasedController:
         self.main_window.date_edit_create_deceased_death_date.setDate(today_qdate)
         self.main_window.date_edit_modify_deceased_birth_date.setDate(today_qdate)
         self.main_window.date_edit_modify_deceased_death_date.setDate(today_qdate)
+        logging.debug("Date edit initialized")
 
     def __configure_actions(self):
         self.main_window.push_button_create_deceased_create.clicked.connect(
@@ -72,20 +74,25 @@ class DeceasedController:
         self.main_window.label_create_deceased_image.setMaximumWidth(175)
         self.main_window.push_button_create_deceased_image.clicked.connect(
             self.__show_create_deceased_image_widget)
-        self.main_window.line_edit_search_deceased.textChanged.connect(self.__search_deceased)
+        ##self.main_window.line_edit_search_deceased.textChanged.connect(self.__search_deceased)
+        self.main_window.line_edit_search_deceased.editingFinished.connect(self.__search_deceased)
+        
         self.main_window.table_widget_deceased.cellDoubleClicked.connect(self.__select_deceased)
         self.main_window.push_button_modify_deceased_image.clicked.connect(
             self.__show_modify_deceased_image_widget)
         self.main_window.push_button_modify_deceased_save.clicked.connect(
             self.__update_deceased)
+        logging.debug("Deceased controller actions configured")
 
     def __show_create_deceased_image_widget(self):
         self.__drag_and_drop_util_create_deceased.show()
         self.__drag_and_drop_util_create_deceased.open_window_configuration()
+        logging.debug("Show create image widget")
 
     def __show_modify_deceased_image_widget(self):
         self.__drag_and_drop_util_modify_deceased.show()
         self.__drag_and_drop_util_modify_deceased.open_window_configuration()
+        logging.debug("Show modify image widget")
 
     def __configure_combo_box_remain_type(self):
         list_remain_type_dto = self.__remain_type_service.find_all()
@@ -94,6 +101,7 @@ class DeceasedController:
                 remain_type_dto.get_name(), remain_type_dto)
             self.main_window.combo_box_modify_deceased_remain_type.addItem(
                 remain_type_dto.get_name(), remain_type_dto)
+        logging.debug("Combo box remain type configured")
 
     def __configure_combo_box_module(self):
         self.main_window.combo_box_create_deceased_module.addItem("", None)
@@ -104,6 +112,7 @@ class DeceasedController:
                 module_dto.get_name(), module_dto)
             self.main_window.combo_box_modify_deceased_module.addItem(
                 module_dto.get_name(), module_dto)
+        logging.debug("Combo box module configured")
 
     def __configure_combo_box_row_create(self):
         self.main_window.combo_box_create_deceased_row.clear()
@@ -117,6 +126,7 @@ class DeceasedController:
             for row_dto in list_row_dto:
                 self.main_window.combo_box_create_deceased_row.addItem(
                     row_dto.get_name(), row_dto)
+        logging.debug("Combo box row create configured")
 
     def __configure_combo_box_row_modify(self):
         self.main_window.combo_box_modify_deceased_row.clear()
@@ -131,6 +141,7 @@ class DeceasedController:
             for row_dto in list_row_dto:
                 self.main_window.combo_box_modify_deceased_row.addItem(
                     row_dto.get_name(), row_dto)
+        logging.debug("Combo box row modify configured")
 
     def __configure_combo_box_niche_create(self):
         self.main_window.combo_box_create_deceased_niche.clear()
@@ -146,6 +157,7 @@ class DeceasedController:
             for niche_dto in list_niche_dto:
                 self.main_window.combo_box_create_deceased_niche.addItem(
                     str(niche_dto.get_number()), niche_dto)
+        logging.debug("Combo box niche create configured")
 
     def __configure_combo_box_niche_modify(self):
         self.main_window.combo_box_modify_deceased_niche.clear()
@@ -161,6 +173,7 @@ class DeceasedController:
             for niche_dto in list_niche_dto:
                 self.main_window.combo_box_modify_deceased_niche.addItem(
                     str(niche_dto.get_number()), niche_dto)
+        logging.debug("Combo box niche modify configured")
 
     def __create_deceased(self):
         try:
@@ -231,6 +244,7 @@ class DeceasedController:
         self.main_window.plain_text_edit_create_deceased_sheet.clear()
         self.__initialize_date_edit()
         self.__drag_and_drop_util_create_deceased.open_window_configuration()
+        logging.debug("Clear scroll area create deceased")
 
     def __search_deceased(self):
         if self.main_window.get_logged_user_type_key() == UserTypeKey.ADMINISTRATOR.value:
@@ -247,9 +261,26 @@ class DeceasedController:
             if deceased_dto.get_niche().get_holder() is None:
                 holder_name = "Sin titular"
             else:
+                if deceased_dto.get_niche().get_holder().get_paternal_surname() is None:
+                    paternal_surname = ""
+                else:
+                    paternal_surname = deceased_dto.get_niche().get_holder().get_paternal_surname()
+                if deceased_dto.get_niche().get_holder().get_maternal_surname() is None:
+                    maternal_surname = ""
+                else:
+                    maternal_surname = deceased_dto.get_niche().get_holder().get_maternal_surname()
+                if deceased_dto.get_birth_date() is None:
+                    birth_date = "Desconocido"
+                else:
+                    birth_date = str(deceased_dto.get_birth_date().strftime('%d/%b/%Y'))
+                if deceased_dto.get_death_date() is None:
+                    death_date = "Desconocido"
+                else:
+                    death_date = str(deceased_dto.get_death_date().strftime('%d/%b/%Y'))
+
                 holder_name = (deceased_dto.get_niche().get_holder().get_name() + " " +
-                               deceased_dto.get_niche().get_holder().get_paternal_surname() + " " +
-                               deceased_dto.get_niche().get_holder().get_maternal_surname())
+                               paternal_surname + " " +
+                               maternal_surname)
             self.main_window.table_widget_deceased.setItem(
                 row,
                 0,
@@ -274,12 +305,12 @@ class DeceasedController:
                 row,
                 4,
                 QtWidgets.QTableWidgetItem(
-                    str(deceased_dto.get_birth_date().strftime('%d/%b/%Y'))))
+                   birth_date))
             self.main_window.table_widget_deceased.setItem(
                 row,
                 5,
                 QtWidgets.QTableWidgetItem(
-                    str(deceased_dto.get_death_date().strftime('%d/%b/%Y'))))
+                    death_date))
             self.main_window.table_widget_deceased.setItem(
                 row,
                 6,
@@ -333,6 +364,7 @@ class DeceasedController:
             self.main_window.table_widget_deceased.resizeColumnsToContents()
             self.main_window.table_widget_deceased.resizeRowsToContents()
             row = row + 1
+        logging.debug("Search all deceased")
 
     def __configure_table(self):
         self.main_window.table_widget_deceased.clear()
@@ -359,12 +391,14 @@ class DeceasedController:
         self.main_window.table_widget_deceased.horizontalHeader().setMaximumSectionSize(500)
         self.main_window.table_widget_deceased.resizeRowsToContents()
         self.main_window.table_widget_deceased.resizeColumnsToContents()
+        logging.debug("Table configured")
 
     def __select_deceased(self):
         row = self.main_window.table_widget_deceased.currentRow()
         deceased_id = int(self.main_window.table_widget_deceased.item(row, 0).text())
         self.main_window.scroll_area_modify_deceased.show()
         self.__load_deceased(deceased_id)
+        logging.debug("Select deceased")
 
     def __load_deceased(self, deceased_id:int):
         deceased_dto = self.__deceased_service.find_by_id(deceased_id)
@@ -439,6 +473,7 @@ class DeceasedController:
         self.main_window.label_modify_deceased_image.setPixmap(QPixmap("." + file_path).scaled(
             170, 200, Qt.AspectRatioMode.KeepAspectRatio,
             Qt.TransformationMode.SmoothTransformation))
+        logging.debug("Se cargó la imagen [%s]", file_path)
 
     def __update_deceased(self):
         try:

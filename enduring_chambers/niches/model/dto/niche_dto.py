@@ -11,7 +11,7 @@ class NicheDto:
         Properties:
             id: int
             row: RowDto
-            number: int
+            number: str
             is_busy: bool
             is_paid_off: bool
             holder: HolderDto
@@ -22,7 +22,7 @@ class NicheDto:
     def __init__(self):
         self.__id:int = 0
         self.__row_dto:RowDto = None
-        self.__number:int = 0
+        self.__number:str = ""
         self.__is_busy:bool = False
         self.__is_paid_off:bool = False
         self.__holder_dto:HolderDto = None
@@ -47,7 +47,7 @@ class NicheDto:
     def get_number(self):
         """
         Returns
-            number : int
+            number : str
         """
         return self.__number
 
@@ -113,12 +113,13 @@ class NicheDto:
         """
         self.__row_dto = row
 
-    def set_number(self, number:int):
+    def set_number(self, number:str
+                   ):
         """
         Sets number
 
         Arguments:
-            number : int
+            number : str
                 number to set
         """
         self.__number = number
@@ -183,14 +184,14 @@ class NicheDto:
         """
         self.__updated_at = updated_at
 
-    def new_niche(self, row:RowDto, number:int, is_busy:bool, is_paid_off:bool, holder:HolderDto):
+    def new_niche(self, row:RowDto, number:str, is_busy:bool, is_paid_off:bool, holder:HolderDto):
         """
         Loads data for new niche
 
         Arguments:
             row: Row
                 Row of the niche
-            number: int
+            number: str
                 number of the niche
             is_busy: bool
                 if the niche is busy
@@ -208,7 +209,7 @@ class NicheDto:
         else:
             self.__holder_dto = holder
 
-    def existing_niche(self, niche_id:int, row:RowDto, number:int, is_busy:bool,
+    def existing_niche(self, niche_id:int, row:RowDto, number:str, is_busy:bool,
                        is_paid_off:bool, holder:HolderDto, is_active:bool,
                        created_at:datetime, updated_at:datetime):
         """
