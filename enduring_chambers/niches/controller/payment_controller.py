@@ -14,6 +14,7 @@ from niches.model.dto.row_dto import RowDto
 from niches.model.dto.niche_dto import NicheDto
 from niches.model.dto.payment_dto import PaymentDto
 from niches.service.payment_service import PaymentService
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
 from niches.controller.error_controller import ErrorController
 from niches.util.validator import validate_not_none, validate_not_zero
 from niches.constant.constants import FieldName, UserTypeKey
@@ -116,6 +117,7 @@ class PaymentController:
                                                            "Nicho",
                                                            "Cantidad",
                                                            "Fecha de pago",
+                                                           "Pagado",
                                                            "Comentarios",
                                                            "Creado",
                                                            "Actualizado"))
@@ -176,6 +178,8 @@ class PaymentController:
                 self.main_window.combo_box_payment_niche.setEnabled(True)
                 list_payment_dto = self.__payment_service.search_all_payments_by_niche_id(
                     self.main_window.combo_box_payment_niche.currentData().get_id())
+                self.main_window.check_box_payment_create_is_paid_off.setChecked(
+                    self.main_window.combo_box_payment_niche.currentData().is_paid_off())
         else:
             if self.main_window.combo_box_payment_niche.currentData() is None:
                 self.main_window.combo_box_payment_niche.setCurrentText("")
@@ -218,15 +222,21 @@ class PaymentController:
                 row,
                 4,
                 QtWidgets.QTableWidgetItem(
-                    payment_dto.get_comments()))
+                    HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF[str(
+                        payment_dto.get_niche().is_paid_off())]))
             self.main_window.table_widget_payments.setItem(
                 row,
                 5,
                 QtWidgets.QTableWidgetItem(
-                    str(payment_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+                    payment_dto.get_comments()))
             self.main_window.table_widget_payments.setItem(
                 row,
                 6,
+                QtWidgets.QTableWidgetItem(
+                    str(payment_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+            self.main_window.table_widget_payments.setItem(
+                row,
+                7,
                 QtWidgets.QTableWidgetItem(
                     str(payment_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
             self.main_window.table_widget_payments.resizeColumnsToContents()

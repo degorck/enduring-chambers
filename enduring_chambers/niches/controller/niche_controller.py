@@ -167,7 +167,6 @@ class NicheController:
         self.main_window.push_button_create_niche_clean.clicked.connect(
             self.__clean_stacked_widget_niches)
         self.main_window.push_button_niches.clicked.connect(self.__reload)
-        self.main_window.push_button_niches_new_page.clicked.connect(self.__new_page)
         logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __reload(self):
@@ -477,7 +476,7 @@ class NicheController:
         self.main_window.check_box_create_niche_is_busy.setChecked(False)
         self.main_window.check_box_create_niche_is_paid_off.setChecked(False)
         self.main_window.line_edit_create_niche_holder_search.clear()
+        self.main_window.line_edit_create_niche_name.clear()
+        self.main_window.check_box_create_niche_is_donated.setChecked(False)
         logging.debug(ENDS_LOGGING_CONSTANT)
 
-    def __new_page(self):
-        print("new page")

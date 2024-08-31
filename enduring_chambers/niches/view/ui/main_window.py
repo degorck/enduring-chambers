@@ -208,7 +208,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_user.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 213, 500))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 196, 466))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_create_user = QLabel(self.scrollAreaWidgetContents_3)
@@ -329,7 +329,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_user.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 213, 500))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 196, 346))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label_modify_user = QLabel(self.scrollAreaWidgetContents_2)
@@ -420,7 +420,7 @@ class Ui_MainWindow(object):
         self.scroll_area_users.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 223, 500))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 89, 117))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.line_edit_search_users = QLineEdit(self.scrollAreaWidgetContents_4)
@@ -535,10 +535,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addWidget(self.label_modify_deceased_birth_date)
 
-        self.checkBox_modify_deceased_birth_date = QCheckBox(self.scrollAreaWidgetContents_21)
-        self.checkBox_modify_deceased_birth_date.setObjectName(u"checkBox_modify_deceased_birth_date")
+        self.check_box_modify_deceased_birth_date = QCheckBox(self.scrollAreaWidgetContents_21)
+        self.check_box_modify_deceased_birth_date.setObjectName(u"check_box_modify_deceased_birth_date")
 
-        self.verticalLayout_13.addWidget(self.checkBox_modify_deceased_birth_date)
+        self.verticalLayout_13.addWidget(self.check_box_modify_deceased_birth_date)
 
         self.date_edit_modify_deceased_birth_date = QDateEdit(self.scrollAreaWidgetContents_21)
         self.date_edit_modify_deceased_birth_date.setObjectName(u"date_edit_modify_deceased_birth_date")
@@ -551,10 +551,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addWidget(self.label_modify_deceased_death_date)
 
-        self.checkBox_modify_deceased_death_date = QCheckBox(self.scrollAreaWidgetContents_21)
-        self.checkBox_modify_deceased_death_date.setObjectName(u"checkBox_modify_deceased_death_date")
+        self.check_box_modify_deceased_death_date = QCheckBox(self.scrollAreaWidgetContents_21)
+        self.check_box_modify_deceased_death_date.setObjectName(u"check_box_modify_deceased_death_date")
 
-        self.verticalLayout_13.addWidget(self.checkBox_modify_deceased_death_date)
+        self.verticalLayout_13.addWidget(self.check_box_modify_deceased_death_date)
 
         self.date_edit_modify_deceased_death_date = QDateEdit(self.scrollAreaWidgetContents_21)
         self.date_edit_modify_deceased_death_date.setObjectName(u"date_edit_modify_deceased_death_date")
@@ -692,7 +692,7 @@ class Ui_MainWindow(object):
         self.scroll_area_search_deceased.setWidgetResizable(True)
         self.scrollAreaWidgetContents_20 = QWidget()
         self.scrollAreaWidgetContents_20.setObjectName(u"scrollAreaWidgetContents_20")
-        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 223, 500))
+        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 89, 117))
         self.gridLayout_7 = QGridLayout(self.scrollAreaWidgetContents_20)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.line_edit_search_deceased = QLineEdit(self.scrollAreaWidgetContents_20)
@@ -778,10 +778,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.label_create_deceased_birth_date)
 
-        self.checkbox_create_deceased_birth_date = QCheckBox(self.scrollAreaWidgetContents_22)
-        self.checkbox_create_deceased_birth_date.setObjectName(u"checkbox_create_deceased_birth_date")
+        self.check_box_create_deceased_birth_date = QCheckBox(self.scrollAreaWidgetContents_22)
+        self.check_box_create_deceased_birth_date.setObjectName(u"check_box_create_deceased_birth_date")
 
-        self.verticalLayout_14.addWidget(self.checkbox_create_deceased_birth_date)
+        self.verticalLayout_14.addWidget(self.check_box_create_deceased_birth_date)
 
         self.date_edit_create_deceased_birth_date = QDateEdit(self.scrollAreaWidgetContents_22)
         self.date_edit_create_deceased_birth_date.setObjectName(u"date_edit_create_deceased_birth_date")
@@ -794,10 +794,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.label_create_deceased_death_date)
 
-        self.checkBox_create_deceased_death_date = QCheckBox(self.scrollAreaWidgetContents_22)
-        self.checkBox_create_deceased_death_date.setObjectName(u"checkBox_create_deceased_death_date")
+        self.check_box_create_deceased_death_date = QCheckBox(self.scrollAreaWidgetContents_22)
+        self.check_box_create_deceased_death_date.setObjectName(u"check_box_create_deceased_death_date")
 
-        self.verticalLayout_14.addWidget(self.checkBox_create_deceased_death_date)
+        self.verticalLayout_14.addWidget(self.check_box_create_deceased_death_date)
 
         self.date_edit_create_deceased_death_date = QDateEdit(self.scrollAreaWidgetContents_22)
         self.date_edit_create_deceased_death_date.setObjectName(u"date_edit_create_deceased_death_date")
@@ -935,7 +935,7 @@ class Ui_MainWindow(object):
         self.scroll_area_holders.setWidgetResizable(True)
         self.scrollAreaWidgetContents_23 = QWidget()
         self.scrollAreaWidgetContents_23.setObjectName(u"scrollAreaWidgetContents_23")
-        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 223, 500))
+        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 89, 117))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents_23)
         self.gridLayout.setObjectName(u"gridLayout")
         self.line_edit_search_holders = QLineEdit(self.scrollAreaWidgetContents_23)
@@ -959,7 +959,7 @@ class Ui_MainWindow(object):
         self.scroll_area_create_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_25 = QWidget()
         self.scrollAreaWidgetContents_25.setObjectName(u"scrollAreaWidgetContents_25")
-        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 213, 500))
+        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 196, 316))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_25)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.label_create_holder = QLabel(self.scrollAreaWidgetContents_25)
@@ -1046,7 +1046,7 @@ class Ui_MainWindow(object):
         self.scroll_area_modify_holder.setWidgetResizable(True)
         self.scrollAreaWidgetContents_24 = QWidget()
         self.scrollAreaWidgetContents_24.setObjectName(u"scrollAreaWidgetContents_24")
-        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 213, 500))
+        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 196, 346))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents_24)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.label_modify_holder = QLabel(self.scrollAreaWidgetContents_24)
@@ -1136,41 +1136,111 @@ class Ui_MainWindow(object):
         self.niches.setObjectName(u"niches")
         self.gridLayout_4 = QGridLayout(self.niches)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.scroll_area_search_niches = QScrollArea(self.niches)
-        self.scroll_area_search_niches.setObjectName(u"scroll_area_search_niches")
-        self.scroll_area_search_niches.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_5 = QWidget()
-        self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 223, 432))
-        self.gridLayout_8 = QGridLayout(self.scrollAreaWidgetContents_5)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.table_widget_niches = QTableWidget(self.scrollAreaWidgetContents_5)
-        self.table_widget_niches.setObjectName(u"table_widget_niches")
+        self.frame_niches_header = QFrame(self.niches)
+        self.frame_niches_header.setObjectName(u"frame_niches_header")
+        self.frame_niches_header.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_niches_header.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_niches_header)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.frame_niches_header_detail = QFrame(self.frame_niches_header)
+        self.frame_niches_header_detail.setObjectName(u"frame_niches_header_detail")
+        self.frame_niches_header_detail.setMinimumSize(QSize(200, 0))
+        self.frame_niches_header_detail.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_niches_header_detail.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout_6 = QGridLayout(self.frame_niches_header_detail)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.label_niches_row = QLabel(self.frame_niches_header_detail)
+        self.label_niches_row.setObjectName(u"label_niches_row")
 
-        self.gridLayout_8.addWidget(self.table_widget_niches, 1, 0, 1, 3)
+        self.gridLayout_6.addWidget(self.label_niches_row, 2, 0, 1, 1)
 
-        self.line_edit_search_niches = QLineEdit(self.scrollAreaWidgetContents_5)
-        self.line_edit_search_niches.setObjectName(u"line_edit_search_niches")
+        self.horizontal_spacer_niches_detail_module = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_8.addWidget(self.line_edit_search_niches, 0, 2, 1, 1)
+        self.gridLayout_6.addItem(self.horizontal_spacer_niches_detail_module, 1, 2, 1, 1)
 
-        self.horizontal_layout_niches_new_page = QHBoxLayout()
-        self.horizontal_layout_niches_new_page.setObjectName(u"horizontal_layout_niches_new_page")
-        self.horizontal_spacer_niches_new_page = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.combo_box_niches_module = QComboBox(self.frame_niches_header_detail)
+        self.combo_box_niches_module.setObjectName(u"combo_box_niches_module")
 
-        self.horizontal_layout_niches_new_page.addItem(self.horizontal_spacer_niches_new_page)
+        self.gridLayout_6.addWidget(self.combo_box_niches_module, 1, 1, 1, 1)
 
-        self.push_button_niches_new_page = QPushButton(self.scrollAreaWidgetContents_5)
-        self.push_button_niches_new_page.setObjectName(u"push_button_niches_new_page")
+        self.label_niches_module = QLabel(self.frame_niches_header_detail)
+        self.label_niches_module.setObjectName(u"label_niches_module")
 
-        self.horizontal_layout_niches_new_page.addWidget(self.push_button_niches_new_page)
+        self.gridLayout_6.addWidget(self.label_niches_module, 1, 0, 1, 1)
+
+        self.horizontal_spacer_niches_detail_row = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_6.addItem(self.horizontal_spacer_niches_detail_row, 2, 2, 1, 1)
+
+        self.combo_box_niches_row = QComboBox(self.frame_niches_header_detail)
+        self.combo_box_niches_row.setObjectName(u"combo_box_niches_row")
+
+        self.gridLayout_6.addWidget(self.combo_box_niches_row, 2, 1, 1, 1)
+
+        self.label_niches = QLabel(self.frame_niches_header_detail)
+        self.label_niches.setObjectName(u"label_niches")
+
+        self.gridLayout_6.addWidget(self.label_niches, 0, 0, 1, 1)
 
 
-        self.gridLayout_8.addLayout(self.horizontal_layout_niches_new_page, 3, 2, 1, 1)
+        self.horizontalLayout_2.addWidget(self.frame_niches_header_detail)
 
-        self.scroll_area_search_niches.setWidget(self.scrollAreaWidgetContents_5)
+        self.frame_niches_header_buttons = QFrame(self.frame_niches_header)
+        self.frame_niches_header_buttons.setObjectName(u"frame_niches_header_buttons")
+        self.frame_niches_header_buttons.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_niches_header_buttons.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout_5 = QGridLayout(self.frame_niches_header_buttons)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.push_button_modules = QPushButton(self.frame_niches_header_buttons)
+        self.push_button_modules.setObjectName(u"push_button_modules")
+        sizePolicy.setHeightForWidth(self.push_button_modules.sizePolicy().hasHeightForWidth())
+        self.push_button_modules.setSizePolicy(sizePolicy)
+        self.push_button_modules.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        icon7 = QIcon()
+        icon7.addFile(u":/icons/table.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.push_button_modules.setIcon(icon7)
+        self.push_button_modules.setIconSize(QSize(20, 20))
+        self.push_button_modules.setCheckable(False)
+        self.push_button_modules.setFlat(True)
 
-        self.gridLayout_4.addWidget(self.scroll_area_search_niches, 1, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.push_button_modules, 0, 1, 1, 1)
+
+        self.push_button_rows = QPushButton(self.frame_niches_header_buttons)
+        self.push_button_rows.setObjectName(u"push_button_rows")
+        sizePolicy.setHeightForWidth(self.push_button_rows.sizePolicy().hasHeightForWidth())
+        self.push_button_rows.setSizePolicy(sizePolicy)
+        self.push_button_rows.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/layers.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.push_button_rows.setIcon(icon8)
+        self.push_button_rows.setIconSize(QSize(20, 20))
+        self.push_button_rows.setCheckable(False)
+        self.push_button_rows.setFlat(True)
+
+        self.gridLayout_5.addWidget(self.push_button_rows, 1, 1, 1, 1)
+
+        self.horizontal_spacer_niches_buttons_row = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_5.addItem(self.horizontal_spacer_niches_buttons_row, 1, 0, 1, 1)
+
+        self.horizontal_spacer_niches_buttons_modules = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_5.addItem(self.horizontal_spacer_niches_buttons_modules, 0, 0, 1, 1)
+
+
+        self.horizontalLayout_2.addWidget(self.frame_niches_header_buttons)
+
+        self.horizontal_spacer_niches_header = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontal_spacer_niches_header)
+
+        self.push_button_create_niches_create = QPushButton(self.frame_niches_header)
+        self.push_button_create_niches_create.setObjectName(u"push_button_create_niches_create")
+
+        self.horizontalLayout_2.addWidget(self.push_button_create_niches_create)
+
+
+        self.gridLayout_4.addWidget(self.frame_niches_header, 0, 0, 1, 3)
 
         self.scroll_area_modify_niche = QScrollArea(self.niches)
         self.scroll_area_modify_niche.setObjectName(u"scroll_area_modify_niche")
@@ -1361,111 +1431,27 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.scroll_area_create_niche, 1, 1, 1, 1)
 
-        self.frame_niches_header = QFrame(self.niches)
-        self.frame_niches_header.setObjectName(u"frame_niches_header")
-        self.frame_niches_header.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_niches_header.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_2 = QHBoxLayout(self.frame_niches_header)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.frame_niches_header_detail = QFrame(self.frame_niches_header)
-        self.frame_niches_header_detail.setObjectName(u"frame_niches_header_detail")
-        self.frame_niches_header_detail.setMinimumSize(QSize(200, 0))
-        self.frame_niches_header_detail.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_niches_header_detail.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_6 = QGridLayout(self.frame_niches_header_detail)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.label_niches_row = QLabel(self.frame_niches_header_detail)
-        self.label_niches_row.setObjectName(u"label_niches_row")
+        self.scroll_area_search_niches = QScrollArea(self.niches)
+        self.scroll_area_search_niches.setObjectName(u"scroll_area_search_niches")
+        self.scroll_area_search_niches.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_5 = QWidget()
+        self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 223, 432))
+        self.gridLayout_8 = QGridLayout(self.scrollAreaWidgetContents_5)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.table_widget_niches = QTableWidget(self.scrollAreaWidgetContents_5)
+        self.table_widget_niches.setObjectName(u"table_widget_niches")
 
-        self.gridLayout_6.addWidget(self.label_niches_row, 2, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.table_widget_niches, 1, 0, 1, 3)
 
-        self.horizontal_spacer_niches_detail_module = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.line_edit_search_niches = QLineEdit(self.scrollAreaWidgetContents_5)
+        self.line_edit_search_niches.setObjectName(u"line_edit_search_niches")
 
-        self.gridLayout_6.addItem(self.horizontal_spacer_niches_detail_module, 1, 2, 1, 1)
+        self.gridLayout_8.addWidget(self.line_edit_search_niches, 0, 2, 1, 1)
 
-        self.combo_box_niches_module = QComboBox(self.frame_niches_header_detail)
-        self.combo_box_niches_module.setObjectName(u"combo_box_niches_module")
+        self.scroll_area_search_niches.setWidget(self.scrollAreaWidgetContents_5)
 
-        self.gridLayout_6.addWidget(self.combo_box_niches_module, 1, 1, 1, 1)
-
-        self.label_niches_module = QLabel(self.frame_niches_header_detail)
-        self.label_niches_module.setObjectName(u"label_niches_module")
-
-        self.gridLayout_6.addWidget(self.label_niches_module, 1, 0, 1, 1)
-
-        self.horizontal_spacer_niches_detail_row = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_6.addItem(self.horizontal_spacer_niches_detail_row, 2, 2, 1, 1)
-
-        self.combo_box_niches_row = QComboBox(self.frame_niches_header_detail)
-        self.combo_box_niches_row.setObjectName(u"combo_box_niches_row")
-
-        self.gridLayout_6.addWidget(self.combo_box_niches_row, 2, 1, 1, 1)
-
-        self.label_niches = QLabel(self.frame_niches_header_detail)
-        self.label_niches.setObjectName(u"label_niches")
-
-        self.gridLayout_6.addWidget(self.label_niches, 0, 0, 1, 1)
-
-
-        self.horizontalLayout_2.addWidget(self.frame_niches_header_detail)
-
-        self.frame_niches_header_buttons = QFrame(self.frame_niches_header)
-        self.frame_niches_header_buttons.setObjectName(u"frame_niches_header_buttons")
-        self.frame_niches_header_buttons.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_niches_header_buttons.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_5 = QGridLayout(self.frame_niches_header_buttons)
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.push_button_modules = QPushButton(self.frame_niches_header_buttons)
-        self.push_button_modules.setObjectName(u"push_button_modules")
-        sizePolicy.setHeightForWidth(self.push_button_modules.sizePolicy().hasHeightForWidth())
-        self.push_button_modules.setSizePolicy(sizePolicy)
-        self.push_button_modules.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/table.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.push_button_modules.setIcon(icon7)
-        self.push_button_modules.setIconSize(QSize(20, 20))
-        self.push_button_modules.setCheckable(False)
-        self.push_button_modules.setFlat(True)
-
-        self.gridLayout_5.addWidget(self.push_button_modules, 0, 1, 1, 1)
-
-        self.push_button_rows = QPushButton(self.frame_niches_header_buttons)
-        self.push_button_rows.setObjectName(u"push_button_rows")
-        sizePolicy.setHeightForWidth(self.push_button_rows.sizePolicy().hasHeightForWidth())
-        self.push_button_rows.setSizePolicy(sizePolicy)
-        self.push_button_rows.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/layers.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.push_button_rows.setIcon(icon8)
-        self.push_button_rows.setIconSize(QSize(20, 20))
-        self.push_button_rows.setCheckable(False)
-        self.push_button_rows.setFlat(True)
-
-        self.gridLayout_5.addWidget(self.push_button_rows, 1, 1, 1, 1)
-
-        self.horizontal_spacer_niches_buttons_row = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontal_spacer_niches_buttons_row, 1, 0, 1, 1)
-
-        self.horizontal_spacer_niches_buttons_modules = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontal_spacer_niches_buttons_modules, 0, 0, 1, 1)
-
-
-        self.horizontalLayout_2.addWidget(self.frame_niches_header_buttons)
-
-        self.horizontal_spacer_niches_header = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontal_spacer_niches_header)
-
-        self.push_button_create_niches_create = QPushButton(self.frame_niches_header)
-        self.push_button_create_niches_create.setObjectName(u"push_button_create_niches_create")
-
-        self.horizontalLayout_2.addWidget(self.push_button_create_niches_create)
-
-
-        self.gridLayout_4.addWidget(self.frame_niches_header, 0, 0, 1, 3)
+        self.gridLayout_4.addWidget(self.scroll_area_search_niches, 1, 0, 1, 1)
 
         self.stacked_widget.addWidget(self.niches)
         self.my_account = QWidget()
@@ -2196,9 +2182,9 @@ class Ui_MainWindow(object):
         self.label_modify_deceased_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
         self.label_modify_deceased_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
         self.label_modify_deceased_birth_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de nacimiento", None))
-        self.checkBox_modify_deceased_birth_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
+        self.check_box_modify_deceased_birth_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
         self.label_modify_deceased_death_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de defunci\u00f3n", None))
-        self.checkBox_modify_deceased_death_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
+        self.check_box_modify_deceased_death_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
         self.label__modify_deceased_remaint_type.setText(QCoreApplication.translate("MainWindow", u"Tipo de restos:", None))
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"Nicho:", None))
         self.label_modify_deceased_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))
@@ -2218,9 +2204,9 @@ class Ui_MainWindow(object):
         self.label_create_deceased_paternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Paterno:", None))
         self.label_create_deceased_maternal_surname.setText(QCoreApplication.translate("MainWindow", u"Apellido Materno:", None))
         self.label_create_deceased_birth_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de nacimiento:", None))
-        self.checkbox_create_deceased_birth_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
+        self.check_box_create_deceased_birth_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
         self.label_create_deceased_death_date.setText(QCoreApplication.translate("MainWindow", u"Fecha de defunci\u00f3n:", None))
-        self.checkBox_create_deceased_death_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
+        self.check_box_create_deceased_death_date.setText(QCoreApplication.translate("MainWindow", u"Desconocido", None))
         self.label_create_deceased_remain_type.setText(QCoreApplication.translate("MainWindow", u"Tipo de restos:", None))
         self.label_create_deceased_niche.setText(QCoreApplication.translate("MainWindow", u"Nicho:", None))
         self.label_create_deceased_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))
@@ -2247,8 +2233,12 @@ class Ui_MainWindow(object):
         self.push_button_modify_holder_activate.setText(QCoreApplication.translate("MainWindow", u"Activar", None))
         self.push_button_modify_holder_deactivate.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.push_button_modify_holder_save.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        self.line_edit_search_niches.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar nicho...", None))
-        self.push_button_niches_new_page.setText(QCoreApplication.translate("MainWindow", u" >", None))
+        self.label_niches_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
+        self.label_niches_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))
+        self.label_niches.setText(QCoreApplication.translate("MainWindow", u"Nichos", None))
+        self.push_button_modules.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulos", None))
+        self.push_button_rows.setText(QCoreApplication.translate("MainWindow", u"Filas", None))
+        self.push_button_create_niches_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
         self.label_modify_niche.setText(QCoreApplication.translate("MainWindow", u"Modificar nicho", None))
         self.label_modify_niche_name.setText(QCoreApplication.translate("MainWindow", u"nombre", None))
         self.label_holder_modify_niche.setText(QCoreApplication.translate("MainWindow", u"Titular:", None))
@@ -2271,12 +2261,7 @@ class Ui_MainWindow(object):
         self.check_box_create_niche_is_donated.setText(QCoreApplication.translate("MainWindow", u"Donado", None))
         self.push_button_create_niche_save_niche.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.push_button_create_niche_clean.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
-        self.label_niches_row.setText(QCoreApplication.translate("MainWindow", u"Fila:", None))
-        self.label_niches_module.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulo:", None))
-        self.label_niches.setText(QCoreApplication.translate("MainWindow", u"Nichos", None))
-        self.push_button_modules.setText(QCoreApplication.translate("MainWindow", u"M\u00f3dulos", None))
-        self.push_button_rows.setText(QCoreApplication.translate("MainWindow", u"Filas", None))
-        self.push_button_create_niches_create.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
+        self.line_edit_search_niches.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Buscar nicho...", None))
         self.label_my_account_change_password.setText(QCoreApplication.translate("MainWindow", u"Cambiar contrase\u00f1a:", None))
         self.label_my_account_current_password.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a actual:", None))
         self.label_my_account_new_password.setText(QCoreApplication.translate("MainWindow", u"Nueva contrase\u00f1a:", None))

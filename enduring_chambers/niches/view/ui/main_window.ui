@@ -400,8 +400,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>196</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -577,8 +577,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>196</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -708,8 +708,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>89</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -883,7 +883,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="checkBox_modify_deceased_birth_date">
+             <widget class="QCheckBox" name="check_box_modify_deceased_birth_date">
               <property name="text">
                <string>Desconocido</string>
               </property>
@@ -904,7 +904,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="checkBox_modify_deceased_death_date">
+             <widget class="QCheckBox" name="check_box_modify_deceased_death_date">
               <property name="text">
                <string>Desconocido</string>
               </property>
@@ -1091,8 +1091,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>89</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1220,7 +1220,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="checkbox_create_deceased_birth_date">
+             <widget class="QCheckBox" name="check_box_create_deceased_birth_date">
               <property name="text">
                <string>Desconocido</string>
               </property>
@@ -1241,7 +1241,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="checkBox_create_deceased_death_date">
+             <widget class="QCheckBox" name="check_box_create_deceased_death_date">
               <property name="text">
                <string>Desconocido</string>
               </property>
@@ -1425,8 +1425,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>89</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1466,8 +1466,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>196</width>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1599,8 +1599,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>196</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1721,35 +1721,39 @@
       </widget>
       <widget class="QWidget" name="niches">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="1" column="0">
-         <widget class="QScrollArea" name="scroll_area_search_niches">
-          <property name="widgetResizable">
-           <bool>true</bool>
+        <item row="0" column="0" colspan="3">
+         <widget class="QFrame" name="frame_niches_header">
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
           </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents_5">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>223</width>
-             <height>432</height>
-            </rect>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_8">
-            <item row="1" column="0" colspan="3">
-             <widget class="QTableWidget" name="table_widget_niches"/>
-            </item>
-            <item row="0" column="2">
-             <widget class="QLineEdit" name="line_edit_search_niches">
-              <property name="placeholderText">
-               <string>Buscar nicho...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="2">
-             <layout class="QHBoxLayout" name="horizontal_layout_niches_new_page">
-              <item>
-               <spacer name="horizontal_spacer_niches_new_page">
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QFrame" name="frame_niches_header_detail">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_niches_row">
+                <property name="text">
+                 <string>Fila:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <spacer name="horizontal_spacer_niches_detail_module">
                 <property name="orientation">
                  <enum>Qt::Orientation::Horizontal</enum>
                 </property>
@@ -1761,17 +1765,165 @@
                 </property>
                </spacer>
               </item>
-              <item>
-               <widget class="QPushButton" name="push_button_niches_new_page">
+              <item row="1" column="1">
+               <widget class="QComboBox" name="combo_box_niches_module"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_niches_module">
                 <property name="text">
-                 <string> &gt;</string>
+                 <string>Módulo:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <spacer name="horizontal_spacer_niches_detail_row">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="combo_box_niches_row"/>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_niches">
+                <property name="text">
+                 <string>Nichos</string>
                 </property>
                </widget>
               </item>
              </layout>
-            </item>
-           </layout>
-          </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_niches_header_buttons">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="1">
+               <widget class="QPushButton" name="push_button_modules">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>Módulos</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>:/icons/table.svg</normaloff>:/icons/table.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="push_button_rows">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>Filas</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>:/icons/layers.svg</normaloff>:/icons/layers.svg</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <spacer name="horizontal_spacer_niches_buttons_row">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="0">
+               <spacer name="horizontal_spacer_niches_buttons_modules">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontal_spacer_niches_header">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="push_button_create_niches_create">
+             <property name="text">
+              <string>Crear</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item row="1" column="2">
@@ -2093,209 +2245,33 @@
           </widget>
          </widget>
         </item>
-        <item row="0" column="0" colspan="3">
-         <widget class="QFrame" name="frame_niches_header">
-          <property name="frameShape">
-           <enum>QFrame::Shape::StyledPanel</enum>
+        <item row="1" column="0">
+         <widget class="QScrollArea" name="scroll_area_search_niches">
+          <property name="widgetResizable">
+           <bool>true</bool>
           </property>
-          <property name="frameShadow">
-           <enum>QFrame::Shadow::Raised</enum>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QFrame" name="frame_niches_header_detail">
-             <property name="minimumSize">
-              <size>
-               <width>200</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Shape::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Shadow::Raised</enum>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_6">
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_niches_row">
-                <property name="text">
-                 <string>Fila:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <spacer name="horizontal_spacer_niches_detail_module">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="1" column="1">
-               <widget class="QComboBox" name="combo_box_niches_module"/>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_niches_module">
-                <property name="text">
-                 <string>Módulo:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
-               <spacer name="horizontal_spacer_niches_detail_row">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="2" column="1">
-               <widget class="QComboBox" name="combo_box_niches_row"/>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_niches">
-                <property name="text">
-                 <string>Nichos</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QFrame" name="frame_niches_header_buttons">
-             <property name="frameShape">
-              <enum>QFrame::Shape::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Shadow::Raised</enum>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_5">
-              <item row="0" column="1">
-               <widget class="QPushButton" name="push_button_modules">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Módulos</string>
-                </property>
-                <property name="icon">
-                 <iconset>
-                  <normaloff>:/icons/table.svg</normaloff>:/icons/table.svg</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="checkable">
-                 <bool>false</bool>
-                </property>
-                <property name="flat">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="push_button_rows">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Filas</string>
-                </property>
-                <property name="icon">
-                 <iconset>
-                  <normaloff>:/icons/layers.svg</normaloff>:/icons/layers.svg</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="checkable">
-                 <bool>false</bool>
-                </property>
-                <property name="flat">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <spacer name="horizontal_spacer_niches_buttons_row">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="0" column="0">
-               <spacer name="horizontal_spacer_niches_buttons_modules">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontal_spacer_niches_header">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="push_button_create_niches_create">
-             <property name="text">
-              <string>Crear</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QWidget" name="scrollAreaWidgetContents_5">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>223</width>
+             <height>432</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="1" column="0" colspan="3">
+             <widget class="QTableWidget" name="table_widget_niches"/>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLineEdit" name="line_edit_search_niches">
+              <property name="placeholderText">
+               <string>Buscar nicho...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
