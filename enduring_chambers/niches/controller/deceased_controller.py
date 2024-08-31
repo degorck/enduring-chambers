@@ -16,6 +16,7 @@ from niches.service.deceased_service import DeceasedService
 from niches.util.drag_and_drop_create_util import DragAndDropCreateUtil
 from niches.util.drag_and_drop_modify_util import DragAndDropModifyUtil
 from niches.constant.constants import FieldName, UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
+from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT
 from niches.util.ftp_util import send_image, delete_image, download_image
 from niches.util.validator import validate_is_not_empty, validate_not_none
 from niches.controller.error_controller import ErrorController
@@ -75,12 +76,21 @@ class DeceasedController:
         self.main_window.push_button_create_deceased_image.clicked.connect(
             self.__show_create_deceased_image_widget)
         self.main_window.line_edit_search_deceased.editingFinished.connect(self.__search_deceased)
-        
         self.main_window.table_widget_deceased.cellDoubleClicked.connect(self.__select_deceased)
         self.main_window.push_button_modify_deceased_image.clicked.connect(
             self.__show_modify_deceased_image_widget)
         self.main_window.push_button_modify_deceased_save.clicked.connect(
             self.__update_deceased)
+        self.main_window.check_box_create_deceased_birth_date.stateChanged.connect(
+            self.__date_edit_create_deceased_birth_date_change)
+        self.main_window.check_box_create_deceased_death_date.stateChanged.connect(
+            self.__date_edit_create_deceased_death_date_change)
+        self.main_window.check_box_modify_deceased_birth_date.stateChanged.connect(
+            self.__date_edit_modify_deceased_birth_date_change)
+        self.main_window.check_box_modify_deceased_death_date.stateChanged.connect(
+            self.__date_edit_modify_deceased_death_date_change)
+        self.main_window.push_button_create_deceased_clean.clicked.connect(
+            self.__clean_stacked_widget_deceased)
         logging.debug("Deceased controller actions configured")
 
     def __show_create_deceased_image_widget(self):
@@ -184,11 +194,17 @@ class DeceasedController:
             validate_not_none(self.main_window.combo_box_create_deceased_niche.currentData(),
                               FieldName.NICHE)
             deceased_dto = DeceasedDto()
-            q_date_birth_date = self.main_window.date_edit_create_deceased_birth_date.date()
-            birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
+            if self.main_window.check_box_create_deceased_birth_date.isChecked():
+                birth_date = None
+            else:
+                q_date_birth_date = self.main_window.date_edit_create_deceased_birth_date.date()
+                birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
                                            q_date_birth_date.day())
-            q_date_death_date = self.main_window.date_edit_create_deceased_death_date.date()
-            death_date = datetime.datetime(q_date_death_date.year(), q_date_death_date.month(),
+            if self.main_window.check_box_create_deceased_death_date.isChecked():
+                death_date = None
+            else:
+                q_date_death_date = self.main_window.date_edit_create_deceased_death_date.date()
+                death_date = datetime.datetime(q_date_death_date.year(), q_date_death_date.month(),
                                            q_date_death_date.day())
             image_route_loaded = self.__drag_and_drop_util_create_deceased.get_file_path() if (
                 self.__drag_and_drop_util_create_deceased.get_file_path() is not None) else None
@@ -455,13 +471,19 @@ class DeceasedController:
             self.__loaded_deceased_dto.get_book())
         self.main_window.plain_text_edit_modify_deceased_sheet.setPlainText(
             self.__loaded_deceased_dto.get_sheet())
-
         birth_date = self.__loaded_deceased_dto.get_birth_date()
-        birth_qdate = QtCore.QDate(birth_date.year, birth_date.month, birth_date.day)
+        if birth_date is not None:
+            birth_qdate = QtCore.QDate(birth_date.year, birth_date.month, birth_date.day)
+            self.main_window.date_edit_modify_deceased_birth_date.setDate(birth_qdate)
+        else:
+            self.main_window.check_box_modify_deceased_birth_date.setChecked(True)
         death_date = self.__loaded_deceased_dto.get_death_date()
-        death_qdate = QtCore.QDate(death_date.year, death_date.month, death_date.day)
-        self.main_window.date_edit_modify_deceased_birth_date.setDate(birth_qdate)
-        self.main_window.date_edit_modify_deceased_death_date.setDate(death_qdate)
+        if death_date is not None:
+            death_qdate = QtCore.QDate(death_date.year, death_date.month, death_date.day)
+            self.main_window.date_edit_modify_deceased_death_date.setDate(death_qdate)
+        else:
+            self.main_window.check_box_modify_deceased_death_date.setChecked(True)
+        
 
         logging.debug("Se cargó el difunto [%s]", self.__loaded_deceased_dto.to_string())
 
@@ -480,11 +502,17 @@ class DeceasedController:
                 FieldName.PATERNAL_SURNAME)
             validate_not_none(self.main_window.combo_box_modify_deceased_niche.currentData(),
                               FieldName.NICHE)
-            q_date_birth_date = self.main_window.date_edit_modify_deceased_birth_date.date()
-            birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
+            if self.main_window.check_box_modify_deceased_birth_date.isChecked():
+                birth_date = None
+            else:
+                q_date_birth_date = self.main_window.date_edit_modify_deceased_birth_date.date()
+                birth_date = datetime.datetime(q_date_birth_date.year(), q_date_birth_date.month(),
                                            q_date_birth_date.day())
-            q_death_birth_date = self.main_window.date_edit_modify_deceased_death_date.date()
-            death_date = datetime.datetime(q_death_birth_date.year(), q_death_birth_date.month(),
+            if self.main_window.check_box_modify_deceased_death_date.isChecked():
+                death_date = None
+            else:
+                q_death_birth_date = self.main_window.date_edit_modify_deceased_death_date.date()
+                death_date = datetime.datetime(q_death_birth_date.year(), q_death_birth_date.month(),
                                            q_death_birth_date.day())
             image_route_loaded = self.__drag_and_drop_util_modify_deceased.get_file_path() if (
                 self.__drag_and_drop_util_modify_deceased.get_file_path() is not None) else None
@@ -553,3 +581,32 @@ class DeceasedController:
         except Exception as e:
             self.__error_controller.handle_exception_error(e)
             self.__error_controller.show()
+
+    def __date_edit_create_deceased_birth_date_change(self):
+        self.main_window.date_edit_create_deceased_birth_date.setEnabled(
+            not self.main_window.check_box_create_deceased_birth_date.isChecked())
+
+    def __date_edit_create_deceased_death_date_change(self):
+        self.main_window.date_edit_create_deceased_death_date.setEnabled(
+            not self.main_window.check_box_create_deceased_death_date.isChecked())
+    
+    def __date_edit_modify_deceased_birth_date_change(self):
+        self.main_window.date_edit_modify_deceased_birth_date.setEnabled(
+            not self.main_window.check_box_modify_deceased_birth_date.isChecked())
+
+    def __date_edit_modify_deceased_death_date_change(self):
+        self.main_window.date_edit_modify_deceased_death_date.setEnabled(
+            not self.main_window.check_box_modify_deceased_death_date.isChecked())
+
+    def __clean_stacked_widget_deceased(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
+        self.main_window.line_edit_create_deceased_name.clear()
+        self.main_window.line_edit_create_deceased_paternal_surname.clear()
+        self.main_window.line_edit_create_deceased_maternal_surname.clear()
+        self.main_window.check_box_create_deceased_birth_date.setChecked(False)
+        self.main_window.check_box_create_deceased_death_date.setChecked(False)
+        self.main_window.combo_box_create_deceased_remain_type.setCurrentIndex(0)
+        self.main_window.combo_box_create_deceased_module.setCurrentIndex(0)
+        self.main_window.plain_text_edit_create_deceased_book.clear()
+        self.main_window.plain_text_edit_create_deceased_sheet.clear()
+        logging.debug(ENDS_LOGGING_CONSTANT)
