@@ -183,7 +183,8 @@ class Niche:
         """
         self.__updated_at = updated_at
 
-    def new_niche(self, row:Row, number:str, is_busy:bool, is_paid_off:bool, holder:Holder):
+    def new_niche(self, row:Row, number:str, is_busy:bool, is_paid_off:bool,
+                  holder:Holder):
         """
         Loads data for new niche
 

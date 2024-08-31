@@ -51,9 +51,6 @@ class HolderController:
                 self.main_window.line_edit_create_holder_paternal_surname.text(),
                 FieldName.PATERNAL_SURNAME)
             validate_is_not_empty(
-                self.main_window.line_edit_create_holder_maternal_surname.text(),
-                FieldName.MATERNAL_SURNAME)
-            validate_is_not_empty(
                 self.main_window.line_edit_create_holder_phone.text(),
                 FieldName.PHONE)
             validate_phone_number(self.main_window.line_edit_create_holder_phone.text())
@@ -199,9 +196,6 @@ class HolderController:
             validate_is_not_empty(
                 self.main_window.line_edit_modify_holder_paternal_surname.text(),
                 FieldName.PATERNAL_SURNAME)
-            validate_is_not_empty(
-                self.main_window.line_edit_modify_holder_maternal_surname.text(),
-                FieldName.MATERNAL_SURNAME)
             validate_is_not_empty(
                 self.main_window.line_edit_modify_holder_phone.text(),
                 FieldName.PHONE)

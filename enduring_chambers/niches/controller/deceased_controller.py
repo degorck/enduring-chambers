@@ -181,9 +181,6 @@ class DeceasedController:
             validate_is_not_empty(
                 self.main_window.line_edit_create_deceased_paternal_surname.text(),
                 FieldName.PATERNAL_SURNAME)
-            validate_is_not_empty(
-                self.main_window.line_edit_create_deceased_maternal_surname.text(),
-                FieldName.MATERNAL_SURNAME)
             validate_not_none(self.main_window.combo_box_create_deceased_niche.currentData(),
                               FieldName.NICHE)
             deceased_dto = DeceasedDto()
@@ -481,9 +478,6 @@ class DeceasedController:
             validate_is_not_empty(
                 self.main_window.line_edit_modify_deceased_paternal_surname.text(),
                 FieldName.PATERNAL_SURNAME)
-            validate_is_not_empty(
-                self.main_window.line_edit_modify_deceased_maternal_surname.text(),
-                FieldName.MATERNAL_SURNAME)
             validate_not_none(self.main_window.combo_box_modify_deceased_niche.currentData(),
                               FieldName.NICHE)
             q_date_birth_date = self.main_window.date_edit_modify_deceased_birth_date.date()
