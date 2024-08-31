@@ -285,6 +285,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.push_button_niches.setChecked(False)
         self.push_button_users.setChecked(False)
         self.push_button_payments.setChecked(False)
+        self.combo_box_create_deceased_module.setCurrentIndex(0)
         self.stacked_widget.setCurrentIndex(2)
         logging.info("Deceased stacked widget selected")
         logging.debug(ENDS_LOGGING_CONSTANT)
