@@ -319,7 +319,7 @@
        <enum>QFrame::Shadow::Plain</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="unselected">
        <layout class="QGridLayout" name="gridLayout_14">
@@ -400,8 +400,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>466</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -577,8 +577,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>346</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -708,8 +708,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -795,7 +795,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
+             <width>196</width>
              <height>872</height>
             </rect>
            </property>
@@ -1091,8 +1091,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1132,7 +1132,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
+             <width>196</width>
              <height>842</height>
             </rect>
            </property>
@@ -1425,8 +1425,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>117</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1466,8 +1466,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>316</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1599,8 +1599,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>346</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1973,16 +1973,36 @@
              </spacer>
             </item>
             <item>
-             <widget class="QLabel" name="label_number_create_niche">
+             <widget class="QLabel" name="label_last_record">
               <property name="text">
-               <string>Número:</string>
+               <string>Último registro</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spin_box_create_niche_number">
-              <property name="enabled">
-               <bool>false</bool>
+             <widget class="QLabel" name="label_create_niche_name">
+              <property name="text">
+               <string>nombre</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_name_create_niche">
+              <property name="text">
+               <string>Nombre:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="line_edit_create_niche_name">
+              <property name="placeholderText">
+               <string>Consecutivo al último record...</string>
               </property>
              </widget>
             </item>
@@ -2298,8 +2318,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>152</width>
-             <height>266</height>
+             <width>213</width>
+             <height>454</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -2502,8 +2522,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>109</width>
-             <height>115</height>
+             <width>223</width>
+             <height>404</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_17">
@@ -2563,8 +2583,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>315</height>
+             <width>213</width>
+             <height>404</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2684,8 +2704,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>99</width>
-             <height>269</height>
+             <width>213</width>
+             <height>404</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -2864,8 +2884,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>89</height>
+             <width>223</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_18">
@@ -2898,8 +2918,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>120</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -2969,8 +2989,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>194</width>
-             <height>170</height>
+             <width>213</width>
+             <height>500</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -3116,8 +3136,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>120</height>
+             <width>213</width>
+             <height>460</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -3187,8 +3207,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>120</height>
+             <width>213</width>
+             <height>460</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -3246,8 +3266,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>89</height>
+             <width>223</width>
+             <height>460</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_23">

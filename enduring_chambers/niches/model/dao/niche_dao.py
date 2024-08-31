@@ -811,3 +811,73 @@ class NicheDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def get_last_record_by_module_id_and_row_id(self, module_id:int, row_id:int):
+        """
+        Last niche by search_string
+        
+        Arguments:
+            module_id: int
+                module to filter list
+            row_id: int
+                row to filter list
+
+        Returns:
+            last_niche = Niche
+        """
+        niche_list = []
+        command = '''
+                SELECT tb_niche.id,
+                tb_niche.number,
+                tb_niche.is_busy,
+                tb_niche.is_paid_off,
+                tb_niche.is_donated,
+                tb_niche.is_active,
+                tb_niche.created_at,
+                tb_niche.updated_at,
+                tb_module.id as module_id,
+                tb_module.name as module_name,
+                tb_module.is_active as module_is_active,
+                tb_module.created_at as module_created_at,
+                tb_module.updated_at as module_updated_at,
+                tb_row.id as row_id,
+                tb_row.name as row_name,
+                tb_row.created_at as row_created_at,
+                tb_row.updated_at as row_updated_at,
+                tb_holder.id as holder_id,
+                tb_holder.name as holder_name,
+                tb_holder.paternal_surname,
+                tb_holder.maternal_surname,
+                tb_holder.phone,
+                tb_holder.is_active as holder_is_active,
+                tb_holder.created_at as holder_created_at,
+                tb_holder.updated_at as holder_updated_at
+                FROM tb_niche
+                FULL OUTER JOIN tb_holder ON tb_niche.holder_id = tb_holder.id
+                INNER JOIN tb_row ON tb_niche.row_id = tb_row.id
+                INNER JOIN tb_module ON tb_row.module_id = tb_module.id
+                WHERE tb_row.module_id = %s
+                AND tb_niche.row_id = %s
+                ORDER BY tb_niche.created_at DESC
+                LIMIT 1;
+                '''
+        values = (
+            module_id,
+            row_id)
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            rows = self.__db_connection.get_cursor().fetchall()
+            for row in rows:
+                niche = real_dict_row_to_niche(row)
+                niche_list.append(niche)
+            self.__db_connection.end_connection()
+            logging.debug("Se buscó el último nicho")
+            return niche_list[0]
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()

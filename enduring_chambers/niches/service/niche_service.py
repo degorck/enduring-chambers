@@ -279,3 +279,20 @@ class NicheService:
             list_niche_dto.append(niche_dto)
         logging.debug(ENDS_LOGGING_CONSTANT)
         return list_niche_dto
+
+    def get_last_record_by_module_id_and_row_id(self, module_id:int, row_id:int):
+        """
+        Get last record by module_id and row_id
+
+        Arguments:
+            module_id : int
+                module_id of the niche
+            row_id : int
+                row_id of the niche
+        Returns:
+            niche_dto : NicheDto
+                niche_dto of the niche
+        """
+        niche = self.__niche_dao.get_last_record_by_module_id_and_row_id(module_id, row_id)
+        niche_dto = niche_to_niche_dto(niche)
+        return niche_dto

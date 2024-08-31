@@ -45,7 +45,6 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.scroll_area_modify_holder.hide()
         self.scroll_area_create_deceased.hide()
         self.scroll_area_modify_deceased.hide()
-        self.spin_box_create_niche_number.setEnabled(False)
         self.__user_controller = UserController(self)
         self.__my_account_controller = MyAccountController(self)
         self.__holder_controller = HolderController(self)
