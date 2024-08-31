@@ -190,7 +190,7 @@ class NicheController:
                 holder_dto:HolderDto = self.main_window.combo_box_create_niche_holder.currentData()
             niche_dto.new_niche(
                 self.main_window.combo_box_niches_row.currentData(),
-                self.main_window.spin_box_create_niche_number.value(),
+                self.main_window.line_edit_create_niche_name.text(),
                 self.main_window.check_box_create_niche_is_busy.isChecked(),
                 self.main_window.check_box_create_niche_is_paid_off.isChecked(),
                 self.main_window.check_box_create_niche_is_donated.isChecked(),
@@ -254,11 +254,10 @@ class NicheController:
                         self.main_window.line_edit_search_niches.text(),
                         self.main_window.combo_box_niches_module.currentData().get_id(),
                         row_id)
-                    self.main_window.spin_box_create_niche_number.setValue(len(
-                        self.__niche_service.search_niches_by_module_id_and_row_id(
-                            "",
+                    self.main_window.label_create_niche_name.setText(
+                        self.__niche_service.get_last_record_by_module_id_and_row_id(
                             self.main_window.combo_box_niches_module.currentData().get_id(),
-                            self.main_window.combo_box_niches_row.currentData().get_id())) + 1)
+                            self.main_window.combo_box_niches_row.currentData().get_id()).get_number())
 
         else:
             if self.main_window.combo_box_niches_module.currentData() is None:
