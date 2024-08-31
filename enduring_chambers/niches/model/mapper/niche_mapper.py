@@ -30,7 +30,6 @@ def niche_to_niche_dto(niche:Niche):
     niche_dto.set_number(niche.get_number())
     niche_dto.set_is_busy(niche.is_busy())
     niche_dto.set_is_paid_off(niche.is_paid_off())
-
     if niche.get_holder() is None:
         pass
     else:

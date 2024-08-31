@@ -155,7 +155,7 @@ class NicheController:
             self.__search_niches)
         self.main_window.combo_box_niches_row.currentIndexChanged.connect(
             self.__search_niches)
-        self.main_window.line_edit_search_niches.textChanged.connect(
+        self.main_window.line_edit_search_niches.editingFinished.connect(
             self.__search_niches)
         self.main_window.table_widget_niches.cellDoubleClicked.connect(self.__select_niche)
         self.main_window.line_edit_modify_niche_search_holder.textChanged.connect(
