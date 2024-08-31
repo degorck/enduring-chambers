@@ -316,3 +316,71 @@ class DeceasedDao:
         finally:
             if self.__db_connection.get_connection() is not None:
                 self.__db_connection.get_connection().close()
+
+    def deactivate_deceased(self, deceased_id:int):
+        """
+        Deactivates the deceased on database
+        
+        Arguments:
+            deceased_id: int
+                deceased_id of the deceased to deactivate
+        """
+        command = '''
+                UPDATE tb_deceased
+                SET
+                is_active = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            False,
+            datetime.datetime.now(),
+            deceased_id
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se desactivó el difunto")
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
+
+    def activate_deceased(self, deceased_id:int):
+        """
+        Activates the deceased on database
+        
+        Arguments:
+            deceased_id: int
+                deceased_id of the deceased to activate
+        """
+        command = '''
+                UPDATE tb_deceased
+                SET
+                is_active = %s,
+                updated_at = %s
+                WHERE id = %s
+                '''
+        values = (
+            True,
+            datetime.datetime.now(),
+            deceased_id
+            )
+
+        try:
+            self.__db_connection.start_connection()
+            self.__db_connection.get_cursor().execute(command, values)
+            self.__db_connection.end_connection()
+            logging.debug("Se activó el difunto")
+        except (Exception, psycopg2.DatabaseError) as error:
+            logging.exception(error)
+            raise error
+
+        finally:
+            if self.__db_connection.get_connection() is not None:
+                self.__db_connection.get_connection().close()
