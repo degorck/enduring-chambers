@@ -188,6 +188,8 @@ class PaymentController:
                 self.main_window.combo_box_payment_niche.setEnabled(True)
                 list_payment_dto = self.__payment_service.search_all_payments_by_niche_id(
                     self.main_window.combo_box_payment_niche.currentData().get_id())
+                self.main_window.check_box_payment_create_is_paid_off.setChecked(
+                    self.main_window.combo_box_payment_niche.currentData().is_paid_off())
         self.__row = len(list_payment_dto)
         self.__configure_table()
         row = 0
