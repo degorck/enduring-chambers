@@ -5,6 +5,8 @@ from database.
 import datetime
 import logging
 import psycopg2
+import os
+from dotenv import load_dotenv
 from niches.util.database_connection import DatabaseConnection
 from niches.model.entity.niche import Niche
 from niches.model.mapper.dao.niche_dao_mapper import real_dict_row_to_niche
@@ -14,6 +16,8 @@ class NicheDao:
     Class with the functionality of NicheDao
     """
     def __init__(self):
+        load_dotenv()
+        self.__db_page_record = os.getenv("DB_PAGE_RECORD")
         self.__db_connection = DatabaseConnection()
 
     def create_niche(self, niche:Niche):
@@ -184,12 +188,13 @@ class NicheDao:
                 tb_row.name LIKE %s)
                 OR (CONCAT (tb_module.name, tb_row.name, CAST(tb_niche.number AS VARCHAR(3))) LIKE %s)
                 ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
-                LIMIT 100
+                LIMIT %s
                 '''
         values = (
             search_string,
             search_string,
-            search_string)
+            search_string,
+            self.__db_page_record)
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -262,7 +267,6 @@ class NicheDao:
                 AND (tb_row.module_id = %s)
                 AND (tb_niche.row_id = %s)
                 ORDER BY tb_niche.id
-                LIMIT 400
                 '''
         values = (
             search_string,
@@ -340,14 +344,15 @@ class NicheDao:
                 CONCAT (tb_module.name, tb_row.name, CAST(tb_niche.number AS VARCHAR(3))) LIKE %s)
                 AND (tb_row.module_id = %s)
                 ORDER BY tb_row.name, tb_niche.id
-                LIMIT 400
+                LIMIT %s
                 '''
         values = (
             search_string,
             search_string,
             search_string,
             search_string,
-            module_id)
+            module_id,
+            self.__db_page_record)
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -535,7 +540,7 @@ class NicheDao:
                 AND (tb_niche.is_busy = False)
                 AND (tb_niche.is_active = True)
                 ORDER BY tb_module.name, tb_row.name, tb_niche.number, tb_niche.id
-                LIMIT 100
+                LIMIT %s
                 '''
         values = (
             search_string,
@@ -543,7 +548,8 @@ class NicheDao:
             search_string,
             search_string,
             module_id,
-            row_id)
+            row_id,
+            self.__db_page_record)
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)
@@ -618,7 +624,7 @@ class NicheDao:
                 AND (tb_niche.row_id = %s)
                 AND (tb_niche.is_active = True)
                 ORDER BY tb_module.name, tb_row.name, tb_niche.id
-                LIMIT 400
+                LIMIT %s
                 '''
         values = (
             search_string,
@@ -626,7 +632,8 @@ class NicheDao:
             search_string,
             search_string,
             module_id,
-            row_id)
+            row_id,
+            self.__db_page_record)
         try:
             self.__db_connection.start_connection()
             self.__db_connection.get_cursor().execute(command, values)

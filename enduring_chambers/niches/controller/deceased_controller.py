@@ -74,7 +74,6 @@ class DeceasedController:
         self.main_window.label_create_deceased_image.setMaximumWidth(175)
         self.main_window.push_button_create_deceased_image.clicked.connect(
             self.__show_create_deceased_image_widget)
-        ##self.main_window.line_edit_search_deceased.textChanged.connect(self.__search_deceased)
         self.main_window.line_edit_search_deceased.editingFinished.connect(self.__search_deceased)
         
         self.main_window.table_widget_deceased.cellDoubleClicked.connect(self.__select_deceased)

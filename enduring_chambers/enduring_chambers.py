@@ -66,7 +66,6 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
             user_type_key : str
                 The logged user type key
         """
-        
         logging.debug("User type key: %s", self.__user_type_key)
         return self.__user_type_key
 
