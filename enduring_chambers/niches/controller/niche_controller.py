@@ -16,6 +16,7 @@ from niches.controller.error_controller import ErrorController
 from niches.constant.constants import UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
 from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY
+from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT
 from niches.util.validator import validate_not_none
 
 class NicheController:
@@ -27,6 +28,7 @@ class NicheController:
             Reuses the main_main window to add the configuration of this class
     """
     def __init__(self, main_window:Ui_MainWindow):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.main_window = main_window
         self.__row = 0
         self.__module_service = ModuleService()
@@ -42,19 +44,21 @@ class NicheController:
         self.__configure_combo_box_holders_modify()
         self.__configure_actions()
         self.__search_niches()
-        logging.debug("Niche controller initialized")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_combo_box_niches_module(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
         self.main_window.combo_box_niches_module.clear()
         self.main_window.combo_box_niches_module.addItem("", None)
         for module_dto in list_module_dto:
             self.main_window.combo_box_niches_module.addItem(
                 module_dto.get_name(), module_dto)
-        logging.debug("Combo box module configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
 
     def __configure_combo_box_rows(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         if self.main_window.combo_box_niches_module.currentData() is None:
             self.main_window.combo_box_niches_row.setEnabled(False)
         else:
@@ -66,10 +70,10 @@ class NicheController:
             for row_dto in list_row_dto:
                 self.main_window.combo_box_niches_row.addItem(
                     row_dto.get_name(), row_dto)
-        logging.debug("Combo box row configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_combo_box_holders(self):
-        logging.debug("Configuring combo box holder")
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.main_window.combo_box_create_niche_holder.clear()
         self.main_window.combo_box_create_niche_holder.addItem("", None)
         list_holder_dto:list[HolderDto] = self.__holder_service.search_active_holders(
@@ -92,7 +96,6 @@ class NicheController:
             full_name = ("[" + str(holder_dto.get_id()) + "] " + holder_dto.get_name() + " " +
                          paternal_surname + " " +
                          maternal_surname)
-            logging.debug("Loading holder created [%s]", full_name)
             self.main_window.combo_box_create_niche_holder.addItem(full_name, holder_dto)
             self.main_window.combo_box_create_niche_holder.setItemData(x,
                 phone + " - " + full_name, QtCore.Qt.ToolTipRole)
@@ -101,9 +104,10 @@ class NicheController:
             self.main_window.combo_box_create_niche_holder.setCurrentIndex(0)
         else:
             self.main_window.combo_box_create_niche_holder.setCurrentIndex(1)
-        logging.debug("Combo box holder configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_combo_box_holders_modify(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.main_window.combo_box_modify_niche_holder.clear()
         self.main_window.combo_box_modify_niche_holder.addItem("", None)
         list_holder_dto:list[HolderDto] = self.__holder_service.search_active_holders(
@@ -135,9 +139,10 @@ class NicheController:
             self.main_window.combo_box_modify_niche_holder.setCurrentIndex(0)
         else:
             self.main_window.combo_box_modify_niche_holder.setCurrentIndex(1)
-        logging.debug("Combo box holder configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __configure_actions(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.main_window.combo_box_niches_module.currentIndexChanged.connect(
             self.__configure_combo_box_rows)
         self.main_window.line_edit_create_niche_holder_search.textChanged.connect(
@@ -161,16 +166,19 @@ class NicheController:
         self.main_window.push_button_create_niche_clean.clicked.connect(
             self.__clean_stacked_widget_niches)
         self.main_window.push_button_niches.clicked.connect(self.__reload)
-        logging.debug("Niche controller actions configured")
+        self.main_window.push_button_niches_new_page.clicked.connect(self.__new_page)
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __reload(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.__configure_combo_box_holders()
         self.__configure_combo_box_holders_modify()
         self.__configure_combo_box_niches_module()
         self.__configure_combo_box_rows()
-        logging.debug("Niche controller reloaded")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __save_niche(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         niche_dto = NicheDto()
         try:
             validate_not_none(self.main_window.combo_box_niches_module.currentData(), "Modulo")
@@ -192,7 +200,7 @@ class NicheController:
             self.__search_niches()
             self.__error_controller.handle_value_error("El nicho se ha creado exitosamente")
             self.__error_controller.show()
-            logging.debug("Niche created [%s]", niche_dto.to_string())
+            logging.debug(ENDS_LOGGING_CONSTANT)
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
@@ -203,6 +211,7 @@ class NicheController:
             self.__error_controller.show()
 
     def __configure_table(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.main_window.table_widget_niches.clear()
         self.main_window.table_widget_niches.setRowCount(self.__row)
         self.main_window.table_widget_niches.setColumnCount(10)
@@ -219,9 +228,10 @@ class NicheController:
         self.main_window.table_widget_niches.setEditTriggers(
             QtWidgets.QAbstractItemView.NoEditTriggers)
         self.main_window.table_widget_niches.resizeColumnsToContents()
-        logging.debug("Niche controller table configured")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __search_niches(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         if self.main_window.combo_box_niches_row.currentData() is None:
             row_id = 0
         else:
@@ -339,37 +349,52 @@ class NicheController:
                     str(niche_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
             self.main_window.table_widget_niches.resizeColumnsToContents()
             row = row + 1
-        logging.debug("Niche loaded.")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __select_niche(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         row = self.main_window.table_widget_niches.currentRow()
         niche_id = int(self.main_window.table_widget_niches.item(row, 0).text())
         self.main_window.scroll_area_modify_niche.show()
         self.__load_niche(niche_id)
-        logging.debug("Niche selected.")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __load_niche(self, niche_id:int):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         niche_dto = self.__niche_service.find_by_id(niche_id)
         self.__loaded_niche_dto = niche_dto
         if self.__loaded_niche_dto.get_holder() is None:
             holder_name = ""
+            holder_id_string = ""
+            holder_name_and_id = ""
         else:
-            holder_name = ("[" + str(self.__loaded_niche_dto.get_holder().get_id()) + "] " +
-                           self.__loaded_niche_dto.get_holder().get_name() + " " +
-                           self.__loaded_niche_dto.get_holder().get_paternal_surname() + " " +
-                           self.__loaded_niche_dto.get_holder().get_maternal_surname())
+            holder_id_string = str(self.__loaded_niche_dto.get_holder().get_id())
+            if self.__loaded_niche_dto.get_holder().get_paternal_surname() is None:
+                paternal_surname = ""
+            else:
+                paternal_surname = self.__loaded_niche_dto.get_holder().get_paternal_surname()
+            if self.__loaded_niche_dto.get_holder().get_maternal_surname() is None:
+                maternal_surname = ""
+            else:
+                maternal_surname = self.__loaded_niche_dto.get_holder().get_maternal_surname()
+            holder_name = (self.__loaded_niche_dto.get_holder().get_name() + " " +
+                           paternal_surname + " " +
+                           maternal_surname)
+            holder_name_and_id = "[" + holder_id_string + "] " + holder_name
         self.main_window.check_box_modify_niche_is_busy.setChecked(
             self.__loaded_niche_dto.is_busy())
         self.main_window.check_box_modify_niche_paid_off.setChecked(
             self.__loaded_niche_dto.is_paid_off())
-        self.main_window.combo_box_modify_niche_holder.setCurrentText(holder_name)
+        self.main_window.line_edit_modify_niche_search_holder.setText(holder_name)
+        self.main_window.combo_box_modify_niche_holder.setCurrentText(holder_name_and_id)
         self.main_window.label_modify_niche_name.setText(
             self.__loaded_niche_dto.get_row().get_module().get_name() + "-" +
             self.__loaded_niche_dto.get_row().get_name() + "-" +
             str(self.__loaded_niche_dto.get_number()))
-        logging.debug("Niche loaded.")
+        logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __update_niche(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         try:
             if self.main_window.combo_box_modify_niche_holder.currentData() is None:
                 holder_dto = None
@@ -387,6 +412,7 @@ class NicheController:
             self.__error_controller.show()
             self.main_window.scroll_area_modify_niche.hide()
             logging.debug("El nicho se ha modificado exitosamente")
+            logging.debug(ENDS_LOGGING_CONSTANT)
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
@@ -397,6 +423,7 @@ class NicheController:
             self.__error_controller.show()
 
     def __activate(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         try:
             self.__niche_service.reactivate_niche(self.__loaded_niche_dto.get_id())
             self.__search_niches()
@@ -404,6 +431,7 @@ class NicheController:
             self.__error_controller.show()
             self.main_window.scroll_area_modify_niche.hide()
             logging.debug("El niche se ha activado")
+            logging.debug(ENDS_LOGGING_CONSTANT)
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
@@ -414,6 +442,7 @@ class NicheController:
             self.__error_controller.show()
 
     def __deactivate(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         try:
             self.__niche_service.deactivate_niche(self.__loaded_niche_dto.get_id())
             self.__search_niches()
@@ -421,6 +450,7 @@ class NicheController:
             self.__error_controller.show()
             self.main_window.scroll_area_modify_niche.hide()
             logging.debug("El nicho se ha desactivado")
+            logging.debug(ENDS_LOGGING_CONSTANT)
 
         except ValueError as ve:
             self.__error_controller.handle_value_error(ve)
@@ -431,8 +461,12 @@ class NicheController:
             self.__error_controller.show()
 
     def __clean_stacked_widget_niches(self):
+        logging.debug(STARTS_LOGGING_CONSTANT)
         self.main_window.combo_box_modify_niche_holder.setCurrentIndex(0)
         self.main_window.check_box_create_niche_is_busy.setChecked(False)
         self.main_window.check_box_create_niche_is_paid_off.setChecked(False)
         self.main_window.line_edit_create_niche_holder_search.clear()
-        logging.debug("Niche cleaned.")
+        logging.debug(ENDS_LOGGING_CONSTANT)
+
+    def __new_page(self):
+        print("new page")
