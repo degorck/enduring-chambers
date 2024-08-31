@@ -418,6 +418,8 @@ class DeceasedController:
 
     def __load_deceased(self, deceased_id:int):
         deceased_dto = self.__deceased_service.find_by_id(deceased_id)
+        logging.debug("Loads from dto")
+        logging.debug(deceased_dto.to_string())
         self.__loaded_deceased_dto.existing_deceased(
             deceased_dto.get_id(),
             deceased_dto.get_name(),
@@ -434,6 +436,8 @@ class DeceasedController:
             deceased_dto.get_created_at(),
             deceased_dto.get_updated_at()
         )
+        logging.debug("Passes to global")
+        logging.debug(self.__loaded_deceased_dto.to_string())
         try:
             if (self.__loaded_deceased_dto.get_image_route() is None) or (
                 self.__loaded_deceased_dto.get_image_route() == ""):
@@ -479,16 +483,16 @@ class DeceasedController:
         if birth_date is not None:
             birth_qdate = QtCore.QDate(birth_date.year, birth_date.month, birth_date.day)
             self.main_window.date_edit_modify_deceased_birth_date.setDate(birth_qdate)
+            self.main_window.check_box_modify_deceased_birth_date.setChecked(False)
         else:
             self.main_window.check_box_modify_deceased_birth_date.setChecked(True)
         death_date = self.__loaded_deceased_dto.get_death_date()
         if death_date is not None:
             death_qdate = QtCore.QDate(death_date.year, death_date.month, death_date.day)
             self.main_window.date_edit_modify_deceased_death_date.setDate(death_qdate)
+            self.main_window.check_box_modify_deceased_death_date.setChecked(False)
         else:
             self.main_window.check_box_modify_deceased_death_date.setChecked(True)
-        
-
         logging.debug("Se cargó el difunto [%s]", self.__loaded_deceased_dto.to_string())
 
     def __load_modify_image(self, file_path):
