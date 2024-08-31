@@ -72,6 +72,7 @@ def real_dict_row_to_payment(real_dict_row:RealDictRow):
             real_dict_row["niche_number"],
             real_dict_row["niche_is_busy"],
             real_dict_row["niche_is_paid_off"],
+            real_dict_row["niche_is_donated"],
             holder,
             real_dict_row["niche_is_active"],
             real_dict_row["niche_created_at"],
