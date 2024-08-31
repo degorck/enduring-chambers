@@ -14,6 +14,7 @@ class NicheDto:
             number: str
             is_busy: bool
             is_paid_off: bool
+            is_donated: bool
             holder: HolderDto
             is_active: bool
             created_at: datetime
@@ -25,6 +26,7 @@ class NicheDto:
         self.__number:str = ""
         self.__is_busy:bool = False
         self.__is_paid_off:bool = False
+        self.__is_donated:bool = False
         self.__holder_dto:HolderDto = None
         self.__is_active:bool = False
         self.__created_at:datetime = None
@@ -64,6 +66,13 @@ class NicheDto:
             is_paid_off : bool
         """
         return self.__is_paid_off
+
+    def is_donated(self):
+        """
+        Returns
+            is_donated : bool
+        """
+        return self.__is_donated
 
     def get_holder(self):
         """
@@ -144,6 +153,16 @@ class NicheDto:
         """
         self.__is_paid_off = is_paid_off
 
+    def set_is_donated(self, is_donated:bool):
+        """
+        Sets is_donated
+
+        Arguments:
+            is_donated : bool
+                is_donated to set
+        """
+        self.__is_donated = is_donated
+
     def set_holder(self, holder:HolderDto):
         """
         Sets holder
@@ -205,13 +224,14 @@ class NicheDto:
         self.__number = number
         self.__is_busy = is_busy
         self.__is_paid_off = is_paid_off
+        self.__is_donated = is_donated
         if holder is None:
             pass
         else:
             self.__holder_dto = holder
 
     def existing_niche(self, niche_id:int, row:RowDto, number:str, is_busy:bool,
-                       is_paid_off:bool, holder:HolderDto, is_active:bool,
+                       is_paid_off:bool, is_donated:bool, holder:HolderDto, is_active:bool,
                        created_at:datetime, updated_at:datetime):
         """
         Loads data of an existing niche
@@ -229,6 +249,7 @@ class NicheDto:
         self.__number = number
         self.__is_busy = is_busy
         self.__is_paid_off = is_paid_off
+        self.__is_donated = is_donated
         self.__holder_dto = holder
         self.__is_active = is_active
         self.__created_at = created_at
@@ -252,6 +273,7 @@ class NicheDto:
 
         return (f'id: \"{str(self.__id)}\" row: \"[{row_dto_str}]\" number: ' +
                 f'\"{str(self.__number)}\" is_busy: \"{self.__is_busy}\" is_paid_off: ' +
-                f'\"{self.__is_paid_off}\" holder: \"[{holder_dto_str}]\" ' +
+                f'\"{self.__is_paid_off}\" is_donated: \"{self.__is_donated}\" ' +
+                f' holder: \"[{holder_dto_str}]\" ' +
                 f'is_active \"{self.__is_active}\" created_at: \"{self.__created_at}\" ' +
                 f'updated_at: \"{self.__updated_at}\"')

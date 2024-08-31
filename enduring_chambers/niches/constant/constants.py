@@ -41,6 +41,11 @@ HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF = {
     "False": "Sin liquidar"
 }
 
+HASHED_BOOLEAN_CONVERTER_IS_DONATED = {
+    "True" : "Si",
+    "False": "No"
+}
+
 ##############################################################################################
 ##                                                                                          ##
 ## Console log configuration                                                                ##
