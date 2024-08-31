@@ -16,6 +16,7 @@ from niches.controller.error_controller import ErrorController
 from niches.constant.constants import UserTypeKey, HASHED_BOOLEAN_CONVERTER_IS_ACTIVE
 from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
 from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_BUSY
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_DONATED
 from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT
 from niches.util.validator import validate_not_none
 
@@ -222,6 +223,7 @@ class NicheController:
                                                                         "Titular",
                                                                         "Ocupado",
                                                                         "Pagado",
+                                                                        "Donado",
                                                                         "Activo",
                                                                         "Creado",
                                                                         "Actualizado"))
@@ -335,16 +337,21 @@ class NicheController:
             self.main_window.table_widget_niches.setItem(
                 row,
                 7,
-                QtWidgets.QTableWidgetItem(
-                    HASHED_BOOLEAN_CONVERTER_IS_ACTIVE[str(niche_dto.is_active())]))
+             QtWidgets.QTableWidgetItem(
+                    HASHED_BOOLEAN_CONVERTER_IS_DONATED[str(niche_dto.is_donated())]))
             self.main_window.table_widget_niches.setItem(
                 row,
                 8,
                 QtWidgets.QTableWidgetItem(
-                    str(niche_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+                    HASHED_BOOLEAN_CONVERTER_IS_ACTIVE[str(niche_dto.is_active())]))
             self.main_window.table_widget_niches.setItem(
                 row,
                 9,
+                QtWidgets.QTableWidgetItem(
+                    str(niche_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+            self.main_window.table_widget_niches.setItem(
+                row,
+                10,
                 QtWidgets.QTableWidgetItem(
                     str(niche_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
             self.main_window.table_widget_niches.resizeColumnsToContents()
