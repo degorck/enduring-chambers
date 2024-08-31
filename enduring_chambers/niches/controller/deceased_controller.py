@@ -91,6 +91,10 @@ class DeceasedController:
             self.__date_edit_modify_deceased_death_date_change)
         self.main_window.push_button_create_deceased_clean.clicked.connect(
             self.__clean_stacked_widget_deceased)
+        self.main_window.push_button_modify_deceased_active.clicked.connect(
+            self.__activate)
+        self.main_window.push_button_modify_deceased_deactivate.clicked.connect(
+            self.__deactivate)
         logging.debug("Deceased controller actions configured")
 
     def __show_create_deceased_image_widget(self):
@@ -610,3 +614,37 @@ class DeceasedController:
         self.main_window.plain_text_edit_create_deceased_book.clear()
         self.main_window.plain_text_edit_create_deceased_sheet.clear()
         logging.debug(ENDS_LOGGING_CONSTANT)
+    
+    def __activate(self):
+        try:
+            self.__deceased_service.activate_holder(self.__loaded_deceased_dto.get_id())
+            self.__search_deceased()
+            self.__error_controller.handle_value_error("El difunto se ha activado")
+            self.__error_controller.show()
+            self.main_window.scroll_area_modify_deceased.hide()
+            logging.debug("El difunto se ha activado")
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
+
+    def __deactivate(self):
+        try:
+            self.__deceased_service.deactivate_deceased(self.__loaded_deceased_dto.get_id())
+            self.__search_deceased()
+            self.__error_controller.handle_value_error("El difunto se ha desactivado")
+            self.__error_controller.show()
+            self.main_window.scroll_area_modify_deceased.hide()
+            logging.debug("El difunto se ha desactivado")
+
+        except ValueError as ve:
+            self.__error_controller.handle_value_error(ve)
+            self.__error_controller.show()
+
+        except Exception as e:
+            self.__error_controller.handle_exception_error(e)
+            self.__error_controller.show()
