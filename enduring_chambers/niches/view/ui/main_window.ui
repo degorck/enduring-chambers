@@ -319,7 +319,7 @@
        <enum>QFrame::Shadow::Plain</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="unselected">
        <layout class="QGridLayout" name="gridLayout_14">
@@ -400,8 +400,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>466</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -577,8 +577,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -708,8 +708,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
@@ -795,7 +795,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>872</height>
             </rect>
            </property>
@@ -885,7 +885,7 @@
             <item>
              <widget class="QCheckBox" name="checkBox_modify_deceased_birth_date">
               <property name="text">
-               <string>N/A</string>
+               <string>Desconocido</string>
               </property>
              </widget>
             </item>
@@ -906,7 +906,7 @@
             <item>
              <widget class="QCheckBox" name="checkBox_modify_deceased_death_date">
               <property name="text">
-               <string>N/A</string>
+               <string>Desconocido</string>
               </property>
              </widget>
             </item>
@@ -1091,8 +1091,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1132,7 +1132,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>842</height>
             </rect>
            </property>
@@ -1222,7 +1222,7 @@
             <item>
              <widget class="QCheckBox" name="checkbox_create_deceased_birth_date">
               <property name="text">
-               <string>N/A</string>
+               <string>Desconocido</string>
               </property>
              </widget>
             </item>
@@ -1243,7 +1243,7 @@
             <item>
              <widget class="QCheckBox" name="checkBox_create_deceased_death_date">
               <property name="text">
-               <string>N/A</string>
+               <string>Desconocido</string>
               </property>
              </widget>
             </item>
@@ -1425,8 +1425,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
-             <height>500</height>
+             <width>98</width>
+             <height>117</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout">
@@ -1466,8 +1466,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -1599,8 +1599,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>213</width>
-             <height>500</height>
+             <width>194</width>
+             <height>346</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1866,6 +1866,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QCheckBox" name="check_box_modify_niche_is_donated">
+              <property name="text">
+               <string>Donado</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="vertical_spacer_modify_niche">
               <property name="orientation">
                <enum>Qt::Orientation::Vertical</enum>
@@ -2013,6 +2020,13 @@
              <widget class="QCheckBox" name="check_box_create_niche_is_paid_off">
               <property name="text">
                <string>Pagado</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="check_box_create_niche_is_donated">
+              <property name="text">
+               <string>Donado</string>
               </property>
              </widget>
             </item>
@@ -2549,7 +2563,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>315</height>
             </rect>
            </property>
@@ -2670,7 +2684,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>99</width>
              <height>269</height>
             </rect>
            </property>
@@ -2850,7 +2864,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>89</width>
+             <width>98</width>
              <height>89</height>
             </rect>
            </property>
@@ -2884,7 +2898,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>98</width>
              <height>120</height>
             </rect>
            </property>
@@ -2955,7 +2969,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>170</height>
             </rect>
            </property>
@@ -3102,7 +3116,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>98</width>
              <height>120</height>
             </rect>
            </property>
@@ -3173,7 +3187,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>98</width>
              <height>120</height>
             </rect>
            </property>
@@ -3232,7 +3246,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>89</width>
+             <width>98</width>
              <height>89</height>
             </rect>
            </property>

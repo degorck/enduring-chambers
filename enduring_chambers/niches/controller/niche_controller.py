@@ -193,6 +193,7 @@ class NicheController:
                 self.main_window.spin_box_create_niche_number.value(),
                 self.main_window.check_box_create_niche_is_busy.isChecked(),
                 self.main_window.check_box_create_niche_is_paid_off.isChecked(),
+                self.main_window.check_box_create_niche_is_donated.isChecked(),
                 holder_dto
             )
             self.__niche_service.create_niche(niche_dto)
@@ -392,6 +393,8 @@ class NicheController:
             self.__loaded_niche_dto.is_busy())
         self.main_window.check_box_modify_niche_paid_off.setChecked(
             self.__loaded_niche_dto.is_paid_off())
+        self.main_window.check_box_modify_niche_is_donated.setChecked(
+            self.__loaded_niche_dto.is_donated())
         self.main_window.line_edit_modify_niche_search_holder.setText(holder_name)
         self.main_window.combo_box_modify_niche_holder.setCurrentText(holder_name_and_id)
         self.main_window.label_modify_niche_name.setText(
@@ -413,6 +416,8 @@ class NicheController:
                 self.main_window.check_box_modify_niche_is_busy.isChecked())
             self.__loaded_niche_dto.set_is_paid_off(
                 self.main_window.check_box_modify_niche_paid_off.isChecked())
+            self.__loaded_niche_dto.set_is_donated(
+                self.main_window.check_box_modify_niche_is_donated.isChecked())
             self.__niche_service.modify_niche(self.__loaded_niche_dto)
             self.__search_niches()
             self.__error_controller.handle_value_error("El nicho se ha modificado exitosamente")
