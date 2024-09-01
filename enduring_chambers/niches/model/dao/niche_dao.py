@@ -873,6 +873,8 @@ class NicheDao:
                 niche_list.append(niche)
             self.__db_connection.end_connection()
             logging.debug("Se buscó el último nicho")
+            if len(niche_list) == 0:
+                return None
             return niche_list[0]
         except (Exception, psycopg2.DatabaseError) as error:
             logging.exception(error)

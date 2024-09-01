@@ -67,6 +67,7 @@ class PaymentController:
         self.main_window.push_button_payment_modify_save.clicked.connect(self.__modify_payment)
         self.main_window.push_button_payment_create_clean.clicked.connect(
             self.__clear_scroll_area_create_payment)
+        self.main_window.push_button_payments.clicked.connect(self.__configure_combo_box_module)
         logging.debug("Payment controller actions configured")
 
     def __configure_combo_box_module(self):
