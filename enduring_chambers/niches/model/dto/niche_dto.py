@@ -226,7 +226,7 @@ class NicheDto:
         self.__is_paid_off = is_paid_off
         self.__is_donated = is_donated
         if holder is None:
-            pass
+            self.__holder_dto = None
         else:
             self.__holder_dto = holder
 
