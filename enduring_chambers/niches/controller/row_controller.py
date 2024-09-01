@@ -49,6 +49,7 @@ class RowController:
         self.main_window.push_button_create_row_save.clicked.connect(self.__create_row)
         self.main_window.push_button_modify_row_save.clicked.connect(self.__modify_row)
         self.main_window.table_widget_rows_search.cellDoubleClicked.connect(self.__select_row)
+        self.main_window.push_button_rows.clicked.connect(self.__configure_combo_box_module)
         logging.debug("Row controller actions configured")
 
     def __configure_table(self):

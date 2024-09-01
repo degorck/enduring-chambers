@@ -23,6 +23,8 @@ Build application script with terminal
 pyinstaller -n enduring_chambers_terminal -F -i .\icon\enduring_chambers_initials_terminal.ico enduring_chambers.py
 ```
 
+Packaged with **InstallForge**, compression level _**Normal.**_
+
 ## Server installation.
 
 1.  Run the setup.exe and navigate for installation folder
@@ -110,3 +112,4 @@ pyside6-rcc enduring\_chambers\_initials.qrc -o enduring\_chambers\_initials\_rc
 *   Improves performance (does not show all records by request)
 *   Improves payments windows and functionality
 *   Adds more control with .env file
+*   \[Fix\] All modules updates in all combo\_box when are created
