@@ -11,9 +11,10 @@ class Niche:
         Properties:
             id: int
             row: Row
-            number: int
+            number: str
             is_busy: bool
             is_paid_off: bool
+            is_donated: bool
             holder: Holder
             is_active: bool
             created_at: datetime
@@ -22,9 +23,10 @@ class Niche:
     def __init__(self):
         self.__id:int = 0
         self.__row:Row = None
-        self.__number:int = 0
+        self.__number:str = ""
         self.__is_busy:bool = False
         self.__is_paid_off:bool = False
+        self.__is_donated:bool = False
         self.__holder:Holder = None
         self.__is_active:bool = False
         self.__created_at:datetime = None
@@ -47,7 +49,7 @@ class Niche:
     def get_number(self):
         """
         Returns
-            number : int
+            number : str
         """
         return self.__number
 
@@ -64,6 +66,13 @@ class Niche:
             is_paid_off : bool
         """
         return self.__is_paid_off
+
+    def is_donated(self):
+        """
+        Returns
+            is_donated : bool
+        """
+        return self.__is_donated
 
     def get_holder(self):
         """
@@ -113,12 +122,12 @@ class Niche:
         """
         self.__row = row
 
-    def set_number(self, number:int):
+    def set_number(self, number:str):
         """
         Sets number
 
         Arguments:
-            number : int
+            number : str
                 number to set
         """
         self.__number = number
@@ -142,6 +151,16 @@ class Niche:
                 is_paid_off to set
         """
         self.__is_paid_off = is_paid_off
+
+    def set_is_donated(self, is_donated:bool):
+        """
+        Sets is_donated
+
+        Arguments:
+            is_donated : bool
+                is_donated to set
+        """
+        self.__is_donated = is_donated
 
     def set_holder(self, holder:Holder):
         """
@@ -183,14 +202,16 @@ class Niche:
         """
         self.__updated_at = updated_at
 
-    def new_niche(self, row:Row, number:int, is_busy:bool, is_paid_off:bool, holder:Holder):
+    def new_niche(self, row:Row, number:str, is_busy:bool, is_paid_off:bool,
+                  is_donated:bool,
+                  holder:Holder):
         """
         Loads data for new niche
 
         Arguments:
             row: Row
                 Row of the niche
-            number: int
+            number: str
                 number of the niche
             is_busy: bool
                 if the niche is busy
@@ -203,10 +224,11 @@ class Niche:
         self.__number = number
         self.__is_busy = is_busy
         self.__is_paid_off = is_paid_off
+        self.__is_donated = is_donated
         self.__holder:Holder = holder
 
-    def existing_niche(self, niche_id:int, row:Row, number:int, is_busy:bool,
-                       is_paid_off:bool, holder:Holder, is_active:bool,
+    def existing_niche(self, niche_id:int, row:Row, number:str, is_busy:bool,
+                       is_paid_off:bool, is_donated:bool, holder:Holder, is_active:bool,
                        created_at:datetime, updated_at:datetime):
         """
         Loads data of an existing niche
@@ -224,6 +246,7 @@ class Niche:
         self.__number = number
         self.__is_busy = is_busy
         self.__is_paid_off = is_paid_off
+        self.__is_donated = is_donated
         self.__holder = holder
         self.__is_active = is_active
         self.__created_at = created_at

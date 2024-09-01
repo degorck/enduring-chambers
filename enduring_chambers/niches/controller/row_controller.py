@@ -31,6 +31,7 @@ class RowController:
         self.__configure_table()
         self.__search_row()
         self.__configure_actions()
+        logging.debug("Row controller initializes")
 
     def __configure_combo_box_module(self):
         list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
@@ -39,6 +40,7 @@ class RowController:
         for module_dto in list_module_dto:
             self.main_window.combo_box_row_module.addItem(
                 module_dto.get_name(), module_dto)
+        logging.debug("Combo box module configured")
 
     def  __configure_actions(self):
         self.main_window.combo_box_row_module.currentIndexChanged.connect(self.__search_row)
@@ -47,6 +49,7 @@ class RowController:
         self.main_window.push_button_create_row_save.clicked.connect(self.__create_row)
         self.main_window.push_button_modify_row_save.clicked.connect(self.__modify_row)
         self.main_window.table_widget_rows_search.cellDoubleClicked.connect(self.__select_row)
+        logging.debug("Row controller actions configured")
 
     def __configure_table(self):
         self.main_window.table_widget_rows_search.clear()
@@ -61,6 +64,7 @@ class RowController:
         self.main_window.table_widget_rows_search.horizontalHeader().setMaximumSectionSize(500)
         self.main_window.table_widget_rows_search.resizeRowsToContents()
         self.main_window.table_widget_rows_search.resizeColumnsToContents()
+        logging.debug("Table rows configured")
 
     def __search_row(self):
         list_row_dto = []
@@ -97,6 +101,7 @@ class RowController:
             self.main_window.table_widget_rows_search.resizeColumnsToContents()
             self.main_window.table_widget_rows_search.resizeRowsToContents()
             row = row + 1
+        logging.debug("Rows searched [%s]", list_row_dto)
 
     def __create_row(self):
         try:
@@ -158,6 +163,7 @@ class RowController:
         row_id = int(self.main_window.table_widget_rows_search.item(row, 0).text())
         self.main_window.scroll_area_modify_row.show()
         self.__load_row(row_id)
+        logging.debug("Row selected [%s]", row_id)
 
     def __load_row(self, row_id:int):
         row_dto = self.__row_service.find_by_id(row_id)
@@ -169,6 +175,7 @@ class RowController:
             row_dto.get_updated_at()
         )
         self.main_window.line_edit_modify_row_name.setText(self.__loaded_row_dto.get_name())
+        logging.debug("Row loaded [%s]", row_id)
 
     def __modify_row(self):
         try:

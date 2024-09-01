@@ -125,6 +125,7 @@ class HolderDao:
                 phone LIKE %s OR
                 CONCAT (name , ' ', paternal_surname, ' ', maternal_surname) LIKE %s
                 ORDER BY id
+                LIMIT 100
                 '''
         values = (
             search_string,
@@ -173,6 +174,7 @@ class HolderDao:
                 AND
                 (is_active = True)
                 ORDER BY id
+                LIMIT 100
                 '''
 
         values = (
