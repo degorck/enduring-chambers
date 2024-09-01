@@ -167,6 +167,7 @@ class NicheController:
         self.main_window.push_button_create_niche_clean.clicked.connect(
             self.__clean_stacked_widget_niches)
         self.main_window.push_button_niches.clicked.connect(self.__reload)
+        self.main_window.push_button_modules_return.clicked.connect(self.__configure_combo_box_niches_module)
         logging.debug(ENDS_LOGGING_CONSTANT)
 
     def __reload(self):
@@ -253,10 +254,13 @@ class NicheController:
                         self.main_window.line_edit_search_niches.text(),
                         self.main_window.combo_box_niches_module.currentData().get_id(),
                         row_id)
-                    self.main_window.label_create_niche_name.setText(
-                        self.__niche_service.get_last_record_by_module_id_and_row_id(
+                    last_record = self.__niche_service.get_last_record_by_module_id_and_row_id(
                             self.main_window.combo_box_niches_module.currentData().get_id(),
-                            self.main_window.combo_box_niches_row.currentData().get_id()).get_number())
+                            self.main_window.combo_box_niches_row.currentData().get_id())
+                    if last_record is not None:
+                        self.main_window.label_create_niche_name.setText(last_record.get_number())
+                    else:
+                        self.main_window.label_create_niche_name.setText("No existen registros")
 
         else:
             if self.main_window.combo_box_niches_module.currentData() is None:
@@ -479,4 +483,3 @@ class NicheController:
         self.main_window.line_edit_create_niche_name.clear()
         self.main_window.check_box_create_niche_is_donated.setChecked(False)
         logging.debug(ENDS_LOGGING_CONSTANT)
-

@@ -23,6 +23,8 @@ Build application script with terminal
 pyinstaller -n enduring_chambers_terminal -F -i .\icon\enduring_chambers_initials_terminal.ico enduring_chambers.py
 ```
 
+Packaged with **InstallForge**, compression level _**Normal.**_
+
 ## Server installation.
 
 1.  Run the setup.exe and navigate for installation folder

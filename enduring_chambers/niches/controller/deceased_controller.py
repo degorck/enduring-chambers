@@ -95,6 +95,7 @@ class DeceasedController:
             self.__activate)
         self.main_window.push_button_modify_deceased_deactivate.clicked.connect(
             self.__deactivate)
+        self.main_window.push_button_deceased.clicked.connect(self.__configure_combo_box_module)
         logging.debug("Deceased controller actions configured")
 
     def __show_create_deceased_image_widget(self):
