@@ -86,3 +86,21 @@ class DeceasedService:
                 DeceasedDto to be modified
         """
         self.__deceased_dao.modify_deceased(deceased_dto_to_deceased(deceased_dto))
+
+    def deactivate_deceased(self, deceased_id:int):
+        """
+        Deactivate deceased by its id
+        Arguments:
+            deceased_id : int
+                deceased_id of the deceased to be modified
+        """
+        self.__deceased_dao.deactivate_deceased(deceased_id)
+
+    def activate_deceased(self, deceased_id:int):
+        """
+        Activate deceased by its id
+        Arguments:
+            deceased_id : int
+                deceased_id of the deceased to be modified
+        """
+        self.__deceased_dao.activate_deceased(deceased_id)

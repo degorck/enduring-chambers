@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Error.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.0
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -17,6 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QLabel,
     QPushButton, QSizePolicy, QSpacerItem, QWidget)
+import niches.view.enduring_chambers_initials_rc
 
 class Ui_Error(object):
     def setupUi(self, Error):
@@ -24,6 +25,9 @@ class Ui_Error(object):
             Error.setObjectName(u"Error")
         Error.resize(283, 175)
         Error.setMaximumSize(QSize(283, 175))
+        icon = QIcon()
+        icon.addFile(u":/icons/enduring_chambers_initials.ico", QSize(), QIcon.Normal, QIcon.Off)
+        Error.setWindowIcon(icon)
         Error.setStyleSheet(u"")
         self.gridLayout = QGridLayout(Error)
         self.gridLayout.setObjectName(u"gridLayout")

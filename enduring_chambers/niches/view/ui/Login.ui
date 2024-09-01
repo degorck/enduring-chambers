@@ -20,8 +20,8 @@
    <string>Login</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</normaloff>C:/Users/small/Downloads/2-removebg-preview.ico</iconset>
+   <iconset resource="../../../icon/enduring_chambers_initials.qrc">
+    <normaloff>:/icons/enduring_chambers_initials.ico</normaloff>:/icons/enduring_chambers_initials.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -125,7 +125,7 @@
          <enum>Qt::RichText</enum>
         </property>
         <property name="pixmap">
-         <pixmap>C:/Users/small/Downloads/feather/user.svg</pixmap>
+         <pixmap resource="../../../icon/enduring_chambers_initials.qrc">:/icons/user.svg</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -208,6 +208,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../icon/enduring_chambers_initials.qrc"/>
+ </resources>
  <connections/>
 </ui>

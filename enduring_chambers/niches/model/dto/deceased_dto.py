@@ -145,10 +145,7 @@ class DeceasedDto:
             id : int
                 id to set
         """
-        if deceased_id is None:
-            pass
-        else:
-            self.__id = deceased_id
+        self.__id = deceased_id
 
     def set_name(self, name:str):
         """
@@ -158,10 +155,7 @@ class DeceasedDto:
             name : str
                 name to set
         """
-        if name is None:
-            pass
-        else:
-            self.__name = name
+        self.__name = name
 
     def set_paternal_surname(self, paternal_surname:str):
         """
@@ -171,10 +165,7 @@ class DeceasedDto:
             paternal_surname : str
                 paternal_surname to set
         """
-        if paternal_surname is None:
-            pass
-        else:
-            self.__paternal_surname = paternal_surname
+        self.__paternal_surname = paternal_surname
 
     def set_maternal_surname(self, maternal_surname:str):
         """
@@ -184,10 +175,7 @@ class DeceasedDto:
             maternal_surname : str
                 maternal_surname to set
         """
-        if maternal_surname is None:
-            pass
-        else:
-            self.__maternal_surname = maternal_surname
+        self.__maternal_surname = maternal_surname
 
     def set_birth_date(self, birth_date:datetime):
         """
@@ -198,7 +186,7 @@ class DeceasedDto:
                 birth_date to set
         """
         if birth_date is None:
-            pass
+            self.__birth_date = None
         else:
             self.__birth_date = birth_date
 
@@ -211,7 +199,7 @@ class DeceasedDto:
                 death_date to set
         """
         if death_date is None:
-            pass
+            self.__death_date = None
         else:
             self.__death_date = death_date
 
@@ -224,7 +212,7 @@ class DeceasedDto:
                 remain_type to set
         """
         if remain_type is None:
-            pass
+            self.__remain_type_dto = None
         else:
             self.__remain_type_dto = remain_type
 
@@ -237,7 +225,7 @@ class DeceasedDto:
                 niche to set
         """
         if niche is None:
-            pass
+            self.__niche_dto = None
         else:
             self.__niche_dto = niche
 
@@ -249,10 +237,7 @@ class DeceasedDto:
             book : str
                 book to set
         """
-        if book is None:
-            pass
-        else:
-            self.__book = book
+        self.__book = book
 
     def set_sheet(self, sheet:str):
         """
@@ -262,10 +247,7 @@ class DeceasedDto:
             sheet : str
                 sheet to set
         """
-        if sheet is None:
-            pass
-        else:
-            self.__sheet = sheet
+        self.__sheet = sheet
 
     def set_image_route(self, image_route:str):
         """
@@ -298,7 +280,7 @@ class DeceasedDto:
                 created_at to set
         """
         if created_at is None:
-            pass
+            self.__created_at = None
         else:
             self.__created_at = created_at
 
@@ -311,7 +293,7 @@ class DeceasedDto:
                 updated_at to set
         """
         if updated_at is None:
-            pass
+            self.__updated_at = None
         else:
             self.__updated_at = updated_at
 

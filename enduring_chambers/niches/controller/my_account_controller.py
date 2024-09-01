@@ -25,11 +25,13 @@ class MyAccountController:
         self.__encryptor = Encryptor()
         self.__error_controller = ErrorController()
         self.__configure_actions()
+        logging.debug("My account controller created")
 
     def __configure_actions(self):
         self.main_window.push_button_my_account.clicked.connect(
             self.__set_stacked_widget_my_account)
         self.main_window.push_button_change_password.clicked.connect(self.__change_password)
+        logging.debug("My account controller actions configured")
 
     def __set_stacked_widget_my_account(self):
         self.main_window.push_button_deceased.setChecked(False)
@@ -69,6 +71,7 @@ class MyAccountController:
             else:
                 self.__error_controller.handle_exception_error("Contraseña actual inválida")
                 self.__error_controller.show()
+            logging.debug("Password changed")
 
         except ValueError as ve:
             logging.exception(ve)
@@ -89,3 +92,4 @@ class MyAccountController:
         self.main_window.line_edit_my_account_current_password.clear()
         self.main_window.line_edit_my_account_new_password.clear()
         self.main_window.line_edit_my_account_repeat_new_password.clear()
+        logging.debug("Password cleaned")

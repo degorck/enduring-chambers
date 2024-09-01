@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>user.svg</file>
+    <file>enduring_chambers_initials.ico</file>
+    <file>archive.svg</file>
+    <file>credit-card.svg</file>
+    <file>layers.svg</file>
+    <file>table.svg</file>
+    <file>user-check.svg</file>
+    <file>user-minus.svg</file>
+    <file>user-plus.svg</file>
+    <file>users.svg</file>
+  </qresource>
+</RCC>

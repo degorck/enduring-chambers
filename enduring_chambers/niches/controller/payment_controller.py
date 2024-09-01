@@ -14,6 +14,7 @@ from niches.model.dto.row_dto import RowDto
 from niches.model.dto.niche_dto import NicheDto
 from niches.model.dto.payment_dto import PaymentDto
 from niches.service.payment_service import PaymentService
+from niches.constant.constants import HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF
 from niches.controller.error_controller import ErrorController
 from niches.util.validator import validate_not_none, validate_not_zero
 from niches.constant.constants import FieldName, UserTypeKey
@@ -42,12 +43,14 @@ class PaymentController:
         self.__initialize_date_edit()
         self.__search_payment()
         self.__configure_actions()
+        logging.debug("Payment controller initializes")
 
     def __initialize_date_edit(self):
         today = datetime.datetime.now()
         today_qdate = QtCore.QDate(today.year, today.month, today.day)
         self.main_window.date_edit_payment_create_payment_date.setDate(today_qdate)
         self.main_window.date_edit_payment_modify_payment_date.setDate(today_qdate)
+        logging.debug("Date edit initialized")
 
     def __configure_actions(self):
         self.main_window.combo_box_payments_module.currentIndexChanged.connect(
@@ -64,6 +67,7 @@ class PaymentController:
         self.main_window.push_button_payment_modify_save.clicked.connect(self.__modify_payment)
         self.main_window.push_button_payment_create_clean.clicked.connect(
             self.__clear_scroll_area_create_payment)
+        logging.debug("Payment controller actions configured")
 
     def __configure_combo_box_module(self):
         list_module_dto:list[ModuleDto] = self.__module_service.find_all_active()
@@ -72,6 +76,7 @@ class PaymentController:
         for module_dto in list_module_dto:
             self.main_window.combo_box_payments_module.addItem(
                 module_dto.get_name(), module_dto)
+        logging.debug("Combo box module configured")
 
     def __configure_combo_box_row(self):
         if self.main_window.combo_box_payments_module.currentData() is None:
@@ -86,6 +91,7 @@ class PaymentController:
             for row_dto in list_row_dto:
                 self.main_window.combo_box_payments_row.addItem(
                     row_dto.get_name(), row_dto)
+        logging.debug("Combo box row configured")
 
     def __configure_combo_box_niche(self):
         self.main_window.combo_box_payment_niche.clear()
@@ -94,13 +100,14 @@ class PaymentController:
             self.main_window.combo_box_payment_niche.setEnabled(False)
         else:
             self.main_window.combo_box_payment_niche.setEnabled(True)
-            list_niche_dto = self.__niche_service.search_not_busy_niches_by_module_id_and_row_id(
+            list_niche_dto = self.__niche_service.search_active_niches_by_module_id_and_row_id_no_limit(
                 "",
                 self.main_window.combo_box_payments_module.currentData().get_id(),
                 self.main_window.combo_box_payments_row.currentData().get_id())
             for niche_dto in list_niche_dto:
                 self.main_window.combo_box_payment_niche.addItem(
                     str(niche_dto.get_number()), niche_dto)
+        logging.debug("Combo box niche configured")
 
     def __configure_table(self):
         self.main_window.table_widget_payments.clear()
@@ -110,6 +117,7 @@ class PaymentController:
                                                            "Nicho",
                                                            "Cantidad",
                                                            "Fecha de pago",
+                                                           "Pagado",
                                                            "Comentarios",
                                                            "Creado",
                                                            "Actualizado"))
@@ -118,6 +126,7 @@ class PaymentController:
         self.main_window.table_widget_payments.horizontalHeader().setMaximumSectionSize(500)
         self.main_window.table_widget_payments.resizeRowsToContents()
         self.main_window.table_widget_payments.resizeColumnsToContents()
+        logging.debug("Table configured")
 
     def __create_payment(self):
         try:
@@ -169,6 +178,8 @@ class PaymentController:
                 self.main_window.combo_box_payment_niche.setEnabled(True)
                 list_payment_dto = self.__payment_service.search_all_payments_by_niche_id(
                     self.main_window.combo_box_payment_niche.currentData().get_id())
+                self.main_window.check_box_payment_create_is_paid_off.setChecked(
+                    self.main_window.combo_box_payment_niche.currentData().is_paid_off())
         else:
             if self.main_window.combo_box_payment_niche.currentData() is None:
                 self.main_window.combo_box_payment_niche.setCurrentText("")
@@ -177,6 +188,8 @@ class PaymentController:
                 self.main_window.combo_box_payment_niche.setEnabled(True)
                 list_payment_dto = self.__payment_service.search_all_payments_by_niche_id(
                     self.main_window.combo_box_payment_niche.currentData().get_id())
+                self.main_window.check_box_payment_create_is_paid_off.setChecked(
+                    self.main_window.combo_box_payment_niche.currentData().is_paid_off())
         self.__row = len(list_payment_dto)
         self.__configure_table()
         row = 0
@@ -211,15 +224,21 @@ class PaymentController:
                 row,
                 4,
                 QtWidgets.QTableWidgetItem(
-                    payment_dto.get_comments()))
+                    HASHED_BOOLEAN_CONVERTER_IS_PAID_OFF[str(
+                        payment_dto.get_niche().is_paid_off())]))
             self.main_window.table_widget_payments.setItem(
                 row,
                 5,
                 QtWidgets.QTableWidgetItem(
-                    str(payment_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+                    payment_dto.get_comments()))
             self.main_window.table_widget_payments.setItem(
                 row,
                 6,
+                QtWidgets.QTableWidgetItem(
+                    str(payment_dto.get_created_at().strftime('%d/%b/%Y %H:%M'))))
+            self.main_window.table_widget_payments.setItem(
+                row,
+                7,
                 QtWidgets.QTableWidgetItem(
                     str(payment_dto.get_updated_at().strftime('%d/%b/%Y %H:%M'))))
             self.main_window.table_widget_payments.resizeColumnsToContents()
@@ -227,12 +246,14 @@ class PaymentController:
             total = total + payment_dto.get_quantity()
             self.main_window.label_payment_search_total_value.setText(str(total))
             row = row + 1
+        logging.debug("Table configured")
 
     def __select_payment(self):
         row = self.main_window.table_widget_payments.currentRow()
         id_payment = int(self.main_window.table_widget_payments.item(row, 0).text())
         self.main_window.scroll_area_payment_modify.show()
         self.__load_payment(id_payment)
+        logging.debug("Se cargó el pago: [%s]", self.__loaded_payment_dto.to_string())
 
     def __load_payment(self, id_payment:int):
         payment_dto:PaymentDto = self.__payment_service.find_by_id(id_payment)
@@ -296,3 +317,4 @@ class PaymentController:
         self.main_window.double_spin_box_payment_create_quantity.setValue(0.0)
         self.main_window.check_box_payment_create_is_paid_off.setChecked(False)
         self.main_window.plain_text_edit_payment_create_comments.clear()
+        logging.debug("Cleared scroll area create payment")

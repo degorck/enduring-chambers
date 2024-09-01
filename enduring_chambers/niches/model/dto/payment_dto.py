@@ -100,7 +100,7 @@ class PaymentDto:
                 niche_dto of the payment
         """
         if niche_dto is None:
-            pass
+            self.__niche_dto = None
         else:
             self.__niche_dto = niche_dto
 
@@ -123,7 +123,7 @@ class PaymentDto:
                 payment date of the payment 
         """
         if payment_date is None:
-            pass
+            self.__payment_date = None
         else:
             self.__payment_date = payment_date
 
@@ -146,7 +146,7 @@ class PaymentDto:
                 created_at date of the payment 
         """
         if created_at is None:
-            pass
+            self.__created_at = None
         else:
             self.__created_at = created_at
 
@@ -159,7 +159,7 @@ class PaymentDto:
                 updated_at date of the payment 
         """
         if updated_at is None:
-            pass
+            self.__updated_at = None
         else:
             self.__updated_at = updated_at
 

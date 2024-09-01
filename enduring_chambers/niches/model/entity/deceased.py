@@ -146,10 +146,7 @@ class Deceased:
             id : int
                 id to set
         """
-        if deceased_id is None:
-            pass
-        else:
-            self.__id = deceased_id
+        self.__id = deceased_id
 
     def set_name(self, name:str):
         """
@@ -159,10 +156,7 @@ class Deceased:
             name : str
                 name to set
         """
-        if name is None:
-            pass
-        else:
-            self.__name = name
+        self.__name = name
 
     def set_paternal_surname(self, paternal_surname:str):
         """
@@ -173,7 +167,7 @@ class Deceased:
                 paternal_surname to set
         """
         if paternal_surname is None:
-            pass
+            self.__paternal_surname = None
         else:
             self.__paternal_surname = paternal_surname
 
@@ -186,7 +180,7 @@ class Deceased:
                 maternal_surname to set
         """
         if maternal_surname is None:
-            pass
+            self.__maternal_surname = None
         else:
             self.__maternal_surname = maternal_surname
 
@@ -199,7 +193,7 @@ class Deceased:
                 birth_date to set
         """
         if birth_date is None:
-            pass
+            self.__birth_date = None
         else:
             self.__birth_date = birth_date
 
@@ -212,7 +206,7 @@ class Deceased:
                 death_date to set
         """
         if death_date is None:
-            pass
+            self.__death_date = None
         else:
             self.__death_date = death_date
 
@@ -225,7 +219,7 @@ class Deceased:
                 remain_type to set
         """
         if remain_type is None:
-            pass
+            self.__remain_type = None
         else:
             self.__remain_type = remain_type
 
@@ -238,7 +232,7 @@ class Deceased:
                 niche to set
         """
         if niche is None:
-            pass
+            self.__niche = None
         else:
             self.__niche = niche
 
@@ -251,7 +245,7 @@ class Deceased:
                 book to set
         """
         if book is None:
-            pass
+            self.__book = None
         else:
             self.__book = book
 
@@ -264,7 +258,7 @@ class Deceased:
                 sheet to set
         """
         if sheet is None:
-            pass
+            self.__sheet = None
         else:
             self.__sheet = sheet
 
@@ -277,7 +271,7 @@ class Deceased:
                 image_route to set
         """
         if image_route is None:
-            pass
+            self.__image_route = None
         else:
             self.__image_route = image_route
 
@@ -299,7 +293,7 @@ class Deceased:
                 created_at to set
         """
         if created_at is None:
-            pass
+            self.__created_at = None
         else:
             self.__created_at = created_at
 
@@ -312,7 +306,7 @@ class Deceased:
                 updated_at to set
         """
         if updated_at is None:
-            pass
+            self.__updated_at = None
         else:
             self.__updated_at = updated_at
 
