@@ -99,8 +99,8 @@ class Payment:
             niche:Niche
                 niche of the payment
         """
-        if niche is None and self.__niche is None:
-            pass
+        if niche is None:
+            self.__niche = None
         else:
             self.__niche = niche
 
@@ -122,8 +122,8 @@ class Payment:
             payment_date:datetime
                 payment date of the payment 
         """
-        if payment_date is None and self.__payment_date is None:
-            pass
+        if payment_date is None:
+            self.__payment_date = None
         else:
             self.__payment_date = payment_date
 
@@ -145,8 +145,8 @@ class Payment:
             created_at:datetime
                 created_at date of the payment 
         """
-        if created_at is None and self.__created_at is None:
-            pass
+        if created_at is None:
+            self.__created_at = None
         else:
             self.__created_at = created_at
 
@@ -158,8 +158,8 @@ class Payment:
             updated_at:datetime
                 updated_at date of the payment 
         """
-        if updated_at is None and self.__updated_at is None:
-            pass
+        if updated_at is None:
+            self.__updated_at = None
         else:
             self.__updated_at = updated_at
 
