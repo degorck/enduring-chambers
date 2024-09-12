@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Enduring Chambers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Manual de Usuario - Enduring Chambers</h1>
+</header>
+
+<div class="container">
+    <section class="section" id="introduccion">
+        <h2>Introducción</h2>
+        <p>Bienvenido al manual de usuario de <strong>Enduring Chambers</strong>. Este programa está diseñado para ayudarte a gestionar los nichos de la parroquia.</p>
+    </section>
+
+    <section class="section" id="navigation"></section>
+        <h2>Navegación</h2>
+        <nav>
+            <ul>
+                <li><a href="#introduccion">Introducción</a></li>
+                <li><a href="#instalation">Instalación</a></li>
+                <li><a href="#users">Usuarios</a></li>
+                <ul>
+                    <li><a href="#login">Login</a></li>
+                    <li><a href="#create_user">Crear usuario</a></li>
+                    <li><a href="#modify_user">Modificar usuario</a></li>
+                    <li><a href="#activate_user">Activar usuario</a></li>
+                    <li><a href="#deactivate_user">Desactivar usuario</a></li>
+                    <li><a href="#search_user">Búsqueda de usuarios</a></li>
+                </ul>
+                <li><a href="#deceased">Fallecidos</a></li>
+                <ul>
+                    <li><a href="#create_deceased">Crear fallecido</a></li>
+                    <li><a href="#modify_deceased">Modificar fallecido</a></li>
+                    <li><a href="#activate_deceased">Activar fallecido</a></li>
+                    <li><a href="#deactivate_deceased">Desactivar fallecido</a></li>
+                    <li><a href="#search_deceased">Búsqueda de fallecidos</a></li>
+                </ul>
+                <li><a href="#holders">Titulares</a></li>
+                <ul>
+                    <li><a href="#create_holder">Crear titular</a></li>
+                    <li><a href="#modify_holder">Modificar titular</a></li>
+                    <li><a href="#activate_holder">Activar titular</a></li>
+                    <li><a href="#deactivate_holder">Desactivar titular</a></li>
+                    <li><a href="#search_holder">Búsqueda de titulares</a></li>
+                </ul>
+                <li><a href="#modules">Módulos</a></li>
+                <ul>
+                    <li><a href="#create_module">Crear módulo</a></li>
+                    <li><a href="#modify_module">Modificar módulo</a></li>
+                    <li><a href="#activate_module">Activar módulo</a></li>
+                    <li><a href="#deactivate_module">Desactivar módulo</a></li>
+                </ul>
+                <li><a href="#rows">Filas</a></li>
+                <ul>
+                    <li><a href="#create_row">Crear fila</a></li>
+                    <li><a href="#modify_row">Modificar fila</a></li>
+                </ul>
+                <li><a href="#niches">Nichos</a></li>
+                <ul>
+                    <li><a href="#create_niche">Crear nicho</a></li>
+                    <li><a href="#modify_niche">Modificar nicho</a></li>
+                    <li><a href="#activate_niche">Activar nicho</a></li>
+                    <li><a href="#deactivate_niche">Desactivar nicho</a></li>
+                    <li><a href="#search_niche">Búsqueda de nichos</a></li>
+                </ul>
+                <li><a href="#payments">Pagos</a></li>
+                <ul>
+                    <li><a href="#create_payment">Crear pago</a></li>
+                    <li><a href="#modify_payment">Modificar pago</a></li>
+                </ul>
+                <li><a href="#my_account">Mi Cuenta</a></li>
+                <ul>
+                    <li><a href="#change_password">Cambiar contraseña</a></li>
+                    <li><a href="#logout">Logout</a></li>
+                </ul>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="section" id="instalation">
+        <h2>Instalación</h2>
+        <p>Existen dos tipos de instalación, la del equipo principal o <strong>host</strong>, o de un equipo secundario o <strong>cliente</strong>.</p>
+        <p>Para el equipo <strong>host</strong>, usarás en la configuración la palabra <strong>localhost</strong>.</p>
+        <p>Para un <strong>cliente</strong>, usarás en la configuración la ip del host <strong>192.168.x.x</strong>.</p>
+        <p>Para instalar <strong>Enduring Chambers</strong>, sigue estos pasos:</p>
+        <ol>
+            <li>Lanza el archivo <strong>setup.exe</strong></li>
+            <li>Dirígete a la carpeta de instalación de <strong>Enduring Chambers</strong>, usualmente está ubicada en <strong>C:\Program Files (x86)\Parroquia de San Juan Bosco\Enduring Chambers</strong>.</li>
+            <li>Configura el archivo .env</li>
+        </ol>
+        <img src="media/instalation.gif" alt="GIF explicativo de la instalación">
+        <a href="#navigation">Volver al menú</a>
+    </section>
+
+    <section class="section" id="users">
+        <h2>Usuarios</h2> 
+        <p>Existen 3 tipos de usuarios</p>
+        <ol>
+            <li>Administrador</li>
+            <li>Capturista</li>
+            <li>Invitado</li>
+        </ol>
+        <p>En los siguientes descripciones, indicaremos qué funcionalidad tiene el sistema. De igual forma indicaremos que tipo de usuario puede realizar la acción, entre corchetes.</p>
+        <p><strong>Ejemplo</strong>: <br>Crear usuario [<strong>Administrador</strong>]: aquí indicamos que el administrador tiene la posibilidad de crear un usuario</p>
+        <p>Los <strong>administradores</strong> tienen acceso a todo el sistema. Los <strong>capturistas</strong> tienen acceso a todo tipo de captura. Los <strong>invitados</strong> tienen una visibilidad limitada de la información del sistema.</p>
+        
+        <section class="section" id="login">
+            <h4>Login</h4>
+            <p>Para hacer login, es necesario tener un usuario <strong>activo</strong>.</p>
+            <ol>
+                <li>Teclea tu nombre de usuario y contraseña en la ventana de login</li>
+                <li>Da click en el botón <strong>Login</strong></li>
+            </ol>
+            <img src="media/login.gif" alt="GIF explicativo de login">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <p>Para gestionar usuarios, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Crear usuario [<strong>Administrador</strong>]</li>
+            <li>Modificar usuario [<strong>Administrador</strong>]</li>
+            <li>Activar usuario [<strong>Administrador</strong>]</li>
+            <li>Desactivar usuario [<strong>Administrador</strong>]</li>
+            <li>Búsqueda de usuarios [<strong>Administrador, Capturista, Invitado</strong>]</li>
+        </ul>
+
+        <section class="section" id="create_user">
+            <h4>Crear usuario [<strong>Administrador</strong>]</h4>
+            <p>Para crear un usuario:</p>
+            <ol>
+                <li>Da click en el botón lateral <strong>Usuarios</strong></li>
+                <li>Da click en el botón <strong>Crear</strong>, en la esquina superior derecha</li>
+                <li>Llena todos los campos (considera que las contraseñas deben tener un mínimo de 10 caracteres)</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <p>Puedes usar el botón <strong>Limpiar</strong> para borrar toda la información de las cajas de campos e iniciar de nuevo</p>
+            <img src="media/user/create_user.gif" alt="GIF explicativo para crear usuario">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="modify_user">
+            <h4>Modificar usuario [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Usuarios</strong></li>
+                <li>Da doble click en el usuario que deseas modificar</li>
+                <li>Modifica los campos del usuario</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/user/modify_user.gif" alt="GIF explicativo para modificar usuario">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="activate_user">
+            <h4>Activar usuario [<strong>Administrador</strong>]</h4>
+            <p>El sistema no permite eliminar usuarios, para mantener la integridad de la información, pero podemos activarlos y desactivarlos:</p>
+            <ol>
+                <li>Da click en el botón lateral <strong>Usuarios</strong></li>
+                <li>Da doble click en el usuario que deseas activar</li>
+                <li>Da click en el botón <strong>Activar</strong></li>
+            </ol>
+            <p>Recuerda que sólo los usuarios activos pueden iniciar sesión</p>
+            <img src="media/user/activate_user.gif" alt="GIF explicativo para activar usuario">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="deactivate_user">
+            <h4>Desactivar usuario [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Usuarios</strong></li>
+                <li>Da doble click en el usuario que deseas desactivar</li>
+                <li>Da click en el botón <strong>Desactivar</strong></li>
+            </ol>
+            <p>Recuerda que sólo los usuarios activos pueden iniciar sesión</p>
+            <img src="media/user/deactivate_user.gif" alt="GIF explicativo para desactivar usuario">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="search_user"></section>
+            <h4>Búsqueda de usuarios [<strong>Administrador, Capturista, Invitado</strong>]</h4>
+            <p>Para realizar una búsqueda detallada de un usuario, utiliza la barra de búsqueda:</p>
+            <ol>
+                <li>Da click en el botón lateral <strong>Usuarios</strong></li>
+                <li>Ingresa el nombre de usuario en la barra de búsqueda</li>
+            </ol>
+            <p>El usuario <strong>Administrador</strong>, puede ver todos los usuarios. Los usuarios <strong>Capturista, Invitado</strong>, sólo observarán los usuarios activos.</p>
+            <img src="media/user/search_user.gif" alt="GIF explicativo para buscar un usuario">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+    </section>
+
+    <section class="section" id="deceased">
+        <h2>Fallecidos</h2>
+        <p>Para gestionar fallecidos, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Crear fallecido [<strong>Administrador, Capturista</strong>]</li>
+            <li>Modificar fallecido [<strong>Administrador, Capturista</strong>]</li>
+            <li>Activar fallecido [<strong>Administrador</strong>]</li>
+            <li>Desactivar fallecido [<strong>Administrador</strong>]</li>
+            <li>Búsqueda de fallecidos [<strong>Administrador, Capturista, Invitado</strong>]</li>
+        </ul>
+
+        <section class="section" id="create_deceased">
+            <h4>Crear fallecido [<strong>Administrador, Capturista</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Fallecidos</strong></li>
+                <li>Da click en el botón <strong>Crear</strong>, en la esquina superior derecha</li>
+                <li>Ingresa los datos del fallecido</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <p>Puedes usar el botón <strong>Limpiar</strong> para borrar toda la información de las cajas de campos e iniciar de nuevo.</p>
+            <p>Considera, que sólo verás disponibles en la lista de nichos, aquellos nichos que no están <strong>ocupados</strong> y que están <strong>activos</strong>. <br>
+            Una vez que guardes un nuevo fallecido, el estado del nicho pasará a estar <strong>ocupado</strong>.</p>
+            <img src="media/deceased/save_deceased.gif" alt="GIF explicativo para guardar fallecido">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="modify_deceased">
+            <h4>Modificar fallecido [<strong>Administrador, Capturista</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Fallecidos</strong></li>
+                <li>Da doble click en el fallecido que deseas modificar</li>
+                <li>Modifica los datos del fallecido</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/deceased/modify_deceased.gif" alt="GIF explicativo para modificar fallecido">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="activate_deceased">
+            <h4>Activar fallecido [<strong>Administrador</strong>]</h4>
+            <p>El sistema no permite eliminar fallecidos, para mantener la integridad de la información, pero podemos activarlos y desactivarlos:</p>
+            <ol>
+                <li>Da click en el botón lateral <strong>Fallecidos</strong></li>
+                <li>Da doble click en el fallecido que deseas activar</li>
+                <li>Da click en el botón <strong>Activar</strong></li>
+            </ol>
+            <p>El usuario <strong>Administrador</strong> puede ver todos los fallecidos. Los usuarios <strong>Capturista, Invitado</strong>, solo observarán los fallecidos activos.</p>
+            <img src="media/deceased/activate_deceased.gif" alt="GIF explicativo para activar fallecido">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="deactivate_deceased">
+            <h4>Desactivar fallecido [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Fallecidos</strong></li>
+                <li>Da doble click en el fallecido que deseas desactivar</li>
+                <li>Da click en el botón <strong>Desactivar</strong></li>
+            </ol>
+            <p>El usuario <strong>Administrador</strong> puede ver todos los fallecidos. Los usuarios <strong>Capturista, Invitado</strong>, solo observarán los fallecidos activos.</p>
+            <img src="media/deceased/deactivate_deceased.gif" alt="GIF explicativo para desactivar fallecido">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="search_deceased"></section>
+            <h4>Búsqueda de fallecidos [<strong>Administrador, Capturista, Invitado</strong>]</h4>
+            <p>Para realizar una búsqueda detallada de un fallecido, utiliza la barra de búsqueda:</p>
+            <ol>
+                <li>Da click en el botón lateral <strong>Fallecidos</strong></li>
+                <li>Ingresa el nombre de fallecido en la barra de búsqueda</li>
+            </ol>
+            <p>El usuario <strong>Administrador</strong>, puede ver todos los fallecidos. Los usuarios <strong>Capturista, Invitado</strong>, sólo observarán los fallecidos activos.</p>
+            <img src="media/deceased/search_deceased.gif" alt="GIF explicativo para buscar un fallecido">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+    </section>
+
+    <section class="section" id="holders">
+        <h2>Titulares</h2>
+        <p>Para gestionar titulares, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Crear titular [<strong>Administrador, Capturista</strong>]</li>
+            <li>Modificar titular [<strong>Administrador, Capturista</strong>]</li>
+            <li>Activar titular [<strong>Administrador</strong>]</li>
+            <li>Desactivar titular [<strong>Administrador</strong>]</li>
+            <li>Búsqueda de titulares [<strong>Administrador, Capturista, Invitado</strong>]</li>
+        </ul>
+
+        <section class="section" id="create_holder">
+            <h4>Crear titular [<strong>Administrador, Capturista</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Titulares</strong></li>
+                <li>Da click en el botón <strong>Crear</strong>, en la esquina superior derecha</li>
+                <li>Ingresa los datos del titular</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <p>Puedes usar el botón <strong>Limpiar</strong> para borrar toda la información de las cajas de campos e iniciar de nuevo.</p>
+            <img src="media/holder/create_holder.gif" alt="GIF explicativo para crear un titular">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="modify_holder">
+            <h4>Modificar titular [<strong>Administrador, Capturista</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Titulares</strong></li>
+                <li>Da doble click en el titular que deseas modificar</li>
+                <li>Modifica los datos del titular</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/holder/modify_holder.gif" alt="GIF explicativo para modificar un titular">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="activate_holder">
+            <h4>Activar titular [<strong>Administrador</strong>]</h4>
+            <p>El sistema no permite eliminar titulares, para mantener la integridad de la información, pero podemos activarlos y desactivarlos:</p>
+            <ol>
+                <li>Da click en el botón lateral <strong>Titular</strong></li>
+                <li>Da doble click en el titular que deseas activar</li>
+                <li>Da click en el botón <strong>Activar</strong></li>
+            </ol>
+            <p>El usuario <strong>Administrador</strong> puede ver todos los titulares. Los usuarios <strong>Capturista, Invitado</strong>, solo observarán los titulares activos.</p>
+            <img src="media/holder/activate_holder.gif" alt="GIF explicativo para activar un titular">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="deactivate_holder">
+            <h4>Desactivar titular [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Titular</strong></li>
+                <li>Da doble click en el tiitular que deseas desactivar</li>
+                <li>Da click en el botón <strong>Desactivar</strong></li>
+            </ol>
+            <p>El usuario <strong>Administrador</strong> puede ver todos los titulares. Los usuarios <strong>Capturista, Invitado</strong>, solo observarán los titulares activos.</p>
+            <img src="media/holder/deactivate_holder.gif" alt="GIF explicativo para desactivar un titular">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="search_holder">
+            <h4>Búsqueda de titulares [<strong>Administrador, Capturista, Invitado</strong>]</h4>
+            <p>Para realizar una búsqueda detallada de un titular, utiliza la barra de búsqueda:</p>
+            <ol>
+                <li>Da click en el botón lateral <strong>Titulares</strong></li>
+                <li>Ingresa el nombre de titular en la barra de búsqueda</li>
+            </ol>
+            <p>El usuario <strong>Administrador</strong>, puede ver todos los titulares. Los usuarios <strong>Capturista, Invitado</strong>, sólo observarán los titulares activos.</p>
+            <img src="media/holder/search_holder.gif" alt="GIF explicativo para buscar un titular">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+    </section>
+
+    <section class="section" id="modules">
+        <h2>Módulos</h2>
+        <p>Para gestionar módulos, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Crear módulo [<strong>Administrador</strong>]</li>
+            <li>Modificar módulo [<strong>Administrador</strong>]</li>
+            <li>Activar módulo [<strong>Administrador</strong>]</li>
+            <li>Desactivar módulo [<strong>Administrador</strong>]</li>
+        </ul>
+
+        <section class="section" id="create_module">
+            <h4>Crear módulo [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Da click en el botón <strong>Módulos</strong>, en la esquina superior derecha</li>
+                <li>Da click en el botón <strong>Crear</strong>, en la esquina superior derecha</li>
+                <li>Escribe el nombre del módulo</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/module/save_module.gif" alt="GIF explicativo para crear un módulo">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+        <section class="section" id="modify_module">
+            <h4>Modificar módulo [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Da click en el botón <strong>Módulos</strong>, en la esquina superior derecha</li>
+                <li>Da doble click en el módulo que deseas modificar</li>
+                <li>Escribe el nuevo nombre del módulo</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/module/modify_module.gif" alt="GIF explicativo para modificar un módulo">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="activate_module">
+            <h4>Activar módulo [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Da click en el botón <strong>Módulos</strong>, en la esquina superior derecha</li>
+                <li>Da doble click en el módulo que deseas activar</li>
+                <li>Da click en el botón <strong>Activar</strong></li>
+            </ol>
+            <p>Recuerda que sólo los <strong>administradores</strong> puede ver los módulos inactivos.</p>
+            <img src="media/module/activate_module.gif" alt="GIF explicativo para activar un módulo">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="deactivate_module">
+            <h4>Desactivar módulo [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Da click en el botón <strong>Módulos</strong>, en la esquina superior derecha</li>
+                <li>Da doble click en el módulo que deseas desactivar</li>
+                <li>Da click en el botón <strong>Desactivar</strong></li>
+            </ol>
+            <p>Recuerda que sólo los <strong>administradores</strong> puede ver los módulos inactivos.</p>
+            <img src="media/module/deactivate_module.gif" alt="GIF explicativo para desactivar un módulo">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+        
+    </section>
+
+    <section class="section" id="rows">
+        <h2>Filas</h2>
+        <p>Para gestionar filas, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Crear fila [<strong>Administrador</strong>]</li>
+            <li>Modificar fila [<strong>Administrador</strong>]</li>
+        </ul>
+
+        <section class="section" id="create_row">
+            <h4>Crear fila [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Da click en el botón <strong>Filas</strong>, en la esquina superior derecha</li>
+                <li>Selecciona el módulo donde necesitas crear la fila</li>
+                <li>Da click en el botón <strong>Crear</strong>, en la esquina superior derecha</li>
+                <li>Escribe el nombre de la fila</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/row/create_row.gif" alt="GIF explicativo para crear una fila">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="modify_row">
+            <h4>Modificar fila [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Da click en el botón <strong>Filas</strong>, en la esquina superior derecha</li>
+                <li>Selecciona el módulo de la fila que deseas modificar</li>
+                <li>Da doble click en la fila que deseas modificar</li>
+                <li>Escribe el nuevo nombre de la fila</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/row/modify_row.gif" alt="GIF explicativo para modificar una fila">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+    </section>
+
+    <section class="section" id="niches">
+        <h2>Nichos</h2>
+        <p>Para gestionar nichos, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Crear nicho [<strong>Administrador</strong>]</li>
+            <li>Modificar nicho [<strong>Administrador</strong>]</li>
+            <li>Activar nicho [<strong>Administrador</strong>]</li>
+            <li>Desactivar nicho [<strong>Administrador</strong>]</li>
+            <li>Búsqueda de nichos [<strong>Administrador, Capturista, Invitado</strong>]</li>
+        </ul>
+
+        <section class="section" id="create_niche">
+            <h4>Crear nicho [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Selecciona el módulo donde necesitas crear el nicho</li>
+                <li>Selecciona la fila donde quieres crear el nicho</li>
+                <li>Da click en el botón <strong>Crear</strong>, en la esquina superior derecha</li>
+                <li>Llena los campos necesarios</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <p>En la sección de <strong>crear nicho</strong>, podrás observar el valor del nombre del último nicho creado. Captura un identificador para el nuevo nicho <br>
+            que sea consecutivo a este registro. <br>
+            <strong>Ejemplo:</strong> <br>
+            Si observas el valor de la sección de <strong>crear nicho</strong>, el valor de ultimo registro es <strong>1</strong>, guarda como nombre el valor <strong>2</strong>.
+            
+            <br>En caso de no tener registro previos, se verá en la sección el valor <strong>No existen registros</strong>.</p>
+            <img src="media/niche/create_niche.gif" alt="GIF explicativo para crear un nicho">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="modify_niche">
+            <h4>Modificar nicho [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Realiza la búsqueda del nicho que deseas modificar</li>
+                <li>Da doble click en el nicho que deseas modificar</li>
+                <li>Escribe los nuevos valores para el nicho</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/niche/modify_niche.gif" alt="GIF explicativo para modificar un nicho">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="activate_niche">
+            <h4>Activar nicho [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Realiza la búsqueda del nicho que deseas activar</li>
+                <li>Da doble click en el nicho que deseas activar</li>
+                <li>Da click en el botón <strong>Activar</strong></li>
+            </ol>
+            <img src="media/niche/activate_niche.gif" alt="GIF explicativo para activar un nicho">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="deactivate_niche">
+            <h4>Desactivar nicho [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>Realiza la búsqueda del nicho que deseas desactivar</li>
+                <li>Da doble click en el nicho que deseas desactivar</li>
+                <li>Da click en el botón <strong>Desactivar</strong></li>
+            </ol>
+            <img src="media/niche/deactivate_niche.gif" alt="GIF explicativo para desactivar un nicho">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="search_niche">
+            <h4>Búsqueda de nichos [<strong>Administrador, Capturista, Invitado</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Nichos</strong></li>
+                <li>En la barra de busqueda, escribe el nombre del nicho</li>
+            </ol>
+            <p>Las combo box de <strong>Nicho</strong> y <strong>Módulo</strong> se pueden utilizar como filtros durante la búsqueda. Si no seleccionas algún filtro, se realizará la busqueda de todos los nichos.</p>
+            <img src="media/niche/search_niche.gif" alt="GIF explicativo para buscar un nicho">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+    </section>
+
+    <section class="section" id="payments">
+        <h2>Pagos</h2>
+        <p>Para gestionar pagos, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Crear pago [<strong>Administrador, Capturista</strong>]</li>
+            <li>Modificar pago [<strong>Administrador</strong>]</li>
+        </ul>
+        <section class="section" id="create_payment">
+            <h4>Crear pago [<strong>Administrador, Capturista</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Pagos</strong></li>
+                <li>Seleccina el modulo donde se encuentra el nicho para el que deseas crear el pago</li>
+                <li>Selecciona la fila donde se encuentra el nicho para el que deseas crear el pago</li>
+                <li>Selecciona el nicho para el que deseas crear el pago</li>
+                <li>Da click en el botón <strong>Crear</strong></li>
+                <li>Captura los datos del pago</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <p>Podras observar la suma de todos los pagos en la sección inferior.<br> Si seleccionas el checkbox <strong>Pagado</strong>, el estado del pago del nicho pasará a <strong>Pagado</strong>.<br>
+            Así que sólo selecciona este checkbox si el nicho ya será liquidado con este pago.</p>
+            <img src="media/payment/create_payment.gif" alt="GIF explicativo para crear un pago">
+            <a href="#navigation">Volver al menú</a>        
+        </section>
+
+        <section class="section" id="modify_payment">
+            <h4>Modificar pago [<strong>Administrador</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Pagos</strong></li>
+                <li>Realiza la búsqueda del pago que deseas modificar</li>
+                <li>Da doble click en el pago que deseas modificar</li>
+                <li>Da click en el botón <strong>Guardar</strong></li>
+            </ol>
+            <img src="media/payment/modify_payment.gif" alt="GIF explicativo para modificar un pago">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+    </section>
+
+    <section class="section" id="my_account">
+        <h2>Mi cuenta</h2>
+        <p>Para gestionar su cuenta, exiten las siguientes funcionalidades:</p>
+        <ul>
+            <li>Cambiar contraseña [<strong>Administrador, Capturista</strong>]</li>
+            <li>Logout [<strong>Administrador, Capturista, Invitado</strong>]</li>
+        </ul>
+        <section class="section" id="change_password">
+            <h4>Cambiar contraseña [<strong>Administrador, Capturista</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Mi cuenta</strong></li>
+                <li>Escribe tu contraseña anterior</li>
+                <li>Escribe tu contraseña nueva</li>
+                <li>Repite tu contraseña</li>
+                <li>Da click en el botón <strong>Cambiar contraseña</strong></li>
+            </ol>
+            <img src="media/my_account/change_password.gif" alt="GIF explicativo para cambiar contraseña">
+            <a href="#navigation">Volver al menú</a>
+        </section>
+
+        <section class="section" id="logout">
+            <h4>Logout [<strong>Administrador, Capturista, Invitado</strong>]</h4>
+            <ol>
+                <li>Da click en el botón lateral <strong>Mi cuenta</strong></li>
+                <li>Da click en el botón <strong>Logout</strong></li>
+            </ol>
+            <img src="media/my_account/logout.gif" alt="GIF explicativo para logout">
+            <a href="#navigation">Volver al menú</a>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Enduring Chambers. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

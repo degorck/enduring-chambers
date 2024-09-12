@@ -617,10 +617,10 @@ class DeceasedController:
         self.main_window.plain_text_edit_create_deceased_book.clear()
         self.main_window.plain_text_edit_create_deceased_sheet.clear()
         logging.debug(ENDS_LOGGING_CONSTANT)
-    
+
     def __activate(self):
         try:
-            self.__deceased_service.activate_holder(self.__loaded_deceased_dto.get_id())
+            self.__deceased_service.activate_deceased(self.__loaded_deceased_dto.get_id())
             self.__search_deceased()
             self.__error_controller.handle_value_error("El difunto se ha activado")
             self.__error_controller.show()

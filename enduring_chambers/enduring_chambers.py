@@ -19,7 +19,7 @@ from niches.controller.module_controller import ModuleController
 from niches.controller.row_controller import RowController
 from niches.util.wheel_event_filter import WheelEventFilter
 from niches.util.delete_old_log_files_util import delete_old_logs
-from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT
+from niches.constant.constants import STARTS_LOGGING_CONSTANT, ENDS_LOGGING_CONSTANT, VERSION
 logging = get_loging()
 
 class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -57,6 +57,7 @@ class EnduringChambers(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__configure_windows_by_user_type()
         self.show()
         self.__login_controller.show()
+        self.label_version.setText("Ver. " + VERSION)
         logging.debug(ENDS_LOGGING_CONSTANT)
 
     def get_logged_user_type_key(self):

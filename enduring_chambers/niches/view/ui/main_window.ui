@@ -56,6 +56,16 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
+        <widget class="QLabel" name="label_version">
+         <property name="text">
+          <string>ver.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="label_welcome">
          <property name="styleSheet">
           <string notr="true"/>
@@ -400,7 +410,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>466</height>
             </rect>
            </property>
@@ -577,7 +587,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>346</height>
             </rect>
            </property>
@@ -708,7 +718,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>89</width>
+             <width>98</width>
              <height>117</height>
             </rect>
            </property>
@@ -795,7 +805,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>872</height>
             </rect>
            </property>
@@ -1091,7 +1101,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>89</width>
+             <width>98</width>
              <height>117</height>
             </rect>
            </property>
@@ -1132,7 +1142,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>842</height>
             </rect>
            </property>
@@ -1425,7 +1435,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>89</width>
+             <width>98</width>
              <height>117</height>
             </rect>
            </property>
@@ -1466,7 +1476,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>316</height>
             </rect>
            </property>
@@ -1599,7 +1609,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>196</width>
+             <width>194</width>
              <height>346</height>
             </rect>
            </property>
@@ -2137,7 +2147,7 @@
             <item>
              <widget class="QLabel" name="label_create_niche_name">
               <property name="text">
-               <string>nombre</string>
+               <string>.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignmentFlag::AlignCenter</set>

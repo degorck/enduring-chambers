@@ -1,4 +1,4 @@
-# Enduring Chambers v1.0.0
+# Enduring Chambers v1.0.1
 
 ## Installation for development
 
@@ -113,3 +113,14 @@ pyside6-rcc enduring\_chambers\_initials.qrc -o enduring\_chambers\_initials\_rc
 *   Improves payments windows and functionality
 *   Adds more control with .env file
 *   \[Fix\] All modules updates in all combo\_box when are created
+
+### 1.0.1
+
+##### New features
+
+*   Manual
+*   Version control on main window added
+
+##### Bug Fixes
+
+*   Activate deceased button fixed
