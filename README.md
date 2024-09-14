@@ -102,18 +102,6 @@ pyside6-rcc enduring\_chambers\_initials.qrc -o enduring\_chambers\_initials\_rc
 
 ## Chagelog
 
-### 1.0.0
-
-*   Allows to write and update deceased with unknown death and birth dates.
-*   Show "last record" in the window for niche creation
-*   Adds "is\_donated" field to database for all niches
-*   All tables are no ordered by database id
-*   Allows to write holders without maternal surname
-*   Improves performance (does not show all records by request)
-*   Improves payments windows and functionality
-*   Adds more control with .env file
-*   \[Fix\] All modules updates in all combo\_box when are created
-
 ### 1.0.1
 
 ##### New features
@@ -124,3 +112,20 @@ pyside6-rcc enduring\_chambers\_initials.qrc -o enduring\_chambers\_initials\_rc
 ##### Bug Fixes
 
 *   Activate deceased button fixed
+
+### 1.0.0
+
+##### New features
+
+*   Allows to write and update deceased with unknown death and birth dates.
+*   Show "last record" in the window for niche creation
+*   Adds "is\_donated" field to database for all niches
+*   All tables are no ordered by database id
+*   Allows to write holders without maternal surname
+*   Improves performance (does not show all records by request)
+*   Improves payments windows and functionality
+*   Adds more control with .env file
+
+##### Bug Fixes
+
+*   All modules updates in all combo\_box when are created
