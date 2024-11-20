@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "enduring_chambers"
-version = "1.0.1"
+version = "1.0.2"
 description = "System to manage niches"
 authors = ["Degorck <degorckterr@gmail.com>"]
 readme = "README.md"
