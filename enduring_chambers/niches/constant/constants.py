@@ -12,7 +12,7 @@ load_dotenv()
 ## Constants for enduring chambers system                                                   ##
 ##                                                                                          ##
 ##############################################################################################
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 SHOULD_NOT_BE_EMPTY_LABEL = " no debe estar vacío"
 THE_FIELD_LABEL = "El campo "
 UTF_8 = 'utf-8'
