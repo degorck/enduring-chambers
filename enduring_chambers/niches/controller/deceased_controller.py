@@ -277,8 +277,6 @@ class DeceasedController:
         for deceased_dto in list_deceased_dto:
             if deceased_dto.get_niche().get_holder() is None:
                 holder_name = "Sin titular"
-                birth_date = "Desconocido"
-                death_date = "Desconocido"
             else:
                 if deceased_dto.get_niche().get_holder().get_paternal_surname() is None:
                     paternal_surname = ""

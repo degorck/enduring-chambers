@@ -1,4 +1,4 @@
-# Enduring Chambers v1.0.1
+# Enduring Chambers v1.0.2
 
 ## Installation for development
 
@@ -102,6 +102,11 @@ pyside6-rcc enduring\_chambers\_initials.qrc -o enduring\_chambers\_initials\_rc
 
 ## Chagelog
 
+### 1.0.2
+
+##### Bug Fixes
+
+*   Deceased birth and death date fixed on window when deceased is without holder
 ### 1.0.1
 
 ##### New features
